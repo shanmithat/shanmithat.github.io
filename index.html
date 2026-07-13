@@ -3,111 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shanmitha T | Computational Engineering & GPGPU</title>
+    <title>Shanmitha T | GPGPU & Physical AI Architecture</title>
     <style>
         :root {
-            --bg-color: #0b0f19;
-            --text-color: #e2e8f0;
-            --accent-color: #3b82f6; /* Iridescent Blue */
-            --heatmap-orange: #f97316;
-            --border-color: #1e293b;
+            --bg-color: #060913;
+            --card-bg: #0d1324;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-glow: #3b82f6; /* Iridescent Cyan-Blue */
+            --heatmap-orange: #ff6b00; /* Heatmap Peak */
+            --heatmap-yellow: #eab308;
+            --border-glow: #1e293b;
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: var(--text-main);
             line-height: 1.6;
             max-width: 850px;
             margin: 0 auto;
-            padding: 2rem;
+            padding: 3rem 2rem;
         }
-        h1, h2, h3 { color: #fff; font-weight: 700; letter-spacing: -0.025em; }
-        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
-        h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 3rem; }
-        a { color: var(--accent-color); text-decoration: none; font-weight: 500; }
-        a:hover { text-decoration: underline; }
-        .meta-links { margin-bottom: 3rem; font-size: 0.95rem; color: #94a3b8; }
-        .meta-links a { margin-right: 1rem; }
+        
+        /* Typography */
+        h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; margin: 0; }
+        h1 { font-size: 3rem; background: linear-gradient(to right, #fff, #94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        h2 { font-size: 1.6rem; text-transform: uppercase; letter-spacing: 0.05em; color: #fff; margin-top: 4rem; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+        h2::after { content: ''; flex-grow: 1; height: 1px; background: linear-gradient(to right, var(--border-glow), transparent); }
+        
+        a { color: var(--accent-glow); text-decoration: none; transition: all 0.2s ease; }
+        a:hover { color: #fff; text-decoration: underline; }
+        
+        .sub-deck { font-size: 1.25rem; color: var(--text-muted); margin-top: 0.5rem; margin-bottom: 1rem; font-weight: 400; }
+        .meta-links { font-size: 0.95rem; display: flex; gap: 1.5rem; margin-bottom: 4rem; }
+        .meta-links a { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--text-muted); border: 1px solid var(--border-glow); padding: 0.4rem 0.8rem; border-radius: 6px; background: #0f172a; }
+        .meta-links a:hover { border-color: var(--accent-glow); color: #fff; background: var(--bg-color); }
+
+        /* Project Cards Layout */
         .project-card {
-            background: #0f172a;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            transition: transform 0.2s ease, border-color 0.2s ease;
         }
-        .project-title { font-size: 1.3rem; margin-top: 0; color: #fff; }
-        .tech-stack { font-family: monospace; font-size: 0.85rem; color: var(--heatmap-orange); margin-bottom: 1rem; }
-        ul { padding-left: 1.2rem; }
-        li { margin-bottom: 0.5rem; }
-        code { font-family: monospace; background: #1e293b; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9rem; }
-        hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
+        .project-card:hover {
+            border-color: #334155;
+            transform: translateY(-2px);
+        }
+        .project-title { font-size: 1.4rem; color: #fff; font-weight: 700; margin-bottom: 0.25rem; }
+        .tech-tag-line { font-family: "SFMono-Regular", Consolas, Monaco, monospace; font-size: 0.85rem; color: var(--heatmap-orange); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1.25rem; }
+        
+        /* High-Signal Keyword Highlighting */
+        .project-card ul { padding-left: 1.2rem; margin: 1rem 0 1.5rem 0; }
+        .project-card li { margin-bottom: 0.75rem; color: #cbd5e1; }
+        .project-card strong { color: #fff; font-weight: 600; background: linear-gradient(120deg, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0) 100%); padding: 0.1rem 0.3rem; border-radius: 4px; border-bottom: 1px solid rgba(59,130,246,0.3); }
+        .project-card code { font-family: monospace; background: #1e293b; padding: 0.15rem 0.3rem; border-radius: 4px; color: var(--heatmap-yellow); font-size: 0.9rem; }
+        
+        .action-link { font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.95rem; }
+
+        /* Document Lists */
+        .doc-list { list-style: none; padding: 0; }
+        .doc-list li { padding: 1rem; background: #090d1a; border-left: 3px solid var(--accent-glow); margin-bottom: 0.75rem; border-radius: 0 8px 8px 0; color: #cbd5e1; }
+        .doc-list strong { color: #fff; }
+        
+        footer { margin-top: 6rem; border-top: 1px solid var(--border-glow); padding-top: 2rem; text-align: center; color: #475569; font-size: 0.85rem; }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Shanmitha T</h1>
-        <p style="font-size: 1.2rem; color: #94a3b8; margin-top: 0;">Research Practitioner: GPGPU Computing, Physics-Informed Neural Operators, & Continuous Layout Optimization</p>
+        <div class="sub-deck">GPGPU Computing, Physics-Informed Neural Operators, & Continuous Layout Optimization</div>
         <div class="meta-links">
             <a href="https://github.com/shanmithat" target="_blank">💻 GitHub</a>
             <a href="https://linkedin.com/in/shanmithat" target="_blank">👔 LinkedIn</a>
-            <a href="mailto:your-email@domain.com">📧 Email</a>
+            <a href="mailto:shanmithat3@gmail.com">📧 Core Terminal Email</a>
         </div>
     </header>
 
     <main>
-        <h2>🔬 Core Computational Engines</h2>
+        <h2>⚡ Core Computational Systems</h2>
 
         <!-- PROJECT 1: DYNAMESH-THERMAL -->
         <div class="project-card">
-            <div class="project-title">DynaMesh-Thermal: Hardware-Accelerated Multiphysics Topology Optimization</div>
-            <div class="tech-stack">C++ / CUDA C / cuSPARSE / cuBLAS / CUB Reduction Tree / CMake[cite: 3]</div>
-            <p>A native layout optimization engine implementing the Solid Isotropic Material with Penalization (SIMP) method to systematically generate optimal fluid-channel Topologies optimized for heat dissipation[cite: 3].</p>
+            <div class="project-title">DynaMesh-Thermal: Accelerated Multiphysics Topology Optimization Engine</div>
+            <div class="tech-tag-line">C++20 / Raw CUDA C / cuSPARSE / cuBLAS / CUB Reduction Tree / CMake</div>
+            <p>A native layout optimization engine implementing the <strong>Solid Isotropic Material with Penalization (SIMP) method</strong> to systematically synthesize optimal microfluidic cooling channels under strict convective and thermal constraints[cite: 3].</p>
             <ul>
-                <li>Assembles large, sparse linear systems on a staggered MAC grid layout using a penalized Navier-Stokes Darcy porosity model to eliminate checkerboarding artifacts[cite: 3].</li>
-                <li>Evaluates state-evolution temperature fields using an advection-diffusion finite-difference module constrained by local <code>__device__ __forceinline__</code> ghost-cell conditions[cite: 3].</li>
-                <li>Leverages NVIDIA’s CUB library (<code>cub::DeviceReduce::Sum</code>) for device-wide parallel reduction and executes manual discrete adjoint sensitivity steps on the GPU[cite: 3].</li>
-                <li>Configured the CMake build pipeline to pass standard <code>-Xcompiler /Zc:preprocessor</code> conformance flags to native MSVC to handle deep CCCL macro expansions cleanly[cite: 3].</li>
+                <li>Assembles high-dimensional sparse linear systems across a <strong>Staggered MAC Grid layout</strong> using a <strong>penalized Navier-Stokes Darcy porosity model</strong> to eliminate pressure-checkerboarding artifacts[cite: 3].</li>
+                <li>Evaluates state-evolution advection-diffusion fields via a custom finite-difference module constrained by local <code>__device__ __forceinline__</code> <strong>ghost-cell boundary conditions</strong> to keep cache operations local to the Streaming Multiprocessor[cite: 3].</li>
+                <li>Leverages NVIDIA’s <strong>CUB parallel reduction trees</strong> (<code>cub::DeviceReduce::Sum</code>) for hardware-accelerated objective aggregation and executes a manual <strong>discrete adjoint sensitivity analysis</strong> entirely on the device[cite: 3].</li>
+                <li>Structured the <strong>CMake build pipeline</strong> to natively pass the <code>-Xcompiler /Zc:preprocessor</code> flag to MSVC, safely compiling deep CCCL macro expansions without preprocessor collisions[cite: 3].</li>
             </ul>
-            <a href="https://github.com/shanmithat/dynamesh-thermal" target="_blank">View Repository →</a>
+            <a class="action-link" href="https://github.com/shanmithat/dynamesh-thermal" target="_blank">Inspect Source Repository →</a>
         </div>
 
         <!-- PROJECT 2: AETHERCAST -->
         <div class="project-card">
             <div class="project-title">AetherCast: Physics-Regularized Spatiotemporal Fourier Neural Operator Pipeline[cite: 2]</div>
-            <div class="tech-stack">PyTorch / SciML / Numerical PDEs / Tensor Optimization[cite: 2]</div>
-            <p>An end-to-end deep learning surrogate architecture engineered to generate instant, continuous spatiotemporal nowcasting fields of transport equations without classical numerical mesh latencies[cite: 2].</p>
+            <div class="tech-tag-line">PyTorch / SciML / Spectral Tensors / Numerical Partial Differential Equations[cite: 2]</div>
+            <p>An end-to-end scientific machine learning surrogate architecture engineered to generate instant, continuous spatiotemporalnowcasting fields of transport equations, bypassing traditional grid-based solver latencies[cite: 2].</p>
             <ul>
-                <li>Implemented a 2D Fourier Neural Operator (FNO) that truncates high-frequency spectral modes via <code>torch.fft.rfft2</code>[cite: 1, 2].</li>
-                <li>Encodes physical conservation laws directly into the learning loop by defining a physics-informed loss layer regularized by 2D Advection-Diffusion partial differential equations[cite: 2].</li>
-                <li>Structures execution abstractions to keep tensor layout tracks highly contiguous for seamless down-sampling or subsequent compilation layers[cite: 2].</li>
+                <li>Constructed a <strong>2D Fourier Neural Operator (FNO)</strong> core that truncates high-frequency spectral modes via <strong>real fast Fourier transforms</strong> (<code>torch.fft.rfft2</code>) to isolate dominant global field profiles[cite: 1, 2].</li>
+                <li>Encodes physical conservation laws natively into the optimization trajectory by designing a <strong>custom physics-informed loss layer</strong> regularized by <strong>2D Advection-Diffusion PDEs</strong>[cite: 2].</li>
+                <li>Optimizes tensor memory layouts to maintain strict data contiguity, rendering the pipeline ready for subsequent deep-learning hardware compilation frameworks[cite: 2].</li>
             </ul>
-            <a href="https://github.com/shanmithat/AetherCast" target="_blank">View Repository →</a>
+            <a class="action-link" href="https://github.com/shanmithat/AetherCast" target="_blank">Inspect Source Repository →</a>
         </div>
 
         <!-- PROJECT 3: IMPLICIT MODELING -->
         <div class="project-card">
-            <div class="project-title">Implicit-Modeling: Browser-Native Infinite-Resolution Geometric Synthesis Engine</div>
-            <div class="tech-stack">GLSL Shaders / WebGL 2.0 / Signed Distance Fields (SDF) / Web Delivery[cite: 1]</div>
-            <p>A web-native, GPU-driven geometric engine developed to eliminate traditional Boundary Representation (B-rep) and polygon mesh serialization bottlenecks during additive manufacturing workflows[cite: 1].</p>
+            <div class="project-title">Implicit-Modeling: Browser-Native Infinite-Resolution Geometric Synthesis Engine[cite: 1]</div>
+            <div class="tech-tag-line">GLSL Shaders / WebGL 2.0 Context / Signed Distance Fields (SDF)[cite: 1]</div>
+            <p>A web-native, GPU-driven geometric engine developed to eliminate traditional Boundary Representation (B-rep) and polygon mesh serialization overhead during cloud-native additive manufacturing workflows[cite: 1].</p>
             <ul>
-                <li>Bypasses discrete voxelization and mesh-generation overhead completely by evaluating continuous mathematical fields natively in the hardware fragment rendering loop[cite: 1].</li>
-                <li>Synthesizes functionally graded multi-scale Triply Periodic Minimal Surfaces (TPMS), including complex Gyroid and Diamond crystal formations, via per-pixel signed distance checks[cite: 1].</li>
+                <li>Bypasses traditional discrete voxelization metrics completely by evaluating <strong>continuous mathematical fields natively in the hardware fragment rendering loop</strong>[cite: 1].</li>
+                <li>Synthesizes functionally graded multi-scale <strong>Triply Periodic Minimal Surfaces (TPMS)</strong>, executing real-time spatial evaluations of complex Gyroid and Diamond structures via per-pixel <strong>Signed Distance Fields (SDFs)</strong>[cite: 1].</li>
             </ul>
-            <a href="https://github.com/shanmithat/implicit-modeling" target="_blank">View Repository →</a>
+            <a class="action-link" href="https://github.com/shanmithat/implicit-modeling" target="_blank">Inspect Source Repository →</a>
         </div>
 
-        <h2>📝 Peer-Reviewed Publications & Patents</h2>
-        <ul>
-            <li><strong>Patent Application Pending:</strong> Computer Vision Framework for Real-Time Crowd Surge and Trample Origin Tracking (YOLOv5 / SORT pipeline).</li>
-            <li><strong>Conference Paper (2023):</strong> Abusive Language Identification in Code-Mixed Text Layouts (NLP).</li>
-            <li><strong>Conference Paper (2023):</strong> Sarcasm Detection Frameworks inside Heterogeneous Structural Corpora (NLP).</li>
+        <h2>🔬 Intellectual Capital & Publications</h2>
+        <ul class="doc-list">
+            <li><strong>Patent Utility Application Pending:</strong> Computer Vision Framework for Real-Time Crowd Surge Analysis and Dynamic Trample Origin Tracking (YOLOv5 Architecture / SORT Tracking Pipeline integration).</li>
+            <li><strong>Conference Publication (2023):</strong> Abusive Language Identification Frameworks within Code-Mixed Heterogeneous Text Layouts (Natural Language Processing).</li>
+            <li><strong>Conference Publication (2023):</strong> Sarcasm Detection Paradigms inside Complex Structural Corpora (Natural Language Processing).</li>
         </ul>
     </main>
 
     <footer>
-        <hr>
-        <p style="text-align: center; color: #64748b; font-size: 0.85rem;">&copy; 2026 Shanmitha T. Built using native, hardware-aligned semantics.</p>
+        <p>&copy; 2026 Shanmitha T. Engineered for peak hardware throughput. Stride layouts fully coalesced.</p>
     </footer>
 
 </body>
