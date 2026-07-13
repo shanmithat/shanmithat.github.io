@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shanmitha T | Computational Engineering & GPGPU</title>
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --text-color: #e2e8f0;
+            --accent-color: #3b82f6; /* Iridescent Blue */
+            --heatmap-orange: #f97316;
+            --border-color: #1e293b;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        h1, h2, h3 { color: #fff; font-weight: 700; letter-spacing: -0.025em; }
+        h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+        h2 { font-size: 1.75rem; border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 3rem; }
+        a { color: var(--accent-color); text-decoration: none; font-weight: 500; }
+        a:hover { text-decoration: underline; }
+        .meta-links { margin-bottom: 3rem; font-size: 0.95rem; color: #94a3b8; }
+        .meta-links a { margin-right: 1rem; }
+        .project-card {
+            background: #0f172a;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .project-title { font-size: 1.3rem; margin-top: 0; color: #fff; }
+        .tech-stack { font-family: monospace; font-size: 0.85rem; color: var(--heatmap-orange); margin-bottom: 1rem; }
+        ul { padding-left: 1.2rem; }
+        li { margin-bottom: 0.5rem; }
+        code { font-family: monospace; background: #1e293b; padding: 0.2rem 0.4rem; border-radius: 4px; font-size: 0.9rem; }
+        hr { border: 0; border-top: 1px solid var(--border-color); margin: 3rem 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Shanmitha T</h1>
+        <p style="font-size: 1.2rem; color: #94a3b8; margin-top: 0;">Research Practitioner: GPGPU Computing, Physics-Informed Neural Operators, & Continuous Layout Optimization</p>
+        <div class="meta-links">
+            <a href="https://github.com/shanmithat" target="_blank">💻 GitHub</a>
+            <a href="https://linkedin.com/in/shanmithat" target="_blank">👔 LinkedIn</a>
+            <a href="mailto:your-email@domain.com">📧 Email</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>🔬 Core Computational Engines</h2>
+
+        <!-- PROJECT 1: DYNAMESH-THERMAL -->
+        <div class="project-card">
+            <div class="project-title">DynaMesh-Thermal: Hardware-Accelerated Multiphysics Topology Optimization</div>
+            <div class="tech-stack">C++ / CUDA C / cuSPARSE / cuBLAS / CUB Reduction Tree / CMake[cite: 3]</div>
+            <p>A native layout optimization engine implementing the Solid Isotropic Material with Penalization (SIMP) method to systematically generate optimal fluid-channel Topologies optimized for heat dissipation[cite: 3].</p>
+            <ul>
+                <li>Assembles large, sparse linear systems on a staggered MAC grid layout using a penalized Navier-Stokes Darcy porosity model to eliminate checkerboarding artifacts[cite: 3].</li>
+                <li>Evaluates state-evolution temperature fields using an advection-diffusion finite-difference module constrained by local <code>__device__ __forceinline__</code> ghost-cell conditions[cite: 3].</li>
+                <li>Leverages NVIDIA’s CUB library (<code>cub::DeviceReduce::Sum</code>) for device-wide parallel reduction and executes manual discrete adjoint sensitivity steps on the GPU[cite: 3].</li>
+                <li>Configured the CMake build pipeline to pass standard <code>-Xcompiler /Zc:preprocessor</code> conformance flags to native MSVC to handle deep CCCL macro expansions cleanly[cite: 3].</li>
+            </ul>
+            <a href="https://github.com/shanmithat/dynamesh-thermal" target="_blank">View Repository →</a>
+        </div>
+
+        <!-- PROJECT 2: AETHERCAST -->
+        <div class="project-card">
+            <div class="project-title">AetherCast: Physics-Regularized Spatiotemporal Fourier Neural Operator Pipeline[cite: 2]</div>
+            <div class="tech-stack">PyTorch / SciML / Numerical PDEs / Tensor Optimization[cite: 2]</div>
+            <p>An end-to-end deep learning surrogate architecture engineered to generate instant, continuous spatiotemporal nowcasting fields of transport equations without classical numerical mesh latencies[cite: 2].</p>
+            <ul>
+                <li>Implemented a 2D Fourier Neural Operator (FNO) that truncates high-frequency spectral modes via <code>torch.fft.rfft2</code>[cite: 1, 2].</li>
+                <li>Encodes physical conservation laws directly into the learning loop by defining a physics-informed loss layer regularized by 2D Advection-Diffusion partial differential equations[cite: 2].</li>
+                <li>Structures execution abstractions to keep tensor layout tracks highly contiguous for seamless down-sampling or subsequent compilation layers[cite: 2].</li>
+            </ul>
+            <a href="https://github.com/shanmithat/AetherCast" target="_blank">View Repository →</a>
+        </div>
+
+        <!-- PROJECT 3: IMPLICIT MODELING -->
+        <div class="project-card">
+            <div class="project-title">Implicit-Modeling: Browser-Native Infinite-Resolution Geometric Synthesis Engine</div>
+            <div class="tech-stack">GLSL Shaders / WebGL 2.0 / Signed Distance Fields (SDF) / Web Delivery[cite: 1]</div>
+            <p>A web-native, GPU-driven geometric engine developed to eliminate traditional Boundary Representation (B-rep) and polygon mesh serialization bottlenecks during additive manufacturing workflows[cite: 1].</p>
+            <ul>
+                <li>Bypasses discrete voxelization and mesh-generation overhead completely by evaluating continuous mathematical fields natively in the hardware fragment rendering loop[cite: 1].</li>
+                <li>Synthesizes functionally graded multi-scale Triply Periodic Minimal Surfaces (TPMS), including complex Gyroid and Diamond crystal formations, via per-pixel signed distance checks[cite: 1].</li>
+            </ul>
+            <a href="https://github.com/shanmithat/implicit-modeling" target="_blank">View Repository →</a>
+        </div>
+
+        <h2>📝 Peer-Reviewed Publications & Patents</h2>
+        <ul>
+            <li><strong>Patent Application Pending:</strong> Computer Vision Framework for Real-Time Crowd Surge and Trample Origin Tracking (YOLOv5 / SORT pipeline).</li>
+            <li><strong>Conference Paper (2023):</strong> Abusive Language Identification in Code-Mixed Text Layouts (NLP).</li>
+            <li><strong>Conference Paper (2023):</strong> Sarcasm Detection Frameworks inside Heterogeneous Structural Corpora (NLP).</li>
+        </ul>
+    </main>
+
+    <footer>
+        <hr>
+        <p style="text-align: center; color: #64748b; font-size: 0.85rem;">&copy; 2026 Shanmitha T. Built using native, hardware-aligned semantics.</p>
+    </footer>
+
+</body>
+</html>
