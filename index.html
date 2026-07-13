@@ -103,15 +103,25 @@
 
         <!-- PROJECT 2: AETHERCAST -->
         <div class="project-card">
-            <div class="project-title">AetherCast: Physics-Regularized Spatiotemporal Fourier Neural Operator Pipeline[cite: 2]</div>
-            <div class="tech-tag-line">PyTorch / SciML / Spectral Tensors / Numerical Partial Differential Equations[cite: 2]</div>
-            <p>An end-to-end scientific machine learning surrogate architecture engineered to generate instant, continuous spatiotemporalnowcasting fields of transport equations, bypassing traditional grid-based solver latencies[cite: 2].</p>
+            <div class="project-title">AetherCast: Physics-Regularized Spatiotemporal Fourier Neural Operator Pipeline</div>
+            <div class="tech-tag-line">PyTorch / SciML / Spectral Tensors / Numerical Partial Differential Equations</div>
+            <p>An end-to-end scientific machine learning surrogate architecture engineered to generate instant, continuous spatiotemporal nowcasting fields of transport equations, bypassing traditional grid-based solver latencies.</p>
             <ul>
-                <li>Constructed a <strong>2D Fourier Neural Operator (FNO)</strong> core that truncates high-frequency spectral modes via <strong>real fast Fourier transforms</strong> (<code>torch.fft.rfft2</code>) to isolate dominant global field profiles[cite: 1, 2].</li>
-                <li>Encodes physical conservation laws natively into the optimization trajectory by designing a <strong>custom physics-informed loss layer</strong> regularized by <strong>2D Advection-Diffusion PDEs</strong>[cite: 2].</li>
-                <li>Optimizes tensor memory layouts to maintain strict data contiguity, rendering the pipeline ready for subsequent deep-learning hardware compilation frameworks[cite: 2].</li>
+                <li>Constructed a <strong>2D Fourier Neural Operator (FNO)</strong> core that truncates high-frequency spectral modes via <strong>real fast Fourier transforms</strong> (<code>torch.fft.rfft2</code>) to isolate dominant global field profiles[cite: 1].</li>
+                <li>Encodes physical conservation laws natively into the optimization trajectory by designing a <strong>custom physics-informed loss layer</strong> regularized by <strong>2D Advection-Diffusion PDEs</strong>.</li>
             </ul>
-            <a class="action-link" href="https://github.com/shanmithat/AetherCast" target="_blank">Inspect Source Repository →</a>
+            
+            <!-- LIVE IFRAME WINDOW FOR AETHERCAST -->
+            <div style="margin-top: 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-glow);">
+                <iframe src="https://huggingface.co/spaces/shanmithat/aethercast?embed=true" 
+                        width="100%" 
+                        height="450px" 
+                        style="border:none; background: #0b0f19;" 
+                        allow="accelerometer; gyroscope; microphone; camera; midi; vr; encrypted-media">
+                </iframe>
+            </div>
+            
+            <a class="action-link" href="https://github.com/shanmithat/AetherCast" target="_blank" style="margin-top: 1rem; display: inline-block;">Inspect Source Repository →</a>
         </div>
 
         <!-- PROJECT 3: IMPLICIT MODELING -->
@@ -123,9 +133,17 @@
                 <li>Bypasses traditional discrete voxelization metrics completely by evaluating <strong>continuous mathematical fields natively in the hardware fragment rendering loop</strong>[cite: 1].</li>
                 <li>Synthesizes functionally graded multi-scale <strong>Triply Periodic Minimal Surfaces (TPMS)</strong>, executing real-time spatial evaluations of complex Gyroid and Diamond structures via per-pixel <strong>Signed Distance Fields (SDFs)</strong>[cite: 1].</li>
             </ul>
-            <a class="action-link" href="https://github.com/shanmithat/implicit-modeling" target="_blank">Inspect Source Repository →</a>
-        </div>
 
+            <!-- LIVE IFRAME WINDOW FOR IMPLICIT LATTICE -->
+            <div style="margin-top: 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-glow);">
+                <iframe src="https://implicitlattice.streamlit.app/?embed=true" 
+                        width="100%" 
+                        height="450px" 
+                        style="border:none; background: #0b0f19;">
+                </iframe>
+            </div>
+        </div>
+        
         <h2>🔬 Intellectual Capital & Publications</h2>
         <ul class="doc-list">
             <li><strong>Patent Utility Application Pending:</strong> Computer Vision Framework for Real-Time Crowd Surge Analysis and Dynamic Trample Origin Tracking (YOLOv5 Architecture / SORT Tracking Pipeline integration).</li>
