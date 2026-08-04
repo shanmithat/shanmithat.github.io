@@ -61,7 +61,7 @@
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
                     <i class="fa-solid fa-microchip text-blue-500"></i> Active Research & Systems
                 </h2>
-                <span class="text-xs text-zinc-500">Live Interactive Viewports</span>
+                <span class="text-xs text-zinc-500">Live Computational Viewports</span>
             </div>
 
             <!-- Project 1: AetherCast -->
@@ -71,9 +71,14 @@
                         <span class="text-xs font-mono text-blue-400 font-semibold uppercase tracking-wider">Scientific Machine Learning</span>
                         <h3 class="text-2xl font-bold text-white mt-0.5">AetherCast</h3>
                     </div>
-                    <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Live HF Engine
-                    </span>
+                    <div class="flex items-center gap-2">
+                        <a href="https://huggingface.co/spaces/shanmithat/AetherCast" target="_blank" class="text-xs px-2.5 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-md border border-zinc-700 flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full App
+                        </a>
+                        <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> HF Space
+                        </span>
+                    </div>
                 </div>
                 
                 <p class="text-zinc-300 text-sm leading-relaxed">
@@ -87,9 +92,15 @@
                     <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">Sub-ms Latency</span>
                 </div>
 
-                <!-- LIVE EMBEDDED VIEWPORT FOR AETHERCAST -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-72 w-full relative">
-                    <iframe src="https://huggingface.co/spaces/shanmithat/AetherCast" class="w-full h-full border-0" title="AetherCast Live Deployment"></iframe>
+                <!-- DIRECT HF CONTAINER EMBED WITH FALLBACK -->
+                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-80 w-full relative group">
+                    <iframe 
+                        src="https://shanmithat-aethercast.hf.space" 
+                        class="w-full h-full border-0" 
+                        title="AetherCast Live Deployment"
+                        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts">
+                    </iframe>
                 </div>
             </div>
 
@@ -100,9 +111,14 @@
                         <span class="text-xs font-mono text-purple-400 font-semibold uppercase tracking-wider">Implicit Modeling & Geometric AI</span>
                         <h3 class="text-2xl font-bold text-white mt-0.5">ImplicitLattice</h3>
                     </div>
-                    <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Live Streamlit Engine
-                    </span>
+                    <div class="flex items-center gap-2">
+                        <a href="https://shanmithat-implicitlattice.streamlit.app" target="_blank" class="text-xs px-2.5 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-md border border-zinc-700 flex items-center gap-1">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full App
+                        </a>
+                        <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Streamlit
+                        </span>
+                    </div>
                 </div>
                 
                 <p class="text-zinc-300 text-sm leading-relaxed">
@@ -116,9 +132,14 @@
                     <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">WebGL / PyVista</span>
                 </div>
 
-                <!-- LIVE EMBEDDED VIEWPORT FOR IMPLICITLATTICE -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-72 w-full relative">
-                    <iframe src="https://shanmithat-implicitlattice.streamlit.app/?embed=true" class="w-full h-full border-0" title="ImplicitLattice Live Deployment"></iframe>
+                <!-- STREAMLIT EMBEDDED VIEWPORT WITH EMBED PARAMETERS -->
+                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-80 w-full relative">
+                    <iframe 
+                        src="https://shanmithat-implicitlattice.streamlit.app/?embed=true&embed_options=disable_padding" 
+                        class="w-full h-full border-0" 
+                        title="ImplicitLattice Live Deployment"
+                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts">
+                    </iframe>
                 </div>
             </div>
 
