@@ -26,7 +26,7 @@
             <div class="flex gap-2">
                 <a href="#projects" class="px-3 py-1.5 text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 rounded-lg text-zinc-200 transition">Projects</a>
                 <button onclick="toggleQRModal()" class="px-3 py-1.5 text-xs font-semibold accent-gradient text-white rounded-lg shadow-lg flex items-center gap-1.5">
-                    <i class="fa-solid fa-qrcode"></i> Connect
+                    <i class="fa-solid fa-address-card"></i> Contact / QR
                 </button>
             </div>
         </div>
@@ -37,13 +37,13 @@
         <!-- Hero / Value Proposition -->
         <section class="space-y-4">
             <div class="inline-block px-3 py-1 text-xs font-semibold text-blue-400 bg-blue-950/50 border border-blue-800/50 rounded-full">
-                Chennai AI Summit 2026 • Researcher Portfolio
+                Research Portfolio • Scientific Machine Learning
             </div>
             <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
                 Computational AI & <span class="accent-text">Physics-Informed ML</span> Specialist
             </h1>
             <p class="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Bridging Fourier Neural Operators (FNOs), Implicit Geometric Synthesis, Computer Vision, and Agentic AI Systems for continuous field surrogate modeling and high-performance computing.
+                Bridging Fourier Neural Operators (FNOs), Implicit Geometric Synthesis, Computer Vision, and High-Performance Computing (C++/CUDA) for continuous field surrogate modeling and physical systems.
             </p>
             <div class="flex flex-wrap gap-3 pt-2">
                 <a href="https://github.com/shanmithat" target="_blank" class="px-4 py-2 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg flex items-center gap-2 border border-zinc-700">
@@ -52,6 +52,9 @@
                 <a href="https://linkedin.com/in/shanmithat" target="_blank" class="px-4 py-2 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg flex items-center gap-2 border border-zinc-700">
                     <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
                 </a>
+                <a href="mailto:shanmithat3@gmail.com" class="px-4 py-2 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg flex items-center gap-2 border border-zinc-700">
+                    <i class="fa-solid fa-envelope text-sm"></i> Email
+                </a>
             </div>
         </section>
 
@@ -59,9 +62,9 @@
         <section id="projects" class="space-y-8">
             <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
                 <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-microchip text-blue-500"></i> Active Research & Systems
+                    <i class="fa-solid fa-microchip text-blue-500"></i> Featured Research & Systems
                 </h2>
-                <span class="text-xs text-zinc-500">Live Computational Viewports</span>
+                <span class="text-xs text-zinc-500">Interactive Workspaces & Code</span>
             </div>
 
             <!-- Project 1: AetherCast -->
@@ -71,14 +74,9 @@
                         <span class="text-xs font-mono text-blue-400 font-semibold uppercase tracking-wider">Scientific Machine Learning</span>
                         <h3 class="text-2xl font-bold text-white mt-0.5">AetherCast</h3>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <a href="https://huggingface.co/spaces/shanmithat/AetherCast" target="_blank" class="text-xs px-2.5 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-md border border-zinc-700 flex items-center gap-1">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full App
-                        </a>
-                        <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> HF Space
-                        </span>
-                    </div>
+                    <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Deployed Engine
+                    </span>
                 </div>
                 
                 <p class="text-zinc-300 text-sm leading-relaxed">
@@ -92,15 +90,15 @@
                     <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">Sub-ms Latency</span>
                 </div>
 
-                <!-- DIRECT HF CONTAINER EMBED WITH FALLBACK -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-80 w-full relative group">
-                    <iframe 
-                        src="https://shanmithat-aethercast.hf.space" 
-                        class="w-full h-full border-0" 
-                        title="AetherCast Live Deployment"
-                        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts">
-                    </iframe>
+                <!-- Interactive Launch Box -->
+                <div class="p-4 bg-zinc-950 border border-zinc-800 rounded-xl flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <div class="text-xs text-zinc-400 space-y-0.5">
+                        <span class="font-semibold text-white block">AetherCast Interactive Field Solver</span>
+                        <span>Runs real-time 2D spatio-temporal PDE predictions on Hugging Face Spaces.</span>
+                    </div>
+                    <a href="https://huggingface.co/spaces/shanmithat/AetherCast" target="_blank" class="w-full sm:w-auto text-center px-4 py-2 text-xs font-semibold accent-gradient text-white rounded-lg shadow whitespace-nowrap">
+                        <i class="fa-solid fa-rocket mr-1"></i> Launch Workspace
+                    </a>
                 </div>
             </div>
 
@@ -111,14 +109,9 @@
                         <span class="text-xs font-mono text-purple-400 font-semibold uppercase tracking-wider">Implicit Modeling & Geometric AI</span>
                         <h3 class="text-2xl font-bold text-white mt-0.5">ImplicitLattice</h3>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <a href="https://shanmithat-implicitlattice.streamlit.app" target="_blank" class="text-xs px-2.5 py-1 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 rounded-md border border-zinc-700 flex items-center gap-1">
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Open Full App
-                        </a>
-                        <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
-                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Streamlit
-                        </span>
-                    </div>
+                    <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Deployed Engine
+                    </span>
                 </div>
                 
                 <p class="text-zinc-300 text-sm leading-relaxed">
@@ -132,14 +125,15 @@
                     <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">WebGL / PyVista</span>
                 </div>
 
-                <!-- STREAMLIT EMBEDDED VIEWPORT WITH EMBED PARAMETERS -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-80 w-full relative">
-                    <iframe 
-                        src="https://shanmithat-implicitlattice.streamlit.app/?embed=true&embed_options=disable_padding" 
-                        class="w-full h-full border-0" 
-                        title="ImplicitLattice Live Deployment"
-                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts">
-                    </iframe>
+                <!-- Interactive Launch Box -->
+                <div class="p-4 bg-zinc-950 border border-zinc-800 rounded-xl flex flex-col sm:flex-row justify-between items-center gap-3">
+                    <div class="text-xs text-zinc-400 space-y-0.5">
+                        <span class="font-semibold text-white block">ImplicitLattice 3D Procedural Engine</span>
+                        <span>Generates interactive TPMS lattice geometries on Streamlit / WebGL.</span>
+                    </div>
+                    <a href="https://shanmithat-implicitlattice.streamlit.app" target="_blank" class="w-full sm:w-auto text-center px-4 py-2 text-xs font-semibold accent-gradient text-white rounded-lg shadow whitespace-nowrap">
+                        <i class="fa-solid fa-cube mr-1"></i> Launch 3D Workspace
+                    </a>
                 </div>
             </div>
 
@@ -229,24 +223,37 @@
         <i class="fa-solid fa-qrcode text-xl"></i>
     </button>
 
-    <!-- Contact QR Modal -->
+    <!-- Contact & QR Modal -->
     <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="toggleQRModal()">
-        <div class="glass-card max-w-sm w-full p-6 rounded-2xl border border-zinc-700 text-center space-y-4" onclick="event.stopPropagation()">
+        <div class="glass-card max-w-sm w-full p-6 rounded-2xl border border-zinc-700 text-center space-y-5" onclick="event.stopPropagation()">
             <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
-                <h3 class="font-bold text-white text-base">Connect with Shanmitha T</h3>
+                <h3 class="font-bold text-white text-base">Contact Shanmitha T</h3>
                 <button onclick="toggleQRModal()" class="text-zinc-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
             </div>
-            <p class="text-xs text-zinc-400">Scan screen to open live portfolio & contact info directly on your phone.</p>
             
+            <!-- QR Display -->
             <div class="flex justify-center p-4 bg-white rounded-xl shadow-inner inline-block mx-auto">
                 <div id="qrcode"></div>
             </div>
 
-            <p class="text-xs font-mono text-zinc-400">shanmithat.github.io</p>
+            <p class="text-xs text-zinc-400">Scan QR code or use the quick buttons below to reach out:</p>
+
+            <!-- 3 Contact Action Buttons -->
+            <div class="space-y-2 pt-1 text-xs">
+                <a href="https://shanmithat.github.io/" target="_blank" class="w-full py-2.5 px-4 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg flex items-center justify-center gap-2 border border-zinc-700 transition">
+                    <i class="fa-solid fa-globe text-blue-400"></i> Open Portfolio
+                </a>
+                <a href="https://linkedin.com/in/shanmithat" target="_blank" class="w-full py-2.5 px-4 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg flex items-center justify-center gap-2 border border-zinc-700 transition">
+                    <i class="fa-brands fa-linkedin text-blue-400"></i> Connect on LinkedIn
+                </a>
+                <a href="mailto:shanmithat3@gmail.com" class="w-full py-2.5 px-4 accent-gradient text-white font-semibold rounded-lg flex items-center justify-center gap-2 shadow transition">
+                    <i class="fa-solid fa-envelope"></i> Email: shanmithat3@gmail.com
+                </a>
+            </div>
         </div>
     </div>
 
-    <!-- JS script -->
+    <!-- JS Script -->
     <script>
         function toggleQRModal() {
             const modal = document.getElementById('qrModal');
@@ -256,8 +263,8 @@
         window.addEventListener('DOMContentLoaded', () => {
             new QRCode(document.getElementById("qrcode"), {
                 text: "https://shanmithat.github.io/",
-                width: 180,
-                height: 180,
+                width: 160,
+                height: 160,
                 colorDark : "#000000",
                 colorLight : "#ffffff",
                 correctLevel : QRCode.CorrectLevel.H
