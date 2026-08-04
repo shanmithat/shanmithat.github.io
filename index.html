@@ -89,13 +89,14 @@
                     <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">PDE Surrogates</span>
                 </div>
 
-                <!-- LIVE EMBEDDED VIEWPORT -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-96 w-full relative">
+                <!-- FIXED HUGGINGFACE EMBEDDED VIEWPORT -->
+                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-[500px] w-full relative">
                     <iframe 
-                        src="https://huggingface.co/spaces/shanmithat/AetherCast" 
+                        src="https://shanmithat-aethercast.hf.space" 
                         class="w-full h-full border-0" 
                         title="AetherCast Live Deployment"
-                        allow="cross-origin-isolated">
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-downloads">
                     </iframe>
                 </div>
             </div>
@@ -113,7 +114,7 @@
                 </div>
                 
                 <p class="text-zinc-300 text-sm leading-relaxed">
-                    Procedural geometric synthesis engine for complex functional implicit surfaces (TPMS lattices like Gyroid & Schwarz-P) using Analytic SDFs. Achieves <span class="font-mono text-purple-300">$O(1)$ memory scaling</span> with exact closed-form boundary trimming, bypassing heavy CAD memory overhead.
+                    Procedural geometric synthesis engine for complex functional implicit surfaces (TPMS lattices like Gyroid & Schwarz-P) using Analytic SDFs. Achieves <span class="font-mono text-purple-300">O(1) memory scaling</span> with exact closed-form boundary trimming, bypassing heavy CAD memory overhead.
                 </p>
 
                 <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-400">
@@ -123,12 +124,13 @@
                 </div>
 
                 <!-- FIXED STREAMLIT EMBEDDED VIEWPORT -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-96 w-full relative">
+                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-[500px] w-full relative">
                     <iframe 
-                        src="https://shanmithat-implicitlattice.streamlit.app/?embed=true&embed_options=disable_scrolling" 
+                        src="https://implicitlattice.streamlit.app/?embed=true" 
                         class="w-full h-full border-0" 
                         title="ImplicitLattice Live Deployment"
-                        allow="accelerometer; ambient-light-sensor; camera; gyroscope; microphone; speaker; selection">
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-downloads">
                     </iframe>
                 </div>
             </div>
