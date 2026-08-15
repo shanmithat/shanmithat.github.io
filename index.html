@@ -3,266 +3,1737 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shanmitha T | Scientific Machine Learning & Computational AI</title>
+
+    <title>Shanmitha T | Scientific ML & Computational Engineering</title>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- FontAwesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+
     <!-- QRCode.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <style>
-        body { background-color: #09090b; color: #f4f4f5; font-family: system-ui, -apple-system, sans-serif; }
-        .glass-card { background: rgba(24, 24, 27, 0.75); backdrop-filter: blur(12px); border: 1px solid rgba(63, 63, 70, 0.4); }
-        .accent-gradient { background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); }
-        .accent-text { background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        body {
+            background-color: #09090b;
+            color: #f4f4f5;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                         "Segoe UI", sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(24, 24, 27, 0.72);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(63, 63, 70, 0.42);
+        }
+
+        .accent-gradient {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+        }
+
+        .accent-text {
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtle-grid {
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .project-card {
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .research-line {
+            position: relative;
+            padding-left: 18px;
+        }
+
+        .research-line::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.55em;
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: #60a5fa;
+        }
+
+        .metric {
+            font-variant-numeric: tabular-nums;
+        }
+
+        ::selection {
+            background: rgba(96, 165, 250, 0.28);
+        }
     </style>
 </head>
-<body class="pb-24">
 
-    <!-- Sticky Navigation Header -->
+<body class="pb-24 subtle-grid">
+
+    <!-- ========================================================= -->
+    <!-- Navigation -->
+    <!-- ========================================================= -->
+
     <header class="sticky top-0 z-40 w-full glass-card border-b border-zinc-800 px-4 py-3">
-        <div class="max-w-4xl mx-auto flex justify-between items-center">
-            <span class="font-bold text-lg tracking-wider text-white">SHANMITHA T</span>
-            <div class="flex gap-2">
-                <a href="#projects" class="px-3 py-1.5 text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 rounded-lg text-zinc-200 transition">Projects</a>
-                <button onclick="toggleQRModal()" class="px-3 py-1.5 text-xs font-semibold accent-gradient text-white rounded-lg shadow-lg flex items-center gap-1.5">
-                    <i class="fa-solid fa-address-card"></i> Contact Me
+        <div class="max-w-5xl mx-auto flex justify-between items-center">
+
+            <a href="#" class="font-bold text-lg tracking-wider text-white">
+                SHANMITHA T
+            </a>
+
+            <nav class="hidden sm:flex items-center gap-2">
+                <a
+                    href="#research"
+                    class="px-3 py-1.5 text-xs font-semibold
+                           bg-zinc-800/80 hover:bg-zinc-700
+                           rounded-lg text-zinc-200 transition"
+                >
+                    Research
+                </a>
+
+                <a
+                    href="#projects"
+                    class="px-3 py-1.5 text-xs font-semibold
+                           bg-zinc-800/80 hover:bg-zinc-700
+                           rounded-lg text-zinc-200 transition"
+                >
+                    Projects
+                </a>
+
+                <a
+                    href="#skills"
+                    class="px-3 py-1.5 text-xs font-semibold
+                           bg-zinc-800/80 hover:bg-zinc-700
+                           rounded-lg text-zinc-200 transition"
+                >
+                    Skills
+                </a>
+
+                <button
+                    onclick="toggleQRModal()"
+                    class="px-3 py-1.5 text-xs font-semibold
+                           accent-gradient text-white rounded-lg
+                           shadow-lg flex items-center gap-1.5"
+                >
+                    <i class="fa-solid fa-address-card"></i>
+                    Contact
                 </button>
-            </div>
+            </nav>
+
+            <button
+                onclick="toggleQRModal()"
+                class="sm:hidden px-3 py-1.5 text-xs font-semibold
+                       accent-gradient text-white rounded-lg"
+            >
+                Contact
+            </button>
+
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-4 pt-8 space-y-10">
 
-        <!-- General Purpose Hero Section -->
-        <section class="space-y-4">
-            <div class="inline-block px-3 py-1 text-xs font-semibold text-blue-400 bg-blue-950/50 border border-blue-800/50 rounded-full">
-                Scientific ML & Physics-AI Research
+    <main class="max-w-5xl mx-auto px-4 pt-10 space-y-14">
+
+
+        <!-- ========================================================= -->
+        <!-- HERO -->
+        <!-- ========================================================= -->
+
+        <section class="max-w-4xl space-y-5">
+
+            <div class="inline-flex items-center gap-2
+                        px-3 py-1 text-xs font-semibold
+                        text-blue-400 bg-blue-950/50
+                        border border-blue-800/50 rounded-full">
+
+                <span class="w-1.5 h-1.5 rounded-full bg-blue-400"></span>
+
+                Scientific ML · Computational Engineering · AI for Science
             </div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
-                Computational AI & <span class="accent-text">Physics-Informed ML</span> Research
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl
+                       font-extrabold tracking-tight
+                       text-white leading-[1.05]">
+
+                Building computational models of
+                <span class="accent-text">
+                    physical systems
+                </span>
+                with machine learning.
             </h1>
-            <p class="text-zinc-400 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Developing Fourier Neural Operators (FNOs), Implicit Geometric Modeling, Computer Vision systems, and High-Performance C++/CUDA acceleration engines for continuous field surrogate modeling.
+
+            <p class="text-zinc-400 text-base sm:text-lg
+                      leading-relaxed max-w-3xl">
+
+                I am a final-year Mechanical Engineering undergraduate at
+                VIT Chennai developing toward research in
+                <span class="text-zinc-200">scientific machine learning</span>,
+                <span class="text-zinc-200">numerical simulation</span>,
+                and <span class="text-zinc-200">accelerated scientific computing</span>.
+                My current work focuses on physics-informed neural operators,
+                PDE-based surrogate modelling, and computational methods for
+                engineering systems.
             </p>
-            <div class="flex flex-wrap gap-3 pt-2">
-                <a href="https://github.com/shanmithat" target="_blank" class="px-4 py-2 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg flex items-center gap-2 border border-zinc-700">
-                    <i class="fa-brands fa-github text-sm"></i> GitHub
+
+            <div class="flex flex-wrap gap-3 pt-1">
+
+                <a
+                    href="https://github.com/shanmithat"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2.5 text-xs font-semibold
+                           bg-zinc-800 hover:bg-zinc-700
+                           text-zinc-200 rounded-lg
+                           flex items-center gap-2
+                           border border-zinc-700 transition"
+                >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
                 </a>
-                <a href="https://linkedin.com/in/shanmithat" target="_blank" class="px-4 py-2 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg flex items-center gap-2 border border-zinc-700">
-                    <i class="fa-brands fa-linkedin text-sm"></i> LinkedIn
+
+                <a
+                    href="https://www.linkedin.com/in/shanmithat/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2.5 text-xs font-semibold
+                           bg-zinc-800 hover:bg-zinc-700
+                           text-zinc-200 rounded-lg
+                           flex items-center gap-2
+                           border border-zinc-700 transition"
+                >
+                    <i class="fa-brands fa-linkedin"></i>
+                    LinkedIn
                 </a>
-                <a href="mailto:shanmithat3@gmail.com" class="px-4 py-2 text-xs font-medium bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg flex items-center gap-2 border border-zinc-700">
-                    <i class="fa-solid fa-envelope text-sm"></i> Email Direct
+
+                <a
+                    href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2.5 text-xs font-semibold
+                           bg-zinc-800 hover:bg-zinc-700
+                           text-zinc-200 rounded-lg
+                           flex items-center gap-2
+                           border border-zinc-700 transition"
+                >
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    Google Scholar
                 </a>
+
+                <a
+                    href="mailto:shanmithat3@gmail.com"
+                    class="px-4 py-2.5 text-xs font-semibold
+                           accent-gradient text-white rounded-lg
+                           flex items-center gap-2 shadow-lg"
+                >
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact
+                </a>
+
             </div>
         </section>
 
-        <!-- Projects Section with Live Integrated Viewports -->
+
+        <!-- ========================================================= -->
+        <!-- RESEARCH DIRECTION -->
+        <!-- ========================================================= -->
+
+        <section id="research" class="space-y-6">
+
+            <div class="flex items-end justify-between border-b border-zinc-800 pb-3">
+
+                <div>
+                    <p class="text-xs font-mono uppercase tracking-widest
+                              text-blue-400 mb-1">
+                        Research Direction
+                    </p>
+
+                    <h2 class="text-2xl font-bold text-white">
+                        Scientific ML for physical systems
+                    </h2>
+                </div>
+
+            </div>
+
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+
+                <div class="glass-card rounded-2xl p-5 space-y-3">
+                    <div class="text-blue-400 text-xl">
+                        <i class="fa-solid fa-wave-square"></i>
+                    </div>
+
+                    <h3 class="font-bold text-white">
+                        Physics-Informed Learning
+                    </h3>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Integrating governing equations, numerical discretizations,
+                        and physical constraints into neural operator and
+                        surrogate-model architectures.
+                    </p>
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-5 space-y-3">
+                    <div class="text-purple-400 text-xl">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+
+                    <h3 class="font-bold text-white">
+                        Operator Learning & Surrogates
+                    </h3>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Studying how neural operators can learn mappings between
+                        physical fields while preserving consistency and
+                        generalizing across engineering conditions.
+                    </p>
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-5 space-y-3">
+                    <div class="text-cyan-400 text-xl">
+                        <i class="fa-solid fa-microchip"></i>
+                    </div>
+
+                    <h3 class="font-bold text-white">
+                        Accelerated Scientific Computing
+                    </h3>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Building GPU-accelerated numerical systems in C++/CUDA
+                        for multiphysics simulation and computational optimization.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="glass-card rounded-2xl p-6">
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 text-sm">
+
+                    <div class="research-line text-zinc-300">
+                        Physical consistency and PDE residuals
+                    </div>
+
+                    <div class="research-line text-zinc-300">
+                        Generalization across physical regimes
+                    </div>
+
+                    <div class="research-line text-zinc-300">
+                        Neural operators for scientific computing
+                    </div>
+
+                    <div class="research-line text-zinc-300">
+                        Surrogate modelling of expensive simulations
+                    </div>
+
+                    <div class="research-line text-zinc-300">
+                        Numerical methods and discretization
+                    </div>
+
+                    <div class="research-line text-zinc-300">
+                        GPU acceleration and scalable computation
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- ACTIVE RESEARCH -->
+        <!-- ========================================================= -->
+
         <section id="projects" class="space-y-8">
-            <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
-                <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-microchip text-blue-500"></i> Active Research & Systems
+
+            <div class="border-b border-zinc-800 pb-3">
+
+                <p class="text-xs font-mono uppercase tracking-widest
+                          text-blue-400 mb-1">
+                    Current Work
+                </p>
+
+                <h2 class="text-2xl font-bold text-white">
+                    Active Research Projects
                 </h2>
-                <span class="text-xs text-zinc-500">Embedded Live Viewports</span>
-            </div>
 
-            <!-- Project 1: AetherCast -->
-            <div class="glass-card rounded-2xl p-5 sm:p-6 space-y-4 border border-zinc-800 hover:border-blue-500/50 transition">
-                <div class="flex justify-between items-start flex-wrap gap-2">
-                    <div>
-                        <span class="text-xs font-mono text-blue-400 font-semibold uppercase tracking-wider">Scientific Machine Learning</span>
-                        <h3 class="text-2xl font-bold text-white mt-0.5">AetherCast</h3>
-                    </div>
-                    <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Live HF Engine
-                    </span>
-                </div>
-                
-                <p class="text-zinc-300 text-sm leading-relaxed">
-                    A Physics-Informed Fourier Neural Operator (FNO) regularized with finite-difference convolution stencils in PyTorch backpropagation loops. Performs sub-millisecond 2D spatio-temporal PDE transport field nowcasting while maintaining physical conservation laws.
+                <p class="text-sm text-zinc-500 mt-2">
+                    Current projects are presented first because they represent
+                    the research direction I am actively developing.
                 </p>
 
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-400">
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">Fourier Neural Operators</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">PyTorch</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">PDE Surrogates</span>
-                </div>
-
-                <!-- FIXED HUGGINGFACE EMBEDDED VIEWPORT -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-[500px] w-full relative">
-                    <iframe 
-                        src="https://shanmithat-aethercast.hf.space" 
-                        class="w-full h-full border-0" 
-                        title="AetherCast Live Deployment"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-downloads">
-                    </iframe>
-                </div>
             </div>
 
-            <!-- Project 2: ImplicitLattice -->
-            <div class="glass-card rounded-2xl p-5 sm:p-6 space-y-4 border border-zinc-800 hover:border-purple-500/50 transition">
-                <div class="flex justify-between items-start flex-wrap gap-2">
+
+            <!-- ===================================================== -->
+            <!-- AetherCast -->
+            <!-- ===================================================== -->
+
+            <article
+                class="project-card glass-card rounded-2xl
+                       p-6 sm:p-7 border border-blue-900/40
+                       hover:border-blue-500/60"
+            >
+
+                <div class="flex justify-between items-start
+                            flex-wrap gap-3">
+
                     <div>
-                        <span class="text-xs font-mono text-purple-400 font-semibold uppercase tracking-wider">Implicit Modeling & Geometric AI</span>
-                        <h3 class="text-2xl font-bold text-white mt-0.5">ImplicitLattice</h3>
+
+                        <span class="text-xs font-mono
+                                     text-blue-400 font-semibold
+                                     uppercase tracking-wider">
+                            Scientific Machine Learning · Active Research
+                        </span>
+
+                        <h3 class="text-3xl font-bold text-white mt-1">
+                            AetherCast
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Physics-Informed Fourier Neural Operator
+                            for PDE-Based Precipitation-Transport Modelling
+                        </p>
+
                     </div>
-                    <span class="px-2.5 py-1 text-xs font-medium bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 rounded-full flex items-center gap-1.5">
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Live Streamlit Engine
+
+                    <span
+                        class="px-2.5 py-1 text-xs font-medium
+                               bg-blue-950/70 text-blue-300
+                               border border-blue-800/60 rounded-full"
+                    >
+                        Research / Tool Submission
                     </span>
+
                 </div>
-                
-                <p class="text-zinc-300 text-sm leading-relaxed">
-                    Procedural geometric synthesis engine for complex functional implicit surfaces (TPMS lattices like Gyroid & Schwarz-P) using Analytic SDFs. Achieves <span class="font-mono text-purple-300">O(1) memory scaling</span> with exact closed-form boundary trimming, bypassing heavy CAD memory overhead.
+
+
+                <p class="text-zinc-300 text-sm sm:text-base
+                          leading-relaxed mt-5 max-w-4xl">
+
+                    A physics-informed Fourier Neural Operator framework for
+                    PDE-based precipitation-transport modelling. The model
+                    incorporates a finite-difference discretization of the
+                    2D advection-diffusion-decay equation directly into the
+                    training objective to investigate whether physical
+                    constraints improve prediction and PDE consistency.
+
                 </p>
 
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-400">
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">Analytic SDFs</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">TPMS Geometry</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">O(1) Memory</span>
-                </div>
 
-                <!-- FIXED STREAMLIT EMBEDDED VIEWPORT -->
-                <div class="mt-4 rounded-xl overflow-hidden border border-zinc-800 bg-zinc-950 h-[500px] w-full relative">
-                    <iframe 
-                        src="https://implicitlattice.streamlit.app/?embed=true" 
-                        class="w-full h-full border-0" 
-                        title="ImplicitLattice Live Deployment"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        sandbox="allow-forms allow-modals allow-popups allow-same-origin allow-scripts allow-downloads">
-                    </iframe>
-                </div>
-            </div>
+                <!-- Research questions -->
 
-            <!-- Project 3: Crowd Surge & Trample Origin Detector -->
-            <div class="glass-card rounded-2xl p-5 sm:p-6 space-y-4 border border-zinc-800 hover:border-amber-500/50 transition">
-                <div class="flex justify-between items-start flex-wrap gap-2">
-                    <div>
-                        <span class="text-xs font-mono text-amber-400 font-semibold uppercase tracking-wider">Computer Vision & Public Safety</span>
-                        <h3 class="text-2xl font-bold text-white mt-0.5">Crowd Surge & Trample Origin Detector</h3>
+                <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-xs font-mono text-blue-400 mb-2">
+                            METHOD
+                        </div>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Fourier Neural Operator + finite-difference
+                            physics-informed loss + PDE residual evaluation.
+                        </p>
+
                     </div>
-                    <span class="px-2.5 py-1 text-xs font-medium bg-amber-950/80 text-amber-400 border border-amber-800/60 rounded-full flex items-center gap-1.5">
-                        <i class="fa-solid fa-stamp"></i> Patent Filed
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-xs font-mono text-blue-400 mb-2">
+                            EXPERIMENTS
+                        </div>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Data-only FNO comparison, discrete reference,
+                            training-data scaling, and physics-weight ablations.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quantitative evidence -->
+
+                <div class="grid grid-cols-2 md:grid-cols-4
+                            gap-3 mt-4">
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-lg font-bold text-white metric">
+                            7.5%
+                        </div>
+
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            lower MSE at reported evaluation scale
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-lg font-bold text-white metric">
+                            39.5%
+                        </div>
+
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            lower PDE residual at reported evaluation scale
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-lg font-bold text-white metric">
+                            1,000
+                        </div>
+
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            evaluation trajectories in reported experiment
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-lg font-bold text-white">
+                            Ablations
+                        </div>
+
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            training size + physics weight
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-5 p-4 rounded-xl
+                            border border-zinc-800
+                            bg-zinc-950/40">
+
+                    <div class="text-xs font-mono text-zinc-500 mb-2">
+                        SCIENTIFIC NOTE
+                    </div>
+
+                    <p class="text-xs text-zinc-400 leading-relaxed">
+                        The current benchmark is intended to study
+                        transport-learning behaviour rather than serve as
+                        an operational meteorological forecasting system.
+                        Current experiments also expose the computational
+                        trade-off between neural-operator inference and the
+                        discrete reference solver at small spatial resolution.
+                    </p>
+
+                </div>
+
+
+                <div class="flex flex-wrap gap-2 mt-5">
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Fourier Neural Operators
                     </span>
-                </div>
-                
-                <p class="text-zinc-300 text-sm leading-relaxed">
-                    Real-time crowd surge analysis system using YOLOv5 object detection and SORT object tracking. Calculates localized vector flux and density gradient fields to pinpoint crush risks and identify exact trample origin coordinates in high-density public events.
-                </p>
 
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-400">
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">YOLOv5</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">SORT Tracking</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">Vector Flux Analytics</span>
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Physics-Informed Learning
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        PDE Surrogates
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        PyTorch
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Numerical Methods
+                    </span>
+
                 </div>
 
-                <div class="pt-2">
-                    <a href="https://github.com/shanmithat/Hydrangea" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg border border-zinc-700">
-                        <i class="fa-brands fa-github"></i> View Engine Source Repository
+
+                <div class="flex flex-wrap gap-2 mt-5">
+
+                    <a
+                        href="https://github.com/shanmithat/AetherCast"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2
+                               px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700
+                               text-zinc-200 rounded-lg
+                               border border-zinc-700 transition"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        Research Repository
                     </a>
-                </div>
-            </div>
 
-            <!-- Project 4: DynaMesh -->
-            <div class="glass-card rounded-2xl p-5 sm:p-6 space-y-4 border border-zinc-800 hover:border-cyan-500/50 transition">
-                <div class="flex justify-between items-start flex-wrap gap-2">
-                    <div>
-                        <span class="text-xs font-mono text-cyan-400 font-semibold uppercase tracking-wider">High-Performance Computing (HPC)</span>
-                        <h3 class="text-2xl font-bold text-white mt-0.5">DynaMesh</h3>
-                    </div>
-                    <span class="px-2.5 py-1 text-xs font-medium bg-cyan-950/80 text-cyan-400 border border-cyan-800/60 rounded-full flex items-center gap-1.5">
-                        <i class="fa-solid fa-bolt"></i> C++ / CUDA Accelerated
-                    </span>
+                    <a
+                        href="https://shanmithat-aethercast.hf.space"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2
+                               px-4 py-2 text-xs font-semibold
+                               accent-gradient text-white rounded-lg"
+                    >
+                        <i class="fa-solid fa-play"></i>
+                        Interactive Demo
+                    </a>
+
                 </div>
-                
-                <p class="text-zinc-300 text-sm leading-relaxed">
-                    Custom C++ and CUDA-accelerated parallel mesh generation engine designed for dynamic geometry processing. Utilizes custom memory pooling and parallel GPU kernel dispatch to achieve real-time adaptive remeshing under dynamic physical boundary constraints.
+
+            </article>
+
+
+            <!-- ===================================================== -->
+            <!-- MicroWear -->
+            <!-- ===================================================== -->
+
+            <article
+                class="project-card glass-card rounded-2xl
+                       p-6 sm:p-7 border border-purple-900/40
+                       hover:border-purple-500/60"
+            >
+
+                <div class="flex justify-between items-start
+                            flex-wrap gap-3">
+
+                    <div>
+
+                        <span class="text-xs font-mono
+                                     text-purple-400 font-semibold
+                                     uppercase tracking-wider">
+                            Scientific Machine Learning · Active Research
+                        </span>
+
+                        <h3 class="text-3xl font-bold text-white mt-1">
+                            MicroWear-PINN
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Physics-Informed Fourier Neural Operators
+                            for Micro-Milling Wear and Surface Integrity
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="px-2.5 py-1 text-xs font-medium
+                               bg-purple-950/70 text-purple-300
+                               border border-purple-800/60 rounded-full"
+                    >
+                        In Development
+                    </span>
+
+                </div>
+
+
+                <p class="text-zinc-300 text-sm sm:text-base
+                          leading-relaxed mt-5 max-w-4xl">
+
+                    A physics-informed Fourier Neural Operator framework for
+                    predicting tool flank wear and surface integrity in
+                    micro-milling operations. The project explores how
+                    physical structure can be incorporated into operator
+                    learning for evolving manufacturing processes.
+
                 </p>
 
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-zinc-400">
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">C++20</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">CUDA Kernels</span>
-                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md">Parallel Remeshing</span>
+
+                <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-xs font-mono text-purple-400 mb-2">
+                            RESEARCH FOCUS
+                        </div>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Physics-informed operator learning for evolving
+                            tool wear and machining behaviour.
+                        </p>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-xs font-mono text-purple-400 mb-2">
+                            GOAL
+                        </div>
+
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            Investigating physical consistency, generalization,
+                            and surrogate modelling across machining conditions.
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div class="pt-2">
-                    <a href="https://github.com/shanmithat/DynaMesh-Thermal" target="_blank" class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg border border-zinc-700">
-                        <i class="fa-brands fa-github"></i> View CUDA Source Repository
-                    </a>
+
+                <div class="flex flex-wrap gap-2 mt-5">
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Fourier Neural Operators
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        PINNs
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Manufacturing
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Wear Modelling
+                    </span>
+
                 </div>
+
+            </article>
+
+
+            <!-- ===================================================== -->
+            <!-- Pediatric Gait -->
+            <!-- ===================================================== -->
+
+            <article
+                class="project-card glass-card rounded-2xl
+                       p-6 sm:p-7 border border-emerald-900/40
+                       hover:border-emerald-500/60"
+            >
+
+                <div class="flex justify-between items-start
+                            flex-wrap gap-3">
+
+                    <div>
+
+                        <span class="text-xs font-mono
+                                     text-emerald-400 font-semibold
+                                     uppercase tracking-wider">
+                            Undergraduate Capstone · Active Research
+                        </span>
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                            Physics-Informed Neural Operator & Digital Twin
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Real-Time Joint-Torque Visualization in
+                            Pathological Pediatric Gait
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="px-2.5 py-1 text-xs font-medium
+                               bg-emerald-950/70 text-emerald-300
+                               border border-emerald-800/60 rounded-full"
+                    >
+                        Capstone · In Progress
+                    </span>
+
+                </div>
+
+
+                <p class="text-zinc-300 text-sm sm:text-base
+                          leading-relaxed mt-5 max-w-4xl">
+
+                    Developing a physics-informed neural-operator and digital-twin
+                    pipeline for real-time joint-torque prediction and
+                    visualization in pathological pediatric gait. The system
+                    combines learned representations with biomechanical modelling
+                    and is being prepared for validation against gold-standard
+                    laboratory measurements.
+
+                </p>
+
+
+                <div class="flex flex-wrap gap-2 mt-5">
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Neural Operators
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Biomechanics
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Digital Twins
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        PyTorch
+                    </span>
+
+                </div>
+
+            </article>
+
+
+            <!-- ===================================================== -->
+            <!-- DynaMesh -->
+            <!-- ===================================================== -->
+
+            <article
+                class="project-card glass-card rounded-2xl
+                       p-6 sm:p-7 border border-cyan-900/40
+                       hover:border-cyan-500/60"
+            >
+
+                <div class="flex justify-between items-start
+                            flex-wrap gap-3">
+
+                    <div>
+
+                        <span class="text-xs font-mono
+                                     text-cyan-400 font-semibold
+                                     uppercase tracking-wider">
+                            Accelerated Scientific Computing
+                        </span>
+
+                        <h3 class="text-2xl sm:text-3xl font-bold text-white mt-1">
+                            DynaMesh-Thermal
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            GPU-Accelerated Multiphysics Topology Optimization
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="px-2.5 py-1 text-xs font-medium
+                               bg-cyan-950/70 text-cyan-300
+                               border border-cyan-800/60 rounded-full"
+                    >
+                        C++ / CUDA
+                    </span>
+
+                </div>
+
+
+                <p class="text-zinc-300 text-sm sm:text-base
+                          leading-relaxed mt-5 max-w-4xl">
+
+                    A C++/CUDA GPU-accelerated density-based topology
+                    optimization framework for forced-convective thermal
+                    management. The solver couples a penalized
+                    Navier--Stokes/Darcy flow model with an advection--diffusion
+                    thermal finite-volume discretization.
+
+                </p>
+
+
+                <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-xs font-mono text-cyan-400 mb-2">
+                            SOLVER
+                        </div>
+
+                        <p class="text-xs text-zinc-400">
+                            Finite-volume fluid-thermal coupling with sparse
+                            linear algebra.
+                        </p>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-xs font-mono text-cyan-400 mb-2">
+                            GPU
+                        </div>
+
+                        <p class="text-xs text-zinc-400">
+                            CUDA kernels, Unified Memory, CUB reductions,
+                            and cuSPARSE BiCGStab.
+                        </p>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-xs font-mono text-cyan-400 mb-2">
+                            OPTIMIZATION
+                        </div>
+
+                        <p class="text-xs text-zinc-400">
+                            Density-based SIMP topology optimization for
+                            thermal-fluid systems.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex flex-wrap gap-2 mt-5">
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        C++
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        CUDA
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        cuSPARSE
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        CUB
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Finite Volume
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Topology Optimization
+                    </span>
+
+                </div>
+
+
+                <div class="mt-5">
+
+                    <a
+                        href="https://github.com/shanmithat/DynaMesh-Thermal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2
+                               px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700
+                               text-zinc-200 rounded-lg
+                               border border-zinc-700 transition"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        CUDA Source Repository
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ===================================================== -->
+            <!-- Implicit Lattice -->
+            <!-- ===================================================== -->
+
+            <article
+                class="project-card glass-card rounded-2xl
+                       p-6 sm:p-7 border border-zinc-800
+                       hover:border-violet-500/50"
+            >
+
+                <div class="flex justify-between items-start
+                            flex-wrap gap-3">
+
+                    <div>
+
+                        <span class="text-xs font-mono
+                                     text-violet-400 font-semibold
+                                     uppercase tracking-wider">
+                            Computational Geometry · Completed
+                        </span>
+
+                        <h3 class="text-2xl font-bold text-white mt-1">
+                            Implicit Lattice
+                        </h3>
+
+                        <p class="text-sm text-zinc-500 mt-1">
+                            Zero-Footprint Metamaterial Geometry Engine
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="px-2.5 py-1 text-xs font-medium
+                               bg-violet-950/70 text-violet-300
+                               border border-violet-800/60 rounded-full"
+                    >
+                        Tool / Demo
+                    </span>
+
+                </div>
+
+
+                <p class="text-zinc-300 text-sm sm:text-base
+                          leading-relaxed mt-5 max-w-4xl">
+
+                    A procedural implicit-geometry engine using analytic
+                    Signed Distance Fields evaluated in WebGL/GLSL.
+                    The system represents TPMS metamaterial geometries
+                    procedurally rather than storing dense polygon meshes,
+                    enabling compact geometry representation and GPU-native
+                    evaluation.
+
+                </p>
+
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mt-5">
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-lg font-bold text-white metric">
+                            &gt;140,000×
+                        </div>
+
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            measured storage reduction
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-lg font-bold text-white metric">
+                            ≥52 FPS
+                        </div>
+
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            $10^6$-cell TPMS at 1080p on integrated GPU
+                        </div>
+
+                    </div>
+
+
+                    <div class="p-4 bg-zinc-950/60
+                                rounded-xl border border-zinc-800">
+
+                        <div class="text-lg font-bold text-white metric">
+                            &lt;0.8 ms
+                        </div>
+
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            reported 4096×4096 slicing time per layer
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex flex-wrap gap-2 mt-5">
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        SDFs
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        TPMS
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        WebGL / GLSL
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">
+                        Computational Geometry
+                    </span>
+
+                </div>
+
+
+                <div class="flex flex-wrap gap-2 mt-5">
+
+                    <a
+                        href="https://github.com/shanmithat/implicit-modeling"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2
+                               px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700
+                               text-zinc-200 rounded-lg
+                               border border-zinc-700 transition"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        Repository
+                    </a>
+
+                    <a
+                        href="https://implicitlattice.streamlit.app/?embed=true"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2
+                               px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700
+                               text-zinc-200 rounded-lg
+                               border border-zinc-700 transition"
+                    >
+                        <i class="fa-solid fa-play"></i>
+                        Interactive Demo
+                    </a>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- ADDITIONAL WORK -->
+        <!-- ========================================================= -->
+
+        <section class="space-y-6">
+
+            <div class="border-b border-zinc-800 pb-3">
+
+                <p class="text-xs font-mono uppercase tracking-widest
+                          text-zinc-500 mb-1">
+                    Additional Work
+                </p>
+
+                <h2 class="text-xl font-bold text-white">
+                    Other Engineering & Applied ML Work
+                </h2>
+
+                <p class="text-sm text-zinc-500 mt-2">
+                    Earlier work demonstrating breadth across machine learning,
+                    computer vision, and engineering systems.
+                </p>
+
+            </div>
+
+
+            <div class="glass-card rounded-2xl p-6
+                        border border-zinc-800">
+
+                <div class="flex justify-between items-start
+                            flex-wrap gap-3">
+
+                    <div>
+
+                        <span class="text-xs font-mono
+                                     text-amber-400 uppercase tracking-wider">
+                            Computer Vision & Public Safety
+                        </span>
+
+                        <h3 class="text-xl font-bold text-white mt-1">
+                            Crowd Surge & Trample Origin Detector
+                        </h3>
+
+                    </div>
+
+                    <span
+                        class="px-2.5 py-1 text-xs font-medium
+                               bg-amber-950/70 text-amber-300
+                               border border-amber-800/60 rounded-full"
+                    >
+                        Patent Filed
+                    </span>
+
+                </div>
+
+
+                <p class="text-sm text-zinc-400 leading-relaxed mt-4 max-w-4xl">
+
+                    A computer-vision system using YOLOv5 detection and SORT
+                    tracking to analyse crowd density and motion fields,
+                    with vector-flux and density-gradient analysis for
+                    identifying potential crowd-surge and crush-risk regions.
+
+                </p>
+
+
+                <div class="flex flex-wrap gap-2 mt-4">
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-500">
+                        YOLOv5
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-500">
+                        SORT
+                    </span>
+
+                    <span class="px-2.5 py-1 bg-zinc-900
+                                 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-500">
+                        Computer Vision
+                    </span>
+
+                </div>
+
+
+                <div class="mt-4">
+
+                    <a
+                        href="https://github.com/shanmithat/Hydrangea"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2
+                               px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700
+                               text-zinc-300 rounded-lg
+                               border border-zinc-700 transition"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        Source Repository
+                    </a>
+
+                </div>
+
             </div>
 
         </section>
 
-        <!-- Technical Stack Summary -->
-        <section class="glass-card rounded-2xl p-6 border border-zinc-800 space-y-4">
-            <h2 class="text-lg font-bold text-white flex items-center gap-2">
-                <i class="fa-solid fa-layer-group text-purple-400"></i> Domain Specialization & Stack
-            </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-                <div class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 space-y-1.5">
-                    <span class="font-semibold text-blue-400 block text-sm">Physics-ML & Operators</span>
-                    <p class="text-zinc-400">Fourier Neural Operators (FNOs), Finite-Difference Stencils, PINN Regularization, PDE Surrogates.</p>
-                </div>
-                <div class="p-4 bg-zinc-900/60 rounded-xl border border-zinc-800 space-y-1.5">
-                    <span class="font-semibold text-purple-400 block text-sm">Geometric & HPC Systems</span>
-                    <p class="text-zinc-400">Analytic Signed Distance Functions (SDFs), TPMS Lattices, Mesh Synthesis, C++/CUDA Kernels.</p>
-                </div>
+
+        <!-- ========================================================= -->
+        <!-- TECHNICAL STACK -->
+        <!-- ========================================================= -->
+
+        <section id="skills" class="space-y-6">
+
+            <div class="border-b border-zinc-800 pb-3">
+
+                <p class="text-xs font-mono uppercase tracking-widest
+                          text-purple-400 mb-1">
+                    Technical Foundation
+                </p>
+
+                <h2 class="text-2xl font-bold text-white">
+                    Methods & Tools
+                </h2>
+
             </div>
+
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+
+                <div class="glass-card rounded-2xl p-5">
+
+                    <div class="flex items-center gap-2 mb-3">
+
+                        <i class="fa-solid fa-brain text-blue-400"></i>
+
+                        <h3 class="font-bold text-white">
+                            Scientific ML
+                        </h3>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Physics-Informed Neural Networks, Fourier Neural
+                        Operators, Neural Operators, PDE Surrogates,
+                        PyTorch, CNNs, LSTMs, Transformers.
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-5">
+
+                    <div class="flex items-center gap-2 mb-3">
+
+                        <i class="fa-solid fa-calculator text-purple-400"></i>
+
+                        <h3 class="font-bold text-white">
+                            Numerical Computing
+                        </h3>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Finite-Difference Methods, Finite-Volume Methods,
+                        PDE Modelling, Sparse Linear Algebra, Numerical
+                        Simulation, Computational Mechanics.
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-5">
+
+                    <div class="flex items-center gap-2 mb-3">
+
+                        <i class="fa-solid fa-microchip text-cyan-400"></i>
+
+                        <h3 class="font-bold text-white">
+                            GPU / HPC
+                        </h3>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        C++, CUDA, cuSPARSE, CUB, Unified Memory,
+                        GPU Kernel Development, Parallel Reductions,
+                        GPU Memory Optimization.
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-5">
+
+                    <div class="flex items-center gap-2 mb-3">
+
+                        <i class="fa-solid fa-cube text-violet-400"></i>
+
+                        <h3 class="font-bold text-white">
+                            Computational Engineering
+                        </h3>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        CFD, Heat Transfer, Topology Optimization,
+                        Digital Twins, Computational Geometry,
+                        Signed Distance Fields, TPMS Modelling.
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-5">
+
+                    <div class="flex items-center gap-2 mb-3">
+
+                        <i class="fa-solid fa-code text-emerald-400"></i>
+
+                        <h3 class="font-bold text-white">
+                            Programming
+                        </h3>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Python, C++, MATLAB, TypeScript, JavaScript,
+                        NumPy, SciPy, Pandas, Scikit-learn.
+                    </p>
+
+                </div>
+
+
+                <div class="glass-card rounded-2xl p-5">
+
+                    <div class="flex items-center gap-2 mb-3">
+
+                        <i class="fa-solid fa-toolbox text-amber-400"></i>
+
+                        <h3 class="font-bold text-white">
+                            Development
+                        </h3>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed">
+                        Git, GitHub, Docker, Flask, Streamlit,
+                        WebGL/GLSL, Three.js, Google Colab.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- RESEARCH INTERESTS -->
+        <!-- ========================================================= -->
+
+        <section class="glass-card rounded-2xl p-6 sm:p-7
+                        border border-zinc-800">
+
+            <div class="flex items-center gap-2 mb-5">
+
+                <i class="fa-solid fa-compass text-blue-400"></i>
+
+                <h2 class="text-xl font-bold text-white">
+                    Research Interests
+                </h2>
+
+            </div>
+
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+                        gap-3 text-sm">
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    Scientific Machine Learning
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    AI for Science
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    Physics-Informed Learning
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    Neural Operators
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    PDE Learning & Surrogates
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    Numerical Simulation
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    Computational Mechanics
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    Multiphysics Modelling
+                </div>
+
+                <div class="px-4 py-3 rounded-xl
+                            bg-zinc-900/70 border border-zinc-800">
+                    Accelerated Scientific Computing
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- FOOTER / CONTACT -->
+        <!-- ========================================================= -->
+
+        <section class="text-center pt-4">
+
+            <div class="glass-card rounded-2xl p-7
+                        border border-zinc-800">
+
+                <p class="text-xs font-mono uppercase tracking-widest
+                          text-blue-400 mb-3">
+                    Research Opportunities
+                </p>
+
+                <h2 class="text-2xl font-bold text-white">
+                    Interested in scientific ML,
+                    computational engineering,
+                    and AI for physical systems.
+                </h2>
+
+                <p class="text-sm text-zinc-400
+                          max-w-2xl mx-auto mt-3 leading-relaxed">
+
+                    Currently completing my undergraduate degree and exploring
+                    research opportunities from January 2027 onward, with the
+                    longer-term goal of pursuing research-based postgraduate
+                    study in AI for Science and computational engineering.
+
+                </p>
+
+
+                <div class="flex flex-wrap justify-center gap-3 mt-5">
+
+                    <a
+                        href="mailto:shanmithat3@gmail.com"
+                        class="px-5 py-2.5 text-xs font-semibold
+                               accent-gradient text-white rounded-lg
+                               flex items-center gap-2 shadow-lg"
+                    >
+                        <i class="fa-solid fa-envelope"></i>
+                        Email Me
+                    </a>
+
+                    <a
+                        href="https://github.com/shanmithat"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-5 py-2.5 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700
+                               text-zinc-200 rounded-lg
+                               border border-zinc-700
+                               flex items-center gap-2 transition"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+
+                    <a
+                        href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="px-5 py-2.5 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700
+                               text-zinc-200 rounded-lg
+                               border border-zinc-700
+                               flex items-center gap-2 transition"
+                    >
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        Google Scholar
+                    </a>
+
+                </div>
+
+            </div>
+
         </section>
 
     </main>
 
-    <!-- Floating Contact QR Button -->
-    <button onclick="toggleQRModal()" class="fixed bottom-5 right-5 z-50 p-4 accent-gradient text-white rounded-full shadow-2xl hover:scale-105 transition flex items-center justify-center">
+
+    <!-- ========================================================= -->
+    <!-- Floating Contact Button -->
+    <!-- ========================================================= -->
+
+    <button
+        onclick="toggleQRModal()"
+        class="fixed bottom-5 right-5 z-50 p-4
+               accent-gradient text-white rounded-full
+               shadow-2xl hover:scale-105 transition
+               flex items-center justify-center"
+        aria-label="Open contact card"
+    >
         <i class="fa-solid fa-qrcode text-xl"></i>
     </button>
 
-    <!-- Contact QR & Direct Links Modal -->
-    <div id="qrModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4" onclick="toggleQRModal()">
-        <div class="glass-card max-w-sm w-full p-6 rounded-2xl border border-zinc-700 text-center space-y-5" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
-                <h3 class="font-bold text-white text-base">Contact Shanmitha T</h3>
-                <button onclick="toggleQRModal()" class="text-zinc-400 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-            
-            <!-- QR Code Rendering Box -->
-            <div class="flex justify-center p-3 bg-white rounded-xl shadow-inner inline-block mx-auto">
-                <div id="qrcode"></div>
+
+    <!-- ========================================================= -->
+    <!-- Contact Modal -->
+    <!-- ========================================================= -->
+
+    <div
+        id="qrModal"
+        class="fixed inset-0 z-50 bg-black/80
+               backdrop-blur-md hidden
+               items-center justify-center p-4"
+        onclick="toggleQRModal()"
+    >
+
+        <div
+            class="glass-card max-w-sm w-full p-6
+                   rounded-2xl border border-zinc-700
+                   text-center space-y-5"
+            onclick="event.stopPropagation()"
+        >
+
+            <div class="flex justify-between items-center
+                        border-b border-zinc-800 pb-3">
+
+                <h3 class="font-bold text-white text-base">
+                    Contact Shanmitha T
+                </h3>
+
+                <button
+                    onclick="toggleQRModal()"
+                    class="text-zinc-400 hover:text-white"
+                    aria-label="Close contact modal"
+                >
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+
             </div>
 
-            <p class="text-xs text-zinc-400">Scan to open portfolio or click below to connect directly:</p>
 
-            <!-- Dual Action Contact Buttons -->
-            <div class="space-y-2 pt-1">
-                <a href="https://linkedin.com/in/shanmithat" target="_blank" class="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs rounded-xl flex items-center justify-center gap-2 transition">
-                    <i class="fa-brands fa-linkedin text-sm"></i> Connect on LinkedIn
-                </a>
-                <a href="mailto:shanmithat3@gmail.com" class="w-full py-2.5 px-4 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 font-semibold text-xs rounded-xl border border-zinc-700 flex items-center justify-center gap-2 transition">
-                    <i class="fa-solid fa-envelope text-sm"></i> Send Email (shanmithat3@gmail.com)
-                </a>
+            <div class="flex justify-center">
+
+                <div class="p-3 bg-white rounded-xl shadow-inner">
+
+                    <div id="qrcode"></div>
+
+                </div>
+
             </div>
+
+
+            <p class="text-xs text-zinc-400">
+                Scan to open this portfolio or connect directly below.
+            </p>
+
+
+            <div class="space-y-2">
+
+                <a
+                    href="https://www.linkedin.com/in/shanmithat/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full py-2.5 px-4
+                           bg-blue-600 hover:bg-blue-500
+                           text-white font-semibold text-xs
+                           rounded-xl flex items-center
+                           justify-center gap-2 transition"
+                >
+                    <i class="fa-brands fa-linkedin"></i>
+                    Connect on LinkedIn
+                </a>
+
+                <a
+                    href="mailto:shanmithat3@gmail.com"
+                    class="w-full py-2.5 px-4
+                           bg-zinc-800 hover:bg-zinc-700
+                           text-zinc-100 font-semibold text-xs
+                           rounded-xl border border-zinc-700
+                           flex items-center justify-center gap-2 transition"
+                >
+                    <i class="fa-solid fa-envelope"></i>
+                    Send Email
+                </a>
+
+                <a
+                    href="https://github.com/shanmithat"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="w-full py-2.5 px-4
+                           bg-zinc-800 hover:bg-zinc-700
+                           text-zinc-100 font-semibold text-xs
+                           rounded-xl border border-zinc-700
+                           flex items-center justify-center gap-2 transition"
+                >
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+
+            </div>
+
         </div>
+
     </div>
 
-    <!-- JS script -->
+
+    <!-- ========================================================= -->
+    <!-- JavaScript -->
+    <!-- ========================================================= -->
+
     <script>
+
         function toggleQRModal() {
-            const modal = document.getElementById('qrModal');
-            modal.classList.toggle('hidden');
+
+            const modal = document.getElementById("qrModal");
+
+            modal.classList.toggle("hidden");
+            modal.classList.toggle("flex");
+
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            new QRCode(document.getElementById("qrcode"), {
-                text: "https://shanmithat.github.io/",
-                width: 160,
-                height: 160,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
+
+        window.addEventListener("DOMContentLoaded", () => {
+
+            new QRCode(
+                document.getElementById("qrcode"),
+                {
+                    text: "https://shanmithat.github.io/",
+                    width: 160,
+                    height: 160,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                }
+            );
+
         });
+
     </script>
+
 </body>
 </html>
