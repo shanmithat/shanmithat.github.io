@@ -120,6 +120,14 @@
                 </a>
 
                 <a
+                    href="#publications"
+                    class="px-3 py-1.5 text-xs font-semibold
+                           bg-zinc-800/80 hover:bg-zinc-700
+                           rounded-lg text-zinc-200 transition">
+                    Publications
+                </a>
+
+                <a
                     href="#skills"
                     class="px-3 py-1.5 text-xs font-semibold
                            bg-zinc-800/80 hover:bg-zinc-700
@@ -190,8 +198,9 @@
                 <span class="text-zinc-200">numerical simulation</span>,
                 and <span class="text-zinc-200">accelerated scientific computing</span>.
                 My current work focuses on physics-informed neural operators,
-                PDE-based surrogate modelling, and computational methods for
-                engineering systems.
+                PDE-based surrogate modelling, computational mechanics, and
+                accelerated scientific computing, with projects spanning transport,
+                manufacturing, biomechanics, and computational geometry.
             </p>
 
             <div class="flex flex-wrap gap-3 pt-1">
@@ -402,9 +411,7 @@
                             flex-wrap gap-3">
 
                     <div>
-
-                        <span class="text-xs font-mono
-                                     text-blue-400 font-semibold
+                        <span class="text-xs font-mono text-blue-400 font-semibold
                                      uppercase tracking-wider">
                             Scientific Machine Learning · Active Research
                         </span>
@@ -414,10 +421,9 @@
                         </h3>
 
                         <p class="text-sm text-zinc-500 mt-1">
-                            Physics-Informed Fourier Neural Operator
-                            for PDE-Based Precipitation-Transport Modelling
+                            Physics-Informed Fourier Neural Operator for 2D
+                            Advection–Diffusion–Decay Simulation
                         </p>
-
                     </div>
 
                     <span
@@ -425,189 +431,124 @@
                                bg-blue-950/70 text-blue-300
                                border border-blue-800/60 rounded-full"
                     >
-                        Research / Tool Submission
+                        Research / Manuscript
                     </span>
-
                 </div>
-
 
                 <p class="text-zinc-300 text-sm sm:text-base
                           leading-relaxed mt-5 max-w-4xl">
 
-                    A physics-informed Fourier Neural Operator framework for
-                    PDE-based precipitation-transport modelling. The model
-                    incorporates a finite-difference discretization of the
-                    2D advection-diffusion-decay equation directly into the
-                    training objective to investigate whether physical
-                    constraints improve prediction and PDE consistency.
+                    A lightweight Physics-Informed Fourier Neural Operator (PI-FNO)
+                    for learning 24-step trajectories of a 2D advection–diffusion–decay
+                    system on a 32 × 32 grid. The updated pipeline combines a
+                    reproducible synthetic transport benchmark, finite-difference PDE
+                    residuals, a data-only FNO baseline, an explicit discrete reference
+                    solver, controlled ablations, and a live weather-data-driven
+                    visualization layer.
 
                 </p>
 
-
-                <!-- Research questions -->
-
                 <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
 
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-xs font-mono text-blue-400 mb-2">
                             METHOD
                         </div>
-
                         <p class="text-xs text-zinc-400 leading-relaxed">
-                            Fourier Neural Operator + finite-difference
-                            physics-informed loss + PDE residual evaluation.
+                            Compact 2D FNO + finite-difference physics residual +
+                            discrete transport reference + controlled training-size
+                            and physics-weight ablations.
                         </p>
-
                     </div>
 
-
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-xs font-mono text-blue-400 mb-2">
-                            EXPERIMENTS
+                            LIVE PIPELINE
                         </div>
-
                         <p class="text-xs text-zinc-400 leading-relaxed">
-                            Data-only FNO comparison, discrete reference,
-                            training-data scaling, and physics-weight ablations.
+                            Localized weather observation → synthetic spatial support →
+                            IDW field construction → pretrained PI-FNO → trajectory and
+                            residual visualization.
                         </p>
-
                     </div>
-
                 </div>
 
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
 
-                <!-- Quantitative evidence -->
-
-                <div class="grid grid-cols-2 md:grid-cols-4
-                            gap-3 mt-4">
-
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-lg font-bold text-white metric">
-                            7.5%
+                            4.2%
                         </div>
-
                         <div class="text-[11px] text-zinc-500 mt-1">
-                            lower MSE at reported evaluation scale
+                            lower prediction MSE at 1,000-trajectory evaluation
                         </div>
-
                     </div>
 
-
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-lg font-bold text-white metric">
-                            39.5%
+                            36.6%
                         </div>
-
                         <div class="text-[11px] text-zinc-500 mt-1">
-                            lower PDE residual at reported evaluation scale
+                            lower PDE residual at 1,000-trajectory evaluation
                         </div>
-
                     </div>
 
-
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-lg font-bold text-white metric">
-                            1,000
+                            106,264
                         </div>
-
                         <div class="text-[11px] text-zinc-500 mt-1">
-                            evaluation trajectories in reported experiment
+                            trainable parameters in the compact FNO
                         </div>
-
                     </div>
 
-
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-lg font-bold text-white">
-                            Ablations
+                            24 steps
                         </div>
-
                         <div class="text-[11px] text-zinc-500 mt-1">
-                            training size + physics weight
+                            120-minute prediction horizon
                         </div>
-
                     </div>
 
                 </div>
 
-
-                <div class="mt-5 p-4 rounded-xl
-                            border border-zinc-800
-                            bg-zinc-950/40">
-
+                <div class="mt-5 p-4 rounded-xl border border-zinc-800 bg-zinc-950/40">
                     <div class="text-xs font-mono text-zinc-500 mb-2">
-                        SCIENTIFIC NOTE
+                        SCIENTIFIC SCOPE
                     </div>
-
                     <p class="text-xs text-zinc-400 leading-relaxed">
-                        The current benchmark is intended to study
-                        transport-learning behaviour rather than serve as
-                        an operational meteorological forecasting system.
-                        Current experiments also expose the computational
-                        trade-off between neural-operator inference and the
-                        discrete reference solver at small spatial resolution.
+                        AetherCast is a research prototype rather than an operational
+                        meteorological forecasting system. The benchmark uses controlled
+                        synthetic transport dynamics, while the live visualization uses
+                        a localized weather observation with explicitly synthetic support
+                        points. Current CPU measurements do not claim a neural speed
+                        advantage over the simple discrete reference at this grid size.
                     </p>
-
                 </div>
 
-
                 <div class="flex flex-wrap gap-2 mt-5">
-
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        Fourier Neural Operators
-                    </span>
-
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        Physics-Informed Learning
-                    </span>
-
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        PDE Surrogates
-                    </span>
-
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        PyTorch
-                    </span>
-
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        Numerical Methods
-                    </span>
-
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Fourier Neural Operators</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Physics-Informed Learning</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">PDE Surrogates</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">PyTorch</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Numerical Methods</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Weather Data</span>
                 </div>
 
-
                 <div class="flex flex-wrap gap-2 mt-5">
-
                     <a
                         href="https://github.com/shanmithat/AetherCast"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2
-                               px-4 py-2 text-xs font-semibold
-                               bg-zinc-800 hover:bg-zinc-700
-                               text-zinc-200 rounded-lg
+                        class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg
                                border border-zinc-700 transition"
                     >
                         <i class="fa-brands fa-github"></i>
@@ -618,14 +559,24 @@
                         href="https://shanmithat-aethercast.hf.space"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="inline-flex items-center gap-2
-                               px-4 py-2 text-xs font-semibold
+                        class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold
                                accent-gradient text-white rounded-lg"
                     >
                         <i class="fa-solid fa-play"></i>
-                        Interactive Demo
+                        Live Demo
                     </a>
 
+                    <a
+                        href="https://huggingface.co/spaces/shanmithat/aethercast"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg
+                               border border-zinc-700 transition"
+                    >
+                        <i class="fa-solid fa-cloud"></i>
+                        Hugging Face Space
+                    </a>
                 </div>
 
             </article>
@@ -641,15 +592,12 @@
                        hover:border-purple-500/60"
             >
 
-                <div class="flex justify-between items-start
-                            flex-wrap gap-3">
+                <div class="flex justify-between items-start flex-wrap gap-3">
 
                     <div>
-
-                        <span class="text-xs font-mono
-                                     text-purple-400 font-semibold
+                        <span class="text-xs font-mono text-purple-400 font-semibold
                                      uppercase tracking-wider">
-                            Scientific Machine Learning · Active Research
+                            Scientific Machine Learning · Completed
                         </span>
 
                         <h3 class="text-3xl font-bold text-white mt-1">
@@ -657,10 +605,9 @@
                         </h3>
 
                         <p class="text-sm text-zinc-500 mt-1">
-                            Physics-Informed Fourier Neural Operators
-                            for Micro-Milling Wear and Surface Integrity
+                            Physics-Informed Neural Network Framework for
+                            Micro-Scale Wear, Surface Degradation & Contact Stress
                         </p>
-
                     </div>
 
                     <span
@@ -668,84 +615,134 @@
                                bg-purple-950/70 text-purple-300
                                border border-purple-800/60 rounded-full"
                     >
-                        In Development
+                        Completed · Deployed
                     </span>
 
                 </div>
 
+                <p class="text-zinc-300 text-sm sm:text-base leading-relaxed mt-5 max-w-4xl">
 
-                <p class="text-zinc-300 text-sm sm:text-base
-                          leading-relaxed mt-5 max-w-4xl">
-
-                    A physics-informed Fourier Neural Operator framework for
-                    predicting tool flank wear and surface integrity in
-                    micro-milling operations. The project explores how
-                    physical structure can be incorporated into operator
-                    learning for evolving manufacturing processes.
+                    A physics-informed neural framework for coupled micro-scale abrasive
+                    wear, surface-profile degradation, and subsurface contact-stress
+                    modelling. The system combines a kinematic wear law, an elastic
+                    half-space biharmonic formulation, Random Fourier Features,
+                    adaptive SoftAdapt weighting, NASA/UC Berkeley milling-data
+                    calibration, and browser-side ONNX inference.
 
                 </p>
 
+                <div class="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
 
-                <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-3">
-
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-xs font-mono text-purple-400 mb-2">
-                            RESEARCH FOCUS
+                            PHYSICS
                         </div>
-
                         <p class="text-xs text-zinc-400 leading-relaxed">
-                            Physics-informed operator learning for evolving
-                            tool wear and machining behaviour.
+                            Archard-type wear evolution + biharmonic elastic
+                            half-space stress field + contact boundary conditions.
                         </p>
-
                     </div>
 
-
-                    <div class="p-4 bg-zinc-950/60
-                                rounded-xl border border-zinc-800">
-
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
                         <div class="text-xs font-mono text-purple-400 mb-2">
-                            GOAL
+                            MODEL
                         </div>
-
                         <p class="text-xs text-zinc-400 leading-relaxed">
-                            Investigating physical consistency, generalization,
-                            and surrogate modelling across machining conditions.
+                            Decoupled sub-networks + Random Fourier Features +
+                            SoftAdapt multi-objective loss balancing.
                         </p>
+                    </div>
 
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
+                        <div class="text-xs font-mono text-purple-400 mb-2">
+                            DEPLOYMENT
+                        </div>
+                        <p class="text-xs text-zinc-400 leading-relaxed">
+                            PyTorch → ONNX export → zero-backend browser inference
+                            through ONNX Runtime Web and an interactive dashboard.
+                        </p>
                     </div>
 
                 </div>
 
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
+                        <div class="text-lg font-bold text-white metric">
+                            20%
+                        </div>
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            fewer backpropagation graph traversals via Laplacian-of-Laplacian
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
+                        <div class="text-lg font-bold text-white metric">
+                            &lt; 3×10⁻⁵
+                        </div>
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            PyTorch/ONNX numerical parity threshold
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
+                        <div class="text-lg font-bold text-white">
+                            NASA
+                        </div>
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            milling-data calibration pipeline
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-zinc-950/60 rounded-xl border border-zinc-800">
+                        <div class="text-lg font-bold text-white">
+                            Browser
+                        </div>
+                        <div class="text-[11px] text-zinc-500 mt-1">
+                            zero-backend interactive inference
+                        </div>
+                    </div>
+
+                </div>
 
                 <div class="flex flex-wrap gap-2 mt-5">
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">PINNs</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Wear Modelling</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Contact Mechanics</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">ONNX</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Micro-Milling</span>
+                    <span class="px-2.5 py-1 bg-zinc-900 border border-zinc-800 rounded-md
+                                 text-xs font-mono text-zinc-400">Scientific Computing</span>
+                </div>
 
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        Fourier Neural Operators
-                    </span>
+                <div class="flex flex-wrap gap-2 mt-5">
+                    <a
+                        href="https://github.com/shanmithat/MicroWear-PINN"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold
+                               bg-zinc-800 hover:bg-zinc-700 text-zinc-200 rounded-lg
+                               border border-zinc-700 transition"
+                    >
+                        <i class="fa-brands fa-github"></i>
+                        Research Repository
+                    </a>
 
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        PINNs
-                    </span>
-
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        Manufacturing
-                    </span>
-
-                    <span class="px-2.5 py-1 bg-zinc-900
-                                 border border-zinc-800 rounded-md
-                                 text-xs font-mono text-zinc-400">
-                        Wear Modelling
-                    </span>
-
+                    <a
+                        href="https://shanmithat.github.io/MicroWear-PINN/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold
+                               accent-gradient text-white rounded-lg"
+                    >
+                        <i class="fa-solid fa-play"></i>
+                        Interactive Deployment
+                    </a>
                 </div>
 
             </article>
@@ -1282,6 +1279,278 @@
 
 
         <!-- ========================================================= -->
+        <!-- PUBLICATIONS -->
+        <!-- ========================================================= -->
+
+        <section id="publications" class="space-y-6">
+
+            <div class="border-b border-zinc-800 pb-3">
+                <p class="text-xs font-mono uppercase tracking-widest
+                          text-emerald-400 mb-1">
+                    Publications
+                </p>
+
+                <h2 class="text-2xl font-bold text-white">
+                    Research Publications
+                </h2>
+
+                <p class="text-sm text-zinc-500 mt-2">
+                    Peer-reviewed publications and current research manuscripts,
+                    spanning multilingual NLP and scientific machine learning.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+
+                <!-- Publication 1 -->
+                <article class="glass-card rounded-2xl p-6 border border-emerald-900/40">
+
+                    <div class="flex justify-between items-start gap-4 flex-wrap">
+
+                        <div>
+                            <span class="text-xs font-mono text-emerald-400
+                                         uppercase tracking-wider">
+                                Peer-Reviewed Publication · 2025
+                            </span>
+
+                            <h3 class="text-xl font-bold text-white mt-1">
+                                Hydrangea @ DravidianLanTech2025:
+                                Abusive Language Identification from Tamil and
+                                Malayalam Text using Transformer Models
+                            </h3>
+
+                            <p class="text-sm text-zinc-500 mt-2">
+                                Shanmitha Thirumoorthy · Thenmozhi Durairaj ·
+                                Ratnavel Rajalakshmi
+                            </p>
+                        </div>
+
+                        <span class="px-2.5 py-1 text-xs font-medium
+                                     bg-emerald-950/70 text-emerald-300
+                                     border border-emerald-800/60 rounded-full">
+                            Published
+                        </span>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed mt-4 max-w-4xl">
+                        Proceedings of the Fifth Workshop on Speech, Vision, and
+                        Language Technologies for Dravidian Languages, 2025,
+                        pages 580–584. The work evaluates BERT, XLM-RoBERTa,
+                        and DistilBERT for abusive-language identification in
+                        Tamil and Malayalam social-media text.
+                    </p>
+
+                    <p class="text-xs text-zinc-500 mt-3">
+                        DOI:
+                        <span class="text-zinc-300">
+                            10.18653/v1/2025.dravidianlangtech-1.100
+                        </span>
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-4">
+
+                        <a
+                            href="https://aclanthology.org/2025.dravidianlangtech-1.100/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold accent-gradient
+                                   text-white rounded-lg"
+                        >
+                            <i class="fa-solid fa-file-lines"></i>
+                            Read Paper
+                        </a>
+
+                        <a
+                            href="https://doi.org/10.18653/v1/2025.dravidianlangtech-1.100"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold bg-zinc-800
+                                   hover:bg-zinc-700 text-zinc-200 rounded-lg
+                                   border border-zinc-700 transition"
+                        >
+                            <i class="fa-solid fa-link"></i>
+                            DOI
+                        </a>
+
+                        <a
+                            href="https://github.com/shanmithat/Hydrangea"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold bg-zinc-800
+                                   hover:bg-zinc-700 text-zinc-200 rounded-lg
+                                   border border-zinc-700 transition"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            Code Repository
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Publication 2 -->
+                <article class="glass-card rounded-2xl p-6 border border-purple-900/40">
+
+                    <div class="flex justify-between items-start gap-4 flex-wrap">
+
+                        <div>
+                            <span class="text-xs font-mono text-purple-400
+                                         uppercase tracking-wider">
+                                Peer-Reviewed Workshop Paper · 2023
+                            </span>
+
+                            <h3 class="text-xl font-bold text-white mt-1">
+                                A Few Shot Learning to Detect Sarcasm in Tamil
+                                and Malayalam Code Mixed Data
+                            </h3>
+
+                            <p class="text-sm text-zinc-500 mt-2">
+                                Shanmitha Thirumoorthy · Manavh N. R ·
+                                Durairaj Thenmozhi · Ratnavel Rajalakshmi
+                            </p>
+                        </div>
+
+                        <span class="px-2.5 py-1 text-xs font-medium
+                                     bg-purple-950/70 text-purple-300
+                                     border border-purple-800/60 rounded-full">
+                            Published
+                        </span>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed mt-4 max-w-4xl">
+                        Forum for Information Retrieval Evaluation (FIRE),
+                        India, 2023. Published in CEUR Workshop Proceedings,
+                        Volume 3681, pages 299–305. The paper investigates
+                        few-shot sarcasm identification for Tamil-English and
+                        Malayalam-English code-mixed data.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-4">
+
+                        <a
+                            href="https://ceur-ws.org/Vol-3681/T5-8.pdf"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold accent-gradient
+                                   text-white rounded-lg"
+                        >
+                            <i class="fa-solid fa-file-lines"></i>
+                            Read Paper
+                        </a>
+
+                        <a
+                            href="https://ceur-ws.org/Vol-3681/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold bg-zinc-800
+                                   hover:bg-zinc-700 text-zinc-200 rounded-lg
+                                   border border-zinc-700 transition"
+                        >
+                            <i class="fa-solid fa-book"></i>
+                            FIRE 2023 Proceedings
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Publication 3 -->
+                <article class="glass-card rounded-2xl p-6 border border-blue-900/40">
+
+                    <div class="flex justify-between items-start gap-4 flex-wrap">
+
+                        <div>
+                            <span class="text-xs font-mono text-blue-400
+                                         uppercase tracking-wider">
+                                Manuscript in Preparation · 2026
+                            </span>
+
+                            <h3 class="text-xl font-bold text-white mt-1">
+                                AetherCast: A Lightweight Physics-Informed
+                                Fourier Neural Operator System for Weather Nowcasting
+                            </h3>
+
+                            <p class="text-sm text-zinc-500 mt-2">
+                                Shanmitha Thirumoorthy
+                            </p>
+                        </div>
+
+                        <span class="px-2.5 py-1 text-xs font-medium
+                                     bg-blue-950/70 text-blue-300
+                                     border border-blue-800/60 rounded-full">
+                            In Preparation
+                        </span>
+
+                    </div>
+
+                    <p class="text-sm text-zinc-400 leading-relaxed mt-4 max-w-4xl">
+                        A lightweight Physics-Informed Fourier Neural Operator
+                        system for learning 2D advection–diffusion–decay
+                        trajectories, combining PDE residual constraints,
+                        controlled ablations, a discrete reference solver,
+                        and an interactive weather-data-driven visualization.
+                        Manuscript currently in preparation for workshop submission;
+                        no DOI has been assigned.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 mt-4">
+
+                        <a
+                            href="https://github.com/shanmithat/AetherCast"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold bg-zinc-800
+                                   hover:bg-zinc-700 text-zinc-200 rounded-lg
+                                   border border-zinc-700 transition"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                            Research Repository
+                        </a>
+
+                        <a
+                            href="https://shanmithat-aethercast.hf.space"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold accent-gradient
+                                   text-white rounded-lg"
+                        >
+                            <i class="fa-solid fa-play"></i>
+                            Live Demo
+                        </a>
+
+                        <a
+                            href="https://huggingface.co/spaces/shanmithat/aethercast"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 px-4 py-2
+                                   text-xs font-semibold bg-zinc-800
+                                   hover:bg-zinc-700 text-zinc-200 rounded-lg
+                                   border border-zinc-700 transition"
+                        >
+                            <i class="fa-solid fa-cloud"></i>
+                            Hugging Face Space
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+        </section>
+
+
+        <!-- ========================================================= -->
         <!-- TECHNICAL STACK -->
         <!-- ========================================================= -->
 
@@ -1518,9 +1787,8 @@
                 </p>
 
                 <h2 class="text-2xl font-bold text-white">
-                    Interested in scientific ML,
-                    computational engineering,
-                    and AI for physical systems.
+                    Building scientific ML systems for
+                    physical and engineering problems.
                 </h2>
 
                 <p class="text-sm text-zinc-400
