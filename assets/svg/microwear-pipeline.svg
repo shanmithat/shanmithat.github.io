@@ -1,69 +1,81 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 245" width="100%" height="100%" fill="none">
   <defs>
     <linearGradient id="purpleCosmos" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#6366f1" />
-      <stop offset="100%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
+
+    <!-- Subsurface Hertzian Contact Stress Heatmap Background -->
+    <radialGradient id="stressHeatmapBg" cx="35%" cy="20%" r="75%">
+      <stop offset="0%" stop-color="rgba(129, 140, 248, 0.22)" />
+      <stop offset="35%" stop-color="rgba(14, 165, 233, 0.14)" />
+      <stop offset="70%" stop-color="rgba(244, 63, 94, 0.08)" />
+      <stop offset="100%" stop-color="rgba(6, 10, 21, 0)" />
+    </radialGradient>
+
     <filter id="purpleGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#818cf8" flood-opacity="0.18"/>
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#818cf8" flood-opacity="0.22"/>
     </filter>
   </defs>
 
-  <rect width="820" height="240" rx="12" fill="#080d1a" stroke="#1e293b" stroke-width="1.5"/>
+  <!-- Container Base with Subsurface Stress Heatmap -->
+  <rect width="820" height="245" rx="12" fill="#060a16" stroke="#1e293b" stroke-width="1.5"/>
+  <rect width="820" height="245" rx="12" fill="url(#stressHeatmapBg)"/>
 
   <!-- Collocation & Input -->
   <g transform="translate(25, 25)">
-    <rect width="145" height="155" rx="8" fill="#0d1527" stroke="#1e2f4d" stroke-width="1.5"/>
-    <rect width="145" height="28" rx="8" fill="#141f36"/>
-    <text x="72" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">INPUT & SAMPLING</text>
+    <rect width="145" height="160" rx="8" fill="#0b1222" stroke="#1e2f4d" stroke-width="1.5"/>
+    <rect width="145" height="28" rx="8" fill="#131d35"/>
+    <text x="72" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">INPUT &amp; SAMPLING</text>
     <text x="72" y="58" font-family="'DM Mono', monospace" font-size="12" font-weight="600" fill="#a5b4fc" text-anchor="middle">(x, y, t)</text>
     <text x="72" y="78" font-family="'Inter', sans-serif" font-size="9.5" fill="#94a3b8" text-anchor="middle">Sobol Quasi-Monte Carlo</text>
     <text x="72" y="96" font-family="'Inter', sans-serif" font-size="9.5" fill="#94a3b8" text-anchor="middle">Collocation Points</text>
     
-    <rect x="15" y="115" width="115" height="28" rx="4" fill="#1e1b4b" stroke="#4338ca"/>
-    <text x="72" y="133" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#c7d2fe" text-anchor="middle">RFF Embeddings γ(x)</text>
+    <rect x="15" y="115" width="115" height="30" rx="4" fill="#1e1b4b" stroke="#4338ca"/>
+    <text x="72" y="134" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#c7d2fe" text-anchor="middle">RFF Embeddings γ(x)</text>
   </g>
 
   <!-- Arrow -->
-  <path d="M 180 102 L 210 102" stroke="#818cf8" stroke-width="2"/>
-  <polygon points="208,98 216,102 208,106" fill="#818cf8"/>
+  <path d="M 180 105 L 210 105" stroke="#818cf8" stroke-width="2"/>
+  <polygon points="208,101 216,105 208,109" fill="#818cf8"/>
 
   <!-- Decoupled Sub-networks -->
   <g transform="translate(225, 20)" filter="url(#purpleGlow)">
-    <rect width="215" height="165" rx="8" fill="#0d1527" stroke="#6366f1" stroke-width="2"/>
+    <rect width="215" height="170" rx="8" fill="#0b1222" stroke="#6366f1" stroke-width="2"/>
     <rect width="215" height="28" rx="8" fill="url(#purpleCosmos)"/>
     <text x="107" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">DECOUPLED COORDINATE NETS</text>
 
     <!-- Subnet 1: Wear Profile -->
-    <rect x="15" y="40" width="185" height="50" rx="6" fill="#141f36" stroke="#1e2f4d"/>
+    <rect x="15" y="40" width="185" height="52" rx="6" fill="#121e36" stroke="#1e2f4d"/>
     <text x="107" y="59" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#a5b4fc" text-anchor="middle">Surface Kinematic Net</text>
-    <text x="107" y="76" font-family="'DM Mono', monospace" font-size="9.5" fill="#e2e8f0" text-anchor="middle">h(x,t) · Evolving Profile</text>
+    <text x="107" y="77" font-family="'DM Mono', monospace" font-size="9.5" fill="#e2e8f0" text-anchor="middle">h(x,t) · Evolving Profile</text>
 
     <!-- Subnet 2: Stress Field -->
-    <rect x="15" y="100" width="185" height="50" rx="6" fill="#141f36" stroke="#1e2f4d"/>
-    <text x="107" y="119" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">Subsurface Stress Net</text>
-    <text x="107" y="136" font-family="'DM Mono', monospace" font-size="9.5" fill="#e2e8f0" text-anchor="middle">Φ(x,y) · Airy Potential</text>
+    <rect x="15" y="102" width="185" height="52" rx="6" fill="#121e36" stroke="#1e2f4d"/>
+    <text x="107" y="121" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">Subsurface Stress Net</text>
+    <text x="107" y="139" font-family="'DM Mono', monospace" font-size="9.5" fill="#e2e8f0" text-anchor="middle">Φ(x,y) · Airy Potential</text>
   </g>
 
   <!-- Arrow -->
-  <path d="M 450 102 L 480 102" stroke="#38bdf8" stroke-width="2"/>
-  <polygon points="478,98 486,102 478,106" fill="#38bdf8"/>
+  <path d="M 450 105 L 480 105" stroke="#38bdf8" stroke-width="2"/>
+  <polygon points="478,101 486,105 478,109" fill="#38bdf8"/>
 
   <!-- Mechanics Constraints & SoftAdapt -->
   <g transform="translate(495, 20)">
-    <rect width="295" height="165" rx="8" fill="#0d1527" stroke="#0ea5e9" stroke-width="1.5"/>
-    <rect width="295" height="28" rx="8" fill="#141f36"/>
-    <text x="147" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">PHYSICS LOSS & BALANCING</text>
+    <rect width="295" height="170" rx="8" fill="#0b1222" stroke="#0ea5e9" stroke-width="1.5"/>
+    <rect width="295" height="28" rx="8" fill="#131d35"/>
+    <text x="147" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">PHYSICS LOSS &amp; BALANCING</text>
 
-    <text x="20" y="55" font-family="'DM Mono', monospace" font-size="10" fill="#34d399">• Archard Kinetics: ∂h/∂t = k_w · p(x) · v</text>
-    <text x="20" y="78" font-family="'DM Mono', monospace" font-size="10" fill="#38bdf8">• Biharmonic Elasticity: ∇⁴Φ = 0</text>
-    <text x="20" y="101" font-family="'DM Mono', monospace" font-size="10" fill="#a5b4fc">• Traction Boundary: σ_yy(x,0) = -p(x)</text>
+    <text x="20" y="56" font-family="'DM Mono', monospace" font-size="10" fill="#34d399">• Archard Kinetics: ∂h/∂t = k_w · p(x) · v</text>
+    <text x="20" y="79" font-family="'DM Mono', monospace" font-size="10" fill="#38bdf8">• Biharmonic Elasticity: ∇⁴Φ = 0</text>
+    <text x="20" y="102" font-family="'DM Mono', monospace" font-size="10" fill="#a5b4fc">• Traction Boundary: σ_yy(x,0) = -p(x)</text>
 
-    <rect x="15" y="118" width="265" height="34" rx="4" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.35)"/>
-    <text x="147" y="139" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#34d399" text-anchor="middle">SoftAdapt Balancing + AdamW/L-BFGS</text>
+    <rect x="15" y="120" width="265" height="36" rx="4" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.35)"/>
+    <text x="147" y="142" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#34d399" text-anchor="middle">SoftAdapt Balancing + AdamW/L-BFGS</text>
   </g>
 
   <!-- Footer metadata -->
-  <rect x="0" y="208" width="820" height="32" fill="#050812" stroke="#1e293b" stroke-width="1"/>
-  <text x="25" y="228" font-family="'DM Mono', monospace" font-size="10.5" fill="#94a3b8">VERIFICATION: 2/2 AUTOGRAD TESTS PASS · &lt;3×10⁻⁵ ONNX NUMERICAL PARITY · ZERO-BACKEND WEB DEPLOYMENT</text>
+  <rect x="0" y="213" width="820" height="32" fill="#040710" stroke="#1e293b" stroke-width="1"/>
+  <text x="25" y="233" font-family="'DM Mono', monospace" font-size="10" fill="#94a3b8">VERIFICATION: 2/2 AUTOGRAD TESTS PASS · &lt;3×10⁻⁵ ONNX NUMERICAL PARITY · ZERO-BACKEND WEB DEPLOYMENT</text>
 </svg>

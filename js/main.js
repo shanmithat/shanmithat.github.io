@@ -92,23 +92,41 @@
       mouse.y += (mouse.targetY - mouse.y) * 0.05;
       phase += 0.008;
 
-      // Draw subtle cosmic / harmonic wave lines (PDE transport wavelets)
+      // Ideological AetherCast Atmospheric Transport Plume around Cursor / Center
+      const plumeGrad = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 240);
+      plumeGrad.addColorStop(0, 'rgba(244, 63, 94, 0.14)');    // Thermal plasma core
+      plumeGrad.addColorStop(0.25, 'rgba(245, 158, 11, 0.10)'); // Amber transition
+      plumeGrad.addColorStop(0.55, 'rgba(6, 182, 212, 0.08)');  // Cyan dispersion
+      plumeGrad.addColorStop(0.85, 'rgba(2, 132, 199, 0.04)');  // Deep azure front
+      plumeGrad.addColorStop(1.0, 'rgba(4, 7, 17, 0)');
+      ctx.fillStyle = plumeGrad;
+      ctx.fillRect(0, 0, width, height);
+
+      // Ideological Transport Colormap Streamlines (Advection-Diffusion Wavelets)
       const waveLayers = [
-        { amp: 18, freq: 0.004, speed: 1.0, color: 'rgba(56, 189, 248, 0.14)' },
-        { amp: 26, freq: 0.003, speed: 0.7, color: 'rgba(6, 182, 212, 0.11)' },
-        { amp: 14, freq: 0.006, speed: 1.3, color: 'rgba(168, 85, 247, 0.09)' }
+        { amp: 22, freq: 0.0035, speed: 1.0, width: 2.0 },
+        { amp: 30, freq: 0.0025, speed: 0.7, width: 1.5 },
+        { amp: 16, freq: 0.0055, speed: 1.4, width: 1.2 }
       ];
+
+      // Multi-stop continuous scientific transport colormap across domain width
+      const waveGrad = ctx.createLinearGradient(0, 0, width, 0);
+      waveGrad.addColorStop(0.0, 'rgba(2, 132, 199, 0.20)');   // Deep ocean blue
+      waveGrad.addColorStop(0.25, 'rgba(6, 182, 212, 0.32)');  // Electric cyan
+      waveGrad.addColorStop(0.52, 'rgba(16, 185, 129, 0.26)'); // Emerald
+      waveGrad.addColorStop(0.78, 'rgba(245, 158, 11, 0.30)'); // Amber
+      waveGrad.addColorStop(1.0, 'rgba(244, 63, 94, 0.24)');   // Radiant coral
 
       waveLayers.forEach((w, layerIdx) => {
         ctx.beginPath();
-        ctx.strokeStyle = w.color;
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = waveGrad;
+        ctx.lineWidth = w.width;
 
-        for (let x = 0; x <= width; x += 8) {
+        for (let x = 0; x <= width; x += 6) {
           const distToMouse = Math.abs(x - mouse.x);
-          const mouseDisplacement = distToMouse < 220 ? Math.cos((distToMouse / 220) * (Math.PI / 2)) * 14 : 0;
+          const mouseDisplacement = distToMouse < 240 ? Math.cos((distToMouse / 240) * (Math.PI / 2)) * 16 : 0;
           const y = (height * 0.52) + 
-                    Math.sin(x * w.freq + phase * w.speed + layerIdx) * w.amp + 
+                    Math.sin(x * w.freq + phase * w.speed + layerIdx * 1.5) * w.amp + 
                     mouseDisplacement;
           if (x === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
@@ -116,7 +134,7 @@
         ctx.stroke();
       });
 
-      // Update & render starlight constellation nodes
+      // Update & render scalar tracer particles colored by spatial transport colormap
       for (let i = 0; i < particles.length; i++) {
         const p = particles[i];
         p.x += p.vx;
@@ -127,9 +145,17 @@
         if (p.y < 0) p.y = height;
         if (p.y > height) p.y = 0;
 
+        // Dynamic scalar colormap based on normalized horizontal domain position
+        const normX = p.x / width;
+        let pColor;
+        if (normX < 0.3) pColor = `rgba(56, 189, 248, ${p.alpha * 1.3})`;       // Cyan
+        else if (normX < 0.6) pColor = `rgba(52, 211, 153, ${p.alpha * 1.3})`;  // Emerald
+        else if (normX < 0.85) pColor = `rgba(251, 191, 36, ${p.alpha * 1.3})`; // Amber
+        else pColor = `rgba(244, 63, 94, ${p.alpha * 1.3})`;                    // Coral
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha * 1.2})`;
+        ctx.fillStyle = pColor;
         ctx.fill();
 
         // Connect nearby points to form subtle computational lattice mesh
@@ -139,9 +165,9 @@
           const dy = p.y - p2.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 90) {
+          if (dist < 85) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(56, 189, 248, ${(1 - dist / 90) * 0.2})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${(1 - dist / 85) * 0.18})`;
             ctx.lineWidth = 0.75;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);

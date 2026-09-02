@@ -1,100 +1,278 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" width="100%" height="100%" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 365" width="100%" height="100%" fill="none">
   <defs>
-    <linearGradient id="spaceHeader" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0284c7" />
-      <stop offset="100%" stop-color="#0369a1" />
+    <!-- Scientific Heatmap Gradient: Ideological transport colormap from deep void to plasma core -->
+    <linearGradient id="heatmapColormap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e1b4b" />
+      <stop offset="20%" stop-color="#0284c7" />
+      <stop offset="45%" stop-color="#06b6d4" />
+      <stop offset="70%" stop-color="#10b981" />
+      <stop offset="88%" stop-color="#f59e0b" />
+      <stop offset="100%" stop-color="#f43f5e" />
     </linearGradient>
-    <linearGradient id="cyanHeader" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0ea5e9" />
+
+    <!-- Subtle atmospheric transport background mesh -->
+    <radialGradient id="transportPlumeBg" cx="45%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="rgba(14, 165, 233, 0.16)" />
+      <stop offset="40%" stop-color="rgba(99, 102, 241, 0.10)" />
+      <stop offset="80%" stop-color="rgba(244, 63, 94, 0.05)" />
+      <stop offset="100%" stop-color="rgba(5, 8, 17, 0)" />
+    </radialGradient>
+
+    <linearGradient id="fnoHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="50%" stop-color="#0ea5e9" />
       <stop offset="100%" stop-color="#38bdf8" />
     </linearGradient>
-    <filter id="cosmicGlow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#38bdf8" flood-opacity="0.18"/>
+
+    <linearGradient id="pdeHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+
+    <filter id="subtleGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="5" flood-color="#0ea5e9" flood-opacity="0.25"/>
+    </filter>
+
+    <filter id="amberGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#f59e0b" flood-opacity="0.2"/>
     </filter>
   </defs>
 
-  <!-- Container background in deep cosmos -->
-  <rect width="820" height="260" rx="12" fill="#080d1a" stroke="#1e293b" stroke-width="1.5"/>
+  <!-- Container Base with Atmospheric Transport Heatmap Backdrop -->
+  <rect width="940" height="365" rx="14" fill="#060a15" stroke="#1e293b" stroke-width="1.5"/>
+  <rect width="940" height="365" rx="14" fill="url(#transportPlumeBg)"/>
 
-  <!-- Stage 1: Input State -->
-  <g transform="translate(30, 35)">
-    <rect width="145" height="155" rx="8" fill="#0d1527" stroke="#1e2f4d" stroke-width="1.5"/>
-    <rect width="145" height="28" rx="8" fill="#141f36"/>
-    <text x="72" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">INPUT DOMAIN</text>
+  <!-- Subtle advection-diffusion streamlines in background -->
+  <g opacity="0.18" stroke="#38bdf8" stroke-width="1" fill="none">
+    <path d="M 20 70 C 140 60, 260 90, 420 80 C 580 70, 720 100, 920 85" stroke-dasharray="3 3"/>
+    <path d="M 20 140 C 180 120, 320 165, 520 145 C 680 130, 800 170, 920 150" stroke-dasharray="4 4"/>
+    <path d="M 20 210 C 160 220, 340 190, 560 215 C 720 230, 820 200, 920 210" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- TOP HEADER & SCIENTIFIC COLORMAP BAR -->
+  <g transform="translate(25, 16)">
+    <text x="0" y="18" font-family="'DM Mono', monospace" font-size="12" font-weight="600" fill="#38bdf8" letter-spacing="0.06em">
+      AETHERCAST · 2D PHYSICS-INFORMED FOURIER NEURAL OPERATOR PIPELINE
+    </text>
     
-    <!-- Mini grid representation in space -->
-    <g transform="translate(32, 44)" stroke="#334155" stroke-width="1" fill="none">
-      <rect width="80" height="55" rx="4" stroke="#0ea5e9" stroke-width="1.5" fill="#091122"/>
-      <line x1="52" y1="44" x2="52" y2="99" stroke-dasharray="2 2"/>
-      <line x1="72" y1="44" x2="72" y2="99" stroke-dasharray="2 2"/>
-      <line x1="92" y1="44" x2="92" y2="99" stroke-dasharray="2 2"/>
-      <line x1="32" y1="62" x2="112" y2="62" stroke-dasharray="2 2"/>
-      <line x1="32" y1="80" x2="112" y2="80" stroke-dasharray="2 2"/>
-      <circle cx="72" cy="72" r="14" fill="rgba(56, 189, 248, 0.3)" stroke="#38bdf8" stroke-width="1.5"/>
+    <!-- Heatmap legend bar mapping ideological scalar concentration -->
+    <g transform="translate(620, 4)">
+      <text x="-8" y="11" font-family="'DM Mono', monospace" font-size="9" fill="#94a3b8" text-anchor="end">Tracer Plume u(x,t): 0.0</text>
+      <rect x="0" y="2" width="130" height="10" rx="3" fill="url(#heatmapColormap)" stroke="#334155" stroke-width="0.8"/>
+      <text x="138" y="11" font-family="'DM Mono', monospace" font-size="9" fill="#f59e0b">1.0 Max</text>
+    </g>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- STAGE 01: INPUT STATE -->
+  <!-- ================================================================= -->
+  <g transform="translate(25, 48)">
+    <rect width="180" height="195" rx="8" fill="#0b1222" stroke="#1e2f4d" stroke-width="1.5"/>
+    <rect width="180" height="28" rx="8" fill="#131d35"/>
+    <text x="90" y="18" font-family="'DM Mono', monospace" font-size="10.5" font-weight="600" fill="#38bdf8" text-anchor="middle">
+      STAGE 01 : INPUT DOMAIN
+    </text>
+
+    <!-- Mini Spatial Mesh with Initial Gaussian Heatmap Plume -->
+    <g transform="translate(25, 40)">
+      <rect width="130" height="85" rx="4" fill="#080e1c" stroke="#1e293b" stroke-width="1"/>
+      
+      <!-- Coordinate grid -->
+      <line x1="43" y1="0" x2="43" y2="85" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="86" y1="0" x2="86" y2="85" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="0" y1="28" x2="130" y2="28" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="0" y1="56" x2="130" y2="56" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      
+      <!-- Heatmap Plume Initial State -->
+      <circle cx="50" cy="42" r="28" fill="rgba(2, 132, 199, 0.25)"/>
+      <circle cx="50" cy="42" r="18" fill="rgba(6, 182, 212, 0.45)"/>
+      <circle cx="50" cy="42" r="10" fill="rgba(245, 158, 11, 0.75)"/>
+      <circle cx="50" cy="42" r="4" fill="#f43f5e"/>
+
+      <!-- Velocity field arrows -->
+      <g stroke="#38bdf8" stroke-width="1.2" opacity="0.85">
+        <line x1="85" y1="30" x2="105" y2="26"/>
+        <polygon points="105,24 110,26 105,28" fill="#38bdf8"/>
+        <line x1="85" y1="54" x2="108" y2="50"/>
+        <polygon points="108,48 113,50 108,52" fill="#38bdf8"/>
+      </g>
     </g>
 
-    <text x="72" y="152" font-family="'DM Mono', monospace" font-size="11" fill="#f8fafc" text-anchor="middle">u(x,y,t₀), v_vec</text>
-    <text x="72" y="172" font-family="'Inter', sans-serif" font-size="9.5" fill="#94a3b8" text-anchor="middle">32 × 32 Spatial Mesh</text>
+    <text x="90" y="148" font-family="'DM Mono', monospace" font-size="10.5" font-weight="600" fill="#f8fafc" text-anchor="middle">
+      u(x, y, t₀) &amp; v_vec(x, y)
+    </text>
+    <text x="90" y="165" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">
+      32 × 32 Mesh (1024 Nodes)
+    </text>
+    <text x="90" y="180" font-family="'Inter', sans-serif" font-size="8.5" fill="#38bdf8" text-anchor="middle">
+      Initial Scalar &amp; Advection Field
+    </text>
   </g>
 
-  <!-- Arrow 1 -->
-  <path d="M 185 115 L 220 115" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-  <polygon points="218,111 226,115 218,119" fill="#38bdf8"/>
-
-  <!-- Stage 2: Fourier Neural Operator Backbone -->
-  <g transform="translate(235, 25)" filter="url(#cosmicGlow)">
-    <rect width="215" height="175" rx="8" fill="#0d1527" stroke="#0ea5e9" stroke-width="2"/>
-    <rect width="215" height="30" rx="8" fill="url(#spaceHeader)"/>
-    <text x="107" y="20" font-family="'DM Mono', monospace" font-size="11.5" font-weight="600" fill="#ffffff" text-anchor="middle">2D PI-FNO ARCHITECTURE</text>
-    
-    <!-- FNO internals -->
-    <rect x="15" y="44" width="185" height="30" rx="6" fill="#141f36" stroke="#1e2f4d"/>
-    <text x="107" y="63" font-family="'DM Mono', monospace" font-size="10" fill="#38bdf8" text-anchor="middle">Lifting P(u) → Hidden Dim 32</text>
-
-    <rect x="15" y="82" width="185" height="44" rx="6" fill="#112240" stroke="#0ea5e9"/>
-    <text x="107" y="100" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">4× Spectral Conv (Modes 12)</text>
-    <text x="107" y="117" font-family="'DM Mono', monospace" font-size="9.5" fill="#94a3b8" text-anchor="middle">FFT2D → R·F(v) → IFFT2D + W·v</text>
-
-    <rect x="15" y="134" width="185" height="28" rx="6" fill="#141f36" stroke="#1e2f4d"/>
-    <text x="107" y="152" font-family="'DM Mono', monospace" font-size="9.5" fill="#cbd5e1" text-anchor="middle">Projection Q → 24 Horizon Steps</text>
+  <!-- Forward Connector: Stage 1 -> Stage 2 -->
+  <g stroke="#38bdf8" stroke-width="1.75">
+    <line x1="205" y1="145" x2="238" y2="145"/>
+    <polygon points="236,141 244,145 236,149" fill="#38bdf8"/>
   </g>
 
-  <!-- Arrow 2 -->
-  <path d="M 460 115 L 495 115" stroke="#38bdf8" stroke-width="2" stroke-linecap="round"/>
-  <polygon points="493,111 501,115 493,119" fill="#38bdf8"/>
+  <!-- ================================================================= -->
+  <!-- STAGE 02: 2D FOURIER NEURAL OPERATOR BACKBONE -->
+  <!-- ================================================================= -->
+  <g transform="translate(245, 48)" filter="url(#subtleGlow)">
+    <rect width="250" height="195" rx="8" fill="#0b1222" stroke="#0ea5e9" stroke-width="2"/>
+    <rect width="250" height="28" rx="8" fill="url(#fnoHeader)"/>
+    <text x="125" y="18" font-family="'DM Mono', monospace" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">
+      STAGE 02 : 2D PI-FNO BACKBONE
+    </text>
 
-  <!-- Stage 3: Predicted Output -->
-  <g transform="translate(510, 35)">
-    <rect width="135" height="155" rx="8" fill="#0d1527" stroke="#1e2f4d" stroke-width="1.5"/>
-    <rect width="135" height="28" rx="8" fill="#141f36"/>
-    <text x="67" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">PREDICTION</text>
-    
-    <!-- Evolving plume -->
-    <g transform="translate(27, 46)">
-      <rect width="80" height="55" rx="4" stroke="#0ea5e9" stroke-width="1.5" fill="#091122"/>
-      <ellipse cx="48" cy="27" rx="24" ry="14" fill="rgba(6, 182, 212, 0.35)" transform="rotate(-15 48 27)"/>
-      <ellipse cx="56" cy="24" rx="12" ry="7" fill="rgba(56, 189, 248, 0.75)" transform="rotate(-15 56 24)"/>
+    <!-- Sub-block 1: Lifting -->
+    <rect x="15" y="38" width="220" height="26" rx="5" fill="#121e36" stroke="#1e2f4d"/>
+    <text x="125" y="55" font-family="'DM Mono', monospace" font-size="9.5" font-weight="500" fill="#38bdf8" text-anchor="middle">
+      Lifting Layer P : R² → R³²
+    </text>
+
+    <!-- Sub-block 2: Spectral Convolutions -->
+    <rect x="15" y="72" width="220" height="74" rx="6" fill="#0e1b33" stroke="#0284c7" stroke-width="1.2"/>
+    <text x="125" y="90" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">
+      4× Fourier Spectral Layers
+    </text>
+    <text x="125" y="107" font-family="'DM Mono', monospace" font-size="9" fill="#94a3b8" text-anchor="middle">
+      FFT2D → R_ϕ · F(v) → IFFT2D
+    </text>
+    <text x="125" y="123" font-family="'DM Mono', monospace" font-size="8.5" fill="#38bdf8" text-anchor="middle">
+      Truncated Fourier Modes: k_max = 12
+    </text>
+    <text x="125" y="137" font-family="'DM Mono', monospace" font-size="8.5" fill="#a5b4fc" text-anchor="middle">
+      Residual Bypass W·v + GELU(·)
+    </text>
+
+    <!-- Sub-block 3: Projection -->
+    <rect x="15" y="154" width="220" height="28" rx="5" fill="#121e36" stroke="#1e2f4d"/>
+    <text x="125" y="172" font-family="'DM Mono', monospace" font-size="9.5" font-weight="500" fill="#f8fafc" text-anchor="middle">
+      Projection Q : R³² → R²⁴ (Rollout)
+    </text>
+  </g>
+
+  <!-- Forward Connector: Stage 2 -> Stage 3 -->
+  <g stroke="#38bdf8" stroke-width="1.75">
+    <line x1="495" y1="145" x2="528" y2="145"/>
+    <polygon points="526,141 534,145 526,149" fill="#38bdf8"/>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- STAGE 03: PREDICTED ROLLOUT STATE -->
+  <!-- ================================================================= -->
+  <g transform="translate(535, 48)">
+    <rect width="180" height="195" rx="8" fill="#0b1222" stroke="#1e2f4d" stroke-width="1.5"/>
+    <rect width="180" height="28" rx="8" fill="#131d35"/>
+    <text x="90" y="18" font-family="'DM Mono', monospace" font-size="10.5" font-weight="600" fill="#34d399" text-anchor="middle">
+      STAGE 03 : PREDICTION
+    </text>
+
+    <!-- Mini Spatial Mesh with Downstream Dispersed Plume -->
+    <g transform="translate(25, 40)">
+      <rect width="130" height="85" rx="4" fill="#080e1c" stroke="#1e293b" stroke-width="1"/>
+      
+      <!-- Coordinate grid -->
+      <line x1="43" y1="0" x2="43" y2="85" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="86" y1="0" x2="86" y2="85" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="0" y1="28" x2="130" y2="28" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      <line x1="0" y1="56" x2="130" y2="56" stroke="#16233d" stroke-width="1" stroke-dasharray="2 2"/>
+      
+      <!-- Dispersed downstream plume -->
+      <ellipse cx="78" cy="46" rx="38" ry="24" fill="rgba(2, 132, 199, 0.3)" transform="rotate(-12 78 46)"/>
+      <ellipse cx="84" cy="44" rx="24" ry="14" fill="rgba(6, 182, 212, 0.45)" transform="rotate(-12 84 44)"/>
+      <ellipse cx="88" cy="42" rx="14" ry="8" fill="rgba(245, 158, 11, 0.7)" transform="rotate(-12 88 42)"/>
+      <circle cx="91" cy="41" r="4" fill="#f43f5e"/>
     </g>
 
-    <text x="67" y="152" font-family="'DM Mono', monospace" font-size="10.5" fill="#38bdf8" text-anchor="middle">u_pred(x,y,t₁..₂₄)</text>
-    <text x="67" y="172" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">120-min Horizon</text>
+    <text x="90" y="148" font-family="'DM Mono', monospace" font-size="10.5" font-weight="600" fill="#38bdf8" text-anchor="middle">
+      u_pred(x, y, t₁ .. t₂₄)
+    </text>
+    <text x="90" y="165" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">
+      120-Minute Trajectory
+    </text>
+    <text x="90" y="180" font-family="'Inter', sans-serif" font-size="8.5" fill="#34d399" text-anchor="middle">
+      Advected Plume Concentration
+    </text>
   </g>
 
-  <!-- Residual Loop back to training -->
-  <g transform="translate(655, 45)">
-    <!-- Branch to PDE residual -->
-    <path d="M 0 70 C 40 70, 40 -12, -290 -12 C -440 -12, -440 25, -295 25" 
-          stroke="#fbbf24" stroke-width="1.75" stroke-dasharray="4 3" fill="none"/>
-    <polygon points="-295,22 -287,25 -295,28" fill="#fbbf24"/>
-
-    <rect x="25" y="25" width="130" height="82" rx="6" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.4)" stroke-width="1.5"/>
-    <text x="90" y="46" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#fbbf24" text-anchor="middle">PDE RESIDUAL LOSS</text>
-    <text x="90" y="64" font-family="'DM Mono', monospace" font-size="9" fill="#fde68a" text-anchor="middle">∂u/∂t + v·∇u - D∇²u</text>
-    <text x="90" y="82" font-family="'Inter', sans-serif" font-size="8.5" fill="#fbbf24" text-anchor="middle">39.5% Residual Drop</text>
-    <text x="90" y="96" font-family="'Inter', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">Finite-Diff Regularizer</text>
+  <!-- Forward Connector: Stage 3 -> Stage 4 -->
+  <g stroke="#38bdf8" stroke-width="1.75">
+    <line x1="715" y1="145" x2="740" y2="145"/>
+    <polygon points="738,141 746,145 738,149" fill="#38bdf8"/>
   </g>
 
-  <!-- Footer metadata bar -->
-  <rect x="0" y="228" width="820" height="32" fill="#050812" stroke="#1e293b" stroke-width="1"/>
-  <text x="30" y="249" font-family="'DM Mono', monospace" font-size="10.5" fill="#94a3b8">ARCHITECTURE: 106,264 PARAMETERS · FIXED-SEED EVALUATION · NO HEURISTIC SPEED CLAIMS</text>
+  <!-- ================================================================= -->
+  <!-- STAGE 04: PHYSICS PDE RESIDUAL REGULARIZATION -->
+  <!-- ================================================================= -->
+  <g transform="translate(747, 48)" filter="url(#amberGlow)">
+    <rect width="168" height="195" rx="8" fill="#0b1222" stroke="rgba(245, 158, 11, 0.6)" stroke-width="1.5"/>
+    <rect width="168" height="28" rx="8" fill="url(#pdeHeader)"/>
+    <text x="84" y="18" font-family="'DM Mono', monospace" font-size="10.5" font-weight="700" fill="#050811" text-anchor="middle">
+      STAGE 04 : PDE RESIDUAL
+    </text>
+
+    <!-- Residual Equation -->
+    <rect x="10" y="38" width="148" height="34" rx="5" fill="#141a24" stroke="rgba(245, 158, 11, 0.3)"/>
+    <text x="84" y="54" font-family="'DM Mono', monospace" font-size="9" font-weight="600" fill="#fbbf24" text-anchor="middle">
+      R(u) = ∂u/∂t + v·∇u - D∇²u
+    </text>
+    <text x="84" y="66" font-family="'Inter', sans-serif" font-size="7.8" fill="#94a3b8" text-anchor="middle">
+      Advection-Diffusion Transport
+    </text>
+
+    <rect x="10" y="80" width="148" height="48" rx="5" fill="#141a24" stroke="#1e293b"/>
+    <text x="84" y="96" font-family="'DM Mono', monospace" font-size="9" font-weight="600" fill="#fde68a" text-anchor="middle">
+      L_phy = || R(u_pred) ||²
+    </text>
+    <text x="84" y="110" font-family="'Inter', sans-serif" font-size="8" fill="#94a3b8" text-anchor="middle">
+      Finite-Difference Stencil
+    </text>
+    <text x="84" y="121" font-family="'Inter', sans-serif" font-size="8" fill="#38bdf8" text-anchor="middle">
+      λ_phy = 0.01 Weighting
+    </text>
+
+    <rect x="10" y="136" width="148" height="46" rx="5" fill="rgba(245, 158, 11, 0.12)" stroke="rgba(245, 158, 11, 0.4)"/>
+    <text x="84" y="153" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#fbbf24" text-anchor="middle">
+      39.5% Residual Drop
+    </text>
+    <text x="84" y="169" font-family="'DM Mono', monospace" font-size="8.2" fill="#fef08a" text-anchor="middle">
+      vs Data-Only FNO (1k traj)
+    </text>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- DEDICATED LOWER FEEDBACK BUS RAIL (ZERO OVERLAP WITH ANY TEXT) -->
+  <!-- ================================================================= -->
+  <!-- Drops down from Stage 4 bottom (y=243), travels across at y=285, enters Stage 2 from below -->
+  <g>
+    <!-- Path: (831, 243) -> (831, 285) -> (370, 285) -> (370, 245) -->
+    <path d="M 831 243 L 831 285 L 370 285 L 370 247" 
+          stroke="#fbbf24" stroke-width="2" stroke-dasharray="6 4" fill="none"/>
+    <!-- Upward arrow entering Stage 2 backbone -->
+    <polygon points="366,248 370,242 374,248" fill="#fbbf24"/>
+
+    <!-- Clear callout badge centered along the feedback rail -->
+    <g transform="translate(470, 271)">
+      <rect width="250" height="26" rx="13" fill="#0d1528" stroke="#fbbf24" stroke-width="1.2"/>
+      <circle cx="14" cy="13" r="4" fill="#fbbf24"/>
+      <text x="132" y="17" font-family="'DM Mono', monospace" font-size="9" font-weight="600" fill="#fde68a" text-anchor="middle">
+        Backpropagate Physics Loss ∇_θ L_total
+      </text>
+    </g>
+  </g>
+
+  <!-- ================================================================= -->
+  <!-- BOTTOM METADATA STATUS BAR -->
+  <!-- ================================================================= -->
+  <g transform="translate(0, 325)">
+    <rect width="940" height="40" rx="0" fill="#040710" stroke="#1e293b" stroke-width="1"/>
+    <text x="25" y="24" font-family="'DM Mono', monospace" font-size="9.5" fill="#64748b">
+      TOTAL PARAMETERS: 106,264 · 3 SEED EVALUATION (42, 123, 999) · CPU/GPU LATENCY BENCHMARKED · SCIENTIFIC PROTOTYPE
+    </text>
+    <text x="915" y="24" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#38bdf8" text-anchor="end">
+      DOUBLE-BLIND REVIEW · NEURIPS 2026 AI4SCIENCE
+    </text>
+  </g>
 </svg>
