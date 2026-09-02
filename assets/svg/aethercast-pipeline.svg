@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 260" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="oceanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#0369a1" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0891b2" />
+      <stop offset="100%" stop-color="#0284c7" />
+    </linearGradient>
+    <filter id="subtleDrop" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.06"/>
+    </filter>
+  </defs>
+
+  <!-- Background container -->
+  <rect width="820" height="260" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+
+  <!-- Stage 1: Input State -->
+  <g transform="translate(30, 40)" filter="url(#subtleDrop)">
+    <rect width="140" height="150" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="140" height="28" rx="8" fill="#f1f5f9"/>
+    <text x="70" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#0f172a" text-anchor="middle">INPUT DOMAIN</text>
+    
+    <!-- Mini grid representation -->
+    <g transform="translate(30, 42)" stroke="#94a3b8" stroke-width="1" fill="none">
+      <rect width="80" height="55" rx="4" stroke="#0284c7" stroke-width="1.5" fill="#f0f9ff"/>
+      <line x1="50" y1="42" x2="50" y2="97" stroke-dasharray="2 2"/>
+      <line x1="70" y1="42" x2="70" y2="97" stroke-dasharray="2 2"/>
+      <line x1="90" y1="42" x2="90" y2="97" stroke-dasharray="2 2"/>
+      <line x1="30" y1="60" x2="110" y2="60" stroke-dasharray="2 2"/>
+      <line x1="30" y1="78" x2="110" y2="78" stroke-dasharray="2 2"/>
+      <circle cx="70" cy="70" r="14" fill="rgba(2, 132, 199, 0.25)" stroke="#0284c7" stroke-width="1.5"/>
+    </g>
+
+    <text x="70" y="152" font-family="'DM Mono', monospace" font-size="10.5" fill="#475569" text-anchor="middle">u(x,y,t₀), v_vec</text>
+    <text x="70" y="172" font-family="'Inter', sans-serif" font-size="9" fill="#94a3b8" text-anchor="middle">32 × 32 Mesh</text>
+  </g>
+
+  <!-- Arrow 1 -->
+  <path d="M 180 115 L 215 115" stroke="#0284c7" stroke-width="2" stroke-linecap="round" marker-end="url(#arrowhead)"/>
+  <polygon points="213,111 221,115 213,119" fill="#0284c7"/>
+
+  <!-- Stage 2: Fourier Neural Operator Backbone -->
+  <g transform="translate(230, 30)" filter="url(#subtleDrop)">
+    <rect width="210" height="170" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="2"/>
+    <rect width="210" height="30" rx="8" fill="url(#oceanGrad)"/>
+    <text x="105" y="20" font-family="'DM Mono', monospace" font-size="11.5" font-weight="600" fill="#ffffff" text-anchor="middle">2D PI-FNO ARCHITECTURE</text>
+    
+    <!-- FNO internals -->
+    <rect x="15" y="44" width="180" height="30" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="105" y="63" font-family="'DM Mono', monospace" font-size="10" fill="#0369a1" text-anchor="middle">Lifting P(u) → Hidden Dim 32</text>
+
+    <rect x="15" y="82" width="180" height="42" rx="6" fill="#f0f9ff" stroke="#bae6fd"/>
+    <text x="105" y="100" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#0284c7" text-anchor="middle">4× Spectral Conv (Modes 12)</text>
+    <text x="105" y="115" font-family="'DM Mono', monospace" font-size="9.5" fill="#475569" text-anchor="middle">FFT2D → R·F(v) → IFFT2D + W·v</text>
+
+    <rect x="15" y="132" width="180" height="26" rx="6" fill="#ffffff" stroke="#cbd5e1"/>
+    <text x="105" y="149" font-family="'DM Mono', monospace" font-size="9.5" fill="#334155" text-anchor="middle">Projection Q → 24 Horizon Steps</text>
+  </g>
+
+  <!-- Arrow 2 -->
+  <path d="M 450 115 L 485 115" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+  <polygon points="483,111 491,115 483,119" fill="#0284c7"/>
+
+  <!-- Stage 3: Predicted Output -->
+  <g transform="translate(500, 40)" filter="url(#subtleDrop)">
+    <rect width="130" height="150" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+    <rect width="130" height="28" rx="8" fill="#f1f5f9"/>
+    <text x="65" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#0f172a" text-anchor="middle">PREDICTION</text>
+    
+    <!-- Evolving plume -->
+    <g transform="translate(25, 45)">
+      <rect width="80" height="55" rx="4" stroke="#0891b2" stroke-width="1.5" fill="#ecfeff"/>
+      <ellipse cx="48" cy="27" rx="24" ry="14" fill="rgba(8, 145, 178, 0.3)" transform="rotate(-15 48 27)"/>
+      <ellipse cx="56" cy="24" rx="12" ry="7" fill="rgba(2, 132, 199, 0.55)" transform="rotate(-15 56 24)"/>
+    </g>
+
+    <text x="65" y="152" font-family="'DM Mono', monospace" font-size="10.5" fill="#075985" text-anchor="middle">u_pred(x,y,t₁..₂₄)</text>
+    <text x="65" y="172" font-family="'Inter', sans-serif" font-size="9" fill="#64748b" text-anchor="middle">120-min Horizon</text>
+  </g>
+
+  <!-- Residual Loop back to training -->
+  <g transform="translate(640, 50)">
+    <!-- Branch to PDE residual -->
+    <path d="M 0 65 C 40 65, 40 -10, -300 -10 C -450 -10, -450 30, -305 30" 
+          stroke="#b45309" stroke-width="1.75" stroke-dasharray="4 3" fill="none"/>
+    <polygon points="-305,27 -297,30 -305,33" fill="#b45309"/>
+
+    <rect x="25" y="25" width="140" height="78" rx="6" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"/>
+    <text x="95" y="45" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#b45309" text-anchor="middle">PDE RESIDUAL LOSS</text>
+    <text x="95" y="62" font-family="'DM Mono', monospace" font-size="9" fill="#78350f" text-anchor="middle">∂u/∂t + v·∇u - D∇²u</text>
+    <text x="95" y="80" font-family="'Inter', sans-serif" font-size="8.5" fill="#92400e" text-anchor="middle">39.5% Residual Drop</text>
+    <text x="95" y="94" font-family="'Inter', sans-serif" font-size="8" fill="#b45309" text-anchor="middle">Finite-Diff Regularizer</text>
+  </g>
+
+  <!-- Footer metadata bar -->
+  <rect x="0" y="228" width="820" height="32" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="30" y="249" font-family="'DM Mono', monospace" font-size="10.5" fill="#64748b">ARCHITECTURE: 106,264 PARAMETERS · FIXED-SEED EVALUATION · NO HEURISTIC SPEED CLAIMS</text>
+</svg>
