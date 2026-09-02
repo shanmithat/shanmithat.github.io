@@ -1,66 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 230" width="100%" height="100%" fill="none">
   <defs>
-    <linearGradient id="cyanOcean" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0891b2" />
-      <stop offset="100%" stop-color="#0284c7" />
+    <linearGradient id="cyanSpace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#06b6d4" />
     </linearGradient>
+    <filter id="cyanGlow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="6" flood-color="#06b6d4" flood-opacity="0.2"/>
+    </filter>
   </defs>
 
-  <rect width="820" height="230" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+  <rect width="820" height="230" rx="12" fill="#080d1a" stroke="#1e293b" stroke-width="1.5"/>
 
   <!-- Left: Formula & Implicit Function -->
   <g transform="translate(30, 25)">
-    <rect width="220" height="150" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
-    <rect width="220" height="28" rx="8" fill="#f1f5f9"/>
-    <text x="110" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#0f172a" text-anchor="middle">ANALYTIC SIGNED DISTANCE</text>
+    <rect width="220" height="150" rx="8" fill="#0d1527" stroke="#1e2f4d" stroke-width="1.5"/>
+    <rect width="220" height="28" rx="8" fill="#141f36"/>
+    <text x="110" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8" text-anchor="middle">ANALYTIC SIGNED DISTANCE</text>
 
-    <text x="20" y="60" font-family="'DM Mono', monospace" font-size="10.5" fill="#0369a1">f(x,y,z) = TPMS(x,y,z) - t</text>
-    <text x="20" y="85" font-family="'DM Mono', monospace" font-size="9" fill="#64748b">Gyroid / Schwarz-D Iso-surface</text>
-    <text x="20" y="105" font-family="'DM Mono', monospace" font-size="9" fill="#64748b">Continuous Functional Grading</text>
+    <text x="20" y="60" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#38bdf8">f(x,y,z) = TPMS(x,y,z) - t</text>
+    <text x="20" y="85" font-family="'DM Mono', monospace" font-size="9.5" fill="#94a3b8">Gyroid / Schwarz-D Iso-surface</text>
+    <text x="20" y="105" font-family="'DM Mono', monospace" font-size="9.5" fill="#94a3b8">Continuous Functional Grading</text>
 
-    <rect x="15" y="115" width="190" height="26" rx="4" fill="#ecfeff" stroke="#a5f3fc"/>
-    <text x="110" y="132" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#0891b2" text-anchor="middle">13.7 KB GLSL Shader Code</text>
+    <rect x="15" y="115" width="190" height="26" rx="4" fill="#082f49" stroke="#0284c7"/>
+    <text x="110" y="132" font-family="'DM Mono', monospace" font-size="9.5" font-weight="600" fill="#7dd3fc" text-anchor="middle">13.7 KB GLSL Shader Code</text>
   </g>
 
   <!-- Arrow -->
-  <path d="M 260 100 L 290 100" stroke="#0891b2" stroke-width="2"/>
-  <polygon points="288,96 296,100 288,104" fill="#0891b2"/>
+  <path d="M 260 100 L 290 100" stroke="#06b6d4" stroke-width="2"/>
+  <polygon points="288,96 296,100 288,104" fill="#06b6d4"/>
 
   <!-- Center: GPU Raymarching & Slicing -->
-  <g transform="translate(305, 20)">
-    <rect width="240" height="160" rx="8" fill="#f8fafc" stroke="#0891b2" stroke-width="2"/>
-    <rect width="240" height="28" rx="8" fill="url(#cyanOcean)"/>
+  <g transform="translate(305, 20)" filter="url(#cyanGlow)">
+    <rect width="240" height="160" rx="8" fill="#0d1527" stroke="#06b6d4" stroke-width="2"/>
+    <rect width="240" height="28" rx="8" fill="url(#cyanSpace)"/>
     <text x="120" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">GPU COMPUTATION ENGINE</text>
 
-    <rect x="15" y="38" width="210" height="34" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
-    <text x="120" y="59" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#0f172a" text-anchor="middle">Direct WebGL / GLSL Raymarching</text>
+    <rect x="15" y="38" width="210" height="34" rx="4" fill="#141f36" stroke="#1e2f4d"/>
+    <text x="120" y="59" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#f8fafc" text-anchor="middle">Direct WebGL / GLSL Raymarch</text>
 
-    <rect x="15" y="80" width="210" height="34" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
-    <text x="120" y="101" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#0f172a" text-anchor="middle">Boundary Conformal Intersection</text>
+    <rect x="15" y="80" width="210" height="34" rx="4" fill="#141f36" stroke="#1e2f4d"/>
+    <text x="120" y="101" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="600" fill="#f8fafc" text-anchor="middle">Boundary Conformal Intersection</text>
 
-    <rect x="15" y="122" width="210" height="26" rx="4" fill="#ffffff" stroke="#cbd5e1"/>
-    <text x="120" y="139" font-family="'DM Mono', monospace" font-size="9.5" fill="#0891b2" text-anchor="middle">&lt; 0.8 ms Slicing / 4096×4096 Layer</text>
+    <rect x="15" y="122" width="210" height="26" rx="4" fill="#141f36" stroke="#1e2f4d"/>
+    <text x="120" y="139" font-family="'DM Mono', monospace" font-size="9.5" fill="#38bdf8" text-anchor="middle">&lt; 0.8 ms Slicing / 4096×4096 Layer</text>
   </g>
 
   <!-- Arrow -->
-  <path d="M 555 100 L 585 100" stroke="#0284c7" stroke-width="2"/>
-  <polygon points="583,96 591,100 583,104" fill="#0284c7"/>
+  <path d="M 555 100 L 585 100" stroke="#38bdf8" stroke-width="2"/>
+  <polygon points="583,96 591,100 583,104" fill="#38bdf8"/>
 
   <!-- Right: Benchmark Comparison -->
   <g transform="translate(595, 25)">
-    <rect width="195" height="150" rx="8" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
-    <rect width="195" height="28" rx="8" fill="#f1f5f9"/>
-    <text x="97" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#0f172a" text-anchor="middle">STORAGE BENCHMARK</text>
+    <rect width="195" height="150" rx="8" fill="#0d1527" stroke="#1e2f4d" stroke-width="1.5"/>
+    <rect width="195" height="28" rx="8" fill="#141f36"/>
+    <text x="97" y="19" font-family="'DM Mono', monospace" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">STORAGE BENCHMARK</text>
 
-    <text x="18" y="55" font-family="'DM Mono', monospace" font-size="9.5" fill="#dc2626">Explicit STL: 1.94 GB</text>
-    <text x="18" y="75" font-family="'DM Mono', monospace" font-size="9.5" fill="#15803d">Implicit Shader: 13.7 KB</text>
+    <text x="18" y="55" font-family="'DM Mono', monospace" font-size="9.5" fill="#f87171">Explicit STL: 1.94 GB</text>
+    <text x="18" y="75" font-family="'DM Mono', monospace" font-size="9.5" fill="#4ade80">Implicit Shader: 13.7 KB</text>
 
-    <rect x="15" y="95" width="165" height="42" rx="4" fill="#f0fdf4" stroke="#86efac"/>
-    <text x="97" y="112" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#15803d" text-anchor="middle">&gt; 140,000× Reduction</text>
-    <text x="97" y="128" font-family="'DM Mono', monospace" font-size="8.5" fill="#166534" text-anchor="middle">≥ 52 FPS on Integrated GPU</text>
+    <rect x="15" y="95" width="165" height="42" rx="4" fill="rgba(16, 185, 129, 0.12)" stroke="rgba(16, 185, 129, 0.35)"/>
+    <text x="97" y="112" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#34d399" text-anchor="middle">&gt; 140,000× Reduction</text>
+    <text x="97" y="128" font-family="'DM Mono', monospace" font-size="8.5" fill="#a7f3d0" text-anchor="middle">≥ 52 FPS on Integrated GPU</text>
   </g>
 
   <!-- Footer metadata -->
-  <rect x="0" y="198" width="820" height="32" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
-  <text x="25" y="218" font-family="'DM Mono', monospace" font-size="10.5" fill="#64748b">BENCHMARK MEASUREMENT · PROCEDURAL TPMS GEOMETRY · NOT AN EXPERIMENTAL METAMATERIAL CLAIM</text>
+  <rect x="0" y="198" width="820" height="32" fill="#050812" stroke="#1e293b" stroke-width="1"/>
+  <text x="25" y="218" font-family="'DM Mono', monospace" font-size="10.5" fill="#94a3b8">BENCHMARK MEASUREMENT · PROCEDURAL TPMS GEOMETRY · NOT AN EXPERIMENTAL METAMATERIAL CLAIM</text>
 </svg>

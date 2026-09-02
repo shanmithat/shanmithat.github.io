@@ -1,49 +1,49 @@
 /* ==========================================================================
    SHANMITHA T. — RESEARCH PORTFOLIO DESIGN SYSTEM
-   Theme: Editorial Light Canvas with Deep Ocean / Cosmic Accents
+   Theme: Deep Space & Universe Odyssey
    Typography: Space Grotesk (Display) · Inter (Text) · DM Mono (Technical)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Color Palette — Celestial Canvas & Deep Ocean */
-  --bg-canvas: #f8fafc;
-  --bg-surface: #ffffff;
-  --bg-subtle: #f1f5f9;
-  --bg-hover: #e2e8f0;
+  /* Color Palette — Deep Space & Cosmic Canvas */
+  --bg-canvas: #050811;          /* Abyssal cosmic void */
+  --bg-surface: #0b1120;         /* Interstellar midnight card surface */
+  --bg-subtle: #111a2e;          /* Nebular deep slate */
+  --bg-hover: #18233c;           /* Stellar hover highlight */
   
-  --text-primary: #0f172a;       /* Deep slate ink */
-  --text-secondary: #475569;     /* Oceanic slate */
-  --text-muted: #64748b;         /* Cosmic dust */
-  --border-subtle: #e2e8f0;      /* Fine rule */
-  --border-medium: #cbd5e1;
-  --border-active: #0284c7;
+  --text-primary: #f8fafc;       /* Brilliant starlight ink */
+  --text-secondary: #94a3b8;     /* Celestial dust text */
+  --text-muted: #64748b;         /* Deep space nebula slate */
+  --border-subtle: #1e293b;      /* Fine orbital rule */
+  --border-medium: #334155;      /* Constellation boundary */
+  --border-active: #38bdf8;      /* Electric stellar cyan */
 
-  /* Deep Ocean & Space Universe Accents */
-  --ocean-primary: #0284c7;      /* Vivid oceanic azure */
-  --ocean-deep: #0369a1;         /* Deep trench blue */
-  --ocean-abyss: #075985;        /* Abyssal navy */
-  --cosmic-cyan: #0891b2;        /* Starlight cyan */
-  --cosmic-glow: rgba(2, 132, 199, 0.12);
-  --cosmic-glow-soft: rgba(6, 182, 212, 0.08);
-  --cosmic-nebula: linear-gradient(135deg, #0284c7 0%, #0891b2 50%, #4338ca 100%);
+  /* Cosmic Universe & Stellar Accents */
+  --ocean-primary: #38bdf8;      /* Electric stellar cyan */
+  --ocean-deep: #0ea5e9;         /* Pulsar azure */
+  --ocean-abyss: #0284c7;        /* Deep space cobalt */
+  --cosmic-cyan: #06b6d4;        /* Ion turquoise */
+  --cosmic-glow: rgba(56, 189, 248, 0.16);
+  --cosmic-glow-soft: rgba(56, 189, 248, 0.08);
+  --cosmic-nebula: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
   
-  /* Status Semantics */
-  --status-review-bg: #fffbeb;
-  --status-review-text: #b45309;
-  --status-review-border: #fde68a;
+  /* Status Semantics in Deep Space */
+  --status-review-bg: rgba(245, 158, 11, 0.14);
+  --status-review-text: #fbbf24;
+  --status-review-border: rgba(245, 158, 11, 0.35);
   
-  --status-done-bg: #f0fdf4;
-  --status-done-text: #15803d;
-  --status-done-border: #bbf7d0;
+  --status-done-bg: rgba(16, 185, 129, 0.14);
+  --status-done-text: #34d399;
+  --status-done-border: rgba(16, 185, 129, 0.35);
 
-  --status-emerging-bg: #f5f3ff;
-  --status-emerging-text: #6d28d9;
-  --status-emerging-border: #ddd6fe;
+  --status-emerging-bg: rgba(168, 85, 247, 0.16);
+  --status-emerging-text: #c084fc;
+  --status-emerging-border: rgba(168, 85, 247, 0.35);
 
-  /* Dark Code & Diagram Callouts */
-  --code-bg: #090e17;
+  /* Code & Formula Callouts */
+  --code-bg: #03060c;
   --code-text: #e2e8f0;
   --code-border: #1e293b;
 
@@ -53,9 +53,9 @@
   --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
   /* Shadows & Elevations */
-  --shadow-subtle: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
-  --shadow-card: 0 4px 12px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -2px rgba(15, 23, 42, 0.03);
-  --shadow-lift: 0 16px 32px -8px rgba(2, 132, 199, 0.12), 0 4px 12px -2px rgba(15, 23, 42, 0.06);
+  --shadow-subtle: 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-lift: 0 16px 36px -8px rgba(56, 189, 248, 0.2), 0 4px 16px rgba(0, 0, 0, 0.5);
 
   /* Layout & Sizing */
   --max-width: 1140px;
@@ -109,15 +109,15 @@ body {
 
 /* Text selection */
 ::selection {
-  background-color: rgba(2, 132, 199, 0.2);
-  color: var(--text-primary);
+  background-color: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
 }
 
 /* Subtle background grid inspired by astronomical coordinate charts */
 .celestial-grid {
   background-image: 
-    linear-gradient(to right, rgba(15, 23, 42, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
@@ -151,10 +151,10 @@ code, pre, .font-mono {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(248, 250, 252, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-subtle);
+  background-color: rgba(5, 8, 17, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(30, 41, 59, 0.9);
   height: var(--header-height);
   display: flex;
   align-items: center;
@@ -179,7 +179,7 @@ code, pre, .font-mono {
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.02em;
-  color: var(--text-primary);
+  color: #ffffff;
 }
 
 .brand-dot {
@@ -187,14 +187,14 @@ code, pre, .font-mono {
   height: 8px;
   border-radius: 50%;
   background: var(--ocean-primary);
-  box-shadow: 0 0 10px rgba(2, 132, 199, 0.6);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
   display: inline-block;
   animation: pulse-glow 3s infinite ease-in-out;
 }
 
 @keyframes pulse-glow {
   0%, 100% { transform: scale(1); opacity: 0.85; }
-  50% { transform: scale(1.25); opacity: 1; box-shadow: 0 0 14px rgba(2, 132, 199, 0.9); }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 16px rgba(56, 189, 248, 1); }
 }
 
 .nav-links {
@@ -231,14 +231,14 @@ code, pre, .font-mono {
 }
 
 .nav-link.active {
-  color: var(--ocean-deep);
+  color: var(--ocean-primary);
   background-color: var(--cosmic-glow);
-  border-color: rgba(2, 132, 199, 0.3);
+  border-color: rgba(56, 189, 248, 0.35);
   font-weight: 600;
 }
 
 .nav-link.active .nav-num {
-  color: var(--ocean-primary);
+  color: #ffffff;
 }
 
 .nav-actions {
@@ -253,27 +253,28 @@ code, pre, .font-mono {
   font-weight: 600;
   padding: 0.42rem 0.85rem;
   border-radius: var(--radius-sm);
-  background: var(--text-primary);
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  border: 1px solid var(--text-primary);
+  border: 1px solid var(--ocean-primary);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
   transition: all var(--transition-fast);
 }
 
 .btn-cv:hover {
   background: var(--ocean-deep);
-  border-color: var(--ocean-deep);
+  border-color: #ffffff;
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.45);
 }
 
 /* Mobile Nav Toggle */
 .mobile-toggle {
   display: none;
-  background: none;
+  background: var(--bg-subtle);
   border: 1px solid var(--border-subtle);
   padding: 0.45rem 0.65rem;
   border-radius: var(--radius-sm);
@@ -291,7 +292,7 @@ code, pre, .font-mono {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(248, 250, 252, 0.98);
+  background: rgba(5, 8, 17, 0.98);
   backdrop-filter: blur(16px);
   padding: 1.5rem;
   z-index: 99;
@@ -337,7 +338,7 @@ main {
   font-weight: 500;
   color: var(--ocean-primary);
   background: var(--cosmic-glow);
-  border: 1px solid rgba(2, 132, 199, 0.25);
+  border: 1px solid rgba(56, 189, 248, 0.3);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius-full);
   margin-bottom: 1rem;
@@ -372,7 +373,7 @@ main {
 }
 
 .editorial-card:hover {
-  border-color: rgba(2, 132, 199, 0.4);
+  border-color: rgba(56, 189, 248, 0.45);
   transform: translateY(-3px);
   box-shadow: var(--shadow-lift);
 }
@@ -449,16 +450,16 @@ main {
 }
 
 .metric-box:hover {
-  background: #ffffff;
+  background: var(--bg-hover);
   border-color: var(--ocean-primary);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.15);
 }
 
 .metric-val {
   font-family: var(--font-display);
   font-size: 1.75rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: #ffffff;
   line-height: 1.1;
   font-variant-numeric: tabular-nums;
   margin-bottom: 0.25rem;
@@ -471,7 +472,7 @@ main {
 .metric-label {
   font-family: var(--font-mono);
   font-size: 0.74rem;
-  color: var(--text-muted);
+  color: var(--text-secondary);
   line-height: 1.35;
 }
 
@@ -496,8 +497,8 @@ main {
 
 .tech-tag:hover {
   color: var(--ocean-primary);
-  border-color: rgba(2, 132, 199, 0.3);
-  background: #ffffff;
+  border-color: rgba(56, 189, 248, 0.4);
+  background: var(--bg-hover);
 }
 
 /* Action Buttons */
@@ -514,21 +515,22 @@ main {
   font-weight: 600;
   padding: 0.55rem 1.15rem;
   border-radius: var(--radius-sm);
-  background: var(--ocean-primary);
+  background: var(--ocean-abyss);
   color: #ffffff;
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   border: 1px solid var(--ocean-primary);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
   transition: all var(--transition-fast);
 }
 
 .btn-primary:hover {
   background: var(--ocean-deep);
-  border-color: var(--ocean-deep);
+  border-color: #ffffff;
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.45);
 }
 
 .btn-secondary {
@@ -537,7 +539,7 @@ main {
   font-weight: 500;
   padding: 0.55rem 1.1rem;
   border-radius: var(--radius-sm);
-  background: var(--bg-surface);
+  background: var(--bg-subtle);
   color: var(--text-primary);
   display: inline-flex;
   align-items: center;
@@ -547,8 +549,8 @@ main {
 }
 
 .btn-secondary:hover {
-  background: var(--bg-subtle);
-  border-color: var(--border-medium);
+  background: var(--bg-hover);
+  border-color: var(--ocean-primary);
   color: var(--ocean-primary);
   transform: translateY(-1px);
 }
@@ -625,7 +627,7 @@ main {
   height: 520px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.65;
+  opacity: 0.75;
 }
 
 .relative-content {
@@ -685,7 +687,7 @@ main {
 .flow-step:hover .flow-marker {
   border-color: var(--ocean-primary);
   color: var(--ocean-primary);
-  box-shadow: 0 0 12px rgba(2, 132, 199, 0.25);
+  box-shadow: 0 0 14px rgba(56, 189, 248, 0.4);
 }
 
 .flow-content {
@@ -699,7 +701,7 @@ main {
 }
 
 .flow-step:hover .flow-content {
-  border-color: rgba(2, 132, 199, 0.35);
+  border-color: rgba(56, 189, 248, 0.4);
   box-shadow: var(--shadow-card);
 }
 
@@ -730,9 +732,11 @@ main {
 }
 
 .filter-btn.active {
-  background: var(--text-primary);
-  color: #ffffff;
-  border-color: var(--text-primary);
+  background: var(--ocean-primary);
+  color: #050811;
+  border-color: var(--ocean-primary);
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
 }
 
 /* BibTeX Drawer */
@@ -789,11 +793,27 @@ main {
 .bibtex-copy-btn:hover {
   background: var(--ocean-primary);
   border-color: var(--ocean-primary);
+  color: #050811;
+}
+
+/* Figure Container */
+.figure-container {
+  margin: 1.5rem 0;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #080d1a;
+}
+
+.figure-container img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Editorial Footer */
 .site-footer {
-  background: var(--bg-surface);
+  background: #03050c;
   border-top: 1px solid var(--border-subtle);
   padding: 3.5rem 1.5rem 2.5rem;
   margin-top: auto;
@@ -825,6 +845,7 @@ main {
 .footer-brand p {
   font-size: 0.88rem;
   max-width: 26rem;
+  color: var(--text-secondary);
 }
 
 .footer-links {

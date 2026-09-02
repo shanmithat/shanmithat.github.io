@@ -92,11 +92,11 @@
       mouse.y += (mouse.targetY - mouse.y) * 0.05;
       phase += 0.008;
 
-      // Draw subtle oceanic / harmonic wave lines (PDE transport wavelets)
+      // Draw subtle cosmic / harmonic wave lines (PDE transport wavelets)
       const waveLayers = [
-        { amp: 18, freq: 0.004, speed: 1.0, color: 'rgba(2, 132, 199, 0.09)' },
-        { amp: 26, freq: 0.003, speed: 0.7, color: 'rgba(8, 145, 178, 0.07)' },
-        { amp: 14, freq: 0.006, speed: 1.3, color: 'rgba(67, 56, 202, 0.05)' }
+        { amp: 18, freq: 0.004, speed: 1.0, color: 'rgba(56, 189, 248, 0.14)' },
+        { amp: 26, freq: 0.003, speed: 0.7, color: 'rgba(6, 182, 212, 0.11)' },
+        { amp: 14, freq: 0.006, speed: 1.3, color: 'rgba(168, 85, 247, 0.09)' }
       ];
 
       waveLayers.forEach((w, layerIdx) => {
@@ -129,7 +129,7 @@
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(2, 132, 199, ${p.alpha})`;
+        ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha * 1.2})`;
         ctx.fill();
 
         // Connect nearby points to form subtle computational lattice mesh
@@ -141,7 +141,7 @@
 
           if (dist < 90) {
             ctx.beginPath();
-            ctx.strokeStyle = `rgba(2, 132, 199, ${(1 - dist / 90) * 0.12})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${(1 - dist / 90) * 0.2})`;
             ctx.lineWidth = 0.75;
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(p2.x, p2.y);

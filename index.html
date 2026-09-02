@@ -111,7 +111,7 @@
 
     <!-- CENTRAL RESEARCH QUESTION & INTELLECTUAL NARRATIVE -->
     <section style="margin-bottom: 4rem;">
-      <div class="editorial-card" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); border-left: 4px solid var(--ocean-primary);">
+      <div class="editorial-card" style="border-left: 4px solid var(--ocean-primary);">
         <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--ocean-primary); letter-spacing: 0.08em; margin-bottom: 0.5rem;">
           The Central Research Question
         </div>
@@ -124,17 +124,17 @@
 
         <!-- Micro progression trail -->
         <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.76rem;">
-          <span style="background: #f1f5f9; padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">Representation Learning</span>
+          <span style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">Representation Learning</span>
           <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: #e0f2fe; padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--ocean-deep); font-weight: 500;">Physics-Informed ML</span>
+          <span style="background: var(--cosmic-glow); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--ocean-primary); font-weight: 500;">Physics-Informed ML</span>
           <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: #e0f2fe; padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--ocean-deep); font-weight: 500;">Neural Operators (FNO)</span>
+          <span style="background: var(--cosmic-glow); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--ocean-primary); font-weight: 500;">Neural Operators (FNO)</span>
           <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: #f1f5f9; padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">GPU Multiphysics (CUDA)</span>
+          <span style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">GPU Multiphysics (CUDA)</span>
           <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: #f1f5f9; padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">Implicit Geometry (TPMS)</span>
+          <span style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">Implicit Geometry (TPMS)</span>
           <span style="color: var(--status-emerging-text);">→</span>
-          <span style="background: #f5f3ff; padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--status-emerging-text); font-weight: 500;">Metamaterials & Physical Computing (Emerging)</span>
+          <span style="background: var(--status-emerging-bg); border: 1px solid var(--status-emerging-border); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--status-emerging-text); font-weight: 500;">Metamaterials & Physical Computing (Emerging)</span>
         </div>
       </div>
     </section>
@@ -205,7 +205,7 @@
         </div>
 
         <!-- Architecture Diagram -->
-        <div style="margin: 1.5rem 0; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; background: #ffffff;">
+        <div class="figure-container">
           <img src="assets/svg/aethercast-pipeline.svg" alt="AetherCast PI-FNO Architecture Diagram" style="width: 100%; height: auto; display: block;">
         </div>
 
@@ -440,7 +440,7 @@
               I tend to learn things by trying to build them: writing C++/CUDA kernels to understand GPU memory coalescence, deriving biharmonic Airy stresses to formulate PINN loss landscapes, or rendering implicit TPMS shaders in GLSL. Different problems, same fundamental inquiry.
             </p>
           </div>
-          <a href="passion.html" class="btn-secondary" style="background: #ffffff;">
+          <a href="passion.html" class="btn-secondary">
             Read Thoughts & Rabbit Holes →
           </a>
         </div>

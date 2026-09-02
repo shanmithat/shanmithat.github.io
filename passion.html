@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Curiosity & Perspectives — Shanmitha T. Research Portfolio</title>
-  <meta name="description" content="Intellectual curiosity, philosophy of science, and current rabbit holes by Shanmitha T. — from invisible physical fields to unconventional physical computing.">
+  <meta name="description" content="Intellectual curiosity, philosophy of science, and current rabbit holes by Shanmitha T. — from particle physics and CERN to Fermi's paradox, exoplanets, and livecoding music in TidalCycles/Haskell.">
   
   <!-- CSS -->
   <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%230284c7%22/><text y=%2265%22 font-size=%2250%22 font-family=%22monospace%22 font-weight=%22bold%22 x=%2226%22 fill=%22white%22>S</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%2338bdf8%22/><text y=%2265%22 font-size=%2250%22 font-family=%22monospace%22 font-weight=%22bold%22 x=%2226%22 fill=%22%23050811%22>S</text></svg>">
 </head>
 <body class="celestial-grid">
 
@@ -59,10 +59,13 @@
     </div>
   </div>
 
+  <!-- Ambient Cosmic Interactive Canvas -->
+  <canvas id="ambientCanvas" aria-hidden="true"></canvas>
+
   <!-- ========================================================= -->
   <!-- Main Content -->
   <!-- ========================================================= -->
-  <main>
+  <main class="relative-content">
 
     <!-- PAGE HERO -->
     <section class="page-hero">
@@ -73,12 +76,12 @@
         Ideas, Instincts & Intellectual Rabbit Holes
       </h1>
       <p class="page-intro">
-        Research is not just a ledger of code and citations; it is driven by what keeps someone staring at a terminal late into the night. Here is a glimpse into the questions, instincts, and conceptual obsessions behind my work.
+        Research is not just a ledger of code and citations; it is driven by what keeps someone staring into the void late into the night. Here is a glimpse into the questions, instincts, and conceptual obsessions behind my work.
       </p>
     </section>
 
     <!-- ======================================================= -->
-    <!-- PHILOSOPHY & PERSPECTIVE -->
+    <!-- PHILOSOPHY & PERSPECTIVES -->
     <!-- ======================================================= -->
     <section style="margin-bottom: 4rem;">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem;">
@@ -99,17 +102,43 @@
         <!-- Card 2 -->
         <article class="editorial-card">
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">
-            Interdisciplinary Instinct
+            Sonic Computation
           </div>
           <h2 style="font-size: 1.35rem; margin-bottom: 0.75rem;">
-            I like questions that don't fit neatly inside one field.
+            Coding Music & Algorave: Algorithms as Sound.
           </h2>
           <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
-            Mechanical engineering gives me a visceral respect for physical conservation laws, stress equilibria, and thermodynamics. Machine learning provides flexible high-dimensional function approximation. Applied mathematics provides the language of operators and spectral spaces. The most fertile questions sit squarely at their intersections.
+            I love the culture of <strong>livecoding</strong> and <strong>algorave</strong> — turning pure functional code into rhythmic, generative music in real time. Writing declarative polyrhythmic patterns in <strong>Haskell</strong> via <strong>TidalCycles</strong>, orchestrating sound synthesis within the <strong>Pulsar</strong> editor, and treating time as a continuous mathematical cycle. It is code stripped of corporate utility: computation expressed as pure texture and sonic architecture.
           </p>
         </article>
 
         <!-- Card 3 -->
+        <article class="editorial-card">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">
+            Subatomic Realm
+          </div>
+          <h2 style="font-size: 1.35rem; margin-bottom: 0.75rem;">
+            Particle Physics, CERN & Fundamental Symmetries.
+          </h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            Deeply captivated by high-energy particle physics and experiments at <strong>CERN</strong>. The surreal reality of subatomic matter: ghost-like <strong>neutrinos</strong> that oscillate between flavors across planetary distances, fractional charges of <strong>quarks</strong> bound by gluons, second-generation <strong>muons</strong> raining down from cosmic-ray collisions, and gauge symmetry breaking. It represents the ultimate continuum where fields manifest as discrete particles.
+          </p>
+        </article>
+
+        <!-- Card 4 -->
+        <article class="editorial-card">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">
+            Astrophysics & Cosmic Silence
+          </div>
+          <h2 style="font-size: 1.35rem; margin-bottom: 0.75rem;">
+            Exoplanetary Worlds & Fermi's Paradox.
+          </h2>
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
+            The staggering discovery of thousands of <strong>exoplanets</strong> orbiting distant stars — rogue worlds, lava oceans, tidally locked super-Earths — naturally collides with <strong>Fermi's Paradox</strong>: <em>If the universe is billions of years old and planets are ubiquitous, where is everybody?</em> Contemplating the Great Filter, biosignature detection via transit spectroscopy, and the vast acoustic silence of interstellar space keeps human problems in perspective.
+          </p>
+        </article>
+
+        <!-- Card 5 (Full Width) -->
         <article class="editorial-card" style="grid-column: 1 / -1;">
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;">
             The Core Fascination
@@ -117,8 +146,8 @@
           <h2 style="font-size: 1.35rem; margin-bottom: 0.75rem;">
             Fascinated by invisible systems.
           </h2>
-          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; max-width: 52rem;">
-            Much of what governs the universe is invisible until mapped mathematically: stress fields flowing through an elastic solid, concentration plumes transported by turbulent winds, latent manifolds learned by neural operators, or magnetic spins configured in an energy landscape. Computation is the telescope that lets us visualize, query, and design these invisible structures.
+          <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7; max-width: 54rem;">
+            Much of what governs the universe is invisible until mapped mathematically: stress fields flowing through an elastic solid, concentration plumes transported by turbulent winds, latent manifolds learned by neural operators, neutrino fluxes penetrating light-years of lead, or magnetic spins configured in an energy landscape. Computation is the telescope that lets us visualize, query, and design these invisible structures.
           </p>
         </article>
 
@@ -135,67 +164,95 @@
           <h2 class="section-title">Current Rabbit Holes</h2>
         </div>
         <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">
-          Things I'm exploring & reading
+          Things I'm exploring, reading & hacking on
         </span>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
 
-        <div class="metric-box" style="padding: 1.35rem; background: var(--bg-surface);">
+        <!-- Rabbit Hole: Particle Physics -->
+        <div class="metric-box" style="padding: 1.35rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
+            Subatomic Physics
+          </div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">Particle Physics & CERN</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
+            Neutrino mass hierarchies, quark confinement, muon $g-2$ anomalies, LHC collision kinematics, and spontaneous symmetry breaking in quantum gauge fields.
+          </p>
+        </div>
+
+        <!-- Rabbit Hole: Fermi & Exoplanets -->
+        <div class="metric-box" style="padding: 1.35rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
+            Astrophysics
+          </div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">Fermi's Paradox & Exoplanets</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
+            The Great Filter, transmission spectroscopy of exoplanet atmospheres (JWST), Drake equation parameters, and planetary habitability mechanics.
+          </p>
+        </div>
+
+        <!-- Rabbit Hole: Livecoding Music -->
+        <div class="metric-box" style="padding: 1.35rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--status-emerging-text); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
+            Creative Computation
+          </div>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">Livecoding & Algorave</h3>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
+            TidalCycles in Haskell, Pulsar editor, algorithmic polyrhythmic cycles, live synthesis hacking, and the ethos of Algorave: showing screens, not gear.
+          </p>
+        </div>
+
+        <!-- Rabbit Hole: Mechanical Metamaterials -->
+        <div class="metric-box" style="padding: 1.35rem;">
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--status-emerging-text); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
             Architected Matter
           </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Mechanical Metamaterials</h3>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">Mechanical Metamaterials</h3>
           <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
-            Negative Poisson's ratios, topological band gaps, and bistable mechanical logic gates where deformation encodes computation.
+            Negative Poisson's ratios, topological phononic band gaps, and bistable mechanical logic where physical deformation encodes computation.
           </p>
         </div>
 
-        <div class="metric-box" style="padding: 1.35rem; background: var(--bg-surface);">
+        <!-- Rabbit Hole: Physical Computing -->
+        <div class="metric-box" style="padding: 1.35rem;">
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
             Non-von-Neumann
           </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Physical Computing</h3>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">Physical Computing</h3>
           <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
-            Computing with physical dynamics directly — treating the time evolution of continuous systems as an intrinsic computational primitive.
+            Computing with continuous physical dynamics directly — treating thermodynamic dissipation and wave propagation as intrinsic computing primitives.
           </p>
         </div>
 
-        <div class="metric-box" style="padding: 1.35rem; background: var(--bg-surface);">
+        <!-- Rabbit Hole: Skyrmions -->
+        <div class="metric-box" style="padding: 1.35rem;">
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--status-emerging-text); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
             Condensed Matter
           </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Magnetic Skyrmions</h3>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">Magnetic Skyrmions</h3>
           <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
-            Topologically protected nanoscale chiral spin configurations as candidates for ultra-dense, low-dissipation memory and racetrack logic.
+            Topologically protected nanoscale spin vortices as candidates for ultra-dense, low-dissipation memory and racetrack logic.
           </p>
         </div>
 
-        <div class="metric-box" style="padding: 1.35rem; background: var(--bg-surface);">
+        <!-- Rabbit Hole: Neural Operators -->
+        <div class="metric-box" style="padding: 1.35rem;">
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
             Scientific ML
           </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">Neural Operator Theory</h3>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">Neural Operator Theory</h3>
           <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
             Universal approximation in Banach spaces, spectral discretization bounds, and preserving symplectic Hamiltonian structures during PDE rollouts.
           </p>
         </div>
 
-        <div class="metric-box" style="padding: 1.35rem; background: var(--bg-surface);">
+        <!-- Rabbit Hole: CUDA -->
+        <div class="metric-box" style="padding: 1.35rem;">
           <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
-            Geometry
+            GPU Systems
           </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">TPMS & SDFs</h3>
-          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
-            Continuous level-set topology transitions, Schwarz-D / Gyroid minimal energy surfaces, and GPU procedural raymarch slicing.
-          </p>
-        </div>
-
-        <div class="metric-box" style="padding: 1.35rem; background: var(--bg-surface);">
-          <div style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--ocean-primary); font-weight: 600; text-transform: uppercase; margin-bottom: 0.35rem;">
-            Systems
-          </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem;">CUDA Warp Primitives</h3>
+          <h3 style="font-size: 1.1rem; margin-bottom: 0.4rem; color: #ffffff;">CUDA Warp Primitives</h3>
           <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
             Memory coalescence, warp shuffle reductions, and asynchronous tensor core execution for high-order finite-volume stencils.
           </p>
@@ -204,7 +261,7 @@
       </div>
 
       <div style="margin-top: 1.5rem; text-align: center; font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">
-        * Note: These represent intellectual curiosities and reading rabbit holes, not claims of prior experimental lab expertise.
+        * Note: These represent intellectual curiosities and personal rabbit holes, not claims of prior experimental lab expertise.
       </div>
     </section>
 
@@ -245,6 +302,7 @@
               <li><a href="mailto:shanmithat3@gmail.com">shanmithat3@gmail.com</a></li>
               <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               <li><a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+              <li><a href="https://www.linkedin.com/in/shanmithat/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
               <li><a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></li>
             </ul>
           </div>
