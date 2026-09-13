@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en" class="celestial-grid">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engineering Projects · Shanmitha T. — Computational Mechanical Engineering</title>
+  <meta name="description" content="Detailed engineering dossiers for DynaMesh-Thermal, MicroWear-PINN, Implicit Lattice, Pediatric Gait Digital Twin, AetherCast, and Crowd Surge Detector.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+</head>
+<body>
+  <!-- Ambient Interactive Simulation Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Persistent Site Header (No CV) -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-mark" aria-label="Shanmitha T. Home">
+        <span class="brand-dot"></span>
+        <span>SHANMITHA T.</span>
+      </a>
+
+      <!-- Primary Desktop Nav -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a></li>
+        <li><a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a></li>
+        <li><a href="projects.html" class="nav-link active"><span class="nav-num">03</span> projects</a></li>
+        <li><a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a></li>
+        <li><a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a></li>
+        <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a></li>
+      </ul>
+
+      <!-- Mobile Toggle -->
+      <div class="nav-actions">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">menu</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a>
+    <a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a>
+    <a href="projects.html" class="nav-link active"><span class="nav-num">03</span> projects</a>
+    <a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a>
+    <a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a>
+    <a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a>
+  </div>
+
+  <main class="relative-content">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="page-tag">03 · PROJECTS</div>
+      <h1 class="page-title">Engineering Project Dossiers</h1>
+      <p class="page-intro">
+        Every project below begins with a concrete physical and mechanical problem, identifies governing equations, builds verified numerical or computational models, and measures real-world computational efficiency.
+      </p>
+    </section>
+
+    <!-- Project Filter Bar -->
+    <div class="filter-bar" id="projectFilter">
+      <button class="filter-btn active" data-filter="all">All Projects (6)</button>
+      <button class="filter-btn" data-filter="thermal">Thermal &amp; Fluids</button>
+      <button class="filter-btn" data-filter="mechanics">Solid Mechanics &amp; Design</button>
+      <button class="filter-btn" data-filter="computational">Computational &amp; SciML</button>
+    </div>
+
+    <!-- ================================================================= -->
+    <!-- PROJECT 01: DYNAMESH-THERMAL (FLAGSHIP HERO) -->
+    <!-- ================================================================= -->
+    <article class="editorial-card aethercast-spotlight" id="dynamesh" data-category="thermal computational" style="margin-bottom: 3.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div>
+          <span class="pillar-tag" style="color: #34d399;">01 — FLAGSHIP HERO PROJECT · THERMAL TOPOLOGY OPTIMIZATION</span>
+          <h2 style="font-size: 2.15rem; color: #ffffff; margin: 0.35rem 0;">DynaMesh-Thermal</h2>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #60a5fa;">
+            GPU-Accelerated Thermal Topology Optimization
+          </div>
+        </div>
+        <span class="status-pill done"><span class="status-dot"></span> Verified C++/CUDA</span>
+      </div>
+
+      <!-- Specialized Visual Pipeline -->
+      <div class="engineering-pipeline" style="background: rgba(3, 6, 15, 0.7); padding: 0.85rem 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 1.75rem;">
+        <span style="color: #94a3b8; font-weight: 600;">FLOW:</span>
+        <span class="pipeline-node active">PHYSICS</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">DISCRETIZATION (FVM)</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">SOLVER (cuSPARSE)</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">GPU UNIFIED MEMORY</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node active" style="border-color: #34d399; color: #34d399;">OPTIMIZATION</span>
+      </div>
+
+      <!-- 7-Part Engineering Narrative -->
+      <div class="narrative-grid">
+        
+        <div class="narrative-step">
+          <div class="narrative-step-num">01 · The Engineering Problem</div>
+          <div class="narrative-step-title">How can thermal-fluid dissipation be modeled while simultaneously optimizing material layouts?</div>
+          <div class="narrative-step-body">
+            High-density power electronics, heat exchangers, and battery cold plates require complex internal fluid channels to maximize thermal dissipation while minimizing pumping power. Classical topology optimization algorithms run out of memory or stall on CPU solvers because constructing dense global system matrices for coupled fluid-thermal equations is computationally prohibitive at fine spatial resolutions.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">02 · What I Needed to Model</div>
+          <div class="narrative-step-title">Navier–Stokes/Darcy Momentum &amp; Advection-Diffusion Energy Transport</div>
+          <div class="narrative-step-body">
+            The governing continuum physics requires simultaneous solution of:
+            <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+              <li><strong>Fluid Momentum:</strong> Incompressible Navier–Stokes with Brinkman/Darcy friction term $\alpha(\gamma)\mathbf{u}$ penalizing fluid velocity in solid regions.</li>
+              <li><strong>Incompressibility:</strong> $\nabla \cdot \mathbf{u} = 0$, enforcing mass conservation via pressure Poisson solve.</li>
+              <li><strong>Thermal Energy:</strong> Steady-state advection-diffusion transport $\rho C_p \mathbf{u} \cdot \nabla T - \nabla \cdot (k(\gamma) \nabla T) = Q$.</li>
+              <li><strong>Material Interpolation:</strong> SIMP/RAMP penalization interpolating permeability $\alpha(\gamma)$ and thermal conductivity $k(\gamma)$ as functions of design density $\gamma \in [0,1]$.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">03 · My Approach</div>
+          <div class="narrative-step-title">Zero-Dense-Allocation Finite Volume GPU Architecture</div>
+          <div class="narrative-step-body">
+            Rather than relying on generic FEA software or allocating $O(N^2)$ global matrices in host memory, I architected a custom GPU solver in modern C++ and CUDA. The domain is discretized using a cell-centered Finite Volume Method (FVM), strictly guaranteeing mass and energy flux conservation across all internal cell interfaces. A continuous SIMP penalization steers intermediate densities toward binary (solid/fluid) structures.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">04 · Implementation</div>
+          <div class="narrative-step-title">C++, CUDA, cuSPARSE, CUB, and Unified Memory</div>
+          <div class="narrative-step-body">
+            The numerical engine is written in native C++ and CUDA:
+            <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+              <li><strong>Linear Systems:</strong> Built Compressed Sparse Row (CSR) coefficient representations on the fly and solved pressure Poisson equations via <code>cuSPARSE</code> conjugate gradient solvers on device.</li>
+              <li><strong>Memory Hierarchy:</strong> Leveraged CUDA Unified Memory with <code>cudaMemAdviseSetPreferredLocation</code> to eliminate CPU-GPU round-trip PCIe transfer bottlenecks.</li>
+              <li><strong>Reductions &amp; Filtering:</strong> Used <code>CUB</code> device-wide reduction primitives for objective evaluation, sensitivity filtering, and mesh smoothing across 100k+ elements.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">05 · Verification</div>
+          <div class="narrative-step-title">Conservation Proofs &amp; Benchmark Comparison</div>
+          <div class="narrative-step-body">
+            Verified the implementation against standard 2D benchmark heat-sink channels. Confirmed global energy balance $\sum Q_{\text{in}} = \sum Q_{\text{out}}$ with &lt; 0.05% relative discretization error across cell boundaries. Verified that pressure drop and temperature contours match classical analytical Hagen-Poiseuille limits in straight-duct regimes before optimization initiates.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">06 · Result</div>
+          <div class="narrative-step-title">GPU Topology Optimization Pipeline Without Host RAM Constraints</div>
+          <div class="narrative-step-body">
+            Achieved complete GPU execution of the thermal optimization loop. The pipeline evaluates fluid velocity fields, solves temperature distribution, calculates adjoint sensitivities, and updates material layout without ever instantiating a dense matrix in system memory, yielding clean branched tree-like thermal conduits that outperform uniform channel baselines.
+          </div>
+        </div>
+
+        <div class="narrative-step" style="border-left-color: #34d399;">
+          <div class="narrative-step-num" style="color: #34d399;">07 · What I Learned</div>
+          <div class="narrative-step-title">Hardware Realities in Multiphysics Engineering</div>
+          <div class="narrative-step-body">
+            Writing a GPU solver from scratch taught me that physical equations cannot be divorced from memory architecture. Coalesced global memory access, divergence-free thread branches, and sparse representation dictate performance far more than raw FLOPS. True computational mechanics begins when you structure your physical discretization around the hardware that executes it.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="btn-group">
+        <a href="https://github.com/shanmithat/DynaMesh" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          View DynaMesh GitHub Repository ↗
+        </a>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- PROJECT 02: MICROWEAR-PINN (SOLID MECHANICS FLAGSHIP) -->
+    <!-- ================================================================= -->
+    <article class="editorial-card" id="microwear" data-category="mechanics computational" style="margin-bottom: 3.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div>
+          <span class="pillar-tag" style="color: #a78bfa;">02 — SOLID MECHANICS FLAGSHIP · CONTACT &amp; WEAR MECHANICS</span>
+          <h2 style="font-size: 2.15rem; color: #ffffff; margin: 0.35rem 0;">MicroWear-PINN</h2>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #60a5fa;">
+            Micromechanics: Surface Observations → Wear Kinetics → Contact Mechanics → Elastic Stress Field
+          </div>
+        </div>
+        <span class="status-pill done"><span class="status-dot"></span> Verified Parity</span>
+      </div>
+
+      <!-- Specialized Visual Pipeline -->
+      <div class="engineering-pipeline" style="background: rgba(3, 6, 15, 0.7); padding: 0.85rem 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 1.75rem;">
+        <span style="color: #94a3b8; font-weight: 600;">MICROMECHANICS:</span>
+        <span class="pipeline-node active">SURFACE OBSERVATIONS</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">WEAR KINETICS (ARCHARD)</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">CONTACT MECHANICS</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">ELASTIC STRESS FIELD (AIRY)</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node active" style="border-color: #34d399; color: #34d399;">PREDICTION</span>
+      </div>
+
+      <!-- Figure -->
+      <div class="figure-container">
+        <img src="assets/svg/microwear-pipeline.svg" alt="MicroWear-PINN Mechanics Pipeline" style="width: 100%; height: auto; display: block;">
+      </div>
+
+      <!-- 7-Part Engineering Narrative -->
+      <div class="narrative-grid">
+        
+        <div class="narrative-step">
+          <div class="narrative-step-num">01 · The Engineering Problem</div>
+          <div class="narrative-step-title">Subsurface Contact Stresses Cannot Be Measured Directly In Situ</div>
+          <div class="narrative-step-body">
+            In rolling-element bearings, dry clutches, and gear contacts, subsurface stresses cause subsurface fatigue and catastrophic spalling. However, optical and stylus profilometers can only measure the exterior wear scar at intermittent inspection intervals. Reconstructing the continuous internal elastic stress state from sparse surface observations is an ill-posed inverse problem in classical mechanics.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">02 · What I Needed to Model</div>
+          <div class="narrative-step-title">Archard Wear Kinetics Coupled with Biharmonic Airy Stress Potentials</div>
+          <div class="narrative-step-body">
+            The mechanical system must satisfy continuum elasticity and surface kinematics simultaneously:
+            <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+              <li><strong>Kinematic Surface Evolution:</strong> The Archard differential wear law: $\frac{\partial h(x,t)}{\partial t} = k_w \cdot p(x,t) \cdot v_{\text{rel}}$.</li>
+              <li><strong>Elastic Equilibrium:</strong> Plane strain linear elasticity formulated through the Airy stress potential $\Phi(x,y)$, guaranteeing exact stress equilibrium ($\nabla \cdot \boldsymbol{\sigma} = 0$) and compatibility via the biharmonic PDE: $\nabla^4 \Phi = \frac{\partial^4 \Phi}{\partial x^4} + 2\frac{\partial^4 \Phi}{\partial x^2 \partial y^2} + \frac{\partial^4 \Phi}{\partial y^4} = 0$.</li>
+              <li><strong>Contact Boundary Conditions:</strong> Normal surface traction must match contact pressure: $\sigma_{yy}(x,0,t) = -p(x,t)$, with shear traction $\tau_{xy}(x,0,t) = \mu p(x,t)$.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">03 · My Approach</div>
+          <div class="narrative-step-title">Decoupled Dual-Network Physics-Informed Coordinate Representation</div>
+          <div class="narrative-step-body">
+            I designed a dual-network architecture that decouples surface kinematics from internal continuum elasticity. The first network maps spatial-temporal coordinates to wear scar depth $h(x,t)$, while the second network maps spatial domain coordinates $(x,y)$ to the Airy potential $\Phi(x,y)$. The biharmonic operator and traction boundaries are enforced in the loss function via automated differentiation (Autograd), while SoftAdapt dynamic weighting balances surface fit against PDE loss.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">04 · Implementation</div>
+          <div class="narrative-step-title">PyTorch, Autograd, Random Fourier Features, and ONNX Runtime Web</div>
+          <div class="narrative-step-body">
+            Implemented in PyTorch with Random Fourier Feature (RFF) encodings $\gamma(\mathbf{x}) = [\cos(2\pi \mathbf{B}\mathbf{x}), \sin(2\pi \mathbf{B}\mathbf{x})]$ to resolve sharp contact gradient boundaries without spectral bias. Exported the trained computational graph to ONNX format with float32 quantized weights, enabling zero-backend, instantaneous browser client inference via ONNX Runtime Web and WebGL.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">05 · Verification</div>
+          <div class="narrative-step-title">Autograd Verification &amp; ONNX Numerical Parity</div>
+          <div class="narrative-step-body">
+            Verified the biharmonic constraint by writing automated unit tests comparing autograd 4th-order derivative outputs against finite-difference stencils on test polynomials, passing 2/2 tests. Quantified numerical parity between PyTorch eager mode and ONNX export, verifying absolute error &lt; $3 \times 10^{-5}$ across the entire contact domain.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">06 · Result</div>
+          <div class="narrative-step-title">Robust Inversion of Subsurface Stress Fields from Profilometry</div>
+          <div class="narrative-step-body">
+            Successfully reconstructed the continuous subsurface von Mises stress field and localized peak subsurface shear stresses ($z \approx 0.78b$) solely from sparse surface wear profilometry data, providing mechanical engineers with a validated diagnostic tool for tribological contact wear.
+          </div>
+        </div>
+
+        <div class="narrative-step" style="border-left-color: #34d399;">
+          <div class="narrative-step-num" style="color: #34d399;">07 · What I Learned</div>
+          <div class="narrative-step-title">Physics as an Inductive Bias</div>
+          <div class="narrative-step-body">
+            Machine learning without physical constraints fails on sparse engineering data. Incorporating the biharmonic Airy potential turned an impossible ill-posed data regression into a well-behaved boundary value problem. In mechanical systems, governing equations are the ultimate regularizer.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="btn-group">
+        <a href="https://github.com/shanmithat/MicroWear-PINN" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          View MicroWear GitHub Repository ↗
+        </a>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- PROJECT 03: IMPLICIT LATTICE GENERATOR (DESIGN & MANUFACTURING) -->
+    <!-- ================================================================= -->
+    <article class="editorial-card" id="implicit-lattice" data-category="mechanics computational" style="margin-bottom: 3.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div>
+          <span class="pillar-tag" style="color: #60a5fa;">03 — ENGINEERING DESIGN &amp; MANUFACTURING (CIM)</span>
+          <h2 style="font-size: 2.15rem; color: #ffffff; margin: 0.35rem 0;">Implicit Lattice Generator</h2>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #60a5fa;">
+            Procedural TPMS Metamaterials &amp; Real-Time GPU Slicing
+          </div>
+        </div>
+        <span class="status-pill done"><span class="status-dot"></span> Live WebGL Engine</span>
+      </div>
+
+      <!-- Figure -->
+      <div class="figure-container">
+        <img src="assets/svg/implicit-lattice.svg" alt="Implicit Lattice Generator Architecture" style="width: 100%; height: auto; display: block;">
+      </div>
+
+      <!-- 7-Part Engineering Narrative -->
+      <div class="narrative-grid">
+        
+        <div class="narrative-step">
+          <div class="narrative-step-num">01 · The Engineering Problem</div>
+          <div class="narrative-step-title">Meshed STL Files for Complex Additive Lattices Create Storage &amp; Slicing Bottlenecks</div>
+          <div class="narrative-step-body">
+            In lightweight aerospace structures and heat exchangers, Triply Periodic Minimal Surface (TPMS) architectures offer exceptional stiffness-to-weight and surface-area-to-volume ratios. However, representing complex gyroid or diamond lattices using standard boundary representation (B-rep) STL meshes generates multi-gigabyte files that crash industrial slicers and cannot be edited interactively.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">02 · What I Needed to Model</div>
+          <div class="narrative-step-title">Continuous Implicit Level-Set Functions for TPMS Families</div>
+          <div class="narrative-step-body">
+            Mathematically formulated continuous Signed Distance Fields (SDFs) defining TPMS geometry:
+            <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+              <li><strong>Gyroid:</strong> $f_G(\mathbf{x}) = \sin(\omega x)\cos(\omega y) + \sin(\omega y)\cos(\omega z) + \sin(\omega z)\cos(\omega x) - t = 0$.</li>
+              <li><strong>Schwarz Diamond:</strong> $f_D(\mathbf{x}) = \sin(\omega x)\sin(\omega y)\sin(\omega z) + \sin(\omega x)\cos(\omega y)\cos(\omega z) + \dots - t = 0$.</li>
+              <li><strong>Graded Density:</strong> Modulating thickness parameter $t(\mathbf{x})$ and spatial frequency $\omega(\mathbf{x})$ continuously across Cartesian coordinate space without creating geometric disconnections.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">03 · My Approach</div>
+          <div class="narrative-step-title">Direct Implicit Raymarching &amp; Procedural GPU Evaluation</div>
+          <div class="narrative-step-body">
+            Instead of generating, transferring, and storing triangle meshes, I built an interactive procedural engine that evaluates the implicit equation directly inside GLSL fragment shaders. The surface is rendered via sphere-assisted raymarching, and manufacturing layer slices are generated by evaluating the 2D planar cross-section equation analytically at arbitrary slice heights $z = z_k$.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">04 · Implementation</div>
+          <div class="narrative-step-title">WebGL 2.0, GLSL Raymarching, and Direct Planar Slicing</div>
+          <div class="narrative-step-body">
+            Developed with zero heavyweight CAD plugins: pure WebGL 2.0 and GLSL. Implemented sphere-tracing raymarching with analytical surface normal evaluation $\mathbf{n} = \nabla f / \|\nabla f\|$ via central differences in screen space. Slicing routines directly evaluate 2D bitmap masks at $4096 \times 4096$ resolution on the GPU in under 0.8 ms per layer.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">05 · Verification</div>
+          <div class="narrative-step-title">Storage &amp; Framerate Benchmarking</div>
+          <div class="narrative-step-body">
+            Benchmarked a $100 \times 100 \times 100\ \text{mm}$ Gyroid lattice specimen against an exported fine STL mesh. The explicit STL representation required 1.94 GB of storage on disk, whereas the implicit shader requires only 13.7 KB of program code—achieving a &gt; 140,000× storage footprint reduction while maintaining $\ge$ 52 FPS on integrated GPUs.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">06 · Result</div>
+          <div class="narrative-step-title">Zero-Lag Interactive Design of Additive Metamaterials</div>
+          <div class="narrative-step-body">
+            Delivered an interactive web tool allowing engineers to continuously alter unit cell topology, porosity gradient, and bounding volumes in real time without waiting for geometry remeshing or incurring storage overhead.
+          </div>
+        </div>
+
+        <div class="narrative-step" style="border-left-color: #34d399;">
+          <div class="narrative-step-num" style="color: #34d399;">07 · What I Learned</div>
+          <div class="narrative-step-title">Rethinking Manufacturing Representations</div>
+          <div class="narrative-step-body">
+            The traditional pipeline of CAD $\to$ STL $\to$ Slicer was built for subtractive machining with planar and cylindrical features. For advanced additive manufacturing, representing geometry as continuous functional mathematical fields is dramatically more efficient and elegant than millions of planar triangles.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="btn-group">
+        <a href="https://github.com/shanmithat/implicit-lattice" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          View Implicit Lattice GitHub Repository ↗
+        </a>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- PROJECT 04: PEDIATRIC GAIT DIGITAL TWIN (BIOMECHANICS) -->
+    <!-- ================================================================= -->
+    <article class="editorial-card" id="pediatric-gait" data-category="mechanics" style="margin-bottom: 3.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div>
+          <span class="pillar-tag" style="color: #60a5fa;">04 — BIOMECHANICS &amp; MULTIBODY DYNAMICS</span>
+          <h2 style="font-size: 2.15rem; color: #ffffff; margin: 0.35rem 0;">Pediatric Gait Digital Twin</h2>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #60a5fa;">
+            Inverse Kinematics · Multibody Dynamics · Musculoskeletal Digital Twin
+          </div>
+        </div>
+        <span class="status-pill done"><span class="status-dot"></span> System Implemented</span>
+      </div>
+
+      <!-- 7-Part Engineering Narrative -->
+      <div class="narrative-grid">
+        
+        <div class="narrative-step">
+          <div class="narrative-step-num">01 · The Engineering Problem</div>
+          <div class="narrative-step-title">Clinical Gait Laboratories are Inaccessible for Continuous Pediatric Monitoring</div>
+          <div class="narrative-step-body">
+            Diagnosing and monitoring pediatric neuromuscular disorders (such as cerebral palsy and idiopathic toe-walking) currently requires specialized optical motion capture laboratories with multi-camera retroreflective marker setups and force plates. These laboratories are expensive, intimidating for children, and cannot capture natural gait patterns in home or clinic environments.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">02 · What I Needed to Model</div>
+          <div class="narrative-step-title">Multibody Kinematics &amp; Joint Coordinate Systems</div>
+          <div class="narrative-step-body">
+            The biomechanical system requires:
+            <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+              <li><strong>Rigid Multibody Hierarchy:</strong> 3D kinematic tree representing pelvis, femur, tibia, and foot segments.</li>
+              <li><strong>Joint Kinematics:</strong> Continuous calculation of hip flexion/extension, abduction/adduction, knee flexion, and ankle dorsiflexion/plantarflexion angles following International Society of Biomechanics (ISB) recommendations.</li>
+              <li><strong>Temporal Gait Event Detection:</strong> Identifying heel-strike and toe-off transitions to calculate stance/swing phase ratios and cadence asymmetry.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">03 · My Approach</div>
+          <div class="narrative-step-title">Markerless Monocular Computer Vision Coupled with Biomechanical Digital Twin</div>
+          <div class="narrative-step-body">
+            I designed a non-invasive pipeline that extracts 3D anatomical keypoints from standard monocular video feeds, fits a parametric skeletal model using constrained inverse kinematics, and mirrors patient motion in an interactive 3D musculoskeletal digital twin. Note: Model and digital twin implemented; clinical testing and medical validation remain pending.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">04 · Implementation</div>
+          <div class="narrative-step-title">Python, MediaPipe Pose, Three.js 3D Digital Twin, and Streamlit</div>
+          <div class="narrative-step-body">
+            Built an end-to-end web deployment utilizing MediaPipe BlazePose for real-time anatomical landmark extraction, vector geometry routines for joint angle kinematics, and Three.js for synchronized, interactive 3D digital twin playback and clinical parameter display.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">05 · Verification</div>
+          <div class="narrative-step-title">Kinematic Angle Bounds &amp; Temporal Reproducibility</div>
+          <div class="narrative-step-body">
+            Verified calculated sagittal knee and hip angle waveforms against standard physiological gait ranges (Winter's normative biomechanics datasets), confirming characteristic double-peak knee flexion during stance and swing phases within physical limits.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">06 · Result</div>
+          <div class="narrative-step-title">Accessible, Low-Cost Biomechanical Gait Analysis Prototype</div>
+          <div class="narrative-step-body">
+            Constructed a functional prototype capable of computing spatial-temporal gait parameters (cadence, step length symmetry, joint flexion ranges) from single-camera video recordings without requiring physical markers or wearable sensors.
+          </div>
+        </div>
+
+        <div class="narrative-step" style="border-left-color: #34d399;">
+          <div class="narrative-step-num" style="color: #34d399;">07 · What I Learned</div>
+          <div class="narrative-step-title">Translating Rigid-Body Dynamics to Human Anatomy</div>
+          <div class="narrative-step-body">
+            Human joints are not ideal mechanical revolute pins; instant centers of rotation translate dynamically. Reconciling rigid-body kinematic assumptions with biological compliance requires strict mathematical boundary checking and noise filtering.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="btn-group">
+        <a href="https://github.com/shanmithat/pediatric-gait-digital-twin" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          View Pediatric Gait GitHub Repository ↗
+        </a>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- PROJECT 05: AETHERCAST (COMPUTATIONAL MODELLING CASE STUDY) -->
+    <!-- ================================================================= -->
+    <article class="editorial-card" id="aethercast" data-category="thermal computational" style="margin-bottom: 3.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div>
+          <span class="pillar-tag" style="color: #c4b5fd;">05 — COMPUTATIONAL MODELLING CASE STUDY</span>
+          <h2 style="font-size: 2.15rem; color: #ffffff; margin: 0.35rem 0;">AetherCast: Physics-Informed Neural Operators for Transport</h2>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #60a5fa;">
+            Atmospheric Advection-Diffusion Transport · Fourier Neural Operators · PDE Regularization
+          </div>
+        </div>
+        <span class="status-pill review"><span class="status-dot"></span> Under Double-Blind Review</span>
+      </div>
+
+      <!-- Figure -->
+      <div class="figure-container">
+        <img src="assets/svg/aethercast-pipeline.svg" alt="AetherCast PI-FNO Architecture Diagram" style="width: 100%; height: auto; display: block;">
+      </div>
+
+      <!-- 7-Part Engineering Narrative -->
+      <div class="narrative-grid">
+        
+        <div class="narrative-step">
+          <div class="narrative-step-num">01 · The Engineering Problem</div>
+          <div class="narrative-step-title">Evaluating Physics Regularization in Deep Neural Operators for Transport PDEs</div>
+          <div class="narrative-step-body">
+            Neural operators (such as Fourier Neural Operators, FNOs) have emerged as fast data-driven surrogates for continuous differential equations. However, purely data-driven models frequently drift into unphysical regimes over extended time horizons or fail when training data is sparse. The engineering question is: what is the rigorous quantitative trade-off when soft PDE residuals are added to operator training?
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">02 · What I Needed to Model</div>
+          <div class="narrative-step-title">2D Advection-Diffusion-Reaction Continuum Dynamics</div>
+          <div class="narrative-step-body">
+            Governed by the 2D atmospheric scalar transport equation:
+            $$\frac{\partial u}{\partial t} + \mathbf{v} \cdot \nabla u = D \nabla^2 u + R(u)$$
+            Where $u(x,y,t)$ is the scalar plume concentration, $\mathbf{v}(x,y)$ is the steady/unsteady background velocity vector field, $D$ is the diffusion coefficient, and $R(u)$ is a non-linear reaction term.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">03 · My Approach</div>
+          <div class="narrative-step-title">Physics-Informed Fourier Neural Operator (PI-FNO) with Finite-Difference Stencils</div>
+          <div class="narrative-step-body">
+            I built a 2D Fourier Neural Operator with 4 spectral convolution blocks ($k_{\max} = 12$) augmented with a discrete PDE loss $\mathcal{L}_{\text{phy}} = \|\mathcal{R}(u_{\text{pred}})\|^2$. Time and space derivatives in $\mathcal{R}$ are computed via second-order central finite differences directly across the predicted rollout tensor.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">04 · Implementation</div>
+          <div class="narrative-step-title">PyTorch, Spectral 2D FFT Convolutions, and Automated Evaluation</div>
+          <div class="narrative-step-body">
+            Implemented in PyTorch with 106,264 parameters. Evaluated across 3 distinct random seeds (42, 123, 999) under controlled data regimes (64 to 1024 trajectories) and physics weighting sweeps ($\lambda_{\text{phy}} \in [0.0, 0.1]$). CPU latency and memory footprint were benchmarked rigorously without unsupported performance claims.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">05 · Verification</div>
+          <div class="narrative-step-title">Rigorous Statistical Benchmarking</div>
+          <div class="narrative-step-body">
+            Across 1,000 test trajectories, the physics-informed regularizer ($\lambda_{\text{phy}} = 0.01$) achieved:
+            <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+              <li><strong>39.5% lower PDE residual</strong> compared to an identical data-only FNO architecture.</li>
+              <li><strong>7.5% lower test MSE</strong> over a 24-step (120-minute) forecast horizon.</li>
+              <li>In low-data regimes (64 trajectories), physics regularization reduced test MSE by 79.4% and relative $L_2$ error by 52.1%.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">06 · Result</div>
+          <div class="narrative-step-title">Targeted Publication at NeurIPS 2026 AI4Science Workshop</div>
+          <div class="narrative-step-body">
+            Completed research manuscript under double-blind peer review at the NeurIPS 2026 AI4Science Track Workshop, establishing that small physics loss regularizers systematically improve conservation properties in neural operators without slowing inference.
+          </div>
+        </div>
+
+        <div class="narrative-step" style="border-left-color: #34d399;">
+          <div class="narrative-step-num" style="color: #34d399;">07 · What I Learned</div>
+          <div class="narrative-step-title">The Honest Limits of Neural Operators</div>
+          <div class="narrative-step-body">
+            Neural operators are powerful interpolators across function spaces, but they do not automatically replace classical numerical solvers. On standard CPU architectures, discrete FVM/FDM solvers remain faster and guarantee strict machine-precision conservation. Neural operators find their true advantage in repeated multi-query optimization where parallel GPU throughput dominates.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="btn-group">
+        <a href="https://github.com/shanmithat/AetherCast" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Research Repository ↗
+        </a>
+        <a href="https://shanmithat-aethercast.hf.space" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Live Streamlit Demo ↗
+        </a>
+      </div>
+    </article>
+
+    <!-- ================================================================= -->
+    <!-- PROJECT 06: CROWD SURGE DETECTOR (CONTINUUM & VISION) -->
+    <!-- ================================================================= -->
+    <article class="editorial-card" id="crowd-surge" data-category="computational" style="margin-bottom: 3.5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.25rem;">
+        <div>
+          <span class="pillar-tag" style="color: #60a5fa;">06 — CONTINUUM MODELLING &amp; VISION</span>
+          <h2 style="font-size: 2.15rem; color: #ffffff; margin: 0.35rem 0;">Crowd Surge &amp; Stampede Detector</h2>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #60a5fa;">
+            Continuum Fluid Analogy · Optical Flow Velocity Fields · Real-Time Edge Vision
+          </div>
+        </div>
+        <span class="status-pill done"><span class="status-dot"></span> Completed System</span>
+      </div>
+
+      <!-- 7-Part Engineering Narrative -->
+      <div class="narrative-grid">
+        
+        <div class="narrative-step">
+          <div class="narrative-step-num">01 · The Engineering Problem</div>
+          <div class="narrative-step-title">Detecting Shock Waves and Compaction in Dense Pedestrian Crowds</div>
+          <div class="narrative-step-body">
+            Crowd disasters occur when pedestrian density exceeds critical thresholds ($\ge 6\ \text{people/m}^2$), causing crowd motion to transition from individual walking to turbulent fluid shock waves. Automated surveillance must detect localized flow stoppage and compression before crush pressures become fatal.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">02 · What I Needed to Model</div>
+          <div class="narrative-step-title">Continuum Velocity Divergence &amp; Reynolds Stress Analogies</div>
+          <div class="narrative-step-body">
+            Modeling dense crowds using continuum fluid mechanics principles:
+            <ul style="margin: 0.5rem 0 0 1.25rem; line-height: 1.6;">
+              <li><strong>Compressible Flow Analogy:</strong> Dense crowd density $\rho(\mathbf{x},t)$ satisfies the continuity equation $\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{u}) = 0$.</li>
+              <li><strong>Velocity Divergence:</strong> $\nabla \cdot \mathbf{u} &lt; 0$ signals localized volumetric compaction and narrowing bottleneck entrapment.</li>
+              <li><strong>Turbulent Kinetic Energy:</strong> Sudden spikes in localized velocity variance $\langle \mathbf{u}'^2 \rangle$ signify stampede panic or turbulent jostling.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">03 · My Approach</div>
+          <div class="narrative-step-title">Dense Optical Flow with Thresholded Divergence Alerting</div>
+          <div class="narrative-step-body">
+            Combined Farneback dense optical flow with YOLO pedestrian detection to compute spatial velocity vector fields across live CCTV video frames. The continuum divergence field is evaluated numerically over a coarse spatial grid to trigger early warning indicators.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">04 · Implementation</div>
+          <div class="narrative-step-title">Python, OpenCV, PyTorch, and Edge Processing</div>
+          <div class="narrative-step-body">
+            Constructed a modular real-time vision pipeline in Python and OpenCV with GPU acceleration, processing 1080p surveillance video feeds at &gt; 28 FPS on edge computing hardware.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">05 · Verification</div>
+          <div class="narrative-step-title">Surge Video Benchmark Validation</div>
+          <div class="narrative-step-body">
+            Evaluated on archival crowd surge datasets, demonstrating reliable detection of sudden stoppage and rapid reverse compression waves with zero false alarms under normal laminar pedestrian transit conditions.
+          </div>
+        </div>
+
+        <div class="narrative-step">
+          <div class="narrative-step-num">06 · Result</div>
+          <div class="narrative-step-title">Real-Time Fluid-Mechanical Crowd Anomaly Detection</div>
+          <div class="narrative-step-body">
+            Delivered a working computer vision system applying continuum fluid concepts to municipal crowd safety monitoring.
+          </div>
+        </div>
+
+        <div class="narrative-step" style="border-left-color: #34d399;">
+          <div class="narrative-step-num" style="color: #34d399;">07 · What I Learned</div>
+          <div class="narrative-step-title">The Universality of Continuum Mechanics</div>
+          <div class="narrative-step-body">
+            The mathematical tools of continuum mechanics—divergence, vorticity, shear stress, and flux conservation—are not confined to pipes and airfoils. They provide an immensely powerful lens for analyzing collective dynamics across diverse macroscopic systems.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="btn-group">
+        <a href="https://github.com/shanmithat/CrowdSurge" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          View Crowd Surge GitHub Repository ↗
+        </a>
+      </div>
+    </article>
+
+  </main>
+
+  <!-- Persistent Editorial Footer (No CV) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>SHANMITHA T.</h3>
+          <p>Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">01 Home</a></li>
+              <li><a href="engineering.html">02 Engineering</a></li>
+              <li><a href="projects.html">03 Projects</a></li>
+              <li><a href="publications.html">04 Publications</a></li>
+              <li><a href="about.html">05 About</a></li>
+              <li><a href="contact.html">06 Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Primary Channels</h4>
+            <ul>
+              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+              <li><a href="https://scholar.google.com/citations?user=GjFjQ0sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
+              <li><a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+              <li><a href="mailto:shanmithat@gmail.com">shanmithat@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Shanmitha T. · Mechanical Engineering, built with computation.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">VIT Chennai · Graduating 2027</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Simple category filtering
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const articles = document.querySelectorAll('article[data-category]');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.getAttribute('data-filter');
+
+        articles.forEach(art => {
+          if (filter === 'all' || art.getAttribute('data-category').includes(filter)) {
+            art.style.display = 'block';
+          } else {
+            art.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

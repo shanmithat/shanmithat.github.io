@@ -1,508 +1,409 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="celestial-grid">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shanmitha T. — Scientific ML & Computational Physics Researcher</title>
-  <meta name="description" content="Personal research portfolio of Shanmitha T. — Final-year undergraduate developing toward research at the intersection of scientific ML, computational physics, numerical simulation, and computational materials.">
-  
-  <!-- CSS -->
+  <title>Shanmitha T. — Mechanical Engineering, built with computation</title>
+  <meta name="description" content="Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}]});"></script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%230284c7%22/><text y=%2265%22 font-size=%2250%22 font-family=%22monospace%22 font-weight=%22bold%22 x=%2226%22 fill=%22white%22>S</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 </head>
-<body class="celestial-grid">
+<body>
+  <!-- Ambient Interactive Transport Simulation Canvas -->
+  <canvas id="ambientCanvas"></canvas>
 
-  <!-- ========================================================= -->
-  <!-- Persistent Navigation -->
-  <!-- ========================================================= -->
+  <!-- Persistent Site Header (No CV) -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="brand-mark">
+      <a href="index.html" class="brand-mark" aria-label="Shanmitha T. Home">
         <span class="brand-dot"></span>
-        SHANMITHA T.
+        <span>SHANMITHA T.</span>
       </a>
 
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link active"><span class="nav-num">01</span> index</a></li>
-          <li><a href="experience.html" class="nav-link"><span class="nav-num">02</span> experience</a></li>
-          <li><a href="publications.html" class="nav-link"><span class="nav-num">03</span> publications</a></li>
-          <li><a href="research.html" class="nav-link"><span class="nav-num">04</span> research</a></li>
-          <li><a href="passion.html" class="nav-link"><span class="nav-num">05</span> passion</a></li>
-          <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a></li>
-        </ul>
-      </nav>
+      <!-- Primary Desktop Nav -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active"><span class="nav-num">01</span> home</a></li>
+        <li><a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a></li>
+        <li><a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a></li>
+        <li><a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a></li>
+        <li><a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a></li>
+        <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a></li>
+      </ul>
 
+      <!-- Mobile Toggle -->
       <div class="nav-actions">
-        <a href="res.pdf" class="btn-cv" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">
-          DOWNLOAD CV ↗
-        </a>
-        <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
-          ☰ Menu
-        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">menu</button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Navigation Drawer -->
-  <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
-    <a href="index.html" class="nav-link active"><span class="nav-num">01</span> index</a>
-    <a href="experience.html" class="nav-link"><span class="nav-num">02</span> experience</a>
-    <a href="publications.html" class="nav-link"><span class="nav-num">03</span> publications</a>
-    <a href="research.html" class="nav-link"><span class="nav-num">04</span> research</a>
-    <a href="passion.html" class="nav-link"><span class="nav-num">05</span> passion</a>
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-link active"><span class="nav-num">01</span> home</a>
+    <a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a>
+    <a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a>
+    <a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a>
+    <a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a>
     <a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a>
-    <div style="padding: 1rem 0 0.5rem;">
-      <a href="res.pdf" class="btn-cv" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer" style="width: 100%; justify-content: center;">
-        DOWNLOAD CV ↗
-      </a>
-    </div>
   </div>
 
-  <!-- Ambient Cosmic & Deep-Ocean Interactive Canvas -->
-  <canvas id="ambientCanvas" aria-hidden="true"></canvas>
-
-  <!-- ========================================================= -->
-  <!-- Main Content -->
-  <!-- ========================================================= -->
   <main class="relative-content">
-
-    <!-- HERO SECTION -->
-    <section class="page-hero" style="margin-top: 1.5rem; margin-bottom: 4rem;">
-      <div class="page-tag">
-        <span class="status-dot"></span>
-        VIT Chennai · Expected 2027
+    
+    <!-- SECTION 1: ENGINEERING WORKSTATION OPENING -->
+    <section class="workstation-panel">
+      <div class="workstation-header">
+        <div class="workstation-badge">
+          <span>●</span> WORKSTATION ACTIVE · COMPUTATIONAL MECHANICAL ENGINEERING
+        </div>
+        <div style="font-family: var(--font-mono); color: #94a3b8; font-size: 0.76rem;">
+          VIT CHENNAI · MECHANICAL ENGG · EXPECTED 2027
+        </div>
       </div>
 
-      <h1 class="page-title" style="font-size: clamp(2.4rem, 5.5vw, 3.8rem); max-width: 52rem; letter-spacing: -0.03em;">
-        Building computational models of <span style="color: var(--ocean-primary);">physical systems</span> with machine learning.
+      <div style="font-family: var(--font-mono); font-size: 0.82rem; color: #60a5fa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem;">
+        SHANMITHA T.
+      </div>
+      
+      <h1 class="workstation-title">
+        Mechanical Engineering,<br><span>built with computation.</span>
       </h1>
 
-      <p class="page-intro" style="font-size: 1.15rem; max-width: 48rem; margin-top: 1.25rem;">
-        Mechanical Engineering undergraduate at <strong>VIT Chennai</strong> developing toward research at the intersection of <strong>scientific machine learning</strong>, <strong>computational physics</strong>, <strong>numerical simulation</strong>, and <strong>computational materials</strong>.
+      <p class="workstation-sub">
+        I am a Mechanical Engineering undergraduate at VIT Chennai interested in understanding, designing and improving engineering systems through a combination of mechanical fundamentals, simulation and scientific computing.
       </p>
 
-      <div style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted); max-width: 46rem; line-height: 1.6;">
-        <span style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--ocean-deep); font-weight: 600;">Demonstrated Experience:</span>
-        Physics-informed neural operators for PDE transport, mechanics PINNs, C++/CUDA multiphysics topology optimization, implicit computational geometry, and digital twins.
-        <br>
-        <span style="font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; color: var(--status-emerging-text); font-weight: 600; margin-top: 0.4rem; display: inline-block;">Emerging Interests:</span>
-        Exploring metamaterials, architected materials, unconventional information storage, and physical computing.
+      <div class="workstation-specs">
+        <span>Thermal systems</span>
+        <span>Fluid mechanics</span>
+        <span>Machine design</span>
+        <span>Manufacturing</span>
+        <span>Simulation</span>
+        <span>Scientific computing</span>
       </div>
 
-      <div class="btn-group" style="margin-top: 1.75rem;">
-        <a href="experience.html" class="btn-primary">
-          Explore Research Projects →
-        </a>
-        <a href="res.pdf" class="btn-secondary" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">
-          Download CV (PDF) ↗
-        </a>
-        <a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-          GitHub ↗
-        </a>
-        <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-          Google Scholar ↗
-        </a>
+      <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #34d399; font-weight: 500; margin-bottom: 1.75rem;">
+        From equations → models → simulations → working computational systems.
       </div>
-    </section>
 
-    <!-- CENTRAL RESEARCH QUESTION & INTELLECTUAL NARRATIVE -->
-    <section style="margin-bottom: 4rem;">
-      <div class="editorial-card" style="border-left: 4px solid var(--ocean-primary);">
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--ocean-primary); letter-spacing: 0.08em; margin-bottom: 0.5rem;">
-          The Central Research Question
-        </div>
-        <h2 style="font-size: 1.65rem; margin-bottom: 0.85rem;">
-          How can computation help us understand, simulate, and eventually design complex physical systems?
-        </h2>
-        <p style="font-size: 0.98rem; color: var(--text-secondary); max-width: 50rem; line-height: 1.7;">
-          My work develops across an intellectual progression: beginning with multilingual representation learning, advancing to physics-informed learning and Fourier neural operators for PDEs, grounding in numerical continuum mechanics and C++/CUDA GPU solvers, expanding into implicit procedural geometry for TPMS architected structures, and developing toward emerging research in metamaterials and physical computing.
-        </p>
-
-        <!-- Micro progression trail -->
-        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; margin-top: 1.25rem; font-family: var(--font-mono); font-size: 0.76rem;">
-          <span style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">Representation Learning</span>
-          <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: var(--cosmic-glow); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--ocean-primary); font-weight: 500;">Physics-Informed ML</span>
-          <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: var(--cosmic-glow); border: 1px solid rgba(56, 189, 248, 0.3); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--ocean-primary); font-weight: 500;">Neural Operators (FNO)</span>
-          <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">GPU Multiphysics (CUDA)</span>
-          <span style="color: var(--ocean-primary);">→</span>
-          <span style="background: var(--bg-subtle); border: 1px solid var(--border-subtle); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--text-secondary);">Implicit Geometry (TPMS)</span>
-          <span style="color: var(--status-emerging-text);">→</span>
-          <span style="background: var(--status-emerging-bg); border: 1px solid var(--status-emerging-border); padding: 0.25rem 0.55rem; border-radius: 4px; color: var(--status-emerging-text); font-weight: 500;">Metamaterials & Physical Computing (Emerging)</span>
-        </div>
+      <div class="btn-group">
+        <a href="projects.html" class="btn-primary">
+          Explore My Work →
+        </a>
+        <a href="engineering.html" class="btn-secondary">
+          Mechanical Engineering Competencies ↗
+        </a>
       </div>
     </section>
 
-    <!-- FEATURED RESEARCH SPOTLIGHT: AETHERCAST -->
-    <section style="margin-bottom: 4.5rem;">
+    <!-- SECTION 2: THREE VISUAL PILLARS -->
+    <section style="margin-bottom: 3.5rem;">
       <div class="section-header">
         <div>
-          <p class="section-label">01 — Featured Research</p>
-          <h2 class="section-title">AetherCast: Physics-Informed Neural Operators for Transport</h2>
+          <div class="section-label">FOUNDATION PILLARS</div>
+          <h2 class="section-title">Core Engineering Competency</h2>
         </div>
-        <span class="status-pill review">
-          <span class="status-dot"></span> Under Review · NeurIPS 2026 AI4Science Workshop
-        </span>
+      </div>
+
+      <div class="pillar-grid">
+        <!-- Pillar 1: Mechanics -->
+        <div class="pillar-card">
+          <div class="pillar-tag">PILLAR 01</div>
+          <h3 class="pillar-title">MECHANICS</h3>
+          <p class="pillar-list">
+            Thermal · Fluids · Solid Mechanics · Design · Manufacturing
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.85rem; line-height: 1.5;">
+            Thermodynamic cycles, Fourier conduction, Navier–Stokes momentum, continuum elasticity, Hertzian contact, and physical manufacturing kinematics.
+          </div>
+        </div>
+
+        <!-- Pillar 2: Engineering -->
+        <div class="pillar-card">
+          <div class="pillar-tag">PILLAR 02</div>
+          <h3 class="pillar-title">ENGINEERING</h3>
+          <p class="pillar-list">
+            CAD · CAE · CFD · CIM · Optimization · Digital Twins
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.85rem; line-height: 1.5;">
+            SolidWorks &amp; AutoCAD parametric geometry, ANSYS structural/thermal analysis, finite-volume fluid modeling, and biomechanical digital twins.
+          </div>
+        </div>
+
+        <!-- Pillar 3: Computation -->
+        <div class="pillar-card">
+          <div class="pillar-tag">PILLAR 03</div>
+          <h3 class="pillar-title">COMPUTATION</h3>
+          <p class="pillar-list">
+            Numerical Methods · C++/CUDA · Scientific ML · HPC · Simulation
+          </p>
+          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.85rem; line-height: 1.5;">
+            Custom C++ solvers, massively parallel CUDA kernels (cuSPARSE, CUB), sparse numerical linear algebra, and physics-regularized neural operators.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: WHAT I BUILD (THREE CARDS) -->
+    <section style="margin-bottom: 4rem;">
+      <div class="section-header">
+        <div>
+          <div class="section-label">TECHNICAL OUTPUT</div>
+          <h2 class="section-title">What I Build</h2>
+        </div>
+      </div>
+
+      <div class="pillar-grid" style="margin-bottom: 2rem;">
+        <div class="editorial-card">
+          <div class="pillar-tag" style="color: #60a5fa;">SYSTEM ARCHITECTURE 01</div>
+          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.75rem;">Physical Systems</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #93c5fd; margin-bottom: 0.75rem;">
+            Thermal · fluid · mechanical · biomechanical systems
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Formulating physical problems governed by conservation of mass, momentum, and energy—from thermal dissipation channels to contact interfaces.
+          </p>
+        </div>
+
+        <div class="editorial-card">
+          <div class="pillar-tag" style="color: #60a5fa;">SYSTEM ARCHITECTURE 02</div>
+          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.75rem;">Engineering Models</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #93c5fd; margin-bottom: 0.75rem;">
+            CAD · CAE · CFD · numerical simulation · digital twins
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Constructing finite volume grids, FEA boundary value formulations, implicit geometric representations, and physics-based surrogate models.
+          </p>
+        </div>
+
+        <div class="editorial-card">
+          <div class="pillar-tag" style="color: #60a5fa;">SYSTEM ARCHITECTURE 03</div>
+          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.75rem;">Computational Systems</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #93c5fd; margin-bottom: 0.75rem;">
+            C++ · CUDA · scientific ML · optimization · HPC
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
+            Engineering high-throughput GPU kernels, memory-coalesced sparse linear solvers, topology optimizers, and zero-backend web inference engines.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: HOW I APPROACH AN ENGINEERING PROBLEM (PIPELINE) -->
+    <section class="editorial-card" style="margin-bottom: 4.5rem; padding: 2.25rem;">
+      <div class="section-label">METHODOLOGY PIPELINE</div>
+      <h2 style="font-size: 1.85rem; color: #ffffff; margin-bottom: 0.75rem;">How I Approach an Engineering Problem</h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); max-width: 46rem; margin-bottom: 1.75rem;">
+        Engineering problems require disciplined transition from physical fundamentals into computational insight, ensuring mathematical and physical validity at every stage:
+      </p>
+
+      <!-- Visual Pipeline -->
+      <div class="engineering-pipeline">
+        <span class="pipeline-node active">PHYSICAL PROBLEM</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">ENGINEERING FUNDAMENTALS</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">MATHEMATICAL MODEL</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">NUMERICAL MODEL</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">SIMULATION</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node">OPTIMIZATION / LEARNING</span>
+        <span class="pipeline-arrow">→</span>
+        <span class="pipeline-node active" style="border-color: #34d399; color: #34d399;">ENGINEERING INSIGHT</span>
+      </div>
+    </section>
+
+    <!-- SECTION 5: HERO FLAGSHIP PROJECT — DYNAMESH-THERMAL -->
+    <section style="margin-bottom: 4rem;">
+      <div class="section-header">
+        <div>
+          <div class="section-label">01 — HERO ENGINEERING PROJECT</div>
+          <h2 class="section-title">DynaMesh-Thermal: GPU-Accelerated Thermal Topology Optimization</h2>
+        </div>
+        <span class="status-pill done"><span class="status-dot"></span> Full C++/CUDA Implementation</span>
       </div>
 
       <div class="editorial-card aethercast-spotlight">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
           <div>
-            <span style="font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; color: var(--ocean-primary); font-weight: 600;">
-              First-Author Research Manuscript (Double-Blind Review)
-            </span>
-            <h3 style="font-size: 1.85rem; margin-top: 0.25rem;">
-              Physics-Informed Fourier Neural Operators for Localized 2D Atmospheric Transport Nowcasting
-            </h3>
-            <p style="font-size: 0.88rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.35rem;">
-              Technologies: PyTorch · Python · NumPy · Fourier Neural Operators · Finite-Difference PDEs
-            </p>
+            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.35rem;">
+              THERMAL ENGINEERING · CFD · MULTIPHYSICS · TOPOLOGY OPTIMIZATION · CUDA
+            </div>
+            <h3 style="font-size: 1.75rem; color: #ffffff;">Coupled Thermal-Fluid Material Distribution on the GPU</h3>
           </div>
         </div>
 
-        <p style="margin-top: 1.15rem; font-size: 0.98rem; color: var(--text-secondary); line-height: 1.7;">
-          A lightweight Physics-Informed Fourier Neural Operator (PI-FNO) that learns multi-step trajectories of a 2D advection–diffusion–decay system on a 32 × 32 grid. Rather than treating operator learning purely as data fitting, the framework incorporates a discrete finite-difference PDE residual loss directly into the training objective, evaluated against controlled training-set scaling, physics-weight ablations, and a discrete reference solver under fixed-seed evaluation.
+        <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 1.25rem;">
+          How can thermal-fluid behaviour be modeled accurately while simultaneously searching for optimal heat-dissipating material layouts? DynaMesh couples Navier–Stokes/Darcy fluid momentum with advection-diffusion energy equations, solving the coupled state on the GPU using finite volumes and cuSPARSE without allocating dense global matrices.
         </p>
 
-        <!-- Mathematical Formulation Callout -->
-        <div class="formula-card">
-          <div class="formula-header">
-            <span>GOVERNING 2D ADVECTION–DIFFUSION–DECAY TRANSPORT PDE</span>
-            <span>FINITE-DIFFERENCE REGULARIZER</span>
-          </div>
-          <div class="formula-math">
-            ∂u/∂t + v · ∇u = D ∇²u - λ u
-          </div>
-          <div class="formula-desc">
-            The neural operator maps initial field states to 24 multi-step predictions (120-minute horizon) while penalizing violation of the governing transport equation without sacrificing spatial resolution.
-          </div>
+        <!-- Visual Flow for DynaMesh -->
+        <div class="engineering-pipeline" style="background: rgba(3, 6, 15, 0.7); padding: 0.85rem 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 1.5rem;">
+          <span style="color: #94a3b8; font-weight: 600;">WORKFLOW:</span>
+          <span class="pipeline-node">PHYSICS</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-node">DISCRETIZATION (FVM)</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-node">SOLVER (cuSPARSE)</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-node">GPU UNIFIED MEMORY</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-node active">OPTIMIZED LAYOUT</span>
         </div>
 
-        <!-- Verified Metrics Grid -->
+        <!-- Metrics -->
         <div class="metric-grid">
           <div class="metric-box">
-            <div class="metric-val accent">79.4%</div>
-            <div class="metric-label">Reduction in eval MSE (64 → 1024 trajectories)</div>
+            <div class="metric-val">0</div>
+            <div class="metric-label">Dense matrices constructed in host RAM</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">52.1%</div>
-            <div class="metric-label">Reduction in Relative L₂ error with scaling</div>
+            <div class="metric-val">100%</div>
+            <div class="metric-label">GPU memory residency via Unified Memory &amp; CUB</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val accent">36.1%</div>
-            <div class="metric-label">PDE residual drop at λ_phy = 0.01 (2.7% MSE delta)</div>
+            <div class="metric-val accent">FVM</div>
+            <div class="metric-label">Mass &amp; energy conservation guaranteed per cell</div>
           </div>
           <div class="metric-box">
-            <div class="metric-val">39.5%</div>
-            <div class="metric-label">Lower PDE residual vs data-only FNO (1k trajectories)</div>
+            <div class="metric-val">cuSPARSE</div>
+            <div class="metric-label">Parallel linear system solution for pressure Poisson</div>
           </div>
-        </div>
-
-        <!-- Architecture Diagram -->
-        <div class="figure-container">
-          <img src="assets/svg/aethercast-pipeline.svg" alt="AetherCast PI-FNO Architecture Diagram" style="width: 100%; height: auto; display: block;">
-        </div>
-
-        <div style="background: var(--bg-subtle); border-radius: var(--radius-sm); padding: 0.85rem 1rem; font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; margin-top: 1rem;">
-          <strong style="color: var(--text-primary);">Scientific Scope:</strong> AetherCast is a research prototype evaluating physics regularization trade-offs rather than an operational meteorological forecasting engine. CPU measurements explicitly report trade-offs and make no unsupported speed claims over the discrete reference solver.
         </div>
 
         <div class="btn-group">
-          <a href="https://github.com/shanmithat/AetherCast" target="_blank" rel="noopener noreferrer" class="btn-primary">
-            Research Repository ↗
+          <a href="projects.html#dynamesh" class="btn-primary">
+            View Complete DynaMesh Engineering Dossier →
           </a>
-          <a href="https://shanmithat-aethercast.hf.space" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            Live Streamlit Demo ↗
-          </a>
-          <a href="https://huggingface.co/spaces/shanmithat/aethercast" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            Hugging Face Space ↗
-          </a>
-          <a href="experience.html#aethercast" class="btn-secondary">
-            Read Full Dossier →
+          <a href="https://github.com/shanmithat/DynaMesh" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            GitHub Repository ↗
           </a>
         </div>
       </div>
     </section>
 
-    <!-- SELECTED RESEARCH PORTFOLIO -->
+    <!-- SECTION 6: SELECTED COMPANION PROJECTS (SOLID MECHANICS, DESIGN, CASE STUDY) -->
     <section style="margin-bottom: 4.5rem;">
       <div class="section-header">
         <div>
-          <p class="section-label">02 — Selected Works</p>
-          <h2 class="section-title">Computational Mechanics & Material Systems</h2>
+          <div class="section-label">ADDITIONAL ENGINEERING PROJECTS</div>
+          <h2 class="section-title">Mechanics &amp; Computational Systems</h2>
         </div>
-        <a href="experience.html" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--ocean-primary); font-weight: 500;">
-          View all projects →
-        </a>
+        <a href="projects.html" style="font-family: var(--font-mono); font-size: 0.82rem; color: #60a5fa;">View all 6 projects →</a>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-
+        
         <!-- MicroWear-PINN -->
-        <article class="editorial-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <span class="status-pill done">
-                <span class="status-dot"></span> Completed · Deployed
-              </span>
-              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
-                PyTorch · ONNX Web
-              </span>
-            </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">
-              MicroWear-PINN — Physics-Informed Contact & Wear Mechanics
-            </h3>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-              Coupled physics-informed neural framework for spatial wear-coefficient identification and subsurface Airy stress potential reconstruction (\(\nabla^4 \Phi = 0\)). Encodes Archard wear kinetics, Random Fourier Features, and SoftAdapt dynamic loss balancing.
-            </p>
-            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--ocean-deep); background: var(--bg-subtle); padding: 0.5rem 0.75rem; border-radius: 4px; margin-bottom: 0.75rem;">
-              ✓ 2/2 autograd tests pass · &lt; 3×10⁻⁵ ONNX numerical parity
-            </div>
+        <div class="editorial-card">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.65rem;">
+            <span class="pillar-tag">SOLID MECHANICS FLAGSHIP</span>
+            <span class="status-pill done"><span class="status-dot"></span> Verified</span>
           </div>
-          <div>
-            <div class="btn-group" style="margin-top: 0.5rem;">
-              <a href="https://github.com/shanmithat/MicroWear-PINN" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.74rem;">
-                GitHub ↗
-              </a>
-              <a href="https://shanmithat.github.io/MicroWear-PINN/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.74rem;">
-                Browser Deployment ↗
-              </a>
-            </div>
+          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.5rem;">MicroWear-PINN</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.75rem;">
+            Micromechanics: Wear → Contact → Stress
           </div>
-        </article>
-
-        <!-- Implicit Lattice -->
-        <article class="editorial-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <span class="status-pill done">
-                <span class="status-dot"></span> Benchmark Tool
-              </span>
-              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
-                WebGL / GLSL · Three.js
-              </span>
-            </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">
-              Implicit Lattice — Implicit Geometry Engine for Architected Structures
-            </h3>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-              Procedural implicit-geometry framework representing TPMS (Gyroid, Schwarz-D) structures via analytic Signed Distance Fields evaluated on the GPU. Connects compact mathematical representations to architected material design.
-            </p>
-            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--status-done-text); background: var(--status-done-bg); padding: 0.5rem 0.75rem; border-radius: 4px; margin-bottom: 0.75rem;">
-              &gt; 140,000× measured storage reduction benchmark (13.7 KB vs 1.94 GB)
-            </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            Coupling Archard surface wear kinetics with biharmonic Airy stress potentials to predict subsurface contact stresses from sparse profilometry.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #cbd5e1; margin-bottom: 1.25rem;">
+            • Airy Potential Biharmonic Residual: ∇⁴Φ = 0<br>
+            • Parity: &lt; 3×10⁻⁵ ONNX numerical parity
           </div>
-          <div>
-            <div class="btn-group" style="margin-top: 0.5rem;">
-              <a href="https://github.com/shanmithat/implicit-modeling" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.74rem;">
-                GitHub ↗
-              </a>
-              <a href="https://implicitlattice.streamlit.app/?embed=true" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.74rem;">
-                Streamlit Demo ↗
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- DynaMesh-Thermal -->
-        <article class="editorial-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <span class="status-pill done">
-                <span class="status-dot"></span> C++ / CUDA Solver
-              </span>
-              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
-                cuSPARSE · CUB
-              </span>
-            </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">
-              DynaMesh-Thermal — GPU Multiphysics Topology Optimization
-            </h3>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-              GPU-accelerated density-based SIMP solver for forced-convective thermal management. Couples penalized Navier-Stokes/Darcy flow with advection-diffusion thermal finite volumes via Unified Memory and cuSPARSE BiCGStab.
-            </p>
-            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--ocean-deep); background: var(--bg-subtle); padding: 0.5rem 0.75rem; border-radius: 4px; margin-bottom: 0.75rem;">
-              Device-side ghost cell evaluation · First-order upwind stabilization
-            </div>
-          </div>
-          <div>
-            <div class="btn-group" style="margin-top: 0.5rem;">
-              <a href="https://github.com/shanmithat/DynaMesh-Thermal" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.74rem;">
-                CUDA Source ↗
-              </a>
-            </div>
-          </div>
-        </article>
-
-        <!-- Pediatric Gait Digital Twin -->
-        <article class="editorial-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-              <span class="status-pill emerging">
-                <span class="status-dot"></span> Capstone · In Progress
-              </span>
-              <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--text-muted);">
-                PyTorch · Neural Operators
-              </span>
-            </div>
-            <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">
-              Pediatric Gait Digital Twin — Biomechanical Operator
-            </h3>
-            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-              Neural operator pipeline for real-time joint-torque prediction in pathological pediatric gait. The PINN predictive model is implemented and the digital-twin visualization is rendered; validation against laboratory gold standards is pending.
-            </p>
-            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--status-review-text); background: var(--status-review-bg); padding: 0.5rem 0.75rem; border-radius: 4px; margin-bottom: 0.75rem;">
-              IMPLEMENTED: Model & Twin · PENDING: Laboratory Validation
-            </div>
-          </div>
-          <div>
-            <div class="btn-group" style="margin-top: 0.5rem;">
-              <a href="experience.html#pediatric-gait" class="btn-secondary" style="font-size: 0.74rem;">
-                Read Details →
-              </a>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS SUMMARY BANNER -->
-    <section style="margin-bottom: 4.5rem;">
-      <div class="section-header">
-        <div>
-          <p class="section-label">03 — Publications</p>
-          <h2 class="section-title">Peer-Reviewed & Under Review</h2>
-        </div>
-        <a href="publications.html" style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--ocean-primary); font-weight: 500;">
-          All publications & BibTeX →
-        </a>
-      </div>
-
-      <div class="editorial-card" style="padding: 1.5rem 2rem;">
-        <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-          
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
-            <div>
-              <span class="status-pill review" style="font-size: 0.68rem; margin-bottom: 0.35rem;">Under Review · NeurIPS 2026 AI4Science</span>
-              <h4 style="font-size: 1.05rem;">Physics-Informed Fourier Neural Operators for Localized 2D Atmospheric Transport Nowcasting</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.2rem;">
-                First author manuscript (Double-blind review)
-              </p>
-            </div>
-            <a href="publications.html" class="btn-secondary" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">View Manuscript →</a>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1rem;">
-            <div>
-              <span class="status-pill done" style="font-size: 0.68rem; margin-bottom: 0.35rem;">Published · ACL Anthology 2025</span>
-              <h4 style="font-size: 1.05rem;">Hydrangea@DravidianLanTech2025: Abusive Language Identification from Tamil and Malayalam Text using Transformer Models</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.2rem;">
-                Shanmitha Thirumoorthy, Thenmozhi Durairaj, Ratnavel Rajalakshmi · DOI: 10.18653/v1/2025.dravidianlangtech-1.100
-              </p>
-            </div>
-            <a href="https://aclanthology.org/2025.dravidianlangtech-1.100/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">ACL Paper ↗</a>
-          </div>
-
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.5rem;">
-            <div>
-              <span class="status-pill done" style="font-size: 0.68rem; margin-bottom: 0.35rem;">Published · FIRE 2023</span>
-              <h4 style="font-size: 1.05rem;">A Few Shot Learning to Detect Sarcasm in Tamil and Malayalam Code Mixed Data</h4>
-              <p style="font-size: 0.82rem; color: var(--text-muted); font-family: var(--font-mono); margin-top: 0.2rem;">
-                Shanmitha Thirumoorthy, Manavh N. R., Thenmozhi Durairaj, Ratnavel Rajalakshmi · CEUR-WS Vol-3681, pp. 299–305
-              </p>
-            </div>
-            <a href="https://ceur-ws.org/Vol-3681/T5-8.pdf" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.72rem; padding: 0.35rem 0.75rem;">CEUR PDF ↗</a>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- RESEARCH IDENTITY / HUMANNESS SECTION -->
-    <section style="margin-bottom: 2rem;">
-      <div class="editorial-card" style="background: var(--bg-subtle); border: 1px dashed var(--border-medium);">
-        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-          <div>
-            <p style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600;">
-              Digital Notebook · Perspective
-            </p>
-            <h3 style="font-size: 1.4rem; margin-top: 0.25rem;">
-              "I like questions that don't fit neatly inside one field."
-            </h3>
-            <p style="font-size: 0.92rem; color: var(--text-secondary); max-width: 44rem; margin-top: 0.5rem; line-height: 1.65;">
-              I tend to learn things by trying to build them: writing C++/CUDA kernels to understand GPU memory coalescence, deriving biharmonic Airy stresses to formulate PINN loss landscapes, or rendering implicit TPMS shaders in GLSL. Different problems, same fundamental inquiry.
-            </p>
-          </div>
-          <a href="passion.html" class="btn-secondary">
-            Read Thoughts & Rabbit Holes →
+          <a href="projects.html#microwear" class="btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.85rem;">
+            Project Dossier →
           </a>
         </div>
+
+        <!-- Implicit Lattice -->
+        <div class="editorial-card">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.65rem;">
+            <span class="pillar-tag">COMPUTATIONAL DESIGN &amp; CIM</span>
+            <span class="status-pill done"><span class="status-dot"></span> Deployed</span>
+          </div>
+          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.5rem;">Implicit Lattice Generator</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.75rem;">
+            Additive Manufacturing &amp; TPMS Geometry
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            Eliminating multi-gigabyte STL files in additive manufacturing by evaluating continuous Triply Periodic Minimal Surface (TPMS) equations directly in WebGL shaders.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #cbd5e1; margin-bottom: 1.25rem;">
+            • Storage: 1.94 GB STL → 13.7 KB Shader (&gt;140,000×)<br>
+            • Slicing: &lt; 0.8 ms per 4096×4096 layer
+          </div>
+          <a href="projects.html#implicit-lattice" class="btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.85rem;">
+            Project Dossier →
+          </a>
+        </div>
+
+        <!-- AetherCast: Case Study -->
+        <div class="editorial-card">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 0.65rem;">
+            <span class="pillar-tag">COMPUTATIONAL MODELLING CASE STUDY</span>
+            <span class="status-pill review"><span class="status-dot"></span> Under Review</span>
+          </div>
+          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.5rem;">AetherCast PI-FNO</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.75rem;">
+            Fluid &amp; Transport Modelling · PDEs · SciML
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            Evaluating physical regularization trade-offs in Fourier Neural Operators for advection-diffusion atmospheric transport dynamics.
+          </p>
+          <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #cbd5e1; margin-bottom: 1.25rem;">
+            • Regularization: 39.5% lower PDE residual vs data-only FNO<br>
+            • Target: NeurIPS 2026 AI4Science (double-blind)
+          </div>
+          <a href="projects.html#aethercast" class="btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.85rem;">
+            Project Dossier →
+          </a>
+        </div>
+
       </div>
     </section>
 
   </main>
 
-  <!-- ========================================================= -->
-  <!-- Editorial Footer -->
-  <!-- ========================================================= -->
+  <!-- Persistent Editorial Footer (No CV) -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="brand-mark" style="margin-bottom: 0.65rem;">
-            <span class="brand-dot"></span>
-            SHANMITHA T.
-          </div>
-          <p>
-            Final-year Mechanical Engineering undergraduate at Vellore Institute of Technology (VIT) Chennai, India. Developing toward research in scientific ML, computational physics, and physical information systems.
-          </p>
+          <h3>SHANMITHA T.</h3>
+          <p>Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.</p>
         </div>
-
         <div class="footer-links">
           <div class="footer-col">
-            <h4>Structure</h4>
+            <h4>Navigation</h4>
             <ul>
-              <li><a href="index.html">01 Index</a></li>
-              <li><a href="experience.html">02 Experience</a></li>
-              <li><a href="publications.html">03 Publications</a></li>
-              <li><a href="research.html">04 Research</a></li>
-              <li><a href="passion.html">05 Passion</a></li>
+              <li><a href="index.html">01 Home</a></li>
+              <li><a href="engineering.html">02 Engineering</a></li>
+              <li><a href="projects.html">03 Projects</a></li>
+              <li><a href="publications.html">04 Publications</a></li>
+              <li><a href="about.html">05 About</a></li>
               <li><a href="contact.html">06 Contact</a></li>
             </ul>
           </div>
-
           <div class="footer-col">
             <h4>Primary Channels</h4>
             <ul>
-              <li><a href="mailto:shanmithat3@gmail.com">shanmithat3@gmail.com</a></li>
-              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
-              <li><a href="https://www.linkedin.com/in/shanmithat/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></li>
+              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+              <li><a href="https://scholar.google.com/citations?user=GjFjQ0sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
+              <li><a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+              <li><a href="mailto:shanmithat@gmail.com">shanmithat@gmail.com</a></li>
             </ul>
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <div>
-          © 2026 Shanmitha T. · Built with curiosity, equations & slightly too much coffee.
-        </div>
-        <div>
-          <a href="contact.html" style="color: var(--ocean-primary); font-weight: 500;">Let's talk ↗</a>
-        </div>
+        <div>© 2026 Shanmitha T. · Mechanical Engineering, built with computation.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">VIT Chennai · Graduating 2027</div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
 </body>
 </html>

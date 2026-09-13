@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" class="celestial-grid">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About · Beyond the Coursework — Shanmitha T.</title>
+  <meta name="description" content="Personal narrative and engineering curiosities of Shanmitha T. — learning by building, understanding what is underneath, and mechanical systems.">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+</head>
+<body>
+  <!-- Ambient Interactive Simulation Canvas -->
+  <canvas id="ambientCanvas"></canvas>
+
+  <!-- Persistent Site Header (No CV) -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="index.html" class="brand-mark" aria-label="Shanmitha T. Home">
+        <span class="brand-dot"></span>
+        <span>SHANMITHA T.</span>
+      </a>
+
+      <!-- Primary Desktop Nav -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a></li>
+        <li><a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a></li>
+        <li><a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a></li>
+        <li><a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a></li>
+        <li><a href="about.html" class="nav-link active"><span class="nav-num">05</span> about</a></li>
+        <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a></li>
+      </ul>
+
+      <!-- Mobile Toggle -->
+      <div class="nav-actions">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">menu</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a>
+    <a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a>
+    <a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a>
+    <a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a>
+    <a href="about.html" class="nav-link active"><span class="nav-num">05</span> about</a>
+    <a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a>
+  </div>
+
+  <main class="relative-content">
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="page-tag">05 · BEYOND THE COURSEWORK</div>
+      <h1 class="page-title">Engineering Curiosity &amp; Practice</h1>
+      <p class="page-intro">
+        How I approach engineering outside the syllabus: learning systems from the ground up, tracing mathematical physics to hardware execution, and staying curious about physical mechanisms.
+      </p>
+    </section>
+
+    <!-- SECTION 1: THREE CORE REFLECTIONS -->
+    <div style="display: flex; flex-direction: column; gap: 2.5rem; margin-bottom: 4rem;">
+      
+      <!-- Story 01: I learn by building -->
+      <article class="editorial-card">
+        <div class="pillar-tag">REFLECTIVE PRACTICE 01</div>
+        <h2 style="font-size: 1.85rem; color: #ffffff; margin-bottom: 1rem;">I Learn by Building</h2>
+        <p style="font-size: 1.05rem; color: #cbd5e1; line-height: 1.75; margin-bottom: 1rem;">
+          It is easy to import a high-level library, pass a mesh into a black-box solver, and plot colorful stress contours. But that does not teach you why a simulation diverges, where memory bandwidth is squandered, or how numerical stencils preserve physical invariants.
+        </p>
+        <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7;">
+          When I set out to build <strong>DynaMesh-Thermal</strong>, I deliberately decided not to use commercial CFD wrappers. I wanted to understand C++ memory allocation, write CUDA kernels, manage thread hierarchies, and experience the pain of sparse matrix index arrays (CSR). Implementing the Finite Volume Method from scratch on the GPU forced me to grapple directly with flux balances, pressure Poisson stencils, and GPU cache lines. Building tools from first principles turns abstract equations into deep, intuitive engineering instincts.
+        </p>
+      </article>
+
+      <!-- Story 02: I like understanding what's underneath -->
+      <article class="editorial-card">
+        <div class="pillar-tag">REFLECTIVE PRACTICE 02</div>
+        <h2 style="font-size: 1.85rem; color: #ffffff; margin-bottom: 1rem;">I Like Understanding What's Underneath</h2>
+        <div class="engineering-pipeline" style="background: rgba(3, 6, 15, 0.7); padding: 0.85rem 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 1.25rem;">
+          <span class="pipeline-node active">EQUATIONS</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-node">DISCRETIZATION</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-node">IMPLEMENTATION</span>
+          <span class="pipeline-arrow">→</span>
+          <span class="pipeline-node active" style="border-color: #34d399; color: #34d399;">PHYSICAL BEHAVIOUR</span>
+        </div>
+        <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+          My favorite moment in any project is connecting an analytical equation to observable physical behaviour through code. 
+        </p>
+        <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7;">
+          In <strong>MicroWear-PINN</strong>, the biharmonic Airy stress equation ($\nabla^4 \Phi = 0$) initially looks like pure abstract mathematics. But when you enforce that operator across a spatial domain and watch the internal shear stress contours align naturally with classical Hertzian contact mechanics—without feeding in internal stress sensors—the mathematical consistency of continuum mechanics becomes astonishingly tangible.
+        </p>
+      </article>
+
+      <!-- Story 03: Mechanical engineering keeps me curious -->
+      <article class="editorial-card">
+        <div class="pillar-tag">REFLECTIVE PRACTICE 03</div>
+        <h2 style="font-size: 1.85rem; color: #ffffff; margin-bottom: 1rem;">Mechanical Engineering Keeps Me Curious</h2>
+        <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 1rem;">
+          Mechanical engineering is fundamentally honest. A mechanism either transfers torque without binding, or it jams. A thermal exchanger either dissipates the heat flux, or the component melts. A boundary layer either remains attached, or flow separates.
+        </p>
+        <p style="font-size: 1rem; color: var(--text-secondary); line-height: 1.7;">
+          I am fascinated by how machines, thermal systems, mechanisms, and manufacturing processes operate in the physical world. Whether analyzing the kinematic linkages of a human knee in gait dynamics, studying the shear stresses inside a sliding contact joint, or evaluating fluid channels in heat sinks, mechanical engineering provides an endlessly rich catalog of real-world problems demanding creative, rigorous computational solutions.
+        </p>
+      </article>
+
+    </div>
+
+    <!-- SECTION 2: THINGS I'M CURRENTLY LEARNING -->
+    <section class="editorial-card" style="margin-bottom: 4rem;">
+      <div class="section-label">CONTINUOUS INQUIRY</div>
+      <h2 style="font-size: 1.75rem; color: #ffffff; margin-bottom: 0.75rem;">Things I'm Currently Learning</h2>
+      <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.75rem; max-width: 46rem;">
+        Beyond coursework lectures, I dedicate focused technical time each week to deepening my computational and mechanical skillset:
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+        
+        <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #60a5fa; font-weight: 600; margin-bottom: 0.35rem;">NUMERICS &amp; FLUIDS</div>
+          <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.45rem;">Advanced CFD &amp; Numerical Methods</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Higher-order flux limiters (WENO), pressure-velocity coupling schemes (SIMPLE/PISO), and unstructured finite volume stencils.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #60a5fa; font-weight: 600; margin-bottom: 0.35rem;">PARALLEL ARCHITECTURE</div>
+          <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.45rem;">GPU Computing &amp; CUDA</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Warp-level matrix primitives (WMMA/Tensor Cores), asynchronous CUDA streams, and multi-GPU domain decomposition techniques.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #60a5fa; font-weight: 600; margin-bottom: 0.35rem;">DESIGN OPTIMIZATION</div>
+          <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.45rem;">Structural &amp; Multiphysics Optimization</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            Continuous adjoint sensitivity formulations, Method of Moving Asymptotes (MMA), and stress-constrained topology optimization.
+          </p>
+        </div>
+
+        <div style="background: var(--bg-subtle); padding: 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #60a5fa; font-weight: 600; margin-bottom: 0.35rem;">SURROGATE MODELLING</div>
+          <h3 style="font-size: 1.1rem; color: #ffffff; margin-bottom: 0.45rem;">Scientific ML &amp; Operator Learning</h3>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            DeepONets, Fourier Neural Operators on non-equispaced meshes, and conservation-preserving neural architectures.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Persistent Editorial Footer (No CV) -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <h3>SHANMITHA T.</h3>
+          <p>Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">01 Home</a></li>
+              <li><a href="engineering.html">02 Engineering</a></li>
+              <li><a href="projects.html">03 Projects</a></li>
+              <li><a href="publications.html">04 Publications</a></li>
+              <li><a href="about.html">05 About</a></li>
+              <li><a href="contact.html">06 Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Primary Channels</h4>
+            <ul>
+              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+              <li><a href="https://scholar.google.com/citations?user=GjFjQ0sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
+              <li><a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+              <li><a href="mailto:shanmithat@gmail.com">shanmithat@gmail.com</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Shanmitha T. · Mechanical Engineering, built with computation.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">VIT Chennai · Graduating 2027</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,79 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="celestial-grid">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact & Research Inquiries — Shanmitha T.</title>
-  <meta name="description" content="Contact Shanmitha T. for research opportunities, MRes/PhD inquiries, and computational collaborations in scientific ML and physical computing.">
-  
-  <!-- CSS -->
+  <title>Contact · Shanmitha T. — Computational Mechanical Engineering</title>
+  <meta name="description" content="Contact details and academic/technical profiles for Shanmitha T., Mechanical Engineering undergraduate at VIT Chennai.">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%230284c7%22/><text y=%2265%22 font-size=%2250%22 font-family=%22monospace%22 font-weight=%22bold%22 x=%2226%22 fill=%22white%22>S</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
 </head>
-<body class="celestial-grid">
+<body>
+  <!-- Ambient Interactive Simulation Canvas -->
+  <canvas id="ambientCanvas"></canvas>
 
-  <!-- ========================================================= -->
-  <!-- Persistent Navigation -->
-  <!-- ========================================================= -->
+  <!-- Persistent Site Header (No CV) -->
   <header class="site-header">
     <div class="nav-container">
-      <a href="index.html" class="brand-mark">
+      <a href="index.html" class="brand-mark" aria-label="Shanmitha T. Home">
         <span class="brand-dot"></span>
-        SHANMITHA T.
+        <span>SHANMITHA T.</span>
       </a>
 
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link"><span class="nav-num">01</span> index</a></li>
-          <li><a href="experience.html" class="nav-link"><span class="nav-num">02</span> experience</a></li>
-          <li><a href="publications.html" class="nav-link"><span class="nav-num">03</span> publications</a></li>
-          <li><a href="research.html" class="nav-link"><span class="nav-num">04</span> research</a></li>
-          <li><a href="passion.html" class="nav-link"><span class="nav-num">05</span> passion</a></li>
-          <li><a href="contact.html" class="nav-link active"><span class="nav-num">06</span> contact</a></li>
-        </ul>
-      </nav>
+      <!-- Primary Desktop Nav -->
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a></li>
+        <li><a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a></li>
+        <li><a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a></li>
+        <li><a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a></li>
+        <li><a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a></li>
+        <li><a href="contact.html" class="nav-link active"><span class="nav-num">06</span> contact</a></li>
+      </ul>
 
+      <!-- Mobile Toggle -->
       <div class="nav-actions">
-        <a href="res.pdf" class="btn-cv" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">
-          DOWNLOAD CV ↗
-        </a>
-        <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
-          ☰ Menu
-        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">menu</button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Navigation Drawer -->
-  <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
-    <a href="index.html" class="nav-link"><span class="nav-num">01</span> index</a>
-    <a href="experience.html" class="nav-link"><span class="nav-num">02</span> experience</a>
-    <a href="publications.html" class="nav-link"><span class="nav-num">03</span> publications</a>
-    <a href="research.html" class="nav-link"><span class="nav-num">04</span> research</a>
-    <a href="passion.html" class="nav-link"><span class="nav-num">05</span> passion</a>
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a>
+    <a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a>
+    <a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a>
+    <a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a>
+    <a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a>
     <a href="contact.html" class="nav-link active"><span class="nav-num">06</span> contact</a>
-    <div style="padding: 1rem 0 0.5rem;">
-      <a href="res.pdf" class="btn-cv" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer" style="width: 100%; justify-content: center;">
-        DOWNLOAD CV ↗
-      </a>
-    </div>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- Main Content -->
-  <!-- ========================================================= -->
-  <main>
-
-    <!-- PAGE HERO -->
+  <main class="relative-content">
+    <!-- Page Hero -->
     <section class="page-hero">
-      <div class="page-tag">
-        06 · Communications & Opportunities
-      </div>
-      <h1 class="page-title">
-        Let's Discuss Research
-      </h1>
+      <div class="page-tag">06 · COMMUNICATIONS &amp; COLLABORATION</div>
+      <h1 class="page-title">Let's Connect</h1>
       <p class="page-intro">
-        If you are working on scientific machine learning, computational physics, computational materials, or unconventional physical information systems — I would be very happy to talk.
+        I welcome conversations regarding mechanical systems, thermal-fluid engineering, numerical simulation, C++/CUDA GPU computing, and computational engineering collaboration.
       </p>
     </section>
 
@@ -82,61 +62,61 @@
 
       <!-- Direct Email Card -->
       <div class="editorial-card" style="border-top: 4px solid var(--ocean-primary);">
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--ocean-primary); font-weight: 600;">
-          Primary Academic Contact
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: #60a5fa; font-weight: 600;">
+          Primary Contact
         </span>
-        <h2 style="font-size: 1.35rem; margin: 0.35rem 0 0.5rem;">
+        <h2 style="font-size: 1.45rem; margin: 0.35rem 0 0.5rem; color: #ffffff;">
           Direct Email
         </h2>
         <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-          The best and most reliable way to reach me regarding prospective research openings, laboratory visits, or technical conversations.
+          The most reliable channel to reach me regarding engineering inquiries, research collaborations, or technical questions.
         </p>
 
         <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.92rem; color: var(--text-primary); border: 1px solid var(--border-subtle); margin-bottom: 1rem; word-break: break-all;">
-          shanmithat3@gmail.com
+          shanmithat@gmail.com
         </div>
 
         <div class="btn-group">
-          <a href="mailto:shanmithat3@gmail.com" class="btn-primary" style="font-size: 0.78rem;">
+          <a href="mailto:shanmithat@gmail.com" class="btn-primary" style="font-size: 0.78rem;">
             Send Email ↗
           </a>
-          <button class="btn-secondary" onclick="copyEmail(this, 'shanmithat3@gmail.com')" style="font-size: 0.78rem; cursor: pointer;">
+          <button class="btn-secondary" onclick="copyEmail(this, 'shanmithat@gmail.com')" style="font-size: 0.78rem; cursor: pointer;">
             Copy Address
           </button>
         </div>
       </div>
 
-      <!-- CV & Profile Card -->
-      <div class="editorial-card" style="border-top: 4px solid var(--ocean-deep);">
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: var(--ocean-deep); font-weight: 600;">
-          Curriculum Vitae
+      <!-- Institutional Affiliation Card -->
+      <div class="editorial-card" style="border-top: 4px solid #10b981;">
+        <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: #34d399; font-weight: 600;">
+          Academic Affiliation
         </span>
-        <h2 style="font-size: 1.35rem; margin: 0.35rem 0 0.5rem;">
-          Updated Research CV
+        <h2 style="font-size: 1.45rem; margin: 0.35rem 0 0.5rem; color: #ffffff;">
+          VIT Chennai
         </h2>
         <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-          Includes full academic background (VIT Chennai, CGPA 7.79/10), publications, preprints, technical benchmarks, and verified course credits.
+          School of Mechanical Engineering, Vellore Institute of Technology (VIT), Chennai Campus, Tamil Nadu, India.
         </p>
 
-        <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted); border: 1px solid var(--border-subtle); margin-bottom: 1rem;">
-          Document: Shanmitha_T_CV.pdf (res.pdf)
+        <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary); border: 1px solid var(--border-subtle); margin-bottom: 1rem;">
+          B.Tech. Mechanical Engineering · CGPA 7.79/10 · Graduating 2027
         </div>
 
         <div class="btn-group">
-          <a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.78rem;">
-            Download CV (PDF) ↗
+          <a href="engineering.html" class="btn-secondary" style="font-size: 0.78rem;">
+            View Competencies →
           </a>
         </div>
       </div>
 
     </div>
 
-    <!-- ACADEMIC & CODE PROFILES -->
-    <section style="margin-bottom: 3.5rem;">
+    <!-- TECHNICAL & SCHOLARLY PROFILES -->
+    <section style="margin-bottom: 4rem;">
       <div class="section-header">
         <div>
-          <p class="section-label">Scholarly & Technical Profiles</p>
-          <h2 class="section-title">Online Verification & Repositories</h2>
+          <div class="section-label">TECHNICAL VERIFICATION</div>
+          <h2 class="section-title">Online Profiles &amp; Repositories</h2>
         </div>
       </div>
 
@@ -146,29 +126,29 @@
           <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;">
             Source Code
           </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">GitHub ↗</h3>
+          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.35rem;">GitHub ↗</h3>
           <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
-            Open repositories for AetherCast, MicroWear-PINN, DynaMesh-Thermal, and Implicit Lattice.
+            C++ solvers, CUDA kernels, and open repositories for DynaMesh-Thermal, MicroWear-PINN, Implicit Lattice, and AetherCast.
           </p>
         </a>
 
-        <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="metric-box" style="display: block;">
+        <a href="https://scholar.google.com/citations?user=GjFjQ0sAAAAJ" target="_blank" rel="noopener noreferrer" class="metric-box" style="display: block;">
           <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;">
-            Citations & Preprints
+            Citations &amp; Preprints
           </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">Google Scholar ↗</h3>
+          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.35rem;">Google Scholar ↗</h3>
           <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
-            Citation indices, verified publication records, and workshop proceedings.
+            Verified academic publications, citations, and workshop proceedings.
           </p>
         </a>
 
-        <a href="https://www.linkedin.com/in/shanmithat/" target="_blank" rel="noopener noreferrer" class="metric-box" style="display: block;">
+        <a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer" class="metric-box" style="display: block;">
           <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;">
             Professional Network
           </div>
-          <h3 style="font-size: 1.15rem; color: var(--text-primary); margin-bottom: 0.35rem;">LinkedIn ↗</h3>
+          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.35rem;">LinkedIn ↗</h3>
           <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
-            Academic updates, conference participations, and research networking.
+            Engineering updates, technical milestones, and professional networking.
           </p>
         </a>
 
@@ -177,60 +157,57 @@
 
   </main>
 
-  <!-- ========================================================= -->
-  <!-- Editorial Footer -->
-  <!-- ========================================================= -->
+  <!-- Persistent Editorial Footer (No CV) -->
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="brand-mark" style="margin-bottom: 0.65rem;">
-            <span class="brand-dot"></span>
-            SHANMITHA T.
-          </div>
-          <p>
-            Final-year Mechanical Engineering undergraduate at VIT Chennai, India. Research focus: Scientific ML, computational physics, and physical computing.
-          </p>
+          <h3>SHANMITHA T.</h3>
+          <p>Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.</p>
         </div>
-
         <div class="footer-links">
           <div class="footer-col">
-            <h4>Structure</h4>
+            <h4>Navigation</h4>
             <ul>
-              <li><a href="index.html">01 Index</a></li>
-              <li><a href="experience.html">02 Experience</a></li>
-              <li><a href="publications.html">03 Publications</a></li>
-              <li><a href="research.html">04 Research</a></li>
-              <li><a href="passion.html">05 Passion</a></li>
+              <li><a href="index.html">01 Home</a></li>
+              <li><a href="engineering.html">02 Engineering</a></li>
+              <li><a href="projects.html">03 Projects</a></li>
+              <li><a href="publications.html">04 Publications</a></li>
+              <li><a href="about.html">05 About</a></li>
               <li><a href="contact.html">06 Contact</a></li>
             </ul>
           </div>
-
           <div class="footer-col">
             <h4>Primary Channels</h4>
             <ul>
-              <li><a href="mailto:shanmithat3@gmail.com">shanmithat3@gmail.com</a></li>
-              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-              <li><a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
-              <li><a href="https://www.linkedin.com/in/shanmithat/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-              <li><a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">Download CV (PDF)</a></li>
+              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+              <li><a href="https://scholar.google.com/citations?user=GjFjQ0sAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
+              <li><a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+              <li><a href="mailto:shanmithat@gmail.com">shanmithat@gmail.com</a></li>
             </ul>
           </div>
         </div>
       </div>
-
       <div class="footer-bottom">
-        <div>
-          © 2026 Shanmitha T. · Built with curiosity, equations & slightly too much coffee.
-        </div>
-        <div>
-          <a href="contact.html" style="color: var(--ocean-primary); font-weight: 500;">Let's talk ↗</a>
-        </div>
+        <div>© 2026 Shanmitha T. · Mechanical Engineering, built with computation.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">VIT Chennai · Graduating 2027</div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
   <script src="js/main.js"></script>
+  <script>
+    function copyEmail(btn, email) {
+      navigator.clipboard.writeText(email).then(() => {
+        const orig = btn.textContent;
+        btn.textContent = 'Copied! ✓';
+        btn.style.color = '#34d399';
+        setTimeout(() => {
+          btn.textContent = orig;
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+  </script>
 </body>
 </html>

@@ -985,3 +985,283 @@ main {
     display: none;
   }
 }
+
+/* ==========================================================================
+   Engineering Workstation & Visual Components
+   ========================================================================== */
+.workstation-panel {
+  background: linear-gradient(145deg, rgba(10, 16, 32, 0.95) 0%, rgba(6, 10, 22, 0.98) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.7), 0 0 30px rgba(37, 99, 235, 0.15);
+  margin-bottom: 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.workstation-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--cosmic-nebula);
+}
+
+.workstation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.workstation-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  color: #93c5fd;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+}
+
+.workstation-title {
+  font-size: 2.75rem;
+  line-height: 1.08;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+}
+
+.workstation-title span {
+  color: #60a5fa;
+}
+
+.workstation-sub {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  max-width: 52rem;
+  margin-bottom: 1.5rem;
+}
+
+.workstation-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: #94a3b8;
+  padding: 1rem 0;
+  border-top: 1px dashed var(--border-subtle);
+  border-bottom: 1px dashed var(--border-subtle);
+  margin-bottom: 1.75rem;
+}
+
+.workstation-specs span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.workstation-specs span::before {
+  content: '▪';
+  color: var(--ocean-primary);
+}
+
+/* Engineering Pipeline Flow (Visual Pipeline) */
+.engineering-pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin: 1.75rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.pipeline-node {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.pipeline-node:hover {
+  border-color: var(--ocean-primary);
+  color: #60a5fa;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.25);
+}
+
+.pipeline-node.active {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--ocean-primary);
+  color: #93c5fd;
+  font-weight: 600;
+}
+
+.pipeline-arrow {
+  color: var(--ocean-primary);
+  font-weight: 700;
+}
+
+/* Three Core Visual Pillars */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0 3.5rem;
+}
+
+.pillar-card {
+  background: linear-gradient(150deg, rgba(12, 19, 36, 0.9) 0%, rgba(8, 12, 24, 0.95) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: var(--radius-md);
+  padding: 1.65rem;
+  transition: all var(--transition-smooth);
+}
+
+.pillar-card:hover {
+  border-color: var(--ocean-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+.pillar-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #60a5fa;
+  margin-bottom: 0.5rem;
+}
+
+.pillar-title {
+  font-size: 1.35rem;
+  margin-bottom: 0.65rem;
+  color: #ffffff;
+}
+
+.pillar-list {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* 7-Step Standardized Project Narrative */
+.narrative-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin: 1.75rem 0;
+}
+
+.narrative-step {
+  background: rgba(10, 16, 32, 0.6);
+  border: 1px solid var(--border-subtle);
+  border-left: 3px solid var(--ocean-primary);
+  border-radius: var(--radius-sm);
+  padding: 1.15rem 1.35rem;
+  transition: all var(--transition-fast);
+}
+
+.narrative-step:hover {
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(15, 24, 48, 0.7);
+}
+
+.narrative-step-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #60a5fa;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.narrative-step-title {
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+}
+
+.narrative-step-body {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Engineering Toolkit Visual Tree */
+.toolkit-tree {
+  background: linear-gradient(160deg, #050a18 0%, #091128 50%, #0a0e20 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(37, 99, 235, 0.15);
+  margin: 2.5rem 0;
+}
+
+.toolkit-level {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.toolkit-node {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.4rem;
+  flex: 1;
+  min-width: 220px;
+  max-width: 340px;
+  transition: all var(--transition-fast);
+}
+
+.toolkit-node:hover {
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), 0 0 20px rgba(59, 130, 246, 0.25);
+}
+
+.toolkit-node-header {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #60a5fa;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.65rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.toolkit-connector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: #3b82f6;
+  padding: 0.25rem 0;
+}
