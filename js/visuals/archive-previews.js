@@ -6,50 +6,70 @@ export function renderProceduralPreviews(root = document) {
   canvases.forEach((canvas) => {
     const kind = canvas.dataset.procedural;
     const ctx = canvas.getContext('2d');
-    const w = (canvas.width = 480);
-    const h = (canvas.height = 290);
+    const w = (canvas.width = 640);
+    const h = (canvas.height = 400);
 
-    ctx.fillStyle = '#050606';
+    ctx.fillStyle = '#070913';
     ctx.fillRect(0, 0, w, h);
 
     if (kind === 'dynamesh') {
-      // SIMP Thermal-Fluid Topology: branched fluid channels + thermal contour
-      const nx = 48, ny = 29;
+      // High-contrast GPU SIMP Thermal-Fluid Velocity Contour & Topology Render
+      const nx = 64, ny = 40;
       const cw = w / nx, ch = h / ny;
       for (let j = 0; j < ny; j++) {
         for (let i = 0; i < nx; i++) {
           const x = i / nx;
           const y = (j - ny / 2) / (ny / 2);
-          // Branched manifold density
-          const trunk = Math.exp(-Math.pow(y, 2) * 18) * (1 - x * 0.4);
-          const branch1 = Math.exp(-Math.pow(y - 0.42 * Math.sin(x * 3.1), 2) * 28) * x;
-          const branch2 = Math.exp(-Math.pow(y + 0.42 * Math.sin(x * 3.1), 2) * 28) * x;
-          const fluid = Math.min(1, trunk + branch1 + branch2);
-          const heat = (1 - fluid) * (0.35 + 0.65 * x);
+          const trunk = Math.exp(-Math.pow(y, 2) * 16) * (1.05 - x * 0.35);
+          const branch1 = Math.exp(-Math.pow(y - 0.44 * Math.sin(x * 3.15), 2) * 24) * Math.pow(x, 0.75);
+          const branch2 = Math.exp(-Math.pow(y + 0.44 * Math.sin(x * 3.15), 2) * 24) * Math.pow(x, 0.75);
+          const sub1 = Math.exp(-Math.pow(y - 0.22 * Math.sin(x * 5.2), 2) * 32) * (x > 0.45 ? 0.65 : 0);
+          const sub2 = Math.exp(-Math.pow(y + 0.22 * Math.sin(x * 5.2), 2) * 32) * (x > 0.45 ? 0.65 : 0);
+          const fluid = Math.min(1, trunk + branch1 + branch2 + sub1 + sub2);
+          const temp = Math.max(0, Math.min(1, (1 - fluid * 0.85) * (0.3 + 0.7 * x)));
 
-          if (fluid > 0.45) {
-            ctx.fillStyle = `rgba(49, 91, 255, ${0.35 + fluid * 0.55})`;
-          } else if (heat > 0.55) {
-            ctx.fillStyle = `rgba(255, 84, 46, ${0.28 + heat * 0.6})`;
+          if (fluid > 0.42) {
+            ctx.fillStyle = `rgba(49, 91, 255, ${0.45 + fluid * 0.5})`; // Cool convective flow
+          } else if (temp > 0.58) {
+            ctx.fillStyle = `rgba(255, 84, 46, ${0.42 + temp * 0.55})`; // High thermal hotspot
           } else {
-            ctx.fillStyle = `rgba(57, 255, 112, ${0.12 + heat * 0.25})`;
+            ctx.fillStyle = `rgba(137, 86, 255, ${0.22 + temp * 0.4})`; // Solid conductive transition
           }
-          ctx.fillRect(i * cw, j * ch, cw - 1, ch - 1);
+          ctx.fillRect(i * cw, j * ch, cw - 0.5, ch - 0.5);
         }
       }
-      // Velocity streamlines
-      ctx.strokeStyle = '#39FF70';
-      ctx.lineWidth = 1.2;
-      [-0.36, 0, 0.36].forEach((off) => {
+
+      // Iso-velocity streamlines
+      ctx.strokeStyle = '#F4F6FB';
+      ctx.lineWidth = 1.4;
+      [-0.4, 0, 0.4].forEach((off) => {
         ctx.beginPath();
-        for (let x = 0; x <= w; x += 8) {
+        for (let x = 0; x <= w; x += 6) {
           const t = x / w;
-          const y = h * 0.5 + off * h * 0.52 * Math.sin(t * 3.1);
-          if (x === 0) ctx.moveTo(x, y);
-          else ctx.lineTo(x, y);
+          const y = h * 0.5 + off * h * 0.5 * Math.sin(t * 3.15);
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
         }
         ctx.stroke();
       });
+
+      // Technical HUD colorbar & labels
+      ctx.fillStyle = 'rgba(7, 9, 19, 0.86)';
+      ctx.fillRect(14, 14, 330, 26);
+      ctx.strokeStyle = 'rgba(192, 154, 255, 0.35)';
+      ctx.strokeRect(14, 14, 330, 26);
+      ctx.fillStyle = '#F4F6FB';
+      ctx.font = '11px monospace';
+      ctx.fillText('SIMP DENSITY γ(x) // THERMAL-FLUID FVM', 24, 31);
+
+      const barGrad = ctx.createLinearGradient(16, 0, 176, 0);
+      barGrad.addColorStop(0, '#315BFF');
+      barGrad.addColorStop(0.5, '#8956FF');
+      barGrad.addColorStop(1, '#FF542E');
+      ctx.fillStyle = barGrad;
+      ctx.fillRect(16, h - 24, 160, 10);
+      ctx.fillStyle = '#CBD2E1';
+      ctx.fillText('T_min', 16, h - 29);
+      ctx.fillText('T_max', 142, h - 29);
     } else if (kind === 'cad-metrology') {
       // Wireframe B-Rep polyhedron + OBB + principal axes
       const cx = w * 0.5, cy = h * 0.5;

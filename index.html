@@ -4,38 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SHANMITHA T. — From Cosmos to Computation</title>
-  <meta name="description" content="Shanmitha T. — A cinematic scroll-controlled journey through the universe, mechanical engineering, scientific computation, and sound.">
-  <meta property="og:title" content="SHANMITHA T. — Cosmic Computational Cybergrunge">
+  <meta name="description" content="Shanmitha T. (Shan) — A cinematic scroll-controlled journey through the universe, mechanical engineering, scientific computation, and sound.">
+  <meta property="og:title" content="SHAN // SHANMITHA T. — Cosmic Computational Cybergrunge">
   <meta property="og:description" content="I build things to understand how the world works. From cosmos to computation, from matter to machines, from signals to sound.">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="css/cosmos.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050816'/><circle cx='16' cy='16' r='8' fill='none' stroke='%238956FF' stroke-width='2'/><circle cx='16' cy='16' r='2.5' fill='%23C09AFF'/></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050711'/><circle cx='16' cy='16' r='8' fill='none' stroke='%238956FF' stroke-width='2'/><circle cx='16' cy='16' r='2.5' fill='%23C09AFF'/></svg>">
 </head>
 <body class="film-scanlines film-grain">
 
-  <!-- Persistent Fixed WebGL / Three.js 3D Film Stage -->
+  <!-- Fixed WebGL / Three.js 3D Film Stage -->
   <canvas id="cosmosStage" aria-hidden="true"></canvas>
 
-  <!-- Discreet Optional Audio Control (Starts Muted, Never Autoplays) -->
-  <div class="hud-top-right">
-    <span id="hudDepth" style="color:rgba(216,220,235,0.55);">Z +12.0</span>
-    <button class="audio-toggle" id="audioToggle" aria-pressed="false" aria-label="Toggle ambient electronic soundtrack">
-      <span class="audio-dot" aria-hidden="true"></span>
-      <span id="audioLabel">AUDIO: MUTED</span>
-    </button>
-  </div>
+  <!-- Elevated Glassmorphic Top HUD: Fast-Jump Index + Primary CTAs + Depth/Audio -->
+  <header class="hud-bar">
+    <nav class="hud-pill" aria-label="Fast-Jump Index">
+      <a href="#ch00" style="color:var(--white);font-weight:600;">SHAN</a>
+      <span class="hud-jump-sep">/</span>
+      <div class="hud-jump-nav">
+        <a href="#ch01">01 Story</a>
+        <span class="hud-jump-sep">·</span>
+        <a href="#ch04">02 Projects</a>
+        <span class="hud-jump-sep">·</span>
+        <a href="#ch05">03 Sound</a>
+        <span class="hud-jump-sep">·</span>
+        <a href="#ch06">04 Vision</a>
+        <span class="hud-jump-sep">·</span>
+        <a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--plasma);">CV</a>
+      </div>
+    </nav>
 
-  <!-- Subtle Chapter Progress Rail (Reveals after leaving initial viewport) -->
-  <nav class="hud-chapter-rail" id="chapterRail" aria-label="Film Chapters">
-    <a href="#ch00" class="rail-pip active" data-ch="0">00 VOID</a>
-    <a href="#ch01" class="rail-pip" data-ch="1">01 PHYSICS</a>
-    <a href="#ch02" class="rail-pip" data-ch="2">02 EARTH</a>
-    <a href="#ch03" class="rail-pip" data-ch="3">03 MACHINES</a>
-    <a href="#ch04" class="rail-pip" data-ch="4">04 COMPUTATION</a>
-    <a href="#ch05" class="rail-pip" data-ch="5">05 SIGNALS</a>
-    <a href="#ch06" class="rail-pip" data-ch="6">06 HORIZON</a>
-    <a href="#ch07" class="rail-pip" data-ch="7">07 CURIOUS</a>
-  </nav>
+    <div class="hud-pill">
+      <div class="hud-cta-links">
+        <a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GH ↗</a>
+        <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">SCHOLAR ↗</a>
+        <a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV ↓</a>
+      </div>
+      <div class="hud-progress-wrap">
+        <div class="hud-progress-track"><div class="hud-progress-fill" id="hudProgress"></div></div>
+        <span id="hudDepth">Z +12.0</span>
+      </div>
+      <button class="audio-toggle" id="audioToggle" aria-pressed="false" aria-label="Toggle ambient electronic soundtrack">
+        <span class="audio-dot" aria-hidden="true"></span>
+        <span id="audioLabel">AUDIO: MUTED</span>
+      </button>
+    </div>
+  </header>
 
   <!-- Continuous 8-Chapter Scroll Film -->
   <main id="filmTrack">
@@ -43,10 +57,15 @@
     <!-- CHAPTER 00 — THE VOID (MINIMAL INITIAL VIEWPORT) -->
     <section class="chapter ch-void" id="ch00" data-chapter="0">
       <div></div>
-      <div>
-        <h1 class="void-name chrome-text">SHANMITHA T.</h1>
-        <p class="void-statement">I BUILD THINGS TO UNDERSTAND HOW THE WORLD WORKS.</p>
-        <p class="void-descriptor">MECHANICAL ENGINEERING · COMPUTATIONAL SCIENCE · SCIENTIFIC ML · SOUND</p>
+      <div class="void-hero-copy">
+        <h1 class="void-name">SHAN</h1>
+        <p class="void-statement">I build things to understand<br>how the world works.</p>
+        <div class="void-tags">
+          <span class="void-tag">Mechanical Engineering</span>
+          <span class="void-tag">Computational Science</span>
+          <span class="void-tag">Scientific ML</span>
+          <span class="void-tag">Sound</span>
+        </div>
       </div>
       <div class="scroll-invite">SCROLL TO ENTER</div>
     </section>
@@ -56,13 +75,13 @@
       <div class="scrub-item">
         <div class="ch-label">CHAPTER 01 // GRAVITY · ORBITS · FIELDS</div>
         <h2 class="ch-heading">THE UNIVERSE IS A PHYSICAL SYSTEM.</h2>
+        <p class="ch-serif-quote">
+          “Long before disciplinary labels exist, nature runs on coupled conservation laws—gravitational wells, electromagnetic fields, fluid instabilities, and propagating waves.”
+        </p>
       </div>
       <div class="ch-asym-right scrub-item">
-        <p class="ch-prose">
-          Long before disciplinary labels exist, nature runs on coupled conservation laws — gravitational wells, electromagnetic fields, fluid instabilities, and propagating waves.
-        </p>
-        <p class="annot" style="margin-top:1.25rem;">
-          FROM ASTROPHYSICAL STRUCTURES → MATHEMATICAL VECTOR FIELDS → PARTIAL DIFFERENTIAL EQUATIONS
+        <p class="annot">
+          ASTROPHYSICAL STRUCTURES → VECTOR FIELDS → PARTIAL DIFFERENTIAL EQUATIONS
         </p>
       </div>
     </section>
@@ -72,13 +91,16 @@
       <div class="ch-asym-right scrub-item">
         <div class="ch-label">CHAPTER 02 // PLANET · ATMOSPHERE · MATTER</div>
         <h2 class="ch-heading">AND THEN THERE IS EARTH.</h2>
+        <p class="ch-serif-quote">
+          “Atmosphere in motion. Terrain sculpted by stress and erosion. Solids built from microscopic crystal lattices.”
+        </p>
         <p class="ch-prose">
-          Atmosphere in motion. Terrain sculpted by stress and erosion. Solids built from microscopic crystal lattices. Understanding planetary systems begins with understanding matter.
+          Understanding planetary systems begins with understanding matter, transport, and continuum mechanics.
         </p>
       </div>
       <div class="scrub-item">
         <p class="annot">
-          TROPOSPHERIC TRANSPORT · CONTINUUM ELASTICITY · ARCHARD CONTACT TRIBOLOGY · MICROSTRUCTURE
+          TROPOSPHERIC TRANSPORT · CONTINUUM ELASTICITY · CONTACT TRIBOLOGY · MICROSTRUCTURE
         </p>
       </div>
     </section>
@@ -89,11 +111,11 @@
         <div class="scrub-item">
           <div class="ch-label" style="color:var(--infrared);">CHAPTER 03 // MATTER → MACHINES</div>
           <h2 class="ch-heading">WE TURN MATTER INTO MACHINES.</h2>
-          <p class="ch-prose">
-            Mechanical engineering is where physical laws meet tolerances, toolpaths, thermal loads, and moving assemblies. I study Mechanical Engineering at VIT Chennai (graduating 2027), translating equations into CAD, CAM, and physical systems.
+          <p class="ch-serif-quote">
+            “Mechanical engineering is where physical laws meet tolerances, toolpaths, thermal loads, and moving assemblies.”
           </p>
-          <p class="annot" style="margin-top:1.25rem;border-color:var(--infrared);">
-            THERMODYNAMICS · FLUID MECHANICS · SOLID MECHANICS · CNC / CIM · HEAT TRANSFER
+          <p class="ch-prose">
+            I am <strong>Shanmitha T.</strong>, studying Mechanical Engineering at VIT Chennai (graduating 2027), translating governing equations into CAD, CAM, numerical solvers, and physical systems.
           </p>
         </div>
         <div class="proj-visual scrub-item">
@@ -103,12 +125,12 @@
     </section>
 
     <!-- CHAPTER 04 — UNDERSTANDING SYSTEMS THROUGH COMPUTATION -->
-    <section class="chapter" id="ch04" data-chapter="4" style="padding-top:12vh;padding-bottom:14vh;">
+    <section class="chapter" id="ch04" data-chapter="4" style="padding-top:11vh;padding-bottom:13vh;">
       <div class="scrub-item">
         <div class="ch-label">CHAPTER 04 // SIMULATION · NEURAL OPERATORS · DIGITAL TWINS</div>
         <h2 class="ch-heading">UNDERSTANDING SYSTEMS THROUGH COMPUTATION.</h2>
         <p class="ch-prose">
-          Six engineering systems — from clinical biomechanics and factory digital twins to GPU finite-volume solvers and neural operators.
+          Six engineering systems—from clinical biomechanics and factory digital twins to GPU finite-volume solvers and neural operators.
         </p>
       </div>
 
@@ -118,9 +140,14 @@
           <div>
             <div class="proj-num">01 / 06 // BIOMECHANICS · DIGITAL TWIN</div>
             <h3 class="proj-title">PEDIGAIT</h3>
-            <div class="proj-eq">C3D MOCAP · KSwS SYMMETRY · CNN-BiLSTM · RegularizedPINN(18→9)</div>
+            <div class="proj-stats">
+              <div class="stat-item"><span class="stat-val">356</span><span class="stat-lbl">Patients</span></div>
+              <div class="stat-item"><span class="stat-val">1,719</span><span class="stat-lbl">Gait Cycles</span></div>
+              <div class="stat-item"><span class="stat-val">62.74%</span><span class="stat-lbl">Bal. Accuracy</span></div>
+            </div>
+            <div class="proj-tech-line">C3D MOCAP · KSwS SYMMETRY · CNN-BiLSTM · RegularizedPINN(18→9)</div>
             <p class="proj-desc">
-              End-to-end pediatric gait framework transforming optical C3D motion-capture trials into 3D skeletal digital twins, Knee Swing Symmetry/Severity scoring, 10-fold patient-separated classification (356 patients, 1,719 cycles), and physics-informed joint-torque prediction.
+              End-to-end pediatric gait framework transforming optical C3D motion-capture trials into 3D skeletal digital twins, Knee Swing Symmetry/Severity scoring, 10-fold patient-separated classification, and physics-informed joint-torque prediction.
             </p>
             <div class="proj-links">
               <a href="work/pedigait/" class="proj-link">CASE STUDY →</a>
@@ -138,7 +165,12 @@
           <div>
             <div class="proj-num">02 / 06 // MANUFACTURING DIGITAL TWIN</div>
             <h3 class="proj-title">BP-001-CIM</h3>
-            <div class="proj-eq">SOLIDWORKS STEP → FUSION CAM → SIMPY VMC → MICROWEAR-PINN (D_M = 1.41)</div>
+            <div class="proj-stats">
+              <div class="stat-item"><span class="stat-val">15/15</span><span class="stat-lbl">Pytest Suite</span></div>
+              <div class="stat-item"><span class="stat-val">2.5%</span><span class="stat-lbl">Scrap (Policy C)</span></div>
+              <div class="stat-item"><span class="stat-val">98.02m</span><span class="stat-lbl">SPT Wait Time</span></div>
+            </div>
+            <div class="proj-tech-line">SOLIDWORKS STEP → FUSION CAM → SIMPY VMC → MICROWEAR-PINN (D_M = 1.41)</div>
             <p class="proj-desc">
               Discrete-event Computer-Integrated Manufacturing digital twin built around SolidWorks part BP-001, connecting CAD geometry, OP00–OP70 routing, SimPy shopfloor queues, CRN policy experiments, economics, and domain-guarded tool-wear inference.
             </p>
@@ -157,14 +189,19 @@
           <div>
             <div class="proj-num">03 / 06 // CONTACT MECHANICS · PINN</div>
             <h3 class="proj-title">MICROWEAR-PINN</h3>
-            <div class="proj-eq">∂h/∂t = −k_w p v_rel · ∇⁴Φ = 0 · RFF + SOFTADAPT · ONNX WEB</div>
+            <div class="proj-stats">
+              <div class="stat-item"><span class="stat-val">2/2</span><span class="stat-lbl">Autograd Checks</span></div>
+              <div class="stat-item"><span class="stat-val">∇⁴Φ = 0</span><span class="stat-lbl">Biharmonic Airy</span></div>
+              <div class="stat-item"><span class="stat-val">ONNX</span><span class="stat-lbl">In-Browser WASM</span></div>
+            </div>
+            <div class="proj-tech-line">ARCHARD WEAR · RANDOM FOURIER FEATURES · SOFTADAPT · ADAMW + L-BFGS</div>
             <p class="proj-desc">
-              Coupled physics-informed coordinate networks identifying spatial wear coefficients and reconstructing 2D subsurface Airy stress fields from sparse surface profilometry, verified with 2/2 autograd checks and deployed in-browser via ONNX.
+              Coupled physics-informed coordinate networks identifying spatial wear coefficients and reconstructing 2D subsurface Airy stress fields from sparse surface profilometry.
             </p>
             <div class="proj-links">
               <a href="work/microwear-pinn/" class="proj-link">CASE STUDY →</a>
               <a href="https://github.com/shanmithat/MicroWear-PINN" target="_blank" rel="noopener noreferrer" class="proj-link">GITHUB ↗</a>
-              <a href="https://shanmithat.github.io/MicroWear-PINN/" target="_blank" rel="noopener noreferrer" class="proj-link">ONNX DEMO ↗</a>
+              <a href="https://shanmithat.github.io/MicroWear-PINN/" target="_blank" rel="noopener noreferrer" class="proj-link">[ONNX DEMO ↗]</a>
             </div>
           </div>
           <div class="proj-visual">
@@ -177,9 +214,14 @@
           <div>
             <div class="proj-num">04 / 06 // GPU MULTIPHYSICS · CUDA</div>
             <h3 class="proj-title">DYNAMESH-THERMAL</h3>
-            <div class="proj-eq">NAVIER–STOKES/DARCY + ADVECTION–DIFFUSION · cuSPARSE · NVIDIA CUB</div>
+            <div class="proj-stats">
+              <div class="stat-item"><span class="stat-val">0</span><span class="stat-lbl">Dense Matrices</span></div>
+              <div class="stat-item"><span class="stat-val">&lt;0.05%</span><span class="stat-lbl">Energy Bal. Err</span></div>
+              <div class="stat-item"><span class="stat-val">CUDA</span><span class="stat-lbl">cuSPARSE + CUB</span></div>
+            </div>
+            <div class="proj-tech-line">NAVIER–STOKES/DARCY + ADVECTION–DIFFUSION · UNIFIED MEMORY · SIMP</div>
             <p class="proj-desc">
-              From-scratch C++/CUDA finite-volume solver for forced-convective thermal topology optimization, solving coupled fluid-thermal states in Unified Memory with cuSPARSE BiCGStab and CUB reductions without dense matrix allocation.
+              From-scratch C++/CUDA finite-volume solver for forced-convective thermal topology optimization, solving coupled fluid-thermal states in Unified Memory with cuSPARSE BiCGStab and CUB reductions.
             </p>
             <div class="proj-links">
               <a href="work/dynamesh-thermal/" class="proj-link">CASE STUDY →</a>
@@ -187,8 +229,8 @@
               <a href="https://shanmithat.github.io/DynaMesh-Thermal/" target="_blank" rel="noopener noreferrer" class="proj-link">LIVE ↗</a>
             </div>
           </div>
-          <div class="proj-visual">
-            <canvas data-procedural="dynamesh" style="width:100%;height:auto;" aria-label="DynaMesh-Thermal SIMP GPU channel topology"></canvas>
+          <div class="proj-visual" style="aspect-ratio:16/10;min-height:260px;">
+            <canvas data-procedural="dynamesh" style="width:100%;height:100%;" aria-label="DynaMesh-Thermal SIMP thermal-fluid velocity contour"></canvas>
           </div>
         </article>
 
@@ -197,9 +239,14 @@
           <div>
             <div class="proj-num">05 / 06 // NEURAL OPERATORS · TRANSPORT</div>
             <h3 class="proj-title">AETHERCAST</h3>
-            <div class="proj-eq">2D PI-FNO · −39.5% PDE RESIDUAL · −7.5% MSE (1,000 TRAJ.)</div>
+            <div class="proj-stats">
+              <div class="stat-item"><span class="stat-val">−39.5%</span><span class="stat-lbl">PDE Residual</span></div>
+              <div class="stat-item"><span class="stat-val">−79.4%</span><span class="stat-lbl">Scaling MSE</span></div>
+              <div class="stat-item"><span class="stat-val">NEURIPS '26</span><span class="stat-lbl">AI4Science Review</span></div>
+            </div>
+            <div class="proj-tech-line">2D FOURIER NEURAL OPERATOR · FINITE-DIFFERENCE PDE REGULARIZATION</div>
             <p class="proj-desc">
-              Research prototype evaluating finite-difference PDE residual regularization in a 2D Fourier Neural Operator for atmospheric advection-diffusion-decay transport. Under double-blind review at the NeurIPS 2026 AI4Science Workshop.
+              Research prototype evaluating finite-difference PDE residual regularization in a 2D Fourier Neural Operator for atmospheric advection-diffusion-decay transport. First-author manuscript under double-blind review.
             </p>
             <div class="proj-links">
               <a href="work/aethercast/" class="proj-link">CASE STUDY →</a>
@@ -217,7 +264,12 @@
           <div>
             <div class="proj-num">06 / 06 // COMPUTATIONAL GEOMETRY · SDF</div>
             <h3 class="proj-title">IMPLICIT LATTICE</h3>
-            <div class="proj-eq">GYROID &amp; SCHWARZ-D TPMS · WEBGL/GLSL · &gt;140,000× STORAGE REDUCTION</div>
+            <div class="proj-stats">
+              <div class="stat-item"><span class="stat-val">&gt;140,000×</span><span class="stat-lbl">Storage Saved</span></div>
+              <div class="stat-item"><span class="stat-val">TPMS</span><span class="stat-lbl">Gyroid &amp; Schwarz-D</span></div>
+              <div class="stat-item"><span class="stat-val">GLSL</span><span class="stat-lbl">WebGL Raymarch</span></div>
+            </div>
+            <div class="proj-tech-line">SIGNED DISTANCE FIELDS · FUNCTIONAL GRADING · MARCHING CUBES STL</div>
             <p class="proj-desc">
               Analytic Signed Distance Field engine replacing multi-gigabyte polygon STL meshes with compact procedural TPMS equations evaluated on the GPU, supporting functional grading, conformal trimming, and STL export.
             </p>
@@ -239,8 +291,11 @@
       <div class="scrub-item">
         <div class="ch-label">CHAPTER 05 // ALGORAVE · MODULAR SYNTHESIS · VIBRATION</div>
         <h2 class="ch-heading">SIGNALS, FREQUENCIES &amp; EVERYTHING IN BETWEEN.</h2>
+        <p class="ch-serif-quote">
+          “Mechanical vibration, electromagnetic waves, Fourier modes, and electronic music are all governed by the same mathematics.”
+        </p>
         <p class="ch-prose">
-          Mechanical vibration, electromagnetic waves, Fourier modes, and electronic music are all governed by the same mathematics. Outside engineering, I live-code patterns, explore Eurorack synthesis, and watch waveforms fold into geometry.
+          Outside engineering, I live-code patterns, explore Eurorack synthesis, and watch waveforms fold into geometry.
         </p>
       </div>
 
@@ -251,7 +306,7 @@
           <button class="synth-btn synth-mode-btn" data-synth-mode="lissajous">LISSAJOUS</button>
           <button class="synth-btn synth-mode-btn" data-synth-mode="spectrum">FFT SPECTROGRAM</button>
           <button class="synth-btn" id="synthAudioLink">ENABLE SYNTH AUDIO</button>
-          <span style="color:rgba(216,220,235,0.6);">116 BPM // A-MAJ9 GRANULAR + MODULAR STEP</span>
+          <span style="color:rgba(203,210,225,0.6);">116 BPM // A-MAJ9 GRANULAR + MODULAR STEP</span>
         </div>
       </div>
     </section>
@@ -261,13 +316,16 @@
       <div class="scrub-item">
         <div class="ch-label" style="color:var(--infrared);">CHAPTER 06 // SYMBIOSIS · PYNAEA</div>
         <h2 class="ch-heading">WHAT COMES NEXT?</h2>
+        <p class="ch-serif-quote">
+          “Helping humanity advance technologically while keeping Earth habitable.”
+        </p>
         <p class="ch-prose">
-          Helping humanity advance technologically while keeping Earth habitable. My philosophical direction is <strong>symbiosis</strong> — engineering systems where technological progress and Earth’s living systems sustain each other.
+          My philosophical direction is <strong>symbiosis</strong>—engineering systems where technological progress and Earth’s living systems sustain each other.
         </p>
       </div>
       <div class="ch-asym-right scrub-item">
         <p class="ch-prose" style="color:var(--white);">
-          <strong>Pynaea</strong> is the long-term initiative associated with that ambition — beginning with Industrial Resource Intelligence and growing toward interconnected planetary resource intelligence.
+          <strong>Pynaea</strong> is the long-term initiative associated with that ambition—beginning with Industrial Resource Intelligence and growing toward interconnected planetary resource intelligence.
         </p>
         <p class="annot" style="margin-top:1rem;border-color:var(--infrared);">
           LONG-TERM ASPIRATION // DISTINCT FROM COMPLETED RESEARCH &amp; SOFTWARE WORK
@@ -279,9 +337,9 @@
     <section class="chapter" id="ch07" data-chapter="7">
       <div class="scrub-item">
         <div class="ch-label">FINAL CHAPTER // TRANSMISSION</div>
-        <h2 class="ch-heading chrome-text">STAY CURIOUS.</h2>
-        <p class="ch-prose">
-          From cosmos to computation. From matter to machines. From signals to sound. From curiosity to creation.
+        <h2 class="ch-heading">STAY CURIOUS.</h2>
+        <p class="ch-serif-quote">
+          “From cosmos to computation. From matter to machines. From signals to sound.”
         </p>
 
         <div class="transmission-links">
@@ -295,7 +353,7 @@
           <a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↓</a>
         </div>
 
-        <p class="annot" style="margin-top:2.5rem;">
+        <p class="annot" style="margin-top:2.25rem;">
           SHANMITHA T. · VIT CHENNAI · CHENNAI, INDIA · EXPECTED 2027
         </p>
       </div>
@@ -318,8 +376,7 @@
     const audioLabel = document.getElementById('audioLabel');
     const synthAudioLink = document.getElementById('synthAudioLink');
     const hudDepth = document.getElementById('hudDepth');
-    const rail = document.getElementById('chapterRail');
-    const pips = document.querySelectorAll('.rail-pip');
+    const hudProgress = document.getElementById('hudProgress');
 
     async function toggleSound() {
       const on = await synth.toggle();
@@ -337,12 +394,9 @@
     initCosmosFilm('cosmosStage', synth, (p) => {
       const z = (12 - p * 120).toFixed(1);
       if (hudDepth) hudDepth.textContent = `Z ${z >= 0 ? '+' : ''}${z}`;
-      if (rail) rail.classList.toggle('visible', p > 0.04);
-      const activeIdx = Math.min(7, Math.floor(p * 8));
-      pips.forEach((pip, idx) => pip.classList.toggle('active', idx === activeIdx));
+      if (hudProgress) hudProgress.style.width = `${Math.round(p * 100)}%`;
     });
 
-    // Coordinate Lenis + GSAP ScrollTrigger scrubbed typography once deferred scripts load
     window.addEventListener('load', () => {
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!reduced && window.Lenis) {
@@ -362,7 +416,7 @@
         document.querySelectorAll('.scrub-item').forEach((el) => {
           window.gsap.fromTo(
             el,
-            { opacity: 0.18, y: 36 },
+            { opacity: 0.22, y: 32 },
             {
               opacity: 1,
               y: 0,
