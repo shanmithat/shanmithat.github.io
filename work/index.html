@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENV_01 // The Laboratory — SHANMITHA T.</title>
+  <meta name="description" content="The Laboratory: technical case files across biomechanics, manufacturing digital twins, contact mechanics, GPU topology optimization, atmospheric PDEs, implicit geometry, and NLP.">
+  <base href="../">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%2339FF70' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%2339FF70'/></svg>">
+</head>
+<body class="tex-scanlines tex-noise tex-wireframe">
+  <div id="navMount"></div>
+  <div id="tickerMount"></div>
+
+  <main class="shell-wrap" data-tone="green">
+    <section class="band">
+      <div class="band-head">
+        <div>
+          <span class="env-code">ENV_01 // THE LABORATORY</span>
+          <h1 class="env-title">ENGINEERING CASE FILES</h1>
+        </div>
+        <p class="env-sub">
+          Nine verified projects with distinct visual identities, mathematical formulations, figures, and explicit scope boundaries.
+        </p>
+      </div>
+
+      <div class="filter-strip" id="domainFilters" role="tablist" aria-label="Filter projects by domain">
+        <button class="filter-tab active" data-domain="ALL">ALL [09]</button>
+        <button class="filter-tab" data-domain="Biomechanics">BIOMECHANICS</button>
+        <button class="filter-tab" data-domain="Manufacturing">MANUFACTURING</button>
+        <button class="filter-tab" data-domain="Computational Mechanics">COMP. MECHANICS</button>
+        <button class="filter-tab" data-domain="Scientific ML">SCIENTIFIC ML</button>
+        <button class="filter-tab" data-domain="Geometry">GEOMETRY</button>
+        <button class="filter-tab" data-domain="Atmospheric Modelling">ATMOSPHERIC</button>
+        <button class="filter-tab" data-domain="Language Technology">LANGUAGE TECH</button>
+      </div>
+
+      <div class="lab-grid" id="labGrid"></div>
+    </section>
+  </main>
+
+  <div id="footerMount"></div>
+
+  <script type="module">
+    import { initShell } from './js/app.js';
+    import { renderProceduralPreviews } from './js/visuals/archive-previews.js';
+    import { InstrumentIndex, TechnicalTicker, ProjectFile, TransmissionFooter } from './js/components/ui.js';
+    import { PROJECTS } from './js/data/projects.js';
+
+    document.getElementById('navMount').innerHTML = InstrumentIndex({ activeEnv: '01', coordLabel: 'THE_LABORATORY' });
+    document.getElementById('tickerMount').innerHTML = TechnicalTicker();
+    document.getElementById('footerMount').innerHTML = TransmissionFooter();
+    initShell();
+
+    const labGrid = document.getElementById('labGrid');
+    function renderLab(domain = 'ALL') {
+      const items = domain === 'ALL' ? PROJECTS : PROJECTS.filter((p) => p.domains.includes(domain));
+      labGrid.innerHTML = items.map((p) => ProjectFile(p)).join('');
+      renderProceduralPreviews(labGrid);
+    }
+    renderLab('ALL');
+
+    document.querySelectorAll('#domainFilters .filter-tab').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#domainFilters .filter-tab').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderLab(btn.dataset.domain);
+      });
+    });
+  </script>
+</body>
+</html>

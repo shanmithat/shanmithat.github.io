@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ENV_02 // The Scrapbook — SHANMITHA T.</title>
+  <meta name="description" content="The Scrapbook: personal digital zine, questions, astrophysics, CERN, Fermi paradox, skyrmions, metamaterials, Algorave, Y2K culture, rabbit holes, and editable personal slots.">
+  <base href="../">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%23315BFF' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%23315BFF'/></svg>">
+</head>
+<body class="tex-scanlines tex-noise tex-wireframe">
+  <div id="navMount"></div>
+
+  <main class="shell-wrap" data-tone="blue">
+    <section class="band tex-halftone">
+      <div class="band-head">
+        <div>
+          <span class="env-code">ENV_02 // THE SCRAPBOOK</span>
+          <h1 class="env-title tex-chrome">BEYOND THE EQUATIONS</h1>
+        </div>
+        <p class="env-sub">
+          Personal digital scrapbook &amp; internet zine. Editable via <code>js/data/personal.js</code>. Curiosities and rabbit holes — not claims of completed research.
+        </p>
+      </div>
+
+      <div id="div1"></div>
+      <div class="grid-12" id="questionsGrid"></div>
+
+      <div id="div2"></div>
+      <div class="grid-12" id="fascinationsGrid"></div>
+
+      <div id="div3"></div>
+      <div class="grid-12" id="rabbitGrid"></div>
+
+      <div id="div4"></div>
+      <div class="grid-12" id="scrapbookGrid"></div>
+    </section>
+  </main>
+
+  <div id="footerMount"></div>
+
+  <script type="module">
+    import { initShell } from './js/app.js';
+    import { InstrumentIndex, ScrapbookEntry, SignalDivider, TransmissionFooter } from './js/components/ui.js';
+    import { QUESTIONS, FASCINATIONS, RABBIT_HOLES, SCRAPBOOK_SLOTS } from './js/data/personal.js';
+
+    document.getElementById('navMount').innerHTML = InstrumentIndex({ activeEnv: '02', coordLabel: 'THE_SCRAPBOOK', ledTone: '#5B7FFF' });
+    document.getElementById('footerMount').innerHTML = TransmissionFooter();
+    initShell();
+
+    document.getElementById('div1').innerHTML = SignalDivider("02.1 // QUESTIONS I CAN'T STOP THINKING ABOUT");
+    document.getElementById('div2').innerHTML = SignalDivider('02.2 // THINGS I FIND FASCINATING');
+    document.getElementById('div3').innerHTML = SignalDivider('02.3 // THE RABBIT HOLES');
+    document.getElementById('div4').innerHTML = SignalDivider('02.4 // PERSONAL EXPERIMENTS & EDITABLE SCRAPBOOK');
+
+    document.getElementById('questionsGrid').innerHTML = QUESTIONS.map((q, i) =>
+      ScrapbookEntry({ tag: q.code, title: q.text, body: 'Open interdisciplinary question.', span: i % 2 === 0 ? 'col-7' : 'col-5', accent: true })
+    ).join('');
+
+    const fascSpans = ['col-6', 'col-6', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4'];
+    document.getElementById('fascinationsGrid').innerHTML = FASCINATIONS.map((f, i) =>
+      ScrapbookEntry({ tag: f.tag, title: f.title, body: f.note, span: fascSpans[i] || 'col-4' })
+    ).join('');
+
+    const rhSpans = ['col-8', 'col-4', 'col-4', 'col-4', 'col-4'];
+    document.getElementById('rabbitGrid').innerHTML = RABBIT_HOLES.map((r, i) =>
+      ScrapbookEntry({ tag: r.id, title: r.title, body: r.body, span: rhSpans[i] || 'col-4', accent: true })
+    ).join('');
+
+    document.getElementById('scrapbookGrid').innerHTML = SCRAPBOOK_SLOTS.map((s) => `
+      <div class="scrapbook-slot col-6">
+        <div style="font-family:var(--font-mono);font-size:0.68rem;color:#5B7FFF;margin-bottom:0.35rem;">${s.slot}</div>
+        <h3 style="font-family:var(--font-display);font-size:1.35rem;text-transform:uppercase;color:var(--silver-bright);margin-bottom:0.35rem;">${s.title}</h3>
+        ${s.img ? `<img src="${s.img}" alt="${s.title}" style="margin:0.65rem 0;border:1px solid var(--hairline-strong);">` : ''}
+        <p style="font-size:0.86rem;color:var(--graphite-light);">${s.caption}</p>
+      </div>
+    `).join('');
+  </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Implicit Lattice // TPMS Computational Geometry — SHANMITHA T.</title>
+  <meta name="description" content="Technical case study for Implicit Lattice // TPMS Computational Geometry by Shanmitha T.">
+  <base href="../../">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+</head>
+<body class="tex-scanlines tex-noise tex-wireframe">
+  <div id="navMount"></div>
+  <main class="shell-wrap" id="dossierRoot" data-tone="green">
+    <section class="band" id="dossierMount"></section>
+  </main>
+  <div id="footerMount"></div>
+  <script type="module">
+    import { initShell } from './js/app.js';
+    import { renderProceduralPreviews } from './js/visuals/archive-previews.js';
+    import { InstrumentIndex, CaseStudyLayout, TransmissionFooter } from './js/components/ui.js';
+    import { PROJECTS } from './js/data/projects.js';
+
+    const p = PROJECTS.find((item) => item.id === 'implicit-lattice') || PROJECTS[0];
+    const ledTone = p.tone === 'infrared' ? 'var(--infrared)' : p.tone === 'blue' ? '#5B7FFF' : 'var(--phosphor)';
+    document.getElementById('navMount').innerHTML = InstrumentIndex({ activeEnv: '01', coordLabel: `CASE_${p.num}`, ledTone });
+    document.getElementById('footerMount').innerHTML = TransmissionFooter();
+    initShell();
+    document.getElementById('dossierRoot').setAttribute('data-tone', p.tone);
+    const mount = document.getElementById('dossierMount');
+    mount.innerHTML = CaseStudyLayout(p, PROJECTS);
+    renderProceduralPreviews(mount);
+    function renderEq() {
+      if (!window.katex) { setTimeout(renderEq, 80); return; }
+      document.querySelectorAll('.katex-eq').forEach((el) => {
+        window.katex.render(el.dataset.tex, el, { displayMode: true, throwOnError: false });
+      });
+    }
+    renderEq();
+  </script>
+</body>
+</html>

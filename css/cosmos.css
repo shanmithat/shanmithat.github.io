@@ -1,0 +1,479 @@
+/* ==========================================================================
+   SHANMITHA T. — COSMIC COMPUTATIONAL CYBERGRUNGE (CINEMATIC FILM SYSTEM)
+   Palette: #050816 / #17113B / #315BFF / #8956FF / #C09AFF / #D8DCEB / #F5F4FF
+   Primary Type: Barlow Condensed | Annotations: IBM Plex Mono
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600&family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  --midnight: #050816;
+  --indigo: #17113B;
+  --electric: #315BFF;
+  --ultraviolet: #8956FF;
+  --plasma: #C09AFF;
+  --silver: #D8DCEB;
+  --white: #F5F4FF;
+  --infrared: #FF542E;
+
+  --font-primary: 'Barlow Condensed', 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+
+  --gutter: clamp(1.25rem, 5vw, 5.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html {
+  font-size: 16px;
+  background: var(--midnight);
+  color: var(--silver);
+  overflow-x: hidden;
+}
+body {
+  background: var(--midnight);
+  color: var(--silver);
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.35vw, 1.42rem);
+  line-height: 1.35;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: none; cursor: pointer; }
+img, canvas { display: block; max-width: 100%; }
+::selection { background: var(--ultraviolet); color: var(--white); }
+:focus-visible { outline: 1px solid var(--plasma); outline-offset: 3px; }
+
+/* ==========================================================================
+   Persistent Fixed WebGL Stage & Film Overlays
+   ========================================================================== */
+#cosmosStage {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.film-scanlines::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(245, 244, 255, 0.015) 0px,
+    rgba(245, 244, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+.film-grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 89;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   Discreet Floating Telemetry & Sound Toggle (No Conventional Navbar)
+   ========================================================================== */
+.hud-top-right {
+  position: fixed;
+  top: clamp(0.85rem, 2.5vw, 1.75rem);
+  right: var(--gutter);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.25rem 0.35rem 0.25rem 0.65rem;
+  background: rgba(5, 8, 22, 0.78);
+  backdrop-filter: blur(6px);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.audio-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(192, 154, 255, 0.35);
+  background: rgba(5, 8, 22, 0.58);
+  backdrop-filter: blur(4px);
+  color: var(--silver);
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+.audio-toggle:hover, .audio-toggle.active {
+  border-color: var(--plasma);
+  color: var(--white);
+  background: rgba(49, 91, 255, 0.25);
+}
+.audio-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--silver);
+  opacity: 0.45;
+}
+.audio-toggle.active .audio-dot {
+  background: var(--plasma);
+  box-shadow: 0 0 8px var(--ultraviolet);
+  opacity: 1;
+}
+
+.hud-chapter-rail {
+  position: fixed;
+  left: clamp(0.75rem, 2vw, 1.75rem);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 95;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.hud-chapter-rail.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.rail-pip {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(216, 220, 235, 0.42);
+  transition: color 0.2s ease;
+}
+.rail-pip::before {
+  content: '';
+  width: 10px;
+  height: 1px;
+  background: currentColor;
+  transition: width 0.2s ease;
+}
+.rail-pip.active {
+  color: var(--plasma);
+}
+.rail-pip.active::before {
+  width: 22px;
+  background: var(--plasma);
+}
+@media (max-width: 900px) { .hud-chapter-rail { display: none; } }
+
+/* ==========================================================================
+   Scroll Film Chapters (Unboxed, Full-Bleed, Continuous)
+   ========================================================================== */
+#filmTrack {
+  position: relative;
+  z-index: 10;
+}
+
+.chapter {
+  position: relative;
+  min-height: 100vh;
+  padding: clamp(5rem, 10vh, 8rem) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 901px) {
+  .chapter { padding-left: clamp(8.5rem, 11vw, 10.5rem); }
+}
+
+.chapter-tall {
+  min-height: 145vh;
+  justify-content: space-between;
+}
+
+/* Chapter 00: Minimal Entry Viewport */
+.ch-void {
+  min-height: 100vh;
+  justify-content: space-between;
+  padding-top: clamp(3rem, 12vh, 7rem);
+  padding-bottom: clamp(2rem, 5vh, 3.5rem);
+}
+
+.void-name {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: clamp(4.2rem, 12vw, 10.5rem);
+  line-height: 0.86;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.chrome-text {
+  background: linear-gradient(180deg, #F5F4FF 0%, #D8DCEB 45%, #55618C 52%, #C09AFF 88%, #F5F4FF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.void-statement {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  font-size: clamp(1.6rem, 3.3vw, 3rem);
+  line-height: 0.98;
+  text-transform: uppercase;
+  color: var(--plasma);
+  max-width: 24ch;
+  margin-top: 1.25rem;
+}
+
+.void-descriptor {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(216, 220, 235, 0.72);
+  margin-top: 1rem;
+}
+
+.scroll-invite {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plasma);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.scroll-invite::after {
+  content: '';
+  width: 36px;
+  height: 1px;
+  background: var(--plasma);
+}
+
+/* Shared Cinematic Editorial Typography */
+.ch-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--plasma);
+  margin-bottom: 0.85rem;
+}
+
+.ch-heading {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: clamp(2.8rem, 7vw, 6.2rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: var(--white);
+  max-width: 16ch;
+}
+
+.ch-prose {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  font-size: clamp(1.3rem, 2.1vw, 1.9rem);
+  line-height: 1.22;
+  color: var(--silver);
+  max-width: 36ch;
+  margin-top: 1.4rem;
+}
+
+.ch-asym-right {
+  margin-left: auto;
+  max-width: 44rem;
+}
+
+.ch-split {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+@media (max-width: 900px) { .ch-split { grid-template-columns: 1fr; } }
+
+.annot {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: rgba(216, 220, 235, 0.72);
+  border-left: 1px solid var(--ultraviolet);
+  padding-left: 0.75rem;
+}
+
+/* Unboxed Project Sequence in Chapter 04 */
+.proj-sequence {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4.5rem, 11vh, 8rem);
+  margin-top: 3rem;
+}
+
+.proj-scene {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  align-items: center;
+}
+.proj-scene.flip { grid-template-columns: 1.15fr 1fr; }
+.proj-scene.flip .proj-visual { order: -1; }
+
+@media (max-width: 900px) {
+  .proj-scene, .proj-scene.flip { grid-template-columns: 1fr; }
+  .proj-scene.flip .proj-visual { order: 0; }
+}
+
+.proj-num {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: var(--plasma);
+}
+.proj-scene[data-thermal="true"] .proj-num,
+.proj-scene[data-thermal="true"] .proj-eq {
+  color: var(--infrared);
+}
+
+.proj-title {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: clamp(2.3rem, 4.8vw, 4.2rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0.35rem 0 0.75rem;
+}
+
+.proj-eq {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--plasma);
+  margin-bottom: 0.85rem;
+}
+
+.proj-desc {
+  font-family: var(--font-primary);
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  line-height: 1.3;
+  color: var(--silver);
+  max-width: 38ch;
+}
+
+.proj-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.proj-link {
+  color: var(--white);
+  border-bottom: 1px solid var(--ultraviolet);
+  padding-bottom: 0.2rem;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.proj-link:hover {
+  color: var(--plasma);
+  border-color: var(--plasma);
+}
+
+.proj-visual {
+  position: relative;
+  overflow: hidden;
+}
+.proj-visual img {
+  width: 100%;
+  height: auto;
+  filter: grayscale(0.4) contrast(1.18) brightness(0.9);
+  transition: filter 0.3s ease;
+}
+.proj-scene[data-thermal="true"] .proj-visual img {
+  filter: sepia(0.35) hue-rotate(-20deg) saturate(1.3) contrast(1.18);
+}
+.proj-scene:hover .proj-visual img {
+  filter: contrast(1.06) saturate(1.05);
+}
+.proj-visual::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(5, 8, 22, 0.36) 1px, transparent 0);
+  background-size: 4px 4px;
+}
+
+/* Chapter 05: Algorave / Oscilloscope / Spectrogram */
+.synth-stage {
+  position: relative;
+  width: 100%;
+  margin-top: 2rem;
+}
+#synthCanvas {
+  width: 100%;
+  height: clamp(280px, 44vh, 460px);
+  border-top: 1px solid rgba(192, 154, 255, 0.35);
+  border-bottom: 1px solid rgba(192, 154, 255, 0.35);
+}
+.synth-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin-top: 1.15rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.synth-btn {
+  padding: 0.38rem 0.75rem;
+  border: 1px solid rgba(192, 154, 255, 0.45);
+  color: var(--silver);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.synth-btn.active, .synth-btn:hover {
+  background: var(--ultraviolet);
+  color: var(--white);
+  border-color: var(--ultraviolet);
+}
+
+/* Final Chapter: Transmission Links */
+.transmission-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.25rem;
+  margin-top: 2.5rem;
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  text-transform: uppercase;
+}
+.transmission-links a {
+  color: var(--silver);
+  border-bottom: 1px solid rgba(192, 154, 255, 0.3);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.transmission-links a:hover {
+  color: var(--plasma);
+  border-color: var(--plasma);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .film-scanlines::after { display: none; }
+  * { scroll-behavior: auto !important; }
+}
