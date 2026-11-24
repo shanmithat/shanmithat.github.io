@@ -1,213 +1,125 @@
 <!DOCTYPE html>
-<html lang="en" class="celestial-grid">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact · Shanmitha T. — Computational Mechanical Engineering</title>
-  <meta name="description" content="Contact details and academic/technical profiles for Shanmitha T., Mechanical Engineering undergraduate at VIT Chennai.">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+  <title>06 // Contact — SHANMITHA T.</title>
+  <meta name="description" content="Direct contact, CV download, GitHub, Google Scholar, and LinkedIn for Shanmitha T. (VIT Chennai, Mechanical Engineering).">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%23C5C9CE' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%23C5C9CE'/></svg>">
 </head>
-<body>
-  <!-- Ambient Interactive Simulation Canvas -->
-  <canvas id="ambientCanvas"></canvas>
+<body class="tex-scanlines tex-grain coord-grid">
 
-  <!-- Persistent Site Header (No CV) -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-mark" aria-label="Shanmitha T. Home">
-        <span class="brand-dot"></span>
+  <header class="inst-header">
+    <div class="inst-nav-inner">
+      <a href="index.html" class="inst-brand">
+        <span class="inst-led" style="background:var(--silver);box-shadow:0 0 6px var(--silver);" aria-hidden="true"></span>
         <span>SHANMITHA T.</span>
+        <span class="inst-coords">// CONTACT_NODE</span>
       </a>
-
-      <!-- Primary Desktop Nav -->
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a></li>
-        <li><a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a></li>
-        <li><a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a></li>
-        <li><a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a></li>
-        <li><a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a></li>
-        <li><a href="contact.html" class="nav-link active"><span class="nav-num">06</span> contact</a></li>
-      </ul>
-
-      <!-- Mobile Toggle -->
-      <div class="nav-actions">
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">menu</button>
+      <nav aria-label="Primary Instrument Navigation">
+        <ul class="inst-links">
+          <li><a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a></li>
+          <li><a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> ARCHIVE</a></li>
+          <li><a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND</a></li>
+          <li><a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> VISION</a></li>
+          <li><a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PAPERS</a></li>
+          <li><a href="contact.html" class="inst-link active" data-nav="contact"><span class="idx">06</span> CONTACT</a></li>
+        </ul>
+      </nav>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <a href="res.pdf" class="inst-cv-btn" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↗</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer">MENU [≡]</button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Nav Drawer -->
-  <div class="mobile-nav-drawer" id="mobileDrawer">
-    <a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a>
-    <a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a>
-    <a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a>
-    <a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a>
-    <a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a>
-    <a href="contact.html" class="nav-link active"><span class="nav-num">06</span> contact</a>
+  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a>
+    <a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> PROJECT ARCHIVE</a>
+    <a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND THE EQUATIONS</a>
+    <a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> FUTURE VISION</a>
+    <a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PUBLICATIONS</a>
+    <a href="contact.html" class="inst-link active" data-nav="contact"><span class="idx">06</span> CONTACT</a>
   </div>
 
-  <main class="relative-content">
-    <!-- Page Hero -->
-    <section class="page-hero">
-      <div class="page-tag">06 · COMMUNICATIONS &amp; COLLABORATION</div>
-      <h1 class="page-title">Let's Connect</h1>
-      <p class="page-intro">
-        I welcome conversations regarding mechanical systems, thermal-fluid engineering, numerical simulation, C++/CUDA GPU computing, and computational engineering collaboration.
-      </p>
-    </section>
-
-    <!-- CONTACT CHANNELS GRID -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.75rem; margin-bottom: 3.5rem;">
-
-      <!-- Direct Email Card -->
-      <div class="editorial-card" style="border-top: 4px solid var(--ocean-primary);">
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: #60a5fa; font-weight: 600;">
-          Primary Contact
-        </span>
-        <h2 style="font-size: 1.45rem; margin: 0.35rem 0 0.5rem; color: #ffffff;">
-          Direct Email
-        </h2>
-        <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-          The most reliable channel to reach me regarding engineering inquiries, research collaborations, or technical questions.
-        </p>
-
-        <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.92rem; color: var(--text-primary); border: 1px solid var(--border-subtle); margin-bottom: 1rem; word-break: break-all;">
-          shanmithat3@gmail.com
-        </div>
-
-        <div class="btn-group">
-          <a href="mailto:shanmithat3@gmail.com" class="btn-primary" style="font-size: 0.78rem;">
-            Send Email ↗
-          </a>
-          <button class="btn-secondary" onclick="copyEmail(this, 'shanmithat3@gmail.com')" style="font-size: 0.78rem; cursor: pointer;">
-            Copy Address
-          </button>
-        </div>
-      </div>
-
-      <!-- Institutional Affiliation Card -->
-      <div class="editorial-card" style="border-top: 4px solid #10b981;">
-        <span style="font-family: var(--font-mono); font-size: 0.72rem; text-transform: uppercase; color: #34d399; font-weight: 600;">
-          Academic Affiliation
-        </span>
-        <h2 style="font-size: 1.45rem; margin: 0.35rem 0 0.5rem; color: #ffffff;">
-          VIT Chennai
-        </h2>
-        <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.25rem;">
-          School of Mechanical Engineering, Vellore Institute of Technology (VIT), Chennai Campus, Tamil Nadu, India.
-        </p>
-
-        <div style="background: var(--bg-subtle); padding: 0.85rem 1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-secondary); border: 1px solid var(--border-subtle); margin-bottom: 1rem;">
-          B.Tech. Mechanical Engineering · CGPA 7.79/10 · Graduating 2027
-        </div>
-
-        <div class="btn-group">
-          <a href="engineering.html" class="btn-secondary" style="font-size: 0.78rem;">
-            View Competencies →
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- TECHNICAL & SCHOLARLY PROFILES -->
-    <section style="margin-bottom: 4rem;">
-      <div class="section-header">
+  <main class="wrap" data-tone="silver">
+    <section class="band">
+      <div class="band-head">
         <div>
-          <div class="section-label">TECHNICAL VERIFICATION</div>
-          <h2 class="section-title">Online Profiles &amp; Repositories</h2>
+          <span class="band-num">06 // DIRECT CHANNELS &amp; RECORDS</span>
+          <h1 class="band-title">CONTACT</h1>
+        </div>
+        <p class="band-sub">
+          Chennai, India · Mechanical Engineering, VIT Chennai (Expected 2027) · CGPA 7.79/10.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.25rem;margin-bottom:2rem;">
+        <div class="frame reticle" style="padding:1.5rem;border-top:2px solid var(--phosphor);">
+          <div class="tag-mono" style="color:var(--phosphor);margin-bottom:0.45rem;">PRIMARY EMAIL</div>
+          <div style="font-family:var(--font-mono);font-size:1.05rem;color:var(--silver-bright);margin:0.5rem 0 1rem;word-break:break-all;">shanmithat3@gmail.com</div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <a href="mailto:shanmithat3@gmail.com" class="cmd-btn primary">SEND EMAIL ↗</a>
+            <button class="cmd-btn" id="copyEmailBtn">COPY ADDRESS</button>
+          </div>
+        </div>
+
+        <div class="frame" style="padding:1.5rem;border-top:2px solid var(--cobalt-bright);">
+          <div class="tag-mono" style="color:var(--cobalt-bright);margin-bottom:0.45rem;">CURRICULUM VITAE</div>
+          <div style="font-family:var(--font-mono);font-size:0.86rem;color:var(--silver);margin:0.5rem 0 1rem;">Shanmitha_T_CV.pdf (res.pdf)</div>
+          <a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer" class="cmd-btn">DOWNLOAD CV.PDF ↓</a>
         </div>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
-
-        <a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer" class="metric-box" style="display: block;">
-          <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;">
-            Source Code
-          </div>
-          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.35rem;">GitHub ↗</h3>
-          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
-            C++ solvers, CUDA kernels, and open repositories for DynaMesh-Thermal, MicroWear-PINN, Implicit Lattice, and AetherCast.
-          </p>
-        </a>
-
-        <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="metric-box" style="display: block;">
-          <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;">
-            Citations &amp; Preprints
-          </div>
-          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.35rem;">Google Scholar ↗</h3>
-          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
-            Verified academic publications, citations, and workshop proceedings.
-          </p>
-        </a>
-
-        <a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer" class="metric-box" style="display: block;">
-          <div style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ocean-primary); text-transform: uppercase; font-weight: 600; margin-bottom: 0.25rem;">
-            Professional Network
-          </div>
-          <h3 style="font-size: 1.15rem; color: #ffffff; margin-bottom: 0.35rem;">LinkedIn ↗</h3>
-          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;">
-            Engineering updates, technical milestones, and professional networking.
-          </p>
-        </a>
-
-      </div>
+      <table class="data-table">
+        <thead>
+          <tr><th>Channel</th><th>Handle / Identifier</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>GitHub</td>
+            <td>github.com/shanmithat</td>
+            <td><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer" style="color:var(--phosphor);">OPEN ↗</a></td>
+          </tr>
+          <tr>
+            <td>Google Scholar</td>
+            <td>W8r_xnEAAAAJ</td>
+            <td><a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" style="color:var(--phosphor);">OPEN ↗</a></td>
+          </tr>
+          <tr>
+            <td>LinkedIn</td>
+            <td>in/shanmithat</td>
+            <td><a href="https://www.linkedin.com/in/shanmithat/" target="_blank" rel="noopener noreferrer" style="color:var(--phosphor);">OPEN ↗</a></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
-
   </main>
 
-  <!-- Persistent Editorial Footer (No CV) -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <h3>SHANMITHA T.</h3>
-          <p>Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.</p>
-        </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="index.html">01 Home</a></li>
-              <li><a href="engineering.html">02 Engineering</a></li>
-              <li><a href="projects.html">03 Projects</a></li>
-              <li><a href="publications.html">04 Publications</a></li>
-              <li><a href="about.html">05 About</a></li>
-              <li><a href="contact.html">06 Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Primary Channels</h4>
-            <ul>
-              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
-              <li><a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
-              <li><a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
-              <li><a href="mailto:shanmithat3@gmail.com">shanmithat3@gmail.com</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div>© 2026 Shanmitha T. · Mechanical Engineering, built with computation.</div>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">VIT Chennai · Graduating 2027</div>
-      </div>
+  <footer class="inst-footer">
+    <div class="footer-row">
+      <div><strong style="color:var(--silver-bright);">SHANMITHA T.</strong> // <a href="mailto:shanmithat3@gmail.com" style="color:var(--phosphor);">shanmithat3@gmail.com</a></div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html">01 ENTRY</a>
+        <a href="archive.html">02 ARCHIVE</a>
+        <a href="beyond.html">03 BEYOND</a>
+        <a href="vision.html">04 VISION</a>
+        <a href="publications.html">05 PAPERS</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
-  <script>
-    function copyEmail(btn, email) {
-      navigator.clipboard.writeText(email).then(() => {
-        const orig = btn.textContent;
-        btn.textContent = 'Copied! ✓';
-        btn.style.color = '#34d399';
-        setTimeout(() => {
-          btn.textContent = orig;
-          btn.style.color = '';
-        }, 2000);
+  <script type="module">
+    import { initShell } from './js/app.js';
+    initShell();
+    const copyBtn = document.getElementById('copyEmailBtn');
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('shanmithat3@gmail.com').then(() => {
+        copyBtn.textContent = 'COPIED [OK]';
+        setTimeout(() => { copyBtn.textContent = 'COPY ADDRESS'; }, 1800);
       });
-    }
+    });
   </script>
 </body>
 </html>

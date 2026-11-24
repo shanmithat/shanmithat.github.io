@@ -1,409 +1,340 @@
 <!DOCTYPE html>
-<html lang="en" class="celestial-grid">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shanmitha T. — Mechanical Engineering, built with computation</title>
-  <meta name="description" content="Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+  <title>SHANMITHA T. — Computational Archive &amp; Mechanical Engineering</title>
+  <meta name="description" content="Shanmitha T. — Mechanical Engineering, Computational Science, Scientific ML, Manufacturing Digital Twins, Physics-Informed Neural Networks, and Experimental Research Archive.">
+  <meta property="og:title" content="SHANMITHA T. — Computational Archive">
+  <meta property="og:description" content="I build things to understand how the world works. Mechanical Engineering, Computational Science, Scientific ML, Manufacturing, and Other Rabbit Holes.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%2339FF70' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%2339FF70'/></svg>">
 </head>
-<body>
-  <!-- Ambient Interactive Transport Simulation Canvas -->
-  <canvas id="ambientCanvas"></canvas>
+<body class="tex-scanlines tex-grain coord-grid">
 
-  <!-- Persistent Site Header (No CV) -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-mark" aria-label="Shanmitha T. Home">
-        <span class="brand-dot"></span>
+  <!-- Restrained Scientific Instrument Boot Sequence -->
+  <div class="boot-overlay" id="bootOverlay" aria-hidden="true">
+    <div class="boot-box">
+      <div class="boot-line">ARCHIVE_KERNEL // SHANMITHA_T [13.0827°N, 80.2707°E]</div>
+      <div class="boot-line">MOUNTING CASE FILES: PEDIGAIT · BP-001-CIM · MICROWEAR · DYNAMESH <span class="boot-ok">[OK]</span></div>
+      <div class="boot-line">INITIALIZING PROCEDURAL FIELD SOLVER (WIREFRAME / VECTOR / THERMAL) <span class="boot-blue">[READY]</span></div>
+      <div class="boot-bar-wrap"><div class="boot-bar" id="bootBar"></div></div>
+    </div>
+  </div>
+
+  <!-- Instrument Header -->
+  <header class="inst-header">
+    <div class="inst-nav-inner">
+      <a href="index.html" class="inst-brand">
+        <span class="inst-led" aria-hidden="true"></span>
         <span>SHANMITHA T.</span>
+        <span class="inst-coords">// 13.08°N 80.27°E</span>
       </a>
 
-      <!-- Primary Desktop Nav -->
-      <ul class="nav-links">
-        <li><a href="index.html" class="nav-link active"><span class="nav-num">01</span> home</a></li>
-        <li><a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a></li>
-        <li><a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a></li>
-        <li><a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a></li>
-        <li><a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a></li>
-        <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a></li>
-      </ul>
+      <nav aria-label="Primary Instrument Navigation">
+        <ul class="inst-links">
+          <li><a href="index.html" class="inst-link active" data-nav="entry"><span class="idx">01</span> ENTRY</a></li>
+          <li><a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> ARCHIVE</a></li>
+          <li><a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND</a></li>
+          <li><a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> VISION</a></li>
+          <li><a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PAPERS</a></li>
+          <li><a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a></li>
+        </ul>
+      </nav>
 
-      <!-- Mobile Toggle -->
-      <div class="nav-actions">
-        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">menu</button>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <a href="res.pdf" class="inst-cv-btn" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↗</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer">MENU [≡]</button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Nav Drawer -->
-  <div class="mobile-nav-drawer" id="mobileDrawer">
-    <a href="index.html" class="nav-link active"><span class="nav-num">01</span> home</a>
-    <a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a>
-    <a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a>
-    <a href="publications.html" class="nav-link"><span class="nav-num">04</span> publications</a>
-    <a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a>
-    <a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a>
+  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <a href="index.html" class="inst-link active" data-nav="entry"><span class="idx">01</span> ENTRY</a>
+    <a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> PROJECT ARCHIVE</a>
+    <a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND THE EQUATIONS</a>
+    <a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> FUTURE VISION</a>
+    <a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PUBLICATIONS</a>
+    <a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a>
   </div>
 
-  <main class="relative-content">
-    
-    <!-- SECTION 1: ENGINEERING WORKSTATION OPENING -->
-    <section class="workstation-panel">
-      <div class="workstation-header">
-        <div class="workstation-badge">
-          <span>●</span> WORKSTATION ACTIVE · COMPUTATIONAL MECHANICAL ENGINEERING
-        </div>
-        <div style="font-family: var(--font-mono); color: #94a3b8; font-size: 0.76rem;">
-          VIT CHENNAI · MECHANICAL ENGG · EXPECTED 2027
-        </div>
+  <!-- 01. ENTRY / LANDING VIEWPORT -->
+  <section class="entry-section" id="entry" data-tone="green">
+    <div class="entry-left">
+      <div class="entry-telemetry-top">
+        <span>SYS.ARCHIVE // ST-2027</span>
+        <span>CHENNAI, INDIA</span>
+        <span>STATUS: ACTIVE</span>
       </div>
 
-      <div style="font-family: var(--font-mono); font-size: 0.82rem; color: #60a5fa; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.65rem;">
-        SHANMITHA T.
-      </div>
-      
-      <h1 class="workstation-title">
-        Mechanical Engineering,<br><span>built with computation.</span>
-      </h1>
-
-      <p class="workstation-sub">
-        I am a Mechanical Engineering undergraduate at VIT Chennai interested in understanding, designing and improving engineering systems through a combination of mechanical fundamentals, simulation and scientific computing.
-      </p>
-
-      <div class="workstation-specs">
-        <span>Thermal systems</span>
-        <span>Fluid mechanics</span>
-        <span>Machine design</span>
-        <span>Manufacturing</span>
-        <span>Simulation</span>
-        <span>Scientific computing</span>
-      </div>
-
-      <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #34d399; font-weight: 500; margin-bottom: 1.75rem;">
-        From equations → models → simulations → working computational systems.
-      </div>
-
-      <div class="btn-group">
-        <a href="projects.html" class="btn-primary">
-          Explore My Work →
-        </a>
-        <a href="engineering.html" class="btn-secondary">
-          Mechanical Engineering Competencies ↗
-        </a>
-      </div>
-    </section>
-
-    <!-- SECTION 2: THREE VISUAL PILLARS -->
-    <section style="margin-bottom: 3.5rem;">
-      <div class="section-header">
-        <div>
-          <div class="section-label">FOUNDATION PILLARS</div>
-          <h2 class="section-title">Core Engineering Competency</h2>
-        </div>
-      </div>
-
-      <div class="pillar-grid">
-        <!-- Pillar 1: Mechanics -->
-        <div class="pillar-card">
-          <div class="pillar-tag">PILLAR 01</div>
-          <h3 class="pillar-title">MECHANICS</h3>
-          <p class="pillar-list">
-            Thermal · Fluids · Solid Mechanics · Design · Manufacturing
-          </p>
-          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.85rem; line-height: 1.5;">
-            Thermodynamic cycles, Fourier conduction, Navier–Stokes momentum, continuum elasticity, Hertzian contact, and physical manufacturing kinematics.
-          </div>
-        </div>
-
-        <!-- Pillar 2: Engineering -->
-        <div class="pillar-card">
-          <div class="pillar-tag">PILLAR 02</div>
-          <h3 class="pillar-title">ENGINEERING</h3>
-          <p class="pillar-list">
-            CAD · CAE · CFD · CIM · Optimization · Digital Twins
-          </p>
-          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.85rem; line-height: 1.5;">
-            SolidWorks &amp; AutoCAD parametric geometry, ANSYS structural/thermal analysis, finite-volume fluid modeling, and biomechanical digital twins.
-          </div>
-        </div>
-
-        <!-- Pillar 3: Computation -->
-        <div class="pillar-card">
-          <div class="pillar-tag">PILLAR 03</div>
-          <h3 class="pillar-title">COMPUTATION</h3>
-          <p class="pillar-list">
-            Numerical Methods · C++/CUDA · Scientific ML · HPC · Simulation
-          </p>
-          <div style="font-size: 0.82rem; color: var(--text-muted); margin-top: 0.85rem; line-height: 1.5;">
-            Custom C++ solvers, massively parallel CUDA kernels (cuSPARSE, CUB), sparse numerical linear algebra, and physics-regularized neural operators.
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 3: WHAT I BUILD (THREE CARDS) -->
-    <section style="margin-bottom: 4rem;">
-      <div class="section-header">
-        <div>
-          <div class="section-label">TECHNICAL OUTPUT</div>
-          <h2 class="section-title">What I Build</h2>
-        </div>
-      </div>
-
-      <div class="pillar-grid" style="margin-bottom: 2rem;">
-        <div class="editorial-card">
-          <div class="pillar-tag" style="color: #60a5fa;">SYSTEM ARCHITECTURE 01</div>
-          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.75rem;">Physical Systems</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #93c5fd; margin-bottom: 0.75rem;">
-            Thermal · fluid · mechanical · biomechanical systems
-          </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-            Formulating physical problems governed by conservation of mass, momentum, and energy—from thermal dissipation channels to contact interfaces.
-          </p>
-        </div>
-
-        <div class="editorial-card">
-          <div class="pillar-tag" style="color: #60a5fa;">SYSTEM ARCHITECTURE 02</div>
-          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.75rem;">Engineering Models</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #93c5fd; margin-bottom: 0.75rem;">
-            CAD · CAE · CFD · numerical simulation · digital twins
-          </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-            Constructing finite volume grids, FEA boundary value formulations, implicit geometric representations, and physics-based surrogate models.
-          </p>
-        </div>
-
-        <div class="editorial-card">
-          <div class="pillar-tag" style="color: #60a5fa;">SYSTEM ARCHITECTURE 03</div>
-          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.75rem;">Computational Systems</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: #93c5fd; margin-bottom: 0.75rem;">
-            C++ · CUDA · scientific ML · optimization · HPC
-          </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6;">
-            Engineering high-throughput GPU kernels, memory-coalesced sparse linear solvers, topology optimizers, and zero-backend web inference engines.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SECTION 4: HOW I APPROACH AN ENGINEERING PROBLEM (PIPELINE) -->
-    <section class="editorial-card" style="margin-bottom: 4.5rem; padding: 2.25rem;">
-      <div class="section-label">METHODOLOGY PIPELINE</div>
-      <h2 style="font-size: 1.85rem; color: #ffffff; margin-bottom: 0.75rem;">How I Approach an Engineering Problem</h2>
-      <p style="font-size: 0.95rem; color: var(--text-secondary); max-width: 46rem; margin-bottom: 1.75rem;">
-        Engineering problems require disciplined transition from physical fundamentals into computational insight, ensuring mathematical and physical validity at every stage:
-      </p>
-
-      <!-- Visual Pipeline -->
-      <div class="engineering-pipeline">
-        <span class="pipeline-node active">PHYSICAL PROBLEM</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-node">ENGINEERING FUNDAMENTALS</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-node">MATHEMATICAL MODEL</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-node">NUMERICAL MODEL</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-node">SIMULATION</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-node">OPTIMIZATION / LEARNING</span>
-        <span class="pipeline-arrow">→</span>
-        <span class="pipeline-node active" style="border-color: #34d399; color: #34d399;">ENGINEERING INSIGHT</span>
-      </div>
-    </section>
-
-    <!-- SECTION 5: HERO FLAGSHIP PROJECT — DYNAMESH-THERMAL -->
-    <section style="margin-bottom: 4rem;">
-      <div class="section-header">
-        <div>
-          <div class="section-label">01 — HERO ENGINEERING PROJECT</div>
-          <h2 class="section-title">DynaMesh-Thermal: GPU-Accelerated Thermal Topology Optimization</h2>
-        </div>
-        <span class="status-pill done"><span class="status-dot"></span> Full C++/CUDA Implementation</span>
-      </div>
-
-      <div class="editorial-card aethercast-spotlight">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem;">
-          <div>
-            <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.35rem;">
-              THERMAL ENGINEERING · CFD · MULTIPHYSICS · TOPOLOGY OPTIMIZATION · CUDA
-            </div>
-            <h3 style="font-size: 1.75rem; color: #ffffff;">Coupled Thermal-Fluid Material Distribution on the GPU</h3>
-          </div>
-        </div>
-
-        <p style="font-size: 1rem; color: #cbd5e1; line-height: 1.7; margin-bottom: 1.25rem;">
-          How can thermal-fluid behaviour be modeled accurately while simultaneously searching for optimal heat-dissipating material layouts? DynaMesh couples Navier–Stokes/Darcy fluid momentum with advection-diffusion energy equations, solving the coupled state on the GPU using finite volumes and cuSPARSE without allocating dense global matrices.
+      <div class="entry-name-block">
+        <div class="entry-eyebrow">DIGITAL RESEARCH ARCHIVE // Y2K × COMP_MECH</div>
+        <h1 class="entry-name chromatic-hover">SHANMITHA T.</h1>
+        <p class="entry-statement">
+          “I BUILD THINGS TO UNDERSTAND HOW THE WORLD WORKS.”
         </p>
 
-        <!-- Visual Flow for DynaMesh -->
-        <div class="engineering-pipeline" style="background: rgba(3, 6, 15, 0.7); padding: 0.85rem 1.15rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle); margin-bottom: 1.5rem;">
-          <span style="color: #94a3b8; font-weight: 600;">WORKFLOW:</span>
-          <span class="pipeline-node">PHYSICS</span>
-          <span class="pipeline-arrow">→</span>
-          <span class="pipeline-node">DISCRETIZATION (FVM)</span>
-          <span class="pipeline-arrow">→</span>
-          <span class="pipeline-node">SOLVER (cuSPARSE)</span>
-          <span class="pipeline-arrow">→</span>
-          <span class="pipeline-node">GPU UNIFIED MEMORY</span>
-          <span class="pipeline-arrow">→</span>
-          <span class="pipeline-node active">OPTIMIZED LAYOUT</span>
+        <div class="entry-disciplines">
+          Mechanical Engineering / Computational Science / Scientific ML / Manufacturing / Other Rabbit Holes.
         </div>
 
-        <!-- Metrics -->
-        <div class="metric-grid">
-          <div class="metric-box">
-            <div class="metric-val">0</div>
-            <div class="metric-label">Dense matrices constructed in host RAM</div>
+        <div class="entry-meta-table">
+          <div class="entry-meta-cell">
+            <span class="k">Location</span>
+            <span class="v">Chennai, India</span>
           </div>
-          <div class="metric-box">
-            <div class="metric-val">100%</div>
-            <div class="metric-label">GPU memory residency via Unified Memory &amp; CUB</div>
+          <div class="entry-meta-cell">
+            <span class="k">Affiliation</span>
+            <span class="v">VIT Chennai · B.Tech. Mech</span>
           </div>
-          <div class="metric-box">
-            <div class="metric-val accent">FVM</div>
-            <div class="metric-label">Mass &amp; energy conservation guaranteed per cell</div>
+          <div class="entry-meta-cell">
+            <span class="k">Expected Graduation</span>
+            <span class="v">2027</span>
           </div>
-          <div class="metric-box">
-            <div class="metric-val">cuSPARSE</div>
-            <div class="metric-label">Parallel linear system solution for pressure Poisson</div>
+          <div class="entry-meta-cell">
+            <span class="k">Direct Contact</span>
+            <span class="v">shanmithat3@gmail.com</span>
           </div>
-        </div>
-
-        <div class="btn-group">
-          <a href="projects.html#dynamesh" class="btn-primary">
-            View Complete DynaMesh Engineering Dossier →
-          </a>
-          <a href="https://github.com/shanmithat/DynaMesh-Thermal" target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            GitHub Repository ↗
-          </a>
         </div>
       </div>
-    </section>
 
-    <!-- SECTION 6: SELECTED COMPANION PROJECTS (SOLID MECHANICS, DESIGN, CASE STUDY) -->
-    <section style="margin-bottom: 4.5rem;">
-      <div class="section-header">
+      <div class="entry-links-row">
+        <a href="#archive" class="cmd-btn primary">02 // PROJECT ARCHIVE ↓</a>
+        <a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer" class="cmd-btn">GITHUB ↗</a>
+        <a href="https://www.linkedin.com/in/shanmithat/" target="_blank" rel="noopener noreferrer" class="cmd-btn">LINKEDIN ↗</a>
+        <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="cmd-btn">SCHOLAR ↗</a>
+        <a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer" class="cmd-btn">CV.PDF ↓</a>
+      </div>
+    </div>
+
+    <div class="entry-right">
+      <canvas id="heroFieldCanvas" aria-label="Interactive procedural computational wireframe and vector field visualization"></canvas>
+      <div class="field-hud-top">
+        <span>PROC_FIELD // REALTIME_SIM</span>
+        <span id="hudCoord">ξ=0.040 η=0.040</span>
+      </div>
+      <div class="field-hud-bottom">
+        <span>MOVE CURSOR TO PERTURB FIELD</span>
+        <div class="field-mode-switch" role="group" aria-label="Visualization mode">
+          <button class="field-mode-btn active" data-mode="wireframe">WIREFRAME</button>
+          <button class="field-mode-btn" data-mode="vector">VECTOR</button>
+          <button class="field-mode-btn" data-mode="thermal">THERMAL</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <!-- 02. PROJECT ARCHIVE / CASE FILES -->
+    <section class="band" id="archive" data-tone="green">
+      <div class="band-head">
         <div>
-          <div class="section-label">ADDITIONAL ENGINEERING PROJECTS</div>
-          <h2 class="section-title">Mechanics &amp; Computational Systems</h2>
+          <span class="band-num">02 // TECHNICAL PORTFOLIO</span>
+          <h2 class="band-title">PROJECT ARCHIVE</h2>
         </div>
-        <a href="projects.html" style="font-family: var(--font-mono); font-size: 0.82rem; color: #60a5fa;">View all 6 projects →</a>
+        <p class="band-sub">
+          Individual case files across biomechanics, manufacturing digital twins, contact mechanics, GPU CFD, atmospheric PDEs, implicit geometry, and NLP. Select any domain to filter or open the full technical dossier.
+        </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-        
-        <!-- MicroWear-PINN -->
-        <div class="editorial-card">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 0.65rem;">
-            <span class="pillar-tag">SOLID MECHANICS FLAGSHIP</span>
-            <span class="status-pill done"><span class="status-dot"></span> Verified</span>
-          </div>
-          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.5rem;">MicroWear-PINN</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.75rem;">
-            Micromechanics: Wear → Contact → Stress
-          </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-            Coupling Archard surface wear kinetics with biharmonic Airy stress potentials to predict subsurface contact stresses from sparse profilometry.
+      <div class="filter-strip" id="domainFilters" role="tablist" aria-label="Filter projects by domain">
+        <button class="filter-tab active" data-domain="ALL">ALL [09]</button>
+        <button class="filter-tab" data-domain="Biomechanics">BIOMECHANICS</button>
+        <button class="filter-tab" data-domain="Manufacturing">MANUFACTURING</button>
+        <button class="filter-tab" data-domain="Computational Mechanics">COMP. MECHANICS</button>
+        <button class="filter-tab" data-domain="Scientific ML">SCIENTIFIC ML</button>
+        <button class="filter-tab" data-domain="Geometry">GEOMETRY</button>
+        <button class="filter-tab" data-domain="Atmospheric Modelling">ATMOSPHERIC</button>
+        <button class="filter-tab" data-domain="Language Technology">LANGUAGE TECH</button>
+      </div>
+
+      <div class="case-list" id="caseList"></div>
+    </section>
+
+    <!-- 03. BEYOND THE EQUATIONS (ELECTRIC COBALT #315BFF) -->
+    <section class="band halftone-surface" id="beyond" data-tone="blue">
+      <div class="band-head">
+        <div>
+          <span class="band-num">03 // PERSONAL ARCHIVE &amp; ZINE</span>
+          <h2 class="band-title">BEYOND THE EQUATIONS</h2>
+        </div>
+        <a href="beyond.html" class="cmd-btn primary">OPEN FULL SCRAPBOOK &amp; ZINE →</a>
+      </div>
+
+      <div class="zine-grid" id="beyondPreview"></div>
+    </section>
+
+    <!-- 04. LONG-TERM VISION — SYMBIOSIS (INFRARED ORANGE #FF542E) -->
+    <section class="band" id="vision" data-tone="orange">
+      <div class="band-head">
+        <div>
+          <span class="band-num">04 // LONG-TERM DIRECTION</span>
+          <h2 class="band-title">THE FUTURE I WANT TO HELP BUILD</h2>
+        </div>
+        <a href="vision.html" class="cmd-btn primary">READ VISION &amp; SYMBIOSIS →</a>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.25rem;">
+        <div class="frame reticle" style="padding:1.5rem;">
+          <div class="tag-mono" style="margin-bottom:0.65rem;">CENTRAL PRINCIPLE // SYMBIOSIS</div>
+          <h3 style="font-family:var(--font-display);font-size:1.7rem;text-transform:uppercase;color:var(--silver-bright);margin-bottom:0.75rem;">
+            Technological Advancement × Planetary Habitability
+          </h3>
+          <p style="font-size:0.93rem;color:var(--silver);line-height:1.65;">
+            I want to work toward engineering systems where high-capability technology and Earth’s living systems reinforce rather than exhaust each other — designing machines, materials, and industrial processes with physical and energetic intelligence built in.
           </p>
-          <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #cbd5e1; margin-bottom: 1.25rem;">
-            • Airy Potential Biharmonic Residual: ∇⁴Φ = 0<br>
-            • Parity: &lt; 3×10⁻⁵ ONNX numerical parity
-          </div>
-          <a href="projects.html#microwear" class="btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.85rem;">
-            Project Dossier →
-          </a>
         </div>
 
-        <!-- Implicit Lattice -->
-        <div class="editorial-card">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 0.65rem;">
-            <span class="pillar-tag">COMPUTATIONAL DESIGN &amp; CIM</span>
-            <span class="status-pill done"><span class="status-dot"></span> Deployed</span>
-          </div>
-          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.5rem;">Implicit Lattice Generator</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.75rem;">
-            Additive Manufacturing &amp; TPMS Geometry
-          </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-            Eliminating multi-gigabyte STL files in additive manufacturing by evaluating continuous Triply Periodic Minimal Surface (TPMS) equations directly in WebGL shaders.
+        <div class="frame" style="padding:1.5rem;border-top:2px solid var(--infrared);">
+          <div class="tag-mono" style="margin-bottom:0.65rem;">FOUNDING PHILOSOPHY // PYNAEA</div>
+          <h3 style="font-family:var(--font-display);font-size:1.7rem;text-transform:uppercase;color:var(--silver-bright);margin-bottom:0.75rem;">
+            Industrial Resource Intelligence
+          </h3>
+          <p style="font-size:0.93rem;color:var(--silver);line-height:1.65;">
+            This same symbiosis thesis underpins <strong>Pynaea</strong> — starting with manufacturing and resource-aware simulation, and growing toward broader industrial resource intelligence. These represent long-term personal aspirations rather than claims of completed industrial deployment.
           </p>
-          <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #cbd5e1; margin-bottom: 1.25rem;">
-            • Storage: 1.94 GB STL → 13.7 KB Shader (&gt;140,000×)<br>
-            • Slicing: &lt; 0.8 ms per 4096×4096 layer
-          </div>
-          <a href="projects.html#implicit-lattice" class="btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.85rem;">
-            Project Dossier →
-          </a>
         </div>
-
-        <!-- AetherCast: Case Study -->
-        <div class="editorial-card">
-          <div style="display: flex; justify-content: space-between; margin-bottom: 0.65rem;">
-            <span class="pillar-tag">COMPUTATIONAL MODELLING CASE STUDY</span>
-            <span class="status-pill review"><span class="status-dot"></span> Under Review</span>
-          </div>
-          <h3 style="font-size: 1.35rem; color: #ffffff; margin-bottom: 0.5rem;">AetherCast PI-FNO</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: #60a5fa; margin-bottom: 0.75rem;">
-            Fluid &amp; Transport Modelling · PDEs · SciML
-          </div>
-          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
-            Evaluating physical regularization trade-offs in Fourier Neural Operators for advection-diffusion atmospheric transport dynamics.
-          </p>
-          <div style="font-family: var(--font-mono); font-size: 0.76rem; color: #cbd5e1; margin-bottom: 1.25rem;">
-            • Regularization: 39.5% lower PDE residual vs data-only FNO<br>
-            • Target: NeurIPS 2026 AI4Science (double-blind)
-          </div>
-          <a href="projects.html#aethercast" class="btn-secondary" style="font-size: 0.75rem; padding: 0.4rem 0.85rem;">
-            Project Dossier →
-          </a>
-        </div>
-
       </div>
     </section>
 
+    <!-- 05. PUBLICATIONS & TECHNICAL WRITING (COLD SILVER #C5C9CE) -->
+    <section class="band" id="papers" data-tone="silver">
+      <div class="band-head">
+        <div>
+          <span class="band-num">05 // SCHOLARLY RECORD</span>
+          <h2 class="band-title">PUBLICATIONS &amp; NOTES</h2>
+        </div>
+        <a href="publications.html" class="cmd-btn">FULL ARCHIVE + BIBTEX →</a>
+      </div>
+
+      <div id="papersPreview" style="display:flex;flex-direction:column;gap:1rem;"></div>
+    </section>
   </main>
 
-  <!-- Persistent Editorial Footer (No CV) -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <h3>SHANMITHA T.</h3>
-          <p>Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.</p>
-        </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="index.html">01 Home</a></li>
-              <li><a href="engineering.html">02 Engineering</a></li>
-              <li><a href="projects.html">03 Projects</a></li>
-              <li><a href="publications.html">04 Publications</a></li>
-              <li><a href="about.html">05 About</a></li>
-              <li><a href="contact.html">06 Contact</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Primary Channels</h4>
-            <ul>
-              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
-              <li><a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
-              <li><a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
-              <li><a href="mailto:shanmithat3@gmail.com">shanmithat3@gmail.com</a></li>
-            </ul>
-          </div>
-        </div>
+  <!-- Colophon / Footer -->
+  <footer class="inst-footer">
+    <div class="footer-row">
+      <div>
+        <strong style="color:var(--silver-bright);">SHANMITHA T.</strong> // Mechanical Engineering, VIT Chennai (2027) // <a href="mailto:shanmithat3@gmail.com" style="color:var(--phosphor);">shanmithat3@gmail.com</a>
       </div>
-      <div class="footer-bottom">
-        <div>© 2026 Shanmitha T. · Mechanical Engineering, built with computation.</div>
-        <div style="font-family: var(--font-mono); font-size: 0.75rem; color: var(--text-muted);">VIT Chennai · Graduating 2027</div>
-      </div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="archive.html">02 ARCHIVE</a>
+        <a href="beyond.html">03 BEYOND</a>
+        <a href="vision.html">04 VISION</a>
+        <a href="publications.html">05 PAPERS</a>
+        <a href="contact.html">06 CONTACT</a>
+        <a href="res.pdf" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script type="module">
+    import { initShell } from './js/app.js';
+    import { initHeroField } from './js/visuals/hero-field.js';
+    import { renderProceduralPreviews } from './js/visuals/archive-previews.js';
+    import { PROJECTS } from './js/data/projects.js';
+    import { QUESTIONS, RABBIT_HOLES } from './js/data/personal.js';
+    import { PUBLICATIONS } from './js/data/publications.js';
+
+    initShell();
+    initHeroField('heroFieldCanvas', 'hudCoord', '.field-mode-btn');
+
+    // Render Case Files
+    const caseList = document.getElementById('caseList');
+    function renderCases(domain = 'ALL') {
+      const items = domain === 'ALL' ? PROJECTS : PROJECTS.filter((p) => p.domains.includes(domain));
+      caseList.innerHTML = items.map((p) => `
+        <article class="case-file" data-tone="${p.tone}">
+          <div class="case-rail">
+            <span class="case-num">${p.num}</span>
+            <span class="case-status-v">${p.status.split('//')[0].trim()}</span>
+          </div>
+          <div class="case-body">
+            <div>
+              <div class="case-meta-line">
+                <span>${p.domain}</span>
+                <span>${p.status}</span>
+              </div>
+              <h3 class="case-title">${p.name}</h3>
+              <p class="case-summary">${p.summary}</p>
+            </div>
+            <div>
+              <div class="case-stack">STACK // ${p.stack.join(' · ')}</div>
+              <div class="case-actions">
+                <a href="project.html?id=${p.id}" class="cmd-btn primary">OPEN CASE FILE →</a>
+                ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener noreferrer" class="cmd-btn">${p.repoLabel || 'SOURCE ↗'}</a>` : ''}
+                ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="cmd-btn">LIVE ↗</a>` : ''}
+              </div>
+            </div>
+          </div>
+          <div class="case-visual">
+            ${p.previewImg
+              ? `<img src="${p.previewImg}" alt="${p.name} technical visualization" loading="lazy">`
+              : `<canvas data-procedural="${p.procedural}" aria-label="${p.name} procedural visualization"></canvas>`
+            }
+            <div class="case-visual-cap">
+              <span>${p.previewCap}</span>
+              <span>CASE_${p.num}</span>
+            </div>
+          </div>
+        </article>
+      `).join('');
+      renderProceduralPreviews(caseList);
+    }
+    renderCases('ALL');
+
+    document.querySelectorAll('#domainFilters .filter-tab').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#domainFilters .filter-tab').forEach((b) => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderCases(btn.dataset.domain);
+      });
+    });
+
+    // Render Beyond the Equations Preview
+    const beyondPreview = document.getElementById('beyondPreview');
+    beyondPreview.innerHTML = `
+      <div class="zine-clip blue-edge zine-span-7">
+        <div class="tag-pixel" style="margin-bottom:0.85rem;">QUESTIONS_I_CANT_STOP_THINKING_ABOUT</div>
+        <div style="display:flex;flex-direction:column;gap:0.65rem;">
+          ${QUESTIONS.slice(0, 4).map((q) => `
+            <div style="display:flex;gap:0.85rem;border-bottom:1px solid var(--hairline);padding-bottom:0.55rem;">
+              <span style="font-family:var(--font-mono);font-size:0.72rem;color:var(--cobalt-bright);">${q.code}</span>
+              <span style="font-size:0.94rem;color:var(--silver-bright);">${q.text}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      <div class="zine-clip blue-edge zine-span-5">
+        <div class="tag-pixel" style="margin-bottom:0.85rem;">RABBIT_HOLES // LOG</div>
+        <div style="display:flex;flex-direction:column;gap:0.75rem;">
+          ${RABBIT_HOLES.slice(0, 3).map((r) => `
+            <div>
+              <div style="font-family:var(--font-mono);font-size:0.74rem;color:var(--cobalt-bright);">${r.id} // ${r.title}</div>
+              <p style="font-size:0.84rem;color:var(--silver);margin-top:0.2rem;">${r.body}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+
+    // Render Publications Preview
+    const papersPreview = document.getElementById('papersPreview');
+    papersPreview.innerHTML = PUBLICATIONS.map((pub, idx) => `
+      <div class="frame" style="padding:1.15rem 1.35rem;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;">
+        <div style="max-width:52rem;">
+          <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--graphite-light);margin-bottom:0.35rem;">
+            [0${idx + 1}] // ${pub.year} // <span style="color:var(--silver-bright);">${pub.status}</span>
+          </div>
+          <h3 style="font-family:var(--font-display);font-size:1.35rem;color:var(--silver-bright);line-height:1.15;">${pub.title}</h3>
+          <div style="font-family:var(--font-mono);font-size:0.74rem;color:var(--graphite-light);margin-top:0.35rem;">${pub.venue}</div>
+        </div>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          ${pub.links.map((l) => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="cmd-btn">${l.label} ↗</a>`).join('')}
+        </div>
+      </div>
+    `).join('');
+  </script>
 </body>
 </html>

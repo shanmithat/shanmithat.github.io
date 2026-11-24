@@ -3,332 +3,119 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Publications & Manuscripts — Shanmitha T. Research Portfolio</title>
-  <meta name="description" content="Academic publications and manuscripts in Scientific Machine Learning, Physics-Informed Neural Operators, and Multilingual NLP by Shanmitha T.">
-  
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '\\(', right: '\\)', display: false}]});"></script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2244%22 fill=%22%230284c7%22/><text y=%2265%22 font-size=%2250%22 font-family=%22monospace%22 font-weight=%22bold%22 x=%2226%22 fill=%22white%22>S</text></svg>">
+  <title>05 // Publications &amp; Technical Writing — SHANMITHA T.</title>
+  <meta name="description" content="Academic publications, workshop manuscripts, BibTeX records, and technical notes by Shanmitha T.">
+  <link rel="stylesheet" href="css/system.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%23C5C9CE' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%23C5C9CE'/></svg>">
 </head>
-<body class="celestial-grid">
+<body class="tex-scanlines tex-grain coord-grid">
 
-  <!-- ========================================================= -->
-  <!-- Persistent Navigation -->
-  <!-- ========================================================= -->
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="index.html" class="brand-mark">
-        <span class="brand-dot"></span>
-        SHANMITHA T.
+  <header class="inst-header">
+    <div class="inst-nav-inner">
+      <a href="index.html" class="inst-brand">
+        <span class="inst-led" style="background:var(--silver);box-shadow:0 0 6px var(--silver);" aria-hidden="true"></span>
+        <span>SHANMITHA T.</span>
+        <span class="inst-coords">// PAPERS_ARCHIVE</span>
       </a>
-
-      <nav aria-label="Main Navigation">
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a></li>
-          <li><a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a></li>
-          <li><a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a></li>
-          <li><a href="publications.html" class="nav-link active"><span class="nav-num">04</span> publications</a></li>
-          <li><a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a></li>
-          <li><a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a></li>
+      <nav aria-label="Primary Instrument Navigation">
+        <ul class="inst-links">
+          <li><a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a></li>
+          <li><a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> ARCHIVE</a></li>
+          <li><a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND</a></li>
+          <li><a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> VISION</a></li>
+          <li><a href="publications.html" class="inst-link active" data-nav="papers"><span class="idx">05</span> PAPERS</a></li>
+          <li><a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a></li>
         </ul>
       </nav>
-
-      <div class="nav-actions">
-        <button id="mobileToggle" class="mobile-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
-          ☰ Menu
-        </button>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <a href="res.pdf" class="inst-cv-btn" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↗</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer">MENU [≡]</button>
       </div>
     </div>
   </header>
 
-  <!-- Mobile Navigation Drawer -->
-  <div id="mobileNavDrawer" class="mobile-nav-drawer" aria-label="Mobile Navigation">
-    <a href="index.html" class="nav-link"><span class="nav-num">01</span> home</a>
-    <a href="engineering.html" class="nav-link"><span class="nav-num">02</span> engineering</a>
-    <a href="projects.html" class="nav-link"><span class="nav-num">03</span> projects</a>
-    <a href="publications.html" class="nav-link active"><span class="nav-num">04</span> publications</a>
-    <a href="about.html" class="nav-link"><span class="nav-num">05</span> about</a>
-    <a href="contact.html" class="nav-link"><span class="nav-num">06</span> contact</a>
+  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a>
+    <a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> PROJECT ARCHIVE</a>
+    <a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND THE EQUATIONS</a>
+    <a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> FUTURE VISION</a>
+    <a href="publications.html" class="inst-link active" data-nav="papers"><span class="idx">05</span> PUBLICATIONS</a>
+    <a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a>
   </div>
 
-  <!-- ========================================================= -->
-  <!-- Main Content -->
-  <!-- ========================================================= -->
-  <main>
-
-    <!-- PAGE HERO -->
-    <section class="page-hero">
-      <div class="page-tag">
-        03 · Academic Record
-      </div>
-      <h1 class="page-title">
-        Research Manuscripts & Publications
-      </h1>
-      <p class="page-intro">
-        Peer-reviewed conference proceedings and current research manuscripts spanning scientific machine learning, operator learning for PDEs, and applied representation learning.
-      </p>
-
-      <div style="margin-top: 1.5rem;">
-        <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem;">
-          <span>Google Scholar Profile ↗</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ======================================================= -->
-    <!-- SECTION 1: RESEARCH MANUSCRIPTS UNDER REVIEW -->
-    <!-- ======================================================= -->
-    <section style="margin-bottom: 4rem;">
-      <div class="section-header">
+  <main class="wrap" data-tone="silver">
+    <section class="band">
+      <div class="band-head">
         <div>
-          <p class="section-label">Section 01</p>
-          <h2 class="section-title">Research Manuscripts Under Review</h2>
+          <span class="band-num">05 // SCHOLARLY RECORD &amp; TECHNICAL WRITING</span>
+          <h1 class="band-title">PUBLICATIONS ARCHIVE</h1>
         </div>
+        <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="cmd-btn">GOOGLE SCHOLAR ↗</a>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
+      <div id="pubList" style="display:flex;flex-direction:column;gap:1.5rem;margin-bottom:3rem;"></div>
 
-        <article class="editorial-card" style="border-left: 4px solid var(--status-review-text);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="status-pill review" style="margin-bottom: 0.5rem;">
-                <span class="status-dot"></span> Under Review · AI4Science Workshop at NeurIPS 2026
-              </span>
-              <h3 style="font-size: 1.5rem; margin-top: 0.25rem;">
-                Physics-Informed Fourier Neural Operators for Localized 2D Atmospheric Transport Nowcasting
-              </h3>
-              <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">
-                First-Author Manuscript · Double-Blind Submission (Co-authors omitted for review compliance)
-              </p>
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">
-              2026
-            </span>
-          </div>
-
-          <div style="margin-top: 1.25rem; font-size: 0.94rem; color: var(--text-secondary); line-height: 1.7;">
-            <p>
-              <strong>Abstract Summary:</strong> Autoregressive neural operators trained purely on data loss often suffer from non-physical dissipation and accumulated drift over long rollout horizons. We present a Physics-Informed Fourier Neural Operator (PI-FNO) architecture for localized 2D advection-diffusion-decay transport systems. By penalizing a discrete finite-difference PDE residual directly within the Fourier training loop, the model constrains physical consistency across multi-step rollout horizons.
-            </p>
-            <p style="margin-top: 0.75rem;">
-              Across controlled data scaling from 64 to 1024 trajectories, evaluation MSE decreases by <strong>79.4%</strong> and Relative \(L_2\) error drops by <strong>52.1%</strong>. At \(\lambda_{\text{phy}} = 0.01\), physics regularization yields a <strong>36.1%</strong> reduction in PDE residual with only a 2.7% delta in prediction MSE. On a 1,000-trajectory evaluation, PI-FNO demonstrates a <strong>7.5%</strong> lower prediction MSE and <strong>39.5%</strong> lower PDE residual relative to an unregularized baseline.
-            </p>
-          </div>
-
-          <div class="metric-grid" style="margin: 1.25rem 0;">
-            <div class="metric-box">
-              <div class="metric-val accent">79.4%</div>
-              <div class="metric-label">MSE Reduction (Scaling 64 → 1024)</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val">39.5%</div>
-              <div class="metric-label">Residual Drop vs Data-Only FNO</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val accent">106,264</div>
-              <div class="metric-label">Trainable Parameters in FNO</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-val">24 Steps</div>
-              <div class="metric-label">120-min Horizon (32×32 Grid)</div>
-            </div>
-          </div>
-
-          <div class="btn-group">
-            <a href="https://github.com/shanmithat/AetherCast" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.76rem;">
-              Research Repository ↗
-            </a>
-            <a href="https://shanmithat-aethercast.hf.space" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.76rem;">
-              Live Interactive Demo ↗
-            </a>
-            <a href="https://huggingface.co/spaces/shanmithat/aethercast" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.76rem;">
-              Hugging Face Space ↗
-            </a>
-          </div>
-        </article>
-
-      </div>
+      <div class="tag-pixel" style="margin-bottom:1rem;">TECHNICAL_NOTES // IMPLEMENTATION_DOCUMENTATION</div>
+      <div id="notesList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;"></div>
     </section>
-
-    <!-- ======================================================= -->
-    <!-- SECTION 2: PEER-REVIEWED PUBLICATIONS -->
-    <!-- ======================================================= -->
-    <section style="margin-bottom: 4rem;">
-      <div class="section-header">
-        <div>
-          <p class="section-label">Section 02</p>
-          <h2 class="section-title">Peer-Reviewed Conference & Workshop Publications</h2>
-        </div>
-      </div>
-
-      <div style="display: flex; flex-direction: column; gap: 2rem;">
-
-        <!-- Publication 1 -->
-        <article class="editorial-card" style="border-left: 4px solid var(--status-done-text);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="status-pill done" style="margin-bottom: 0.5rem;">
-                <span class="status-dot"></span> Peer-Reviewed Workshop Proceedings · 2025
-              </span>
-              <h3 style="font-size: 1.45rem; margin-top: 0.25rem;">
-                Hydrangea@DravidianLanTech2025: Abusive Language Identification from Tamil and Malayalam Text using Transformer Models
-              </h3>
-              <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">
-                Shanmitha Thirumoorthy, Thenmozhi Durairaj, Ratnavel Rajalakshmi
-              </p>
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">
-              ACL Anthology
-            </span>
-          </div>
-
-          <p style="margin-top: 1rem; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
-            <strong>Venue:</strong> Proceedings of the Fifth Workshop on Speech, Vision, and Language Technologies for Dravidian Languages, pages 580–584, Dublin, Ireland (Hybrid). Evaluates transformer architectures (BERT, XLM-RoBERTa, DistilBERT) for nuanced code-mixed and low-resource Dravidian social media text classification.
-          </p>
-
-          <p style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--ocean-deep); margin-top: 0.5rem;">
-            DOI: <a href="https://doi.org/10.18653/v1/2025.dravidianlangtech-1.100" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">10.18653/v1/2025.dravidianlangtech-1.100</a>
-          </p>
-
-          <div class="btn-group">
-            <a href="https://aclanthology.org/2025.dravidianlangtech-1.100/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.76rem;">
-              ACL Anthology Paper ↗
-            </a>
-            <a href="https://github.com/shanmithat/Hydrangea" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.76rem;">
-              Code Repository ↗
-            </a>
-            <button class="bibtex-toggle" onclick="toggleBibtex('bib-hydrangea')">
-              <span>{ } BibTeX Citation</span>
-            </button>
-          </div>
-
-          <!-- BibTeX Drawer -->
-          <div id="bib-hydrangea" class="bibtex-content">
-            <button class="bibtex-copy-btn" onclick="copyBibtex(this, 'bib-text-hydrangea')">Copy BibTeX</button>
-            <pre id="bib-text-hydrangea">@inproceedings{thirumoorthy-etal-2025-hydrangea,
-    title = "{H}ydrangea@{D}ravidian{L}an{T}ech2025: Abusive Language Identification from {T}amil and {M}alayalam Text using Transformer Models",
-    author = "Thirumoorthy, Shanmitha and Durairaj, Thenmozhi and Rajalakshmi, Ratnavel",
-    booktitle = "Proceedings of the Fifth Workshop on Speech, Vision, and Language Technologies for Dravidian Languages",
-    year = "2025",
-    pages = "580--584",
-    doi = "10.18653/v1/2025.dravidianlangtech-1.100",
-    url = "https://aclanthology.org/2025.dravidianlangtech-1.100/"
-}</pre>
-          </div>
-        </article>
-
-        <!-- Publication 2 -->
-        <article class="editorial-card" style="border-left: 4px solid var(--status-done-text);">
-          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
-            <div>
-              <span class="status-pill done" style="margin-bottom: 0.5rem;">
-                <span class="status-dot"></span> Peer-Reviewed Workshop Notes · 2023
-              </span>
-              <h3 style="font-size: 1.45rem; margin-top: 0.25rem;">
-                A Few Shot Learning to Detect Sarcasm in Tamil and Malayalam Code Mixed Data
-              </h3>
-              <p style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-muted); margin-top: 0.35rem;">
-                Shanmitha Thirumoorthy, Manavh N. R., Thenmozhi Durairaj, Ratnavel Rajalakshmi
-              </p>
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">
-              CEUR-WS Vol-3681
-            </span>
-          </div>
-
-          <p style="margin-top: 1rem; font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65;">
-            <strong>Venue:</strong> Forum for Information Retrieval Evaluation (FIRE 2023) Working Notes, CEUR Workshop Proceedings, Volume 3681, pages 299–305, India. Investigates few-shot meta-learning algorithms and prompt-based transfer strategies to identify sarcasm in sparse, noisy Tamil-English and Malayalam-English code-mixed datasets.
-          </p>
-
-          <div class="btn-group">
-            <a href="https://ceur-ws.org/Vol-3681/T5-8.pdf" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.76rem;">
-              Read Paper (PDF) ↗
-            </a>
-            <a href="https://ceur-ws.org/Vol-3681/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.76rem;">
-              FIRE 2023 Proceedings ↗
-            </a>
-            <button class="bibtex-toggle" onclick="toggleBibtex('bib-sarcasm')">
-              <span>{ } BibTeX Citation</span>
-            </button>
-          </div>
-
-          <!-- BibTeX Drawer -->
-          <div id="bib-sarcasm" class="bibtex-content">
-            <button class="bibtex-copy-btn" onclick="copyBibtex(this, 'bib-text-sarcasm')">Copy BibTeX</button>
-            <pre id="bib-text-sarcasm">@inproceedings{thirumoorthy2023fewshot,
-    title = {A Few Shot Learning to Detect Sarcasm in Tamil and Malayalam Code Mixed Data},
-    author = {Thirumoorthy, Shanmitha and N. R., Manavh and Durairaj, Thenmozhi and Rajalakshmi, Ratnavel},
-    booktitle = {Working Notes of the Forum for Information Retrieval Evaluation (FIRE 2023)},
-    series = {CEUR Workshop Proceedings},
-    volume = {3681},
-    pages = {299--305},
-    year = {2023},
-    url = {https://ceur-ws.org/Vol-3681/T5-8.pdf}
-}</pre>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
   </main>
 
-  <!-- ========================================================= -->
-  <!-- Editorial Footer -->
-  <!-- ========================================================= -->
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div class="brand-mark" style="margin-bottom: 0.65rem;">
-            <span class="brand-dot"></span>
-            SHANMITHA T.
-          </div>
-          <p>
-            Mechanical Engineering undergraduate at VIT Chennai building and analysing physical systems through thermal-fluid engineering, mechanics, simulation and scientific computing.
-          </p>
-        </div>
-
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Structure</h4>
-            <ul>
-              <li><a href="index.html">01 Home</a></li>
-              <li><a href="engineering.html">02 Engineering</a></li>
-              <li><a href="projects.html">03 Projects</a></li>
-              <li><a href="publications.html">04 Publications</a></li>
-              <li><a href="about.html">05 About</a></li>
-              <li><a href="contact.html">06 Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-col">
-            <h4>Primary Channels</h4>
-            <ul>
-              <li><a href="mailto:shanmithat3@gmail.com">shanmithat3@gmail.com</a></li>
-              <li><a href="https://github.com/shanmithat" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
-              <li><a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">Google Scholar ↗</a></li>
-              <li><a href="https://linkedin.com/in/shanmithat" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-bottom">
-        <div>
-          © 2026 Shanmitha T. · Mechanical Engineering, built with computation.
-        </div>
-        <div>
-          <a href="contact.html" style="color: var(--ocean-primary); font-weight: 500;">Let's talk ↗</a>
-        </div>
-      </div>
+  <footer class="inst-footer">
+    <div class="footer-row">
+      <div><strong style="color:var(--silver-bright);">SHANMITHA T.</strong> // <a href="mailto:shanmithat3@gmail.com" style="color:var(--phosphor);">shanmithat3@gmail.com</a></div>
+      <nav class="footer-nav" aria-label="Footer Navigation">
+        <a href="index.html">01 ENTRY</a>
+        <a href="archive.html">02 ARCHIVE</a>
+        <a href="beyond.html">03 BEYOND</a>
+        <a href="vision.html">04 VISION</a>
+        <a href="contact.html">06 CONTACT</a>
+      </nav>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="js/main.js"></script>
+  <script type="module">
+    import { initShell } from './js/app.js';
+    import { PUBLICATIONS, TECHNICAL_NOTES } from './js/data/publications.js';
+
+    initShell();
+
+    document.getElementById('pubList').innerHTML = PUBLICATIONS.map((p, idx) => `
+      <article class="frame reticle" style="padding:1.5rem;">
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;font-family:var(--font-mono);font-size:0.72rem;color:var(--graphite-light);margin-bottom:0.5rem;">
+          <span>PAPER_0${idx + 1} // ${p.year}</span>
+          <span style="color:var(--silver-bright);">${p.status}</span>
+        </div>
+        <h2 style="font-family:var(--font-display);font-size:1.75rem;color:var(--silver-bright);line-height:1.12;margin-bottom:0.5rem;">${p.title}</h2>
+        <div style="font-family:var(--font-mono);font-size:0.78rem;color:var(--silver);margin-bottom:0.35rem;">${p.authors}</div>
+        <div style="font-family:var(--font-mono);font-size:0.74rem;color:var(--graphite-light);margin-bottom:0.85rem;">
+          ${p.venue}${p.doi ? ` · DOI: ${p.doi}` : ''}
+        </div>
+        <p style="font-size:0.92rem;color:var(--silver);line-height:1.65;margin-bottom:1rem;">${p.abstract}</p>
+
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
+          ${p.links.map((l) => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="cmd-btn">${l.label} ↗</a>`).join('')}
+          <button class="cmd-btn bib-btn" data-target="bib-${p.id}">BIBTEX [+]</button>
+        </div>
+        <pre id="bib-${p.id}" style="display:none;margin-top:0.85rem;padding:0.9rem;background:#040506;border:1px solid var(--hairline-strong);font-family:var(--font-mono);font-size:0.74rem;color:var(--silver);overflow-x:auto;">${p.bibtex}</pre>
+      </article>
+    `).join('');
+
+    document.querySelectorAll('.bib-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const pre = document.getElementById(btn.dataset.target);
+        const open = pre.style.display === 'block';
+        pre.style.display = open ? 'none' : 'block';
+        btn.textContent = open ? 'BIBTEX [+]' : 'BIBTEX [−]';
+      });
+    });
+
+    document.getElementById('notesList').innerHTML = TECHNICAL_NOTES.map((n) => `
+      <a href="${n.url}" class="frame" style="padding:1.15rem;display:block;">
+        <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--phosphor);margin-bottom:0.35rem;">${n.code}</div>
+        <div style="font-family:var(--font-display);font-size:1.3rem;color:var(--silver-bright);margin-bottom:0.35rem;">${n.title}</div>
+        <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--graphite-light);">${n.meta}</div>
+      </a>
+    `).join('');
+  </script>
 </body>
 </html>
