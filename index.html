@@ -391,6 +391,23 @@
     renderProceduralPreviews(document.getElementById('projSequence'));
     initSynthCanvas('synthCanvas', synth);
 
+    // Bounded pointer-tracking 3D micro-tilt on desktop project visuals
+    const canHover = window.matchMedia('(hover: hover)').matches;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (canHover && !reduced) {
+      document.querySelectorAll('.proj-visual').forEach((card) => {
+        card.addEventListener('pointermove', (e) => {
+          const r = card.getBoundingClientRect();
+          const rx = ((e.clientY - r.top) / r.height - 0.5) * -4.5;
+          const ry = ((e.clientX - r.left) / r.width - 0.5) * 4.5;
+          card.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg)`;
+        });
+        card.addEventListener('pointerleave', () => {
+          card.style.transform = '';
+        });
+      });
+    }
+
     initCosmosFilm('cosmosStage', synth, (p) => {
       const z = (12 - p * 120).toFixed(1);
       if (hudDepth) hudDepth.textContent = `Z ${z >= 0 ? '+' : ''}${z}`;

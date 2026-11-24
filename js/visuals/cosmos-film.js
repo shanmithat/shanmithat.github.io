@@ -38,9 +38,11 @@ export async function initCosmosFilm(canvasId, synth, onProgress) {
   // 1. Clean Sharp Dark Cosmic Gradient (#070913 -> #0D1226) + Subtle Radial Aura
   // --------------------------------------------------------------------------
   const bgUniforms = {
+    uTime: { value: 0 },
     uScroll: { value: 0 },
     uThermal: { value: 0 },
     uAudio: { value: 0 },
+    uHover: { value: 0 },
     uMouse: { value: new THREE.Vector2(0.7, 0.5) },
     uRes: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
   };
@@ -59,9 +61,11 @@ export async function initCosmosFilm(canvasId, synth, onProgress) {
     fragmentShader: `
       precision highp float;
       varying vec2 vUv;
+      uniform float uTime;
       uniform float uScroll;
       uniform float uThermal;
       uniform float uAudio;
+      uniform float uHover;
       uniform vec2 uMouse;
       uniform vec2 uRes;
 
@@ -71,7 +75,7 @@ export async function initCosmosFilm(canvasId, synth, onProgress) {
         vec3 violet   = vec3(0.180, 0.110, 0.360);
         vec3 infrared = vec3(0.420, 0.110, 0.060);
 
-        // Smooth vertical + radial analytical gradient (zero blocky noise banding)
+        // Smooth vertical + radial analytical gradient
         float grad = smoothstep(0.0, 1.0, vUv.y * 0.7 + (1.0 - vUv.x) * 0.3);
         vec3 col = mix(deepNavy, indigo, grad);
 
@@ -85,17 +89,25 @@ export async function initCosmosFilm(canvasId, synth, onProgress) {
         float tHalo = exp(-dist * dist * 3.5) * 0.35 * uThermal;
         col += infrared * tHalo;
 
-        // Crisp procedural halftone dot matrix across the entire scroll background
+        // Prominent #060606 halftone dot matrix that shrinks upon pointer movement / hover
+        float aspect = uRes.x / max(1.0, uRes.y);
+        float dMouse = length((vUv - uMouse) * vec2(aspect, 1.0));
+        float hoverZone = exp(-dMouse * dMouse * 16.0);
+        float ripple = 0.5 + 0.5 * sin(dMouse * 32.0 - uTime * 2.5);
+
         vec2 px = vUv * uRes;
-        float cell = 8.0;
+        float cell = 9.0;
         vec2 gridUv = fract(px / cell) - 0.5;
         float dDot = length(gridUv);
-        float energy = clamp(halo * 1.4 + tHalo * 1.2 + grad * 0.35, 0.15, 0.85);
-        float radius = mix(0.11, 0.24, energy);
-        float dotMask = 1.0 - smoothstep(radius - 0.05, radius + 0.05, dDot);
-        vec3 dotCol = mix(vec3(0.28, 0.34, 0.62), vec3(0.75, 0.60, 1.0), halo);
-        dotCol = mix(dotCol, vec3(1.0, 0.33, 0.18), clamp(tHalo * 1.5, 0.0, 1.0));
-        col = mix(col, col + dotCol * 0.14, dotMask);
+
+        // Prominent normally (0.36), shrinking down on pointer hover (to ~0.04)
+        float normalRadius = 0.36 - grad * 0.04;
+        float shrinkAmount = hoverZone * (0.28 + 0.03 * ripple + 0.05 * uHover);
+        float radius = clamp(normalRadius - shrinkAmount, 0.03, 0.40);
+        float dotMask = 1.0 - smoothstep(radius - 0.045, radius + 0.045, dDot);
+
+        vec3 dotCol = vec3(0.0235, 0.0235, 0.0235); // #060606
+        col = mix(col, dotCol, dotMask * 0.85);
 
         gl_FragColor = vec4(col, 1.0);
       }
@@ -256,10 +268,18 @@ export async function initCosmosFilm(canvasId, synth, onProgress) {
   // --------------------------------------------------------------------------
   // Pointer + Scroll + Visibility
   // --------------------------------------------------------------------------
-  const mouse = { x: 0.7, y: 0.5, tx: 0.7, ty: 0.5 };
+  const mouse = { x: 0.7, y: 0.5, tx: 0.7, ty: 0.5, hover: 0, hoverTarget: 0 };
   window.addEventListener('pointermove', (e) => {
     mouse.tx = e.clientX / window.innerWidth;
     mouse.ty = e.clientY / window.innerHeight;
+  });
+
+  const hoverSel = 'a, button, .proj-visual, .void-tag, .stat-item, .ch-heading, .void-name, .ch-serif-quote, .annot';
+  document.addEventListener('pointerover', (e) => {
+    if (e.target && e.target.closest && e.target.closest(hoverSel)) mouse.hoverTarget = 1;
+  });
+  document.addEventListener('pointerout', (e) => {
+    if (e.target && e.target.closest && e.target.closest(hoverSel)) mouse.hoverTarget = 0;
   });
 
   let scrollProgress = 0;
@@ -292,6 +312,7 @@ export async function initCosmosFilm(canvasId, synth, onProgress) {
 
     mouse.x += (mouse.tx - mouse.x) * 0.06;
     mouse.y += (mouse.ty - mouse.y) * 0.06;
+    mouse.hover += (mouse.hoverTarget - mouse.hover) * 0.1;
 
     const targetZ = 12 - scrollProgress * 120;
     const targetX = Math.sin(scrollProgress * Math.PI * 2.5) * 0.85 + (mouse.x - 0.5) * 0.8;
@@ -302,8 +323,10 @@ export async function initCosmosFilm(canvasId, synth, onProgress) {
     camera.position.y += (targetY - camera.position.y) * 0.08;
     camera.lookAt(0, 0, camera.position.z - 18);
 
+    bgUniforms.uTime.value = reducedMotion ? 0 : elapsed;
     bgUniforms.uScroll.value = scrollProgress;
     bgUniforms.uAudio.value = audio.bass;
+    bgUniforms.uHover.value = mouse.hover;
     bgUniforms.uThermal.value = Math.max(0, 1 - Math.abs(scrollProgress - 0.48) * 4.5);
     bgUniforms.uMouse.value.set(mouse.x, 1 - mouse.y);
     earthUniforms.uTime.value = elapsed;
