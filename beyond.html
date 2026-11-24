@@ -3,135 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>03 // Beyond the Equations — SHANMITHA T.</title>
-  <meta name="description" content="Personal digital scrapbook, experimental zine, questions, rabbit holes, and curiosities of Shanmitha T.">
+  <title>ENV_02 // The Scrapbook — SHANMITHA T.</title>
+  <meta name="description" content="The Scrapbook: personal digital zine, questions, astrophysics, CERN, Fermi paradox, skyrmions, metamaterials, Algorave, Y2K culture, rabbit holes, and editable personal slots.">
   <link rel="stylesheet" href="css/system.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%23315BFF' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%23315BFF'/></svg>">
 </head>
-<body class="tex-scanlines tex-grain coord-grid">
+<body class="tex-scanlines tex-noise tex-wireframe">
+  <div id="navMount"></div>
 
-  <header class="inst-header">
-    <div class="inst-nav-inner">
-      <a href="index.html" class="inst-brand">
-        <span class="inst-led" style="background:var(--cobalt-bright);box-shadow:0 0 6px var(--cobalt);" aria-hidden="true"></span>
-        <span>SHANMITHA T.</span>
-        <span class="inst-coords">// PERSONAL_ZINE</span>
-      </a>
-      <nav aria-label="Primary Instrument Navigation">
-        <ul class="inst-links">
-          <li><a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a></li>
-          <li><a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> ARCHIVE</a></li>
-          <li><a href="beyond.html" class="inst-link active" data-nav="beyond"><span class="idx">03</span> BEYOND</a></li>
-          <li><a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> VISION</a></li>
-          <li><a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PAPERS</a></li>
-          <li><a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a></li>
-        </ul>
-      </nav>
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <a href="res.pdf" class="inst-cv-btn" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↗</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer">MENU [≡]</button>
-      </div>
-    </div>
-  </header>
-
-  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a>
-    <a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> PROJECT ARCHIVE</a>
-    <a href="beyond.html" class="inst-link active" data-nav="beyond"><span class="idx">03</span> BEYOND THE EQUATIONS</a>
-    <a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> FUTURE VISION</a>
-    <a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PUBLICATIONS</a>
-    <a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a>
-  </div>
-
-  <main class="wrap" data-tone="blue">
-    <section class="band halftone-surface">
+  <main class="shell-wrap" data-tone="blue">
+    <section class="band tex-halftone">
       <div class="band-head">
         <div>
-          <span class="band-num">03 // PERSONAL DIGITAL SCRAPBOOK</span>
-          <h1 class="band-title chrome-word">BEYOND THE EQUATIONS</h1>
+          <span class="env-code">ENV_02 // THE SCRAPBOOK</span>
+          <h1 class="env-title tex-chrome">BEYOND THE EQUATIONS</h1>
         </div>
-        <p class="band-sub">
-          Other things that keep me up at night. Personal curiosities, rabbit holes, and open questions — not a LinkedIn profile, and not claims of completed research.
+        <p class="env-sub">
+          Personal digital scrapbook &amp; internet zine. Editable via <code>js/data/personal.js</code>. Curiosities and rabbit holes — not claims of completed research.
         </p>
       </div>
 
-      <!-- 1. Questions I Can't Stop Thinking About -->
-      <div style="margin-bottom:3rem;">
-        <div class="tag-pixel" style="margin-bottom:1rem;">03.1 // QUESTIONS I CAN'T STOP THINKING ABOUT</div>
-        <div class="zine-grid" id="questionsGrid"></div>
-      </div>
+      <div id="div1"></div>
+      <div class="grid-12" id="questionsGrid"></div>
 
-      <!-- 2. Things I Find Fascinating -->
-      <div style="margin-bottom:3rem;">
-        <div class="tag-pixel" style="margin-bottom:1rem;">03.2 // THINGS I FIND FASCINATING</div>
-        <div class="zine-grid" id="fascinationsGrid"></div>
-      </div>
+      <div id="div2"></div>
+      <div class="grid-12" id="fascinationsGrid"></div>
 
-      <!-- 3. The Rabbit Holes -->
-      <div style="margin-bottom:3rem;">
-        <div class="tag-pixel" style="margin-bottom:1rem;">03.3 // THE RABBIT HOLES</div>
-        <div class="zine-grid" id="rabbitGrid"></div>
-      </div>
+      <div id="div3"></div>
+      <div class="grid-12" id="rabbitGrid"></div>
 
-      <!-- 4. Things I Do For Fun (Editable Scrapbook) -->
-      <div>
-        <div class="tag-pixel" style="margin-bottom:1rem;">03.4 // THINGS I DO FOR FUN (EDITABLE SCRAPBOOK — js/data/personal.js)</div>
-        <div class="zine-grid" id="scrapbookGrid"></div>
-      </div>
+      <div id="div4"></div>
+      <div class="grid-12" id="scrapbookGrid"></div>
     </section>
   </main>
 
-  <footer class="inst-footer">
-    <div class="footer-row">
-      <div><strong style="color:var(--silver-bright);">SHANMITHA T.</strong> // <a href="mailto:shanmithat3@gmail.com" style="color:var(--cobalt-bright);">shanmithat3@gmail.com</a></div>
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="index.html">01 ENTRY</a>
-        <a href="archive.html">02 ARCHIVE</a>
-        <a href="vision.html">04 VISION</a>
-        <a href="publications.html">05 PAPERS</a>
-        <a href="contact.html">06 CONTACT</a>
-      </nav>
-    </div>
-  </footer>
+  <div id="footerMount"></div>
 
   <script type="module">
     import { initShell } from './js/app.js';
+    import { InstrumentIndex, ScrapbookEntry, SignalDivider, TransmissionFooter } from './js/components/ui.js';
     import { QUESTIONS, FASCINATIONS, RABBIT_HOLES, SCRAPBOOK_SLOTS } from './js/data/personal.js';
 
+    document.getElementById('navMount').innerHTML = InstrumentIndex({ activeEnv: '02', coordLabel: 'THE_SCRAPBOOK', ledTone: '#5B7FFF' });
+    document.getElementById('footerMount').innerHTML = TransmissionFooter();
     initShell();
 
-    document.getElementById('questionsGrid').innerHTML = QUESTIONS.map((q, i) => `
-      <div class="zine-clip blue-edge ${i % 3 === 0 ? 'zine-span-7' : 'zine-span-5'}">
-        <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--cobalt-bright);margin-bottom:0.4rem;">${q.code} // OPEN_INQUIRY</div>
-        <p style="font-family:var(--font-display);font-size:1.55rem;line-height:1.15;color:var(--silver-bright);text-transform:uppercase;">${q.text}</p>
-      </div>
-    `).join('');
+    document.getElementById('div1').innerHTML = SignalDivider("02.1 // QUESTIONS I CAN'T STOP THINKING ABOUT");
+    document.getElementById('div2').innerHTML = SignalDivider('02.2 // THINGS I FIND FASCINATING');
+    document.getElementById('div3').innerHTML = SignalDivider('02.3 // THE RABBIT HOLES');
+    document.getElementById('div4').innerHTML = SignalDivider('02.4 // PERSONAL EXPERIMENTS & EDITABLE SCRAPBOOK');
 
-    document.getElementById('fascinationsGrid').innerHTML = FASCINATIONS.map((f, i) => `
-      <div class="zine-clip ${i % 4 === 0 ? 'zine-span-6' : 'zine-span-4'}">
-        <div style="display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:0.68rem;color:var(--cobalt-bright);margin-bottom:0.45rem;">
-          <span>[${f.tag}]</span>
-          <span>CURIOSITY</span>
-        </div>
-        <h3 style="font-family:var(--font-display);font-size:1.35rem;color:var(--silver-bright);text-transform:uppercase;margin-bottom:0.35rem;">${f.title}</h3>
-        <p style="font-size:0.88rem;color:var(--silver);">${f.note}</p>
-      </div>
-    `).join('');
+    document.getElementById('questionsGrid').innerHTML = QUESTIONS.map((q, i) =>
+      ScrapbookEntry({ tag: q.code, title: q.text, body: 'Open interdisciplinary question.', span: i % 2 === 0 ? 'col-7' : 'col-5', accent: true })
+    ).join('');
 
-    document.getElementById('rabbitGrid').innerHTML = RABBIT_HOLES.map((r, i) => `
-      <div class="zine-clip blue-edge ${i === 0 ? 'zine-span-8' : 'zine-span-4'}">
-        <div style="font-family:var(--font-mono);font-size:0.7rem;color:var(--cobalt-bright);margin-bottom:0.35rem;">${r.id}</div>
-        <h3 style="font-family:var(--font-display);font-size:1.35rem;color:var(--silver-bright);margin-bottom:0.4rem;">${r.title}</h3>
-        <p style="font-size:0.9rem;color:var(--silver);">${r.body}</p>
-      </div>
-    `).join('');
+    const fascSpans = ['col-6', 'col-6', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4', 'col-4'];
+    document.getElementById('fascinationsGrid').innerHTML = FASCINATIONS.map((f, i) =>
+      ScrapbookEntry({ tag: f.tag, title: f.title, body: f.note, span: fascSpans[i] || 'col-4' })
+    ).join('');
+
+    const rhSpans = ['col-8', 'col-4', 'col-4', 'col-4', 'col-4'];
+    document.getElementById('rabbitGrid').innerHTML = RABBIT_HOLES.map((r, i) =>
+      ScrapbookEntry({ tag: r.id, title: r.title, body: r.body, span: rhSpans[i] || 'col-4', accent: true })
+    ).join('');
 
     document.getElementById('scrapbookGrid').innerHTML = SCRAPBOOK_SLOTS.map((s) => `
-      <div class="scrap-slot zine-span-6">
-        <div style="color:var(--cobalt-bright);margin-bottom:0.35rem;">${s.slot}</div>
-        <div style="font-family:var(--font-display);font-size:1.3rem;color:var(--silver-bright);text-transform:uppercase;margin-bottom:0.4rem;">${s.title}</div>
-        ${s.img ? `<img src="${s.img}" alt="${s.title}" style="margin:0.75rem 0;border:1px solid var(--hairline-strong);">` : ''}
-        <p style="font-family:var(--font-body);font-size:0.86rem;color:var(--graphite-light);">${s.caption}</p>
+      <div class="scrapbook-slot col-6">
+        <div style="font-family:var(--font-mono);font-size:0.68rem;color:#5B7FFF;margin-bottom:0.35rem;">${s.slot}</div>
+        <h3 style="font-family:var(--font-display);font-size:1.35rem;text-transform:uppercase;color:var(--silver-bright);margin-bottom:0.35rem;">${s.title}</h3>
+        ${s.img ? `<img src="${s.img}" alt="${s.title}" style="margin:0.65rem 0;border:1px solid var(--hairline-strong);">` : ''}
+        <p style="font-size:0.86rem;color:var(--graphite-light);">${s.caption}</p>
       </div>
     `).join('');
   </script>

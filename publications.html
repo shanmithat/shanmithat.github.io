@@ -3,102 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>05 // Publications &amp; Technical Writing — SHANMITHA T.</title>
-  <meta name="description" content="Academic publications, workshop manuscripts, BibTeX records, and technical notes by Shanmitha T.">
+  <title>ENV_03 // The Archive — SHANMITHA T.</title>
+  <meta name="description" content="The Archive: published research, workshop submissions, technical notes, and reproducible experiments by Shanmitha T.">
   <link rel="stylesheet" href="css/system.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%23C5C9CE' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%23C5C9CE'/></svg>">
 </head>
-<body class="tex-scanlines tex-grain coord-grid">
+<body class="tex-scanlines tex-noise tex-wireframe">
+  <div id="navMount"></div>
 
-  <header class="inst-header">
-    <div class="inst-nav-inner">
-      <a href="index.html" class="inst-brand">
-        <span class="inst-led" style="background:var(--silver);box-shadow:0 0 6px var(--silver);" aria-hidden="true"></span>
-        <span>SHANMITHA T.</span>
-        <span class="inst-coords">// PAPERS_ARCHIVE</span>
-      </a>
-      <nav aria-label="Primary Instrument Navigation">
-        <ul class="inst-links">
-          <li><a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a></li>
-          <li><a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> ARCHIVE</a></li>
-          <li><a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND</a></li>
-          <li><a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> VISION</a></li>
-          <li><a href="publications.html" class="inst-link active" data-nav="papers"><span class="idx">05</span> PAPERS</a></li>
-          <li><a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a></li>
-        </ul>
-      </nav>
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <a href="res.pdf" class="inst-cv-btn" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↗</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer">MENU [≡]</button>
-      </div>
-    </div>
-  </header>
-
-  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a>
-    <a href="archive.html" class="inst-link" data-nav="archive"><span class="idx">02</span> PROJECT ARCHIVE</a>
-    <a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND THE EQUATIONS</a>
-    <a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> FUTURE VISION</a>
-    <a href="publications.html" class="inst-link active" data-nav="papers"><span class="idx">05</span> PUBLICATIONS</a>
-    <a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a>
-  </div>
-
-  <main class="wrap" data-tone="silver">
+  <main class="shell-wrap" data-tone="silver">
     <section class="band">
       <div class="band-head">
         <div>
-          <span class="band-num">05 // SCHOLARLY RECORD &amp; TECHNICAL WRITING</span>
-          <h1 class="band-title">PUBLICATIONS ARCHIVE</h1>
+          <span class="env-code">ENV_03 // THE ARCHIVE</span>
+          <h1 class="env-title">RESEARCH &amp; TECHNICAL ARCHIVE</h1>
         </div>
         <a href="https://scholar.google.com/citations?user=W8r_xnEAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="cmd-btn">GOOGLE SCHOLAR ↗</a>
       </div>
 
-      <div id="pubList" style="display:flex;flex-direction:column;gap:1.5rem;margin-bottom:3rem;"></div>
+      <div id="divPub"></div>
+      <div id="pubPublished" style="display:flex;flex-direction:column;gap:1.15rem;"></div>
 
-      <div class="tag-pixel" style="margin-bottom:1rem;">TECHNICAL_NOTES // IMPLEMENTATION_DOCUMENTATION</div>
-      <div id="notesList" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;"></div>
+      <div id="divSub"></div>
+      <div id="pubSubmissions" style="display:flex;flex-direction:column;gap:1.15rem;"></div>
+
+      <div id="divNotes"></div>
+      <div class="grid-12" id="notesList"></div>
     </section>
   </main>
 
-  <footer class="inst-footer">
-    <div class="footer-row">
-      <div><strong style="color:var(--silver-bright);">SHANMITHA T.</strong> // <a href="mailto:shanmithat3@gmail.com" style="color:var(--phosphor);">shanmithat3@gmail.com</a></div>
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="index.html">01 ENTRY</a>
-        <a href="archive.html">02 ARCHIVE</a>
-        <a href="beyond.html">03 BEYOND</a>
-        <a href="vision.html">04 VISION</a>
-        <a href="contact.html">06 CONTACT</a>
-      </nav>
-    </div>
-  </footer>
+  <div id="footerMount"></div>
 
   <script type="module">
     import { initShell } from './js/app.js';
+    import { InstrumentIndex, ResearchRecord, SignalDivider, TransmissionFooter } from './js/components/ui.js';
     import { PUBLICATIONS, TECHNICAL_NOTES } from './js/data/publications.js';
 
+    document.getElementById('navMount').innerHTML = InstrumentIndex({ activeEnv: '03', coordLabel: 'THE_ARCHIVE', ledTone: 'var(--silver)' });
+    document.getElementById('footerMount').innerHTML = TransmissionFooter();
     initShell();
 
-    document.getElementById('pubList').innerHTML = PUBLICATIONS.map((p, idx) => `
-      <article class="frame reticle" style="padding:1.5rem;">
-        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;font-family:var(--font-mono);font-size:0.72rem;color:var(--graphite-light);margin-bottom:0.5rem;">
-          <span>PAPER_0${idx + 1} // ${p.year}</span>
-          <span style="color:var(--silver-bright);">${p.status}</span>
-        </div>
-        <h2 style="font-family:var(--font-display);font-size:1.75rem;color:var(--silver-bright);line-height:1.12;margin-bottom:0.5rem;">${p.title}</h2>
-        <div style="font-family:var(--font-mono);font-size:0.78rem;color:var(--silver);margin-bottom:0.35rem;">${p.authors}</div>
-        <div style="font-family:var(--font-mono);font-size:0.74rem;color:var(--graphite-light);margin-bottom:0.85rem;">
-          ${p.venue}${p.doi ? ` · DOI: ${p.doi}` : ''}
-        </div>
-        <p style="font-size:0.92rem;color:var(--silver);line-height:1.65;margin-bottom:1rem;">${p.abstract}</p>
+    document.getElementById('divPub').innerHTML = SignalDivider('03.1 // PUBLISHED RESEARCH');
+    document.getElementById('divSub').innerHTML = SignalDivider('03.2 // SUBMISSIONS & UNDER REVIEW');
+    document.getElementById('divNotes').innerHTML = SignalDivider('03.3 // TECHNICAL NOTES & EXPERIMENTS');
 
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;align-items:center;">
-          ${p.links.map((l) => `<a href="${l.url}" target="_blank" rel="noopener noreferrer" class="cmd-btn">${l.label} ↗</a>`).join('')}
-          <button class="cmd-btn bib-btn" data-target="bib-${p.id}">BIBTEX [+]</button>
-        </div>
-        <pre id="bib-${p.id}" style="display:none;margin-top:0.85rem;padding:0.9rem;background:#040506;border:1px solid var(--hairline-strong);font-family:var(--font-mono);font-size:0.74rem;color:var(--silver);overflow-x:auto;">${p.bibtex}</pre>
-      </article>
-    `).join('');
+    const published = PUBLICATIONS.filter((p) => p.status.includes('PUBLISHED'));
+    const subs = PUBLICATIONS.filter((p) => !p.status.includes('PUBLISHED'));
+
+    document.getElementById('pubPublished').innerHTML = published.map((p, i) => ResearchRecord(p, i)).join('');
+    document.getElementById('pubSubmissions').innerHTML = subs.map((p, i) => ResearchRecord(p, i)).join('');
 
     document.querySelectorAll('.bib-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -110,7 +63,7 @@
     });
 
     document.getElementById('notesList').innerHTML = TECHNICAL_NOTES.map((n) => `
-      <a href="${n.url}" class="frame" style="padding:1.15rem;display:block;">
+      <a href="${n.url}" class="frame col-4" style="padding:1.15rem;display:block;">
         <div style="font-family:var(--font-mono);font-size:0.68rem;color:var(--phosphor);margin-bottom:0.35rem;">${n.code}</div>
         <div style="font-family:var(--font-display);font-size:1.3rem;color:var(--silver-bright);margin-bottom:0.35rem;">${n.title}</div>
         <div style="font-family:var(--font-mono);font-size:0.72rem;color:var(--graphite-light);">${n.meta}</div>

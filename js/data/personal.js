@@ -38,7 +38,7 @@ export const FASCINATIONS = [
   { tag: 'COMPUTE', title: 'Physical Computing', note: 'Emerging curiosity about substrate-level computation beyond silicon.' },
   { tag: 'ART', title: 'Computational Art & Generative Geometry', note: 'Implicit fields, raymarched shaders, and algorithmic visual systems.' },
   { tag: 'SOUND', title: 'Electronic Music & Algorave', note: 'Livecoding patterns, TidalCycles, Pulsar, Haskell, and algorithmic rhythm.' },
-  { tag: 'DESIGN', title: 'Experimental Digital Design & Y2K', note: 'Early-2000s interfaces, CRT phosphor, bitmap typography, and technical zines.' },
+  { tag: 'DESIGN', title: 'Y2K Digital Culture & Experimental Design', note: 'Early-2000s interfaces, CRT phosphor, bitmap typography, chrome lettering, and technical zines.' },
   { tag: 'RETRO', title: 'Vintage Computer Culture', note: 'Hardware constraints that forced elegance in memory and display.' },
   { tag: 'VISUAL', title: 'Unusual Scientific Visualizations', note: 'Vector fields, phase portraits, schlieren optics, and thermal imaging.' }
 ];

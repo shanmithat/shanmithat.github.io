@@ -3,176 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Case File // SHANMITHA T.</title>
-  <meta name="description" content="Technical case study dossier with mathematical formulations, system architecture, figures, and verification results.">
+  <title>ENV_01 // Case Study — SHANMITHA T.</title>
+  <meta name="description" content="Detailed engineering case study with equations, figures, verification, and scope limitations.">
   <link rel="stylesheet" href="css/system.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%2339FF70' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%2339FF70'/></svg>">
 </head>
-<body class="tex-scanlines tex-grain coord-grid">
+<body class="tex-scanlines tex-noise tex-wireframe">
+  <div id="navMount"></div>
 
-  <header class="inst-header">
-    <div class="inst-nav-inner">
-      <a href="index.html" class="inst-brand">
-        <span class="inst-led" aria-hidden="true"></span>
-        <span>SHANMITHA T.</span>
-        <span class="inst-coords">// CASE_FILE</span>
-      </a>
-      <nav aria-label="Primary Instrument Navigation">
-        <ul class="inst-links">
-          <li><a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a></li>
-          <li><a href="archive.html" class="inst-link active" data-nav="archive"><span class="idx">02</span> ARCHIVE</a></li>
-          <li><a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND</a></li>
-          <li><a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> VISION</a></li>
-          <li><a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PAPERS</a></li>
-          <li><a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a></li>
-        </ul>
-      </nav>
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <a href="res.pdf" class="inst-cv-btn" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↗</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer">MENU [≡]</button>
-      </div>
-    </div>
-  </header>
-
-  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a>
-    <a href="archive.html" class="inst-link active" data-nav="archive"><span class="idx">02</span> PROJECT ARCHIVE</a>
-    <a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND THE EQUATIONS</a>
-    <a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> FUTURE VISION</a>
-    <a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PUBLICATIONS</a>
-    <a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a>
-  </div>
-
-  <main class="wrap" id="dossierRoot" data-tone="green">
-    <section class="band" id="dossierBand">
-      <div style="margin-bottom:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem;">
-        <a href="archive.html" class="cmd-btn">← BACK TO ARCHIVE</a>
-        <div id="caseSwitcher" style="display:flex;flex-wrap:wrap;gap:0.35rem;"></div>
-      </div>
-
-      <div id="dossierContent"></div>
-    </section>
+  <main class="shell-wrap" id="dossierRoot" data-tone="green">
+    <section class="band" id="dossierMount"></section>
   </main>
 
-  <footer class="inst-footer">
-    <div class="footer-row">
-      <div><strong style="color:var(--silver-bright);">SHANMITHA T.</strong> // <a href="mailto:shanmithat3@gmail.com" style="color:var(--phosphor);">shanmithat3@gmail.com</a></div>
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="index.html">01 ENTRY</a>
-        <a href="archive.html">02 ARCHIVE</a>
-        <a href="beyond.html">03 BEYOND</a>
-        <a href="vision.html">04 VISION</a>
-        <a href="publications.html">05 PAPERS</a>
-        <a href="contact.html">06 CONTACT</a>
-      </nav>
-    </div>
-  </footer>
+  <div id="footerMount"></div>
 
   <script type="module">
     import { initShell } from './js/app.js';
     import { renderProceduralPreviews } from './js/visuals/archive-previews.js';
+    import { InstrumentIndex, CaseStudyLayout, TransmissionFooter } from './js/components/ui.js';
     import { PROJECTS } from './js/data/projects.js';
-
-    initShell();
 
     const params = new URLSearchParams(window.location.search);
     const id = params.get('id') || 'pedigait';
     const p = PROJECTS.find((item) => item.id === id) || PROJECTS[0];
 
-    document.title = `CASE ${p.num} // ${p.name} — SHANMITHA T.`;
+    document.title = `CASE_${p.num} // ${p.name} — SHANMITHA T.`;
+    const ledTone = p.tone === 'infrared' ? 'var(--infrared)' : p.tone === 'blue' ? '#5B7FFF' : 'var(--phosphor)';
+    document.getElementById('navMount').innerHTML = InstrumentIndex({ activeEnv: '01', coordLabel: `CASE_${p.num}`, ledTone });
+    document.getElementById('footerMount').innerHTML = TransmissionFooter();
+    initShell();
+
     const root = document.getElementById('dossierRoot');
     root.setAttribute('data-tone', p.tone);
 
-    document.getElementById('caseSwitcher').innerHTML = PROJECTS.map((item) => `
-      <a href="project.html?id=${item.id}" class="filter-tab ${item.id === p.id ? 'active' : ''}" style="border:1px solid var(--hairline-strong);">${item.num}</a>
-    `).join('');
+    const mount = document.getElementById('dossierMount');
+    mount.innerHTML = CaseStudyLayout(p, PROJECTS);
+    renderProceduralPreviews(mount);
 
-    const content = document.getElementById('dossierContent');
-    content.innerHTML = `
-      <div class="band-head">
-        <div>
-          <span class="band-num">CASE FILE ${p.num} // ${p.domain.toUpperCase()} // ${p.status}</span>
-          <h1 class="band-title">${p.name}</h1>
-          <p style="font-family:var(--font-mono);font-size:0.84rem;color:var(--tone);margin-top:0.5rem;">${p.subtitle}</p>
-        </div>
-        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-          ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener noreferrer" class="cmd-btn primary">${p.repoLabel || 'REPOSITORY ↗'}</a>` : ''}
-          ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="cmd-btn">LIVE DEMO ↗</a>` : ''}
-        </div>
-      </div>
-
-      <div class="dossier-grid">
-        <aside class="dossier-sidebar reticle">
-          <div class="tag-pixel" style="margin-bottom:0.85rem;">SPEC_SHEET</div>
-          <div style="font-family:var(--font-mono);font-size:0.74rem;display:flex;flex-direction:column;gap:0.7rem;">
-            <div><span style="color:var(--graphite-light);display:block;">INDEX</span><span style="color:var(--silver-bright);">CASE_${p.num}</span></div>
-            <div><span style="color:var(--graphite-light);display:block;">DOMAIN</span><span style="color:var(--tone);">${p.domains.join(' · ')}</span></div>
-            <div><span style="color:var(--graphite-light);display:block;">STATUS</span><span style="color:var(--silver-bright);">${p.status}</span></div>
-            <div><span style="color:var(--graphite-light);display:block;">STACK</span><span style="color:var(--silver);line-height:1.5;">${p.stack.join(', ')}</span></div>
-          </div>
-        </aside>
-
-        <div style="display:flex;flex-direction:column;gap:1.5rem;">
-          <div class="frame" style="padding:1.4rem;">
-            <div class="tag-mono" style="margin-bottom:0.5rem;">01 // ENGINEERING PROBLEM</div>
-            <p style="color:var(--silver-bright);line-height:1.7;">${p.problem}</p>
-          </div>
-
-          <div class="frame" style="padding:1.4rem;">
-            <div class="tag-mono" style="margin-bottom:0.5rem;">02 // PHYSICAL &amp; DOMAIN FORMULATION</div>
-            <p style="color:var(--silver);line-height:1.7;">${p.biomechanics}</p>
-          </div>
-
-          <div class="frame" style="padding:1.4rem;">
-            <div class="tag-mono" style="margin-bottom:0.5rem;">03 // SYSTEM &amp; MODEL ARCHITECTURE</div>
-            <p style="color:var(--silver);line-height:1.7;">${p.architecture}</p>
-            ${p.equations.map((eq) => `
-              <div class="eq-block">
-                <div class="eq-label">${eq.label}</div>
-                <div class="katex-eq" data-tex="${eq.tex.replace(/"/g, '&quot;')}"></div>
-              </div>
-            `).join('')}
-          </div>
-
-          <div class="frame" style="padding:1.4rem;">
-            <div class="tag-mono" style="margin-bottom:0.65rem;">04 // VERIFICATION &amp; OBSERVED RESULTS</div>
-            <ul style="padding-left:1.15rem;display:flex;flex-direction:column;gap:0.55rem;color:var(--silver);">
-              ${p.results.map((r) => `<li>${r}</li>`).join('')}
-            </ul>
-          </div>
-
-          <div>
-            <div class="tag-mono" style="margin-bottom:0.85rem;">05 // VISUALIZATIONS &amp; FIGURES</div>
-            ${p.figures.length > 0 ? `
-              <div class="fig-grid">
-                ${p.figures.map((fig) => `
-                  <figure class="fig-frame">
-                    <img src="${fig.src}" alt="${fig.cap}" loading="lazy">
-                    <figcaption class="fig-caption">${fig.cap}</figcaption>
-                  </figure>
-                `).join('')}
-              </div>
-            ` : `
-              <div class="fig-frame">
-                <canvas data-procedural="${p.procedural}" style="width:100%;max-height:360px;"></canvas>
-                <div class="fig-caption">${p.previewCap} // PROCEDURAL FIELD RENDER</div>
-              </div>
-            `}
-          </div>
-        </div>
-      </div>
-    `;
-
-    renderProceduralPreviews(content);
-
-    // Render KaTeX equations once loaded
     function renderEquations() {
-      if (!window.katex) {
-        setTimeout(renderEquations, 80);
-        return;
-      }
+      if (!window.katex) { setTimeout(renderEquations, 80); return; }
       document.querySelectorAll('.katex-eq').forEach((el) => {
         window.katex.render(el.dataset.tex, el, { displayMode: true, throwOnError: false });
       });

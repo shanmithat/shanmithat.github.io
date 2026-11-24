@@ -3,55 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>02 // Project Archive — SHANMITHA T.</title>
-  <meta name="description" content="Complete technical case files: PediGait, BP-001-CIM Manufacturing Digital Twin, MicroWear-PINN, DynaMesh-Thermal, AetherCast, Implicit Lattice, AutoCAD-Profiler, Crowd Surge, and Hydrangea NLP.">
+  <title>ENV_01 // The Laboratory — SHANMITHA T.</title>
+  <meta name="description" content="The Laboratory: technical case files across biomechanics, manufacturing digital twins, contact mechanics, GPU topology optimization, atmospheric PDEs, implicit geometry, and NLP.">
   <link rel="stylesheet" href="css/system.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23050606'/><rect x='2' y='2' width='28' height='28' fill='none' stroke='%2339FF70' stroke-width='2'/><rect x='11' y='11' width='10' height='10' fill='%2339FF70'/></svg>">
 </head>
-<body class="tex-scanlines tex-grain coord-grid">
+<body class="tex-scanlines tex-noise tex-wireframe">
+  <div id="navMount"></div>
+  <div id="tickerMount"></div>
 
-  <header class="inst-header">
-    <div class="inst-nav-inner">
-      <a href="index.html" class="inst-brand">
-        <span class="inst-led" aria-hidden="true"></span>
-        <span>SHANMITHA T.</span>
-        <span class="inst-coords">// 13.08°N 80.27°E</span>
-      </a>
-      <nav aria-label="Primary Instrument Navigation">
-        <ul class="inst-links">
-          <li><a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a></li>
-          <li><a href="archive.html" class="inst-link active" data-nav="archive"><span class="idx">02</span> ARCHIVE</a></li>
-          <li><a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND</a></li>
-          <li><a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> VISION</a></li>
-          <li><a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PAPERS</a></li>
-          <li><a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a></li>
-        </ul>
-      </nav>
-      <div style="display:flex;align-items:center;gap:0.5rem;">
-        <a href="res.pdf" class="inst-cv-btn" download="Shanmitha_T_CV.pdf" target="_blank" rel="noopener noreferrer">CV.PDF ↗</a>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-expanded="false" aria-controls="mobileDrawer">MENU [≡]</button>
-      </div>
-    </div>
-  </header>
-
-  <div class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <a href="index.html" class="inst-link" data-nav="entry"><span class="idx">01</span> ENTRY</a>
-    <a href="archive.html" class="inst-link active" data-nav="archive"><span class="idx">02</span> PROJECT ARCHIVE</a>
-    <a href="beyond.html" class="inst-link" data-nav="beyond"><span class="idx">03</span> BEYOND THE EQUATIONS</a>
-    <a href="vision.html" class="inst-link" data-nav="vision"><span class="idx">04</span> FUTURE VISION</a>
-    <a href="publications.html" class="inst-link" data-nav="papers"><span class="idx">05</span> PUBLICATIONS</a>
-    <a href="contact.html" class="inst-link" data-nav="contact"><span class="idx">06</span> CONTACT</a>
-  </div>
-
-  <main class="wrap" data-tone="green">
+  <main class="shell-wrap" data-tone="green">
     <section class="band">
       <div class="band-head">
         <div>
-          <span class="band-num">02 // COMPLETE ENGINEERING &amp; COMPUTATIONAL INDEX</span>
-          <h1 class="band-title">PROJECT ARCHIVE</h1>
+          <span class="env-code">ENV_01 // THE LABORATORY</span>
+          <h1 class="env-title">ENGINEERING CASE FILES</h1>
         </div>
-        <p class="band-sub">
-          Nine verified case files spanning biomechanics, computer-integrated manufacturing, contact mechanics, GPU topology optimization, atmospheric PDEs, implicit geometry, and Dravidian NLP.
+        <p class="env-sub">
+          Nine verified projects with distinct visual identities, mathematical formulations, figures, and explicit scope boundaries.
         </p>
       </div>
 
@@ -66,78 +35,36 @@
         <button class="filter-tab" data-domain="Language Technology">LANGUAGE TECH</button>
       </div>
 
-      <div class="case-list" id="caseList"></div>
+      <div class="lab-grid" id="labGrid"></div>
     </section>
   </main>
 
-  <footer class="inst-footer">
-    <div class="footer-row">
-      <div><strong style="color:var(--silver-bright);">SHANMITHA T.</strong> // <a href="mailto:shanmithat3@gmail.com" style="color:var(--phosphor);">shanmithat3@gmail.com</a></div>
-      <nav class="footer-nav" aria-label="Footer Navigation">
-        <a href="index.html">01 ENTRY</a>
-        <a href="beyond.html">03 BEYOND</a>
-        <a href="vision.html">04 VISION</a>
-        <a href="publications.html">05 PAPERS</a>
-        <a href="contact.html">06 CONTACT</a>
-      </nav>
-    </div>
-  </footer>
+  <div id="footerMount"></div>
 
   <script type="module">
     import { initShell } from './js/app.js';
     import { renderProceduralPreviews } from './js/visuals/archive-previews.js';
+    import { InstrumentIndex, TechnicalTicker, ProjectFile, TransmissionFooter } from './js/components/ui.js';
     import { PROJECTS } from './js/data/projects.js';
 
+    document.getElementById('navMount').innerHTML = InstrumentIndex({ activeEnv: '01', coordLabel: 'THE_LABORATORY' });
+    document.getElementById('tickerMount').innerHTML = TechnicalTicker();
+    document.getElementById('footerMount').innerHTML = TransmissionFooter();
     initShell();
-    const caseList = document.getElementById('caseList');
 
-    function renderCases(domain = 'ALL') {
+    const labGrid = document.getElementById('labGrid');
+    function renderLab(domain = 'ALL') {
       const items = domain === 'ALL' ? PROJECTS : PROJECTS.filter((p) => p.domains.includes(domain));
-      caseList.innerHTML = items.map((p) => `
-        <article class="case-file" data-tone="${p.tone}">
-          <div class="case-rail">
-            <span class="case-num">${p.num}</span>
-            <span class="case-status-v">${p.status.split('//')[0].trim()}</span>
-          </div>
-          <div class="case-body">
-            <div>
-              <div class="case-meta-line">
-                <span>${p.domain}</span>
-                <span>${p.status}</span>
-              </div>
-              <h2 class="case-title">${p.name}</h2>
-              <p class="case-summary">${p.summary}</p>
-            </div>
-            <div>
-              <div class="case-stack">STACK // ${p.stack.join(' · ')}</div>
-              <div class="case-actions">
-                <a href="project.html?id=${p.id}" class="cmd-btn primary">OPEN CASE FILE →</a>
-                ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noopener noreferrer" class="cmd-btn">${p.repoLabel || 'SOURCE ↗'}</a>` : ''}
-                ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noopener noreferrer" class="cmd-btn">LIVE ↗</a>` : ''}
-              </div>
-            </div>
-          </div>
-          <div class="case-visual">
-            ${p.previewImg
-              ? `<img src="${p.previewImg}" alt="${p.name} technical visualization" loading="lazy">`
-              : `<canvas data-procedural="${p.procedural}" aria-label="${p.name} procedural visualization"></canvas>`
-            }
-            <div class="case-visual-cap">
-              <span>${p.previewCap}</span>
-              <span>CASE_${p.num}</span>
-            </div>
-          </div>
-        </article>
-      `).join('');
-      renderProceduralPreviews(caseList);
+      labGrid.innerHTML = items.map((p) => ProjectFile(p)).join('');
+      renderProceduralPreviews(labGrid);
     }
+    renderLab('ALL');
 
-    renderCases('ALL');
     document.querySelectorAll('#domainFilters .filter-tab').forEach((btn) => {
       btn.addEventListener('click', () => {
         document.querySelectorAll('#domainFilters .filter-tab').forEach((b) => b.classList.remove('active'));
         btn.classList.add('active');
-        renderCases(btn.dataset.domain);
+        renderLab(btn.dataset.domain);
       });
     });
   </script>
